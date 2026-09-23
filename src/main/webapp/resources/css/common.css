@@ -30,3 +30,25 @@ ul {
 	display: flex;
 	min-height: 700px;
 }
+
+/* ============= CONTENT 영역 ============= */
+.content {
+	flex: 1;
+	padding: 50px 0 80px 55px;
+}
+
+.breadcrumb {
+	font-size: 12px;
+	color: #777;
+	margin-bottom: 25px;
+}
+
+.breadcrumb span {
+	margin: 0 8px;
+}
+
+.page-title {
+	font-size: 32px;
+	font-weight: 700;
+	margin-bottom: 45px;
+}

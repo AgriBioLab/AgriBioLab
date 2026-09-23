@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/* ============= SEARCH BOX ============= */
+.search-box {
+	background: #f3f6f9;
+	border-radius: 8px;
+	padding: 28px 30px;
+	margin-bottom: 40px;
+}
+
+.search-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 14px;
+}
+
+.search-row:last-child {
+	margin-bottom: 0;
+}
+
+.search-label {
+	width: 100px;
+	flex-shrink: 0;
+	font-weight: 600;
+	font-size: 13px;
+}
+
+.search-input {
+	height: 36px;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	padding: 0 10px;
+	background: white;
+}
+
+.search-input.date {
+	width: 150px;
+}
+
+.search-input.normal {
+	width: 220px;
+}
+
+.date-separator {
+	margin: 0 10px;
+}
+
+.search-select {
+	width: 160px;
+	height: 36px;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	padding: 0 8px;
+	background: white;
+}
+
+.search-btn {
+	height: 36px;
+	margin-left: 10px;
+	padding: 0 22px;
+	border: 1px solid #333;
+	border-radius: 3px;
+	background: #333;
+	color: white;
+	font-size: 13px;
+}

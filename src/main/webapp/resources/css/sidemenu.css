@@ -1,0 +1,50 @@
+@charset "UTF-8";
+        
+/* ============= SIDE MENU ============= */        
+.side-menu {
+	width: 220px;
+	flex-shrink: 0;
+	padding-top: 45px;
+	border-right: 1px solid #ddd;
+}
+
+.side-title {
+	padding: 0 25px 18px;
+	font-size: 22px;
+	font-weight: 700;
+	border-bottom: 1px solid #333;
+}
+
+.side-section {
+	border-bottom: 1px solid #ddd;
+}
+
+.side-section-title {
+	padding: 18px 25px;
+	font-size: 15px;
+	font-weight: 700;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.side-section-title::after {
+	content: "^";
+	font-size: 12px;
+}
+
+.side-menu-list li a {
+	display: block;
+	padding: 13px 25px;
+	font-size: 14px;
+}
+
+.side-menu-list li.active a {
+	background: #edf3f8;
+	color: #155b91;
+	font-weight: 700;
+}
+
+.side-menu-list li a:hover {
+	background: #f5f7f9;
+}

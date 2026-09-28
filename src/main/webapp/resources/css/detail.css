@@ -32,6 +32,12 @@
 	text-align: center;
 }
 
+/* 숨김 caption 의 position:absolute 가 고정 폭 표(table-layout: fixed)의 칸 계산을 깨뜨려서
+   상세 표에서는 제자리(static)에 두고 크기 0 으로 숨김 */
+.detail-table caption.sr-only {
+	position: static;
+}
+
 .detail-table td {
 	padding: 12px;
 	border-bottom: 1px solid #ddd;

@@ -172,7 +172,7 @@
 
 				<tbody>
 					<tr>
-						<td>2026-004571</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004571">2026-004571</a></td>
 						<td>2026-09-10</td>
 						<td>생산자</td>
 						<td>최길동</td>						
@@ -182,7 +182,7 @@
 						<td>보상검토중</td>
 					</tr>
 					<tr>
-						<td>2026-004582</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004582">2026-004582</a></td>
 						<td>2026-09-21</td>
 						<td>생산자</td>
 						<td>김현아</td>

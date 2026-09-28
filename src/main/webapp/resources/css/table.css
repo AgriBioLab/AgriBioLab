@@ -34,9 +34,3 @@
 	height: 48px;
 	border-bottom: 1px solid #ddd;
 }
-
-/* 목록에서 번호를 눌러 상세로 이동하는 링크 */
-.case-link {
-	color: #1f4e9c;
-	text-decoration: underline;
-}

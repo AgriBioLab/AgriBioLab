@@ -52,3 +52,9 @@ ul {
 	font-weight: 700;
 	margin-bottom: 45px;
 }
+
+/* 번호를 눌러 상세로 이동하는 링크 (목록, 상세 공통) */
+.case-link {
+	color: #1f4e9c;
+	text-decoration: underline;
+}

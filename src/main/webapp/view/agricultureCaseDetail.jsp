@@ -57,7 +57,7 @@
 			</div>
 
 			<!-- Page Title -->
-			<h1 class="detail-title">농산물 사건상세</h1>
+			<h1 class="page-title">농산물 사건상세</h1>
 
 			<!-- ============= 사건기본정보 ============= -->
 			<section class="detail-section">
@@ -90,7 +90,7 @@
 						<td>동동농업협동조합</td>
 					</tr>
 					<tr>
-						<th>품목</th>
+						<th>품목명</th>
 						<td>복숭아</td>
 						<th>재배지역</th>
 						<td>인천</td>

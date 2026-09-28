@@ -56,3 +56,21 @@
 .list-btn:hover {
 	background: #f2f4f6;
 }
+
+/* ============= 반응형 ============= */
+/* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
+@media (max-width: 767px) {
+	.detail-table,
+	.detail-table tbody {
+		display: block;
+	}
+
+	.detail-table tr {
+		display: grid;
+		grid-template-columns: 110px minmax(0, 1fr);
+	}
+
+	.detail-table th {
+		width: auto;
+	}
+}

@@ -25,9 +25,9 @@ ul {
 
 /* ============= 전체 레이아웃 ============= */  
 .page-layout {
-	max-width: 1248px;	/* 고정 폭 대신 최대 폭: 콘텐츠 1200px + 좌우 여백 24px×2 */
+	max-width: 1248px;	
 	margin: 0 auto;
-	padding: 0 24px;	/* 화면 좌우 여백 */
+	padding: 0 24px;	
 	display: flex;
 	min-height: 700px;
 }
@@ -58,4 +58,28 @@ ul {
 .case-link {
 	color: #1f4e9c;
 	text-decoration: underline;
+}
+
+/* ============= 반응형 ============= */
+/* large 미만 (1023px 이하): 사이드메뉴를 본문 위로 */
+@media (max-width: 1023px) {
+	.page-layout {
+		flex-direction: column;	/* 사이드메뉴 | 본문 → 사이드메뉴 위, 본문 아래 */
+	}
+
+	.content {
+		padding: 32px 0 60px;	/* 사이드메뉴가 위로 갔으므로 왼쪽 55px 여백 제거 */
+	}
+}
+
+/* medium 미만 (767px 이하): 모바일 */
+@media (max-width: 767px) {
+	.page-layout {
+		padding: 0 16px;	/* 모바일 좌우 여백 */
+	}
+
+	.page-title {
+		font-size: 24px;	/* 모바일 페이지 제목 */
+		margin-bottom: 24px;
+	}
 }

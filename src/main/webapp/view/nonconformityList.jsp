@@ -156,45 +156,48 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="list-table">
+			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
+			<div class="table-wrap">
+				<table class="list-table">
 
-				<thead>
-					<tr>
-						<th>부적합조치번호</th>
-						<th>시작일</th>
-						<th>구분</th>
-						<th>대표자명</th>						
-						<th>단체/상호명</th>
-						<th>부적합유형</th>
-						<th>품목명</th>
-						<th>조치상태</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th>부적합조치번호</th>
+							<th>시작일</th>
+							<th>구분</th>
+							<th>대표자명</th>						
+							<th>단체/상호명</th>
+							<th>부적합유형</th>
+							<th>품목명</th>
+							<th>조치상태</th>
+						</tr>
+					</thead>
 
-				<tbody>
-					<tr>
-						<td>NCR-2026-00136</td>
-						<td>2026-09-01</td>
-						<td>생산자</td>
-						<td>이복자</td>
-						<td>가원농장</td>
-						<td>가뭄</td>
-						<td>복숭아</td>
-						<td>조치대기</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td>NCR-2026-00136</td>
+							<td>2026-09-01</td>
+							<td>생산자</td>
+							<td>이복자</td>
+							<td>가원농장</td>
+							<td>가뭄</td>
+							<td>복숭아</td>
+							<td>조치대기</td>
+						</tr>
 					
-					<tr>
-						<td>NCR-2026-00135</td>
-						<td>2026-09-01</td>
-						<td>생산자</td>
-						<td>김현아</td>
-						<td>행복농장</td>
-						<td>병해충</td>
-						<td>사과</td>
-						<td>조치완료</td>
-					</tr>
-				</tbody>
-			</table>
+						<tr>
+							<td>NCR-2026-00135</td>
+							<td>2026-09-01</td>
+							<td>생산자</td>
+							<td>김현아</td>
+							<td>행복농장</td>
+							<td>병해충</td>
+							<td>사과</td>
+							<td>조치완료</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
 		</main>
 

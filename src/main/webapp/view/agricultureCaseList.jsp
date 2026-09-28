@@ -155,45 +155,48 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="list-table">
+			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
+			<div class="table-wrap">
+				<table class="list-table">
 
-				<thead>
-					<tr>
-						<th>사건번호</th>
-						<th>발생일</th>
-						<th>구분</th>
-						<th>대표자명</th>						
-						<th>단체/상호명</th>
-						<th>사건유형</th>
-						<th>품목명</th>
-						<th>사건상태</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th>사건번호</th>
+							<th>발생일</th>
+							<th>구분</th>
+							<th>대표자명</th>						
+							<th>단체/상호명</th>
+							<th>사건유형</th>
+							<th>품목명</th>
+							<th>사건상태</th>
+						</tr>
+					</thead>
 
-				<tbody>
-					<tr>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000128">INC-2026-000128</a></td>
-						<td>2026-09-22</td>
-						<td>생산자</td>
-						<td>박연자</td>
-						<td>동동농업협동조합</td>
-						<td>가뭄</td>
-						<td>복숭아</td>
-						<td>조사중</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000128">INC-2026-000128</a></td>
+							<td>2026-09-22</td>
+							<td>생산자</td>
+							<td>박연자</td>
+							<td>동동농업협동조합</td>
+							<td>가뭄</td>
+							<td>복숭아</td>
+							<td>조사중</td>
+						</tr>
 
-					<tr>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000127">INC-2026-000127</a></td>
-						<td>2026-09-21</td>
-						<td>생산자</td>
-						<td>김현아</td>
-						<td>행복농장</td>
-						<td>병해충</td>
-						<td>사과</td>
-						<td>조사완료</td>
-					</tr>
-				</tbody>
-			</table>
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000127">INC-2026-000127</a></td>
+							<td>2026-09-21</td>
+							<td>생산자</td>
+							<td>김현아</td>
+							<td>행복농장</td>
+							<td>병해충</td>
+							<td>사과</td>
+							<td>조사완료</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
 		</main>
 

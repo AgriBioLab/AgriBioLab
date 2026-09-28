@@ -111,3 +111,40 @@
 	margin-right: 4px;
 	vertical-align: middle;
 }
+
+/* ============= 반응형 ============= */
+/* 1023px 이하: 검색조건 1열 */
+@media (max-width: 1023px) {
+	.search-box {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* 767px 이하: 라벨 위, 입력칸 아래 (입력칸 전체 폭) */
+@media (max-width: 767px) {
+	.search-box {
+		padding: 20px 16px;
+		row-gap: 16px;
+	}
+
+	.search-row {
+		flex-wrap: wrap;
+	}
+
+	.search-label {
+		width: 100%;
+		margin-bottom: 6px;
+	}
+
+	.search-input.normal,
+	.search-select {
+		width: 100%;
+	}
+
+	/* 기간: 날짜 두 칸이 한 줄을 나눠 씀 */
+	.search-input.date {
+		flex: 1;
+		width: auto;
+		min-width: 0;
+	}
+}

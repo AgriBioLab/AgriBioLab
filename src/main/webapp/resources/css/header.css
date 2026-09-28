@@ -93,3 +93,36 @@
 .gnb-menu li:hover {
 	color: #18589a;
 }
+
+/* ============= 반응형 ============= */
+/* 1023px 이하: 메뉴 폭을 글자 길이에 맞게 */
+@media (max-width: 1023px) {
+	.gnb-menu li {
+		width: auto;
+		padding: 0 24px;
+	}
+}
+
+/* 767px 이하: 모바일 */
+@media (max-width: 767px) {
+	.header-inner,
+	.gnb-inner {
+		padding: 0 16px;	/* 모바일 좌우 여백 */
+	}
+
+	.header-right {
+		gap: 8px;
+		font-size: 12px;
+	}
+
+	/* 메뉴가 화면보다 길면 메뉴 영역만 가로로 밀어서 보기 */
+	.gnb-inner {
+		overflow-x: auto;
+	}
+
+	.gnb-menu li {
+		padding: 0 14px;
+		font-size: 15px;
+		white-space: nowrap;
+	}
+}

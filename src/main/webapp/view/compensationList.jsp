@@ -155,45 +155,48 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="list-table">
+			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
+			<div class="table-wrap">
+				<table class="list-table">
 
-				<thead>
-					<tr>
-						<th>접수번호</th>
-						<th>신청일</th>
-						<th>구분</th>
-						<th>대표자명</th>
-						<th>단체/상호명</th>
-						<th>사건유형</th>
-						<th>품목명</th>
-						<th>처리상태</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th>접수번호</th>
+							<th>신청일</th>
+							<th>구분</th>
+							<th>대표자명</th>
+							<th>단체/상호명</th>
+							<th>사건유형</th>
+							<th>품목명</th>
+							<th>처리상태</th>
+						</tr>
+					</thead>
 
-				<tbody>
-					<tr>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004571">2026-004571</a></td>
-						<td>2026-09-10</td>
-						<td>생산자</td>
-						<td>최길동</td>						
-						<td>가나배영농조합법인</td>
-						<td>가뭄</td>
-						<td>배</td>
-						<td>보상검토중</td>
-					</tr>
-					<tr>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004582">2026-004582</a></td>
-						<td>2026-09-21</td>
-						<td>생산자</td>
-						<td>김현아</td>
-						<td>행복농장</td>
-						<td>병해충</td>
-						<td>사과</td>
-						<td>보상완료</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004571">2026-004571</a></td>
+							<td>2026-09-10</td>
+							<td>생산자</td>
+							<td>최길동</td>						
+							<td>가나배영농조합법인</td>
+							<td>가뭄</td>
+							<td>배</td>
+							<td>보상검토중</td>
+						</tr>
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationDetail.jsp?no=2026-004582">2026-004582</a></td>
+							<td>2026-09-21</td>
+							<td>생산자</td>
+							<td>김현아</td>
+							<td>행복농장</td>
+							<td>병해충</td>
+							<td>사과</td>
+							<td>보상완료</td>
+						</tr>
 
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 
 		</main>
 

@@ -34,3 +34,19 @@
 	height: 48px;
 	border-bottom: 1px solid #ddd;
 }
+
+/* ============= 반응형: 표 가로 스크롤 ============= */
+/* 화면이 좁으면 페이지 전체가 아니라 표 영역 안에서만 가로 스크롤 */
+.table-wrap {
+	overflow-x: auto;
+}
+
+.list-table {
+	min-width: 760px;	/* 이보다 좁아지면 글자가 세로로 쪼개지므로 최소 폭 유지 */
+}
+
+.list-table th,
+.list-table td {
+	padding: 0 8px;
+	word-break: keep-all;	/* 한글이 한 글자씩 줄바꿈되지 않게 */
+}

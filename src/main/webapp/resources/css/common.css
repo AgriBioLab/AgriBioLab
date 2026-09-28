@@ -37,6 +37,7 @@ ul {
 /* ============= CONTENT 영역 ============= */
 .content {
 	flex: 1;
+	min-width: 0;	/* flex 칸이 안쪽 표 최소 폭(860px)만큼 늘어나지 않게 → 표는 안에서만 가로 스크롤 */
 	padding: 50px 0 80px 55px;
 }
 

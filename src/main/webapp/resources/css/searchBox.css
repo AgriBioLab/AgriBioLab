@@ -115,8 +115,9 @@
 }
 
 /* ============= 반응형 ============= */
-/* 1023px 이하: 검색조건 1열 */
-@media (max-width: 1023px) {
+/* 1279px 이하: 검색조건 1열
+   (1024~1279px 는 사이드메뉴가 있어 본문이 좁아 2열이 들어가지 않음) */
+@media (max-width: 1279px) {
 	.search-box {
 		grid-template-columns: minmax(0, 1fr);
 	}

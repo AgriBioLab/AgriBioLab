@@ -41,7 +41,7 @@ ul {
 
 .breadcrumb {
 	font-size: 12px;
-	color: #777;
+	color: #666;	/* 흰 배경 대비 5.7:1 (#777 은 4.48:1 로 기준 4.5:1 미달) */
 	margin-bottom: 25px;
 }
 
@@ -59,6 +59,26 @@ ul {
 .case-link {
 	color: #1f4e9c;
 	text-decoration: underline;
+}
+
+/* ============= 접근성 ============= */
+/* 화면에는 숨기고 스크린리더만 읽는 글자 (표 caption 등) */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* 키보드(Tab)로 이동할 때 현재 위치를 테두리로 표시 (마우스 클릭 때는 안 보임) */
+:focus-visible {
+	outline: 2px solid #1f4e9c;
+	outline-offset: 2px;
 }
 
 /* ============= 반응형 ============= */

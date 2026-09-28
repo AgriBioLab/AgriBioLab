@@ -41,9 +41,9 @@
 		<main class="content">
 
 			<!-- Breadcrumb -->
-			<div class="breadcrumb">
+			<nav class="breadcrumb">
 				<span>홈</span> &gt; <span>농산물 사건</span> <!--&gt; = > 이 표시 -->
-			</div>
+			</nav>
 
 
 			<!-- Page Title -->
@@ -55,16 +55,16 @@
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label">기간</label> <input type="date" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" name="endDate" class="search-input date" value="2026-10-01">
+					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-10-01" title="기간 종료일">
 
 				</div>
 
 				<!-- 사건상태 -->
 				<div class="search-row">
 
-					<label class="search-label">사건상태</label>
-					<select name="status" class="search-select">
+					<label class="search-label" for="status">사건상태</label>
+					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
 						<option value="INVESTIGATING">조사중</option>
@@ -77,28 +77,28 @@
 				<!-- 사건번호 -->
 				<div class="search-row">
 
-					<label class="search-label">사건번호</label> <input type="text" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
+					<label class="search-label" for="caseNo">사건번호</label> <input type="text" id="caseNo" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
 
 				</div>
 
 				<!-- 사건유형 -->
 				<div class="search-row">
 
-					<label class="search-label">사건유형</label> <input type="text" name="caseType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="caseType">사건유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
 				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대표자명</label> <input type="text" name="ownerName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
 				<!-- 단체/상호명 -->
 				<div class="search-row">
 
-					<label class="search-label">단체/상호명</label> <input type="text" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -118,7 +118,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label">품목명</label> <input type="text" name="itemName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -144,17 +144,18 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
+					<caption class="sr-only">농산물 사건 목록</caption>
 
 					<thead>
 						<tr>
-							<th>사건번호</th>
-							<th>발생일</th>
-							<th>구분</th>
-							<th>대표자명</th>						
-							<th>단체/상호명</th>
-							<th>사건유형</th>
-							<th>품목명</th>
-							<th>사건상태</th>
+							<th scope="col">사건번호</th>
+							<th scope="col">발생일</th>
+							<th scope="col">구분</th>
+							<th scope="col">대표자명</th>						
+							<th scope="col">단체/상호명</th>
+							<th scope="col">사건유형</th>
+							<th scope="col">품목명</th>
+							<th scope="col">사건상태</th>
 						</tr>
 					</thead>
 

@@ -41,9 +41,9 @@
 		<main class="content">
 
 			<!-- Breadcrumb -->
-			<div class="breadcrumb">
+			<nav class="breadcrumb">
 				<span>홈</span> &gt; <span>부적합 조치</span> &gt; <span>부적합 조치</span>
-			</div>
+			</nav>
 
 
 			<!-- Page Title -->
@@ -55,16 +55,16 @@
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label">기간</label> <input type="date" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" name="endDate" class="search-input date" value="2026-09-23">
+					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-23" title="기간 종료일">
 
 				</div>
 
 				<!-- 조치상태 -->
 				<div class="search-row">
 
-					<label class="search-label">조치상태</label>
-					<select name="status" class="search-select">
+					<label class="search-label" for="status">조치상태</label>
+					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="WAIT">조치대기</option>
 						<option value="PROGRESS">조치진행</option>
@@ -77,28 +77,28 @@
 				<!-- 부적합조치번호 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합조치번호</label> <input type="text" name="actionNo" class="search-input normal" placeholder="NCR-2026-00135">
+					<label class="search-label" for="actionNo">부적합조치번호</label> <input type="text" id="actionNo" name="actionNo" class="search-input normal" placeholder="NCR-2026-00135">
 
 				</div>
 
 				<!-- 부적합유형 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합유형</label> <input type="text" name="ncType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="ncType">부적합유형</label> <input type="text" id="ncType" name="ncType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
 				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대표자명</label> <input type="text" name="ownerName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
 				<!-- 단체/상호명 -->
 				<div class="search-row">
 
-					<label class="search-label">단체/상호명</label> <input type="text" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -118,7 +118,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label">품목명</label> <input type="text" name="itemName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -144,17 +144,18 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
+					<caption class="sr-only">부적합 조치 목록</caption>
 
 					<thead>
 						<tr>
-							<th>부적합조치번호</th>
-							<th>시작일</th>
-							<th>구분</th>
-							<th>대표자명</th>						
-							<th>단체/상호명</th>
-							<th>부적합유형</th>
-							<th>품목명</th>
-							<th>조치상태</th>
+							<th scope="col">부적합조치번호</th>
+							<th scope="col">시작일</th>
+							<th scope="col">구분</th>
+							<th scope="col">대표자명</th>						
+							<th scope="col">단체/상호명</th>
+							<th scope="col">부적합유형</th>
+							<th scope="col">품목명</th>
+							<th scope="col">조치상태</th>
 						</tr>
 					</thead>
 

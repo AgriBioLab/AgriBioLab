@@ -19,23 +19,8 @@
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
-		<!-- ============= SIDE MENU ============= -->
-		<aside class="side-menu">
-
-			<div class="side-title">부적합 조치</div>
-
-			<div class="side-section">
-
-				<div class="side-section-title">부적합 조치</div>
-
-				<ul class="side-menu-list">
-					<li class="active"><a href="#">부적합 조치</a></li>
-					 <li><a href="#">부적합 조치 내역</a></li>
-				</ul>
-
-			</div>
-
-		</aside>
+		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
+		<%@ include file="side_nonconformity.jsp"%>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">

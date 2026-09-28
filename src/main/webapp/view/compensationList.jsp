@@ -71,8 +71,8 @@
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label">기간</label> <input type="date" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" class="search-input date" value="2026-09-23">
+					<label class="search-label">기간</label> <input type="date" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" name="endDate" class="search-input date" value="2026-09-23">
 
 				</div>
 
@@ -80,10 +80,10 @@
 				<div class="search-row">
 
 					<label class="search-label">처리상태</label>
-					<select class="search-select">
-						<option>전체</option>
-						<option>보상검토중</option>
-						<option>보상완료</option>
+					<select name="status" class="search-select">
+						<option value="">전체</option>
+						<option value="REVIEW">보상검토중</option>
+						<option value="DONE">보상완료</option>
 					</select>
 
 				</div>
@@ -91,28 +91,28 @@
 				<!-- 접수번호 -->
 				<div class="search-row">
 
-					<label class="search-label">접수번호</label> <input type="text" class="search-input normal" placeholder="2026-004582">
+					<label class="search-label">접수번호</label> <input type="text" name="receiptNo" class="search-input normal" placeholder="2026-004582">
 
 				</div>
 
 				<!-- 사건유형 -->
 				<div class="search-row">
 
-					<label class="search-label">사건유형</label> <input type="text" class="search-input normal" placeholder="병해충">
+					<label class="search-label">사건유형</label> <input type="text" name="caseType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
 				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+					<label class="search-label">대표자명</label> <input type="text" name="ownerName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
 				<!-- 단체/상호명 -->
 				<div class="search-row">
 
-					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
+					<label class="search-label">단체/상호명</label> <input type="text" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -132,7 +132,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="사과">
+					<label class="search-label">품목명</label> <input type="text" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 

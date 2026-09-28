@@ -4,10 +4,15 @@
 	box-sizing: border-box;
 }
 
+/* 세로 스크롤바 자리를 항상 비워 둠 → 내용 길이가 다른 페이지로 옮겨도 화면 폭이 바뀌지 않음 */
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	margin: 0;
 	/* 웹폰트(head.jsp 에서 불러옴) → 못 불러오면 뒤의 대체 글꼴 사용 */
-	font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, "Malgun Gothic", sans-serif;
+	font-family: "Pretendard GOV", -apple-system, "Malgun Gothic", sans-serif;
 	color: #222;
 	background: #fff;
 	font-size: 15px;	/* 본문 기본 글자 크기 (업무 화면: 정보 밀도 우선) */

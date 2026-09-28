@@ -2,22 +2,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%@ include file="head.jsp"%>
 
 <title>농산물 품질 - 보상처리 상세</title>
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- 헤더 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-
-<!-- 공통 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
-
-<!-- 사이드 메뉴 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">

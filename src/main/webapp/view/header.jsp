@@ -20,6 +20,12 @@
 			<summary class="all-menu-btn">☰ 메뉴</summary>
 
 			<nav class="all-menu-panel">
+				<!-- 767px 이하: 헤더에서 숨긴 로그인 정보를 메뉴 맨 위에 표시 (메뉴가 길어도 스크롤 없이 보이게) -->
+				<div class="all-menu-user">
+					<span class="user-name">품질담당자 이OO님</span>
+					<button class="logout-btn">로그아웃</button>
+				</div>
+
 				<ul class="all-menu-list">
 					<li>
 						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">품질통계</a>
@@ -50,12 +56,6 @@
 						</ul>
 					</li>
 				</ul>
-
-				<!-- 767px 이하: 헤더에서 숨긴 로그인 정보를 메뉴 안에 표시 -->
-				<div class="all-menu-user">
-					<span class="user-name">품질담당자 이OO님</span>
-					<button class="logout-btn">로그아웃</button>
-				</div>
 			</nav>
 		</details>
 	</div>

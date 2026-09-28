@@ -22,54 +22,10 @@
 <!-- Search Box CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
 
-<style>
-/* ============= TABLE ============= */
-.result-info {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 10px;
-	font-size: 13px;
-}
+<!-- table CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 
-.result-count {
-	font-weight: 600;
-}
 
-.compensation-table {
-	width: 100%;
-	border-collapse: collapse;
-	text-align: center;
-	font-size: 13px;
-}
-
-.compensation-table thead {
-	border-top: 2px solid #333;
-	border-bottom: 1px solid #999;
-}
-
-.compensation-table th {
-	height: 48px;
-	font-weight: 600;
-	background: #fafafa;
-}
-
-.compensation-table td {
-	height: 48px;
-	border-bottom: 1px solid #ddd;
-}
-
-.detail-btn {
-	border: 1px solid #aaa;
-	background: white;
-	border-radius: 20px;
-	padding: 4px 15px;
-	font-size: 12px;
-}
-
-.detail-btn:hover {
-	background: #f2f4f6;
-}
-</style>
 </head>
 
 <body>
@@ -173,7 +129,7 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="compensation-table">
+			<table class="list-table">
 
 				<thead>
 					<tr>

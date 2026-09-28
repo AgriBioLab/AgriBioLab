@@ -39,7 +39,12 @@
 			<div class="side-title">농산물 사건</div>
 
 			<div class="side-section">
-			
+
+				<div class="side-section-title">농산물 사건</div>
+
+				<ul class="side-menu-list">
+					<li class="active"><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 사건</a></li>
+					<li><a href="#">농산물 사건 내역</a></li>
 				</ul>
 
 			</div>
@@ -86,21 +91,28 @@
 				<!-- 사건번호 -->
 				<div class="search-row">
 
-					<label class="search-label">사건번호</label> <input type="text" class="search-input normal" placeholder="사건번호를 입력하세요">
+					<label class="search-label">사건번호</label> <input type="text" class="search-input normal" placeholder="INC-2026-000128">
 
 				</div>
 				
-				<!-- 대상자(상호) -->
+				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대상자(상호)</label> <input type="text" class="search-input normal" placeholder="상호명을 입력하세요">
+					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+
+				</div>
+								
+				<!-- 단체/상호명 -->
+				<div class="search-row">
+
+					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
 				<!-- 사건유형 + 조회 -->
 				<div class="search-row">
 
-					<label class="search-label">사건유형</label> <input type="text" class="search-input normal" placeholder="사건유형을 입력하세요">
+					<label class="search-label">사건유형</label> <input type="text" class="search-input normal" placeholder="병해충">
 
 					<button class="search-btn">조회</button>
 
@@ -122,41 +134,37 @@
 				<thead>
 					<tr>
 						<th>사건번호</th>
-						<th>신청일</th>
+						<th>발생일</th>
 						<th>구분</th>
-						<th>대상자(상호)</th>
+						<th>대표자명</th>						
+						<th>단체/상호명</th>
 						<th>사건유형</th>
-						<th>품목명</th>
+						<th>품목</th>
 						<th>사건상태</th>
-						<th>상세보기</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
-						<td>INC-2026-000128</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000128">INC-2026-000128</a></td>
 						<td>2026-09-22</td>
 						<td>생산자</td>
-						<td>불행농장</td>
+						<td>박연자</td>
+						<td>동동농업협동조합</td>
 						<td>가뭄</td>
 						<td>복숭아</td>
 						<td>조사중</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
 					</tr>
 
 					<tr>
-						<td>INC-2026-000127</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000127">INC-2026-000127</a></td>
 						<td>2026-09-21</td>
 						<td>생산자</td>
-						<td>김현아(행복농장)</td>
+						<td>김현아</td>
+						<td>행복농장</td>
 						<td>병해충</td>
 						<td>사과</td>
 						<td>조사완료</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
 					</tr>
 				</tbody>
 			</table>

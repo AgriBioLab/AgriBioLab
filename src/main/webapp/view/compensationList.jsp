@@ -76,19 +76,14 @@
 						~ </span> <input type="date" class="search-input date" value="2026-09-23">
 
 				</div>
-
-				<!-- 신청인 구분 -->
+				
+				<!-- 접수번호 -->
 				<div class="search-row">
 
-					<label class="search-label">신청인 구분</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>생산자</option>
-						<option>유통자</option>
-						<option>판매자</option>
-					</select>
+					<label class="search-label">접수번호</label> <input type="text" class="search-input normal" placeholder="2026-004582">
 
 				</div>
+
 
 				<!-- 처리상태 -->
 				<div class="search-row">
@@ -101,18 +96,38 @@
 					</select>
 
 				</div>
-
-				<!-- 신청인명 -->
+				
+				<!-- 구분 -->
 				<div class="search-row">
 
-					<label class="search-label">신청인명(상호)</label> <input type="text" class="search-input normal" placeholder="신청인명을 입력하세요">
+					<label class="search-label">구분</label> 
+					<select class="search-select">
+						<option>전체</option>
+						<option>생산자</option>
+						<option>유통자</option>
+						<option>판매자</option>
+					</select>
+
+				</div>
+				
+				<!-- 대표자명 -->
+				<div class="search-row">
+
+					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+
+				</div>				
+				
+				<!-- 단체/상호명 -->
+				<div class="search-row">
+
+					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
 				<!-- 품목명 + 조회 -->
 				<div class="search-row">
 
-					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="품목명을 입력하세요">
+					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="사과">
 
 					<button class="search-btn">조회</button>
 
@@ -135,38 +150,37 @@
 					<tr>
 						<th>접수번호</th>
 						<th>신청일</th>
-						<th>신청인 구분</th>
-						<th>신청인명(상호)</th>
-						<th>품목명</th>
+						<th>구분</th>
+						<th>대표자명</th>
+						<th>단체/상호명</th>
+						<th>사건유형</th>
+						<th>품목</th>
 						<th>처리상태</th>
-						<th>상세보기</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
-						<td>2026-004582</td>
-						<td>2026-09-21</td>
-						<td>생산자</td>
-						<td>김현아(행복농장)</td>
-						<td>사과</td>
-						<td>보상완료</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
-					</tr>
-
-					<tr>
 						<td>2026-004571</td>
 						<td>2026-09-10</td>
 						<td>생산자</td>
-						<td>최길동</td>
+						<td>최길동</td>						
+						<td>가나배영농조합법인</td>
+						<td>가뭄</td>
 						<td>배</td>
 						<td>보상검토중</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
 					</tr>
+					<tr>
+						<td>2026-004582</td>
+						<td>2026-09-21</td>
+						<td>생산자</td>
+						<td>김현아</td>
+						<td>행복농장</td>
+						<td>병해충</td>
+						<td>사과</td>
+						<td>보상완료</td>
+					</tr>
+
 				</tbody>
 			</table>
 

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* ============= 상세화면 공통 (조회 전용) ============= */
+.detail-title {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+/* ============= 섹션 ============= */
+.detail-section {
+	margin-bottom: 40px;
+}
+
+.detail-section-title {
+	font-size: 17px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+/* ============= 정보표 (목록 테이블과 같은 색 기준) ============= */
+.detail-table {
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 2px solid #333;
+	font-size: 13px;
+}
+
+.detail-table th {
+	width: 150px;
+	padding: 12px;
+	border-bottom: 1px solid #ddd;
+	background: #fafafa;
+	font-weight: 600;
+	text-align: center;
+}
+
+.detail-table td {
+	padding: 12px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+}
+
+/* ============= 하단 이동 ============= */
+.detail-actions {
+	padding-top: 30px;
+	text-align: center;
+}
+
+.list-btn {
+	display: inline-block;
+	padding: 10px 30px;
+	border: 1px solid #333;
+	background: white;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.list-btn:hover {
+	background: #f2f4f6;
+}

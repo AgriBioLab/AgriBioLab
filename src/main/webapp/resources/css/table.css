@@ -35,14 +35,8 @@
 	border-bottom: 1px solid #ddd;
 }
 
-.detail-btn {
-	border: 1px solid #aaa;
-	background: white;
-	border-radius: 20px;
-	padding: 4px 15px;
-	font-size: 12px;
-}
-
-.detail-btn:hover {
-	background: #f2f4f6;
+/* 목록에서 번호를 눌러 상세로 이동하는 링크 */
+.case-link {
+	color: #1f4e9c;
+	text-decoration: underline;
 }

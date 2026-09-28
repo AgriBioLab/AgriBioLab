@@ -93,7 +93,7 @@
 				<!-- 부적합조치번호 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합조치번호</label> <input type="text" class="search-input normal" placeholder="부적합조치번호를 입력하세요">
+					<label class="search-label">부적합조치번호</label> <input type="text" class="search-input normal" placeholder="NCR-2026-00135">
 
 				</div>
 
@@ -110,17 +110,24 @@
 
 				</div>
 				
-				<!-- 대상자(상호)명 -->
+				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대상자(상호)</label> <input type="text" class="search-input normal" placeholder="대상자(상호)명을 입력하세요">
+					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+
+				</div>
+				
+				<!-- 단체/상호명 -->
+				<div class="search-row">
+
+					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
 				<!-- 부적합유형 + 조회 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합유형</label> <input type="text" class="search-input normal" placeholder="부적합유형을 입력하세요">
+					<label class="search-label">부적합유형</label> <input type="text" class="search-input normal" placeholder="병해충">
 
 					<button class="search-btn">조회</button>
 
@@ -144,36 +151,35 @@
 						<th>부적합조치번호</th>
 						<th>시작일</th>
 						<th>구분</th>
-						<th>대상자(상호)</th>
+						<th>대표자명</th>						
+						<th>단체/상호명</th>
 						<th>부적합유형</th>
+						<th>품목</th>
 						<th>조치상태</th>
-						<th>상세보기</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
-						<td>NCR-2026-00135</td>
-						<td>2026-09-01</td>
-						<td>생산자</td>
-						<td>김현아(행복농장)</td>
-						<td>병해충</td>
-						<td>조치완료</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
-					</tr>
-
-					<tr>
 						<td>NCR-2026-00136</td>
 						<td>2026-09-01</td>
 						<td>생산자</td>
-						<td>최영수(슬픔농장)</td>
+						<td>이복자</td>
+						<td>가원농장</td>
 						<td>가뭄</td>
-						<td>조치보류</td>
-						<td>
-							<button class="detail-btn">보기</button>
-						</td>
+						<td>복숭아</td>
+						<td>조치대기</td>
+					</tr>
+					
+					<tr>
+						<td>NCR-2026-00135</td>
+						<td>2026-09-01</td>
+						<td>생산자</td>
+						<td>김현아</td>
+						<td>행복농장</td>
+						<td>병해충</td>
+						<td>사과</td>
+						<td>조치완료</td>
 					</tr>
 				</tbody>
 			</table>

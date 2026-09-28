@@ -130,7 +130,6 @@
 						<option>생산자</option>
 						<option>유통자</option>
 						<option>판매자</option>
-						<option>소비자</option>
 					</select>
 
 				</div>

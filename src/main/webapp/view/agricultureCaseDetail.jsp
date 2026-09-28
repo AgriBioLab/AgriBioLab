@@ -57,7 +57,7 @@
 			</div>
 
 			<!-- Page Title -->
-			<h1 class="detail-title">농산물 사건상세</h1>
+			<h1 class="page-title">농산물 사건상세</h1>
 
 			<!-- ============= 사건기본정보 ============= -->
 			<section class="detail-section">

@@ -1,11 +1,7 @@
 @charset "UTF-8";
 
 /* ============= 상세화면 공통 (조회 전용) ============= */
-.detail-title {
-	font-size: 20px;
-	font-weight: 700;
-	margin-bottom: 30px;
-}
+/* 페이지 제목은 목록과 같은 common.css 의 .page-title 사용 */
 
 /* ============= 섹션 ============= */
 .detail-section {
@@ -23,6 +19,7 @@
 	width: 100%;
 	border-collapse: collapse;
 	border-top: 2px solid #333;
+	table-layout: fixed;	/* 내용 길이와 상관없이 칸 너비 고정 → 표끼리 세로 칸 위치가 같아짐 */
 	font-size: 13px;
 }
 

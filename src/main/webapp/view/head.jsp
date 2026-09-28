@@ -7,6 +7,9 @@
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- 웹폰트: Pretendard GOV (가변 글꼴, 화면에 나온 글자만 내려받음). 버전 고정 -->
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/variable/pretendardvariable-gov-dynamic-subset.min.css">
+
 <!-- 헤더 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
 

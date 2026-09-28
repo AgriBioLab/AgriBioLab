@@ -70,60 +70,64 @@
 			<h1 class="page-title">재해종류별 통계</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<section class="search-box">
-
+			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label">기간</label> <input type="date" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" class="search-input date" value="2026-09-23">
-
-				</div>
-
-				<!-- 신청인 구분 -->
-				<div class="search-row">
-
-					<label class="search-label">신청인 구분</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>생산자</option>
-						<option>유통자</option>
-						<option>판매자</option>
-						<option>소비자</option>
-					</select>
+					<label class="search-label">기간</label> <input type="date" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" name="endDate" class="search-input date" value="2026-09-23">
 
 				</div>
 
 				<!-- 처리상태 -->
 				<div class="search-row">
 
-					<label class="search-label">처리상태</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>보상검토중</option>
-						<option>보상완료</option>
+					<label class="search-label">처리상태</label>
+					<select name="status" class="search-select">
+						<option value="">전체</option>
+						<option value="REVIEW">보상검토중</option>
+						<option value="DONE">보상완료</option>
 					</select>
+
+				</div>
+
+				<!-- 구분 -->
+				<div class="search-row">
+
+					<span class="search-label">구분</span>
+					<div class="radio-group">
+						<label><input type="radio" name="targetType" value="" checked> 전체</label>
+						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+					</div>
+
+				</div>
+
+				<!-- 품목명 -->
+				<div class="search-row">
+
+					<label class="search-label">품목명</label> <input type="text" name="itemName" class="search-input normal" placeholder="품목명을 입력하세요">
 
 				</div>
 
 				<!-- 신청인명 -->
 				<div class="search-row">
 
-					<label class="search-label">신청인명(상호)</label> <input type="text" class="search-input normal" placeholder="신청인명을 입력하세요">
+					<label class="search-label">신청인명(상호)</label> <input type="text" name="applicantName" class="search-input normal" placeholder="신청인명을 입력하세요">
 
 				</div>
 
-				<!-- 품목명 + 조회 -->
-				<div class="search-row">
+				<!-- 검색 / 초기화 -->
+				<div class="search-row full search-actions">
 
-					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="품목명을 입력하세요">
-
-					<button class="search-btn">조회</button>
+					<button type="submit" class="search-btn">검색</button>
+					<button type="reset" class="reset-btn">초기화</button>
 
 				</div>
 
-			</section>
+			</form>
 
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">

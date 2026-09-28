@@ -80,6 +80,22 @@
 	margin-left: 0;
 }
 
+/* 초기화 버튼: 검색 버튼과 같은 크기, 흰 배경 */
+.reset-btn {
+	height: 36px;
+	margin-left: 8px;
+	padding: 0 22px;
+	border: 1px solid #333;
+	border-radius: 3px;
+	background: white;
+	color: #333;
+	font-size: 13px;
+}
+
+.reset-btn:hover {
+	background: #f2f4f6;
+}
+
 /* ============= 라디오 버튼 묶음 (구분) ============= */
 .radio-group {
 	white-space: nowrap;	/* 라디오가 두 줄로 나뉘지 않게 */

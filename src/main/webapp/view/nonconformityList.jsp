@@ -65,7 +65,7 @@
 			<h1 class="page-title">부적합 조치</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<section class="search-box">
+			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/nonconformityList.jsp">
 
 				<!-- 기간 -->
 				<div class="search-row">
@@ -137,14 +137,15 @@
 
 				</div>
 
-				<!-- 조회 -->
+				<!-- 검색 / 초기화 -->
 				<div class="search-row full search-actions">
 
-					<button class="search-btn">조회</button>
+					<button type="submit" class="search-btn">검색</button>
+					<button type="reset" class="reset-btn">초기화</button>
 
 				</div>
 
-			</section>
+			</form>
 
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">

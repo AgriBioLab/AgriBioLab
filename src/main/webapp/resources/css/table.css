@@ -35,22 +35,6 @@
 	border-bottom: 1px solid #ddd;
 }
 
-.detail-btn {
-	display: inline-block;
-	border: 1px solid #aaa;
-	background: white;
-	border-radius: 20px;
-	padding: 4px 15px;
-	color: #222;
-	font-size: 12px;
-	line-height: 1.5;
-	cursor: pointer;
-}
-
-.detail-btn:hover {
-	background: #f2f4f6;
-}
-
 /* 목록에서 번호를 눌러 상세로 이동하는 링크 */
 .case-link {
 	color: #1f4e9c;

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>농산물 품질 - 보상처리</title>
+<title>농산물 품질 - 부적합 조치</title>
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,6 @@
 <!-- table CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 
-
 </head>
 
 <body>
@@ -38,15 +37,15 @@
 		<!-- ============= SIDE MENU ============= -->
 		<aside class="side-menu">
 
-			<div class="side-title">보상처리</div>
+			<div class="side-title">부적합 조치</div>
 
 			<div class="side-section">
 
-				<div class="side-section-title">보상처리</div>
+				<div class="side-section-title">부적합 조치</div>
 
 				<ul class="side-menu-list">
-					<li class="active"><a href="#">보상처리</a></li>
-					<li><a href="#">보상처리 내역</a></li>
+					<li class="active"><a href="#">부적합 조치</a></li>
+					 <li><a href="#">부적합 조치 내역</a></li>
 				</ul>
 
 			</div>
@@ -58,12 +57,12 @@
 
 			<!-- Breadcrumb -->
 			<div class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>보상처리</span>
+				<span>홈</span> &gt; <span>부적합 조치</span> &gt; <span>부적합 조치</span>
 			</div>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상처리</h1>
+			<h1 class="page-title">부적합 조치</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<section class="search-box">
@@ -77,10 +76,31 @@
 
 				</div>
 
-				<!-- 신청인 구분 -->
+				<!-- 조치상태 -->
 				<div class="search-row">
 
-					<label class="search-label">신청인 구분</label> 
+					<label class="search-label">조치상태</label> 
+					<select class="search-select">
+						<option>전체</option>
+						<option>조치대기</option>
+						<option>조치진행</option>
+						<option>조치보류</option>
+						<option>조치완료</option>						
+					</select>
+
+				</div>
+				
+				<!-- 부적합조치번호 -->
+				<div class="search-row">
+
+					<label class="search-label">부적합조치번호</label> <input type="text" class="search-input normal" placeholder="부적합조치번호를 입력하세요">
+
+				</div>
+
+				<!-- 구분 -->
+				<div class="search-row">
+
+					<label class="search-label">구분</label> 
 					<select class="search-select">
 						<option>전체</option>
 						<option>생산자</option>
@@ -89,30 +109,18 @@
 					</select>
 
 				</div>
-
-				<!-- 처리상태 -->
+				
+				<!-- 대상자(상호)명 -->
 				<div class="search-row">
 
-					<label class="search-label">처리상태</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>보상검토중</option>
-						<option>보상완료</option>
-					</select>
+					<label class="search-label">대상자(상호)</label> <input type="text" class="search-input normal" placeholder="대상자(상호)명을 입력하세요">
 
 				</div>
 
-				<!-- 신청인명 -->
+				<!-- 부적합유형 + 조회 -->
 				<div class="search-row">
 
-					<label class="search-label">신청인명(상호)</label> <input type="text" class="search-input normal" placeholder="신청인명을 입력하세요">
-
-				</div>
-
-				<!-- 품목명 + 조회 -->
-				<div class="search-row">
-
-					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="품목명을 입력하세요">
+					<label class="search-label">부적합유형</label> <input type="text" class="search-input normal" placeholder="부적합유형을 입력하세요">
 
 					<button class="search-btn">조회</button>
 
@@ -123,7 +131,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">보상처리 목록</span> <span>총<strong>2</strong>건
+				<span class="result-count">부적합 조치 목록</span> <span>총<strong>2</strong>건
 				</span>
 
 			</div>
@@ -133,36 +141,36 @@
 
 				<thead>
 					<tr>
-						<th>접수번호</th>
-						<th>신청일</th>
-						<th>신청인 구분</th>
-						<th>신청인명(상호)</th>
-						<th>품목명</th>
-						<th>처리상태</th>
+						<th>부적합조치번호</th>
+						<th>시작일</th>
+						<th>구분</th>
+						<th>대상자(상호)</th>
+						<th>부적합유형</th>
+						<th>조치상태</th>
 						<th>상세보기</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr>
-						<td>2026-004582</td>
-						<td>2026-09-21</td>
+						<td>NCR-2026-00135</td>
+						<td>2026-09-01</td>
 						<td>생산자</td>
 						<td>김현아(행복농장)</td>
-						<td>사과</td>
-						<td>보상완료</td>
+						<td>병해충</td>
+						<td>조치완료</td>
 						<td>
 							<button class="detail-btn">보기</button>
 						</td>
 					</tr>
 
 					<tr>
-						<td>2026-004571</td>
-						<td>2026-09-10</td>
+						<td>NCR-2026-00136</td>
+						<td>2026-09-01</td>
 						<td>생산자</td>
-						<td>최길동</td>
-						<td>배</td>
-						<td>보상검토중</td>
+						<td>최영수(슬픔농장)</td>
+						<td>가뭄</td>
+						<td>조치보류</td>
 						<td>
 							<button class="detail-btn">보기</button>
 						</td>

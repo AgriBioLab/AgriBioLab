@@ -22,8 +22,8 @@
 		<ul class="gnb-menu">
 			<li><a href="qualityStatistics.jsp">품질통계</a></li>
 			<li class="active"><a href="compensationList.jsp">보상처리</a></li>
-			<li><a href="#">부적합 조치</a></li>
-			<li><a href="#">농산물 사건</a></li>
+			<li><a href="nonconformityList.jsp">부적합 조치</a></li>
+			<li><a href="agricultureCaseList.jsp">농산물 사건</a></li>
 		</ul>
 	</div>
 </nav>

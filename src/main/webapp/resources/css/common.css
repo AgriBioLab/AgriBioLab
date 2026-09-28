@@ -25,8 +25,9 @@ ul {
 
 /* ============= 전체 레이아웃 ============= */  
 .page-layout {
-	width: 1100px;
+	max-width: 1248px;	/* 고정 폭 대신 최대 폭: 콘텐츠 1200px + 좌우 여백 24px×2 */
 	margin: 0 auto;
+	padding: 0 24px;	/* 화면 좌우 여백 */
 	display: flex;
 	min-height: 700px;
 }

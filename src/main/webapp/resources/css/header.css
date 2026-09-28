@@ -7,9 +7,10 @@
 }
 
 .header-inner {
-	width: 1100px;
+	max-width: 1248px;	/* 콘텐츠 1200px + 좌우 여백 24px×2 */
 	height: 100%;
 	margin: 0 auto;
+	padding: 0 24px;	/* 화면 좌우 여백 */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -61,9 +62,10 @@
 }
 
 .gnb-inner {
-	width: 1100px;
+	max-width: 1248px;	/* 콘텐츠 1200px + 좌우 여백 24px×2 */
 	height: 100%;
 	margin: 0 auto;
+	padding: 0 24px;
 	display: flex;
 	align-items: center;
 }

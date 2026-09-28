@@ -117,7 +117,7 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="compensation-table">
+			<table class="list-table">
 
 				<thead>
 					<tr>

@@ -109,10 +109,17 @@
 
 				</div>
 
-				<!-- 사건유형 + 조회 -->
+				<!-- 사건유형 -->
 				<div class="search-row">
 
 					<label class="search-label">사건유형</label> <input type="text" class="search-input normal" placeholder="병해충">
+
+				</div>
+
+				<!-- 품목명 + 조회 -->
+				<div class="search-row">
+
+					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="사과">
 
 					<button class="search-btn">조회</button>
 
@@ -139,7 +146,7 @@
 						<th>대표자명</th>						
 						<th>단체/상호명</th>
 						<th>사건유형</th>
-						<th>품목</th>
+						<th>품목명</th>
 						<th>사건상태</th>
 					</tr>
 				</thead>

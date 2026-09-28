@@ -13,6 +13,51 @@
 			<span class="user-name"> 품질담당자</span> <span class="user-name"> 이OO님</span>
 			<button class="logout-btn">로그아웃</button>
 		</div>
+
+		<!-- 전체 메뉴 (1023px 이하에서만 보임)
+		     details/summary: JS 없이 누르면 펼치고 다시 누르면 접히는 HTML 기본 태그 -->
+		<details class="all-menu">
+			<summary class="all-menu-btn">☰ 메뉴</summary>
+
+			<nav class="all-menu-panel">
+				<ul class="all-menu-list">
+					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">품질통계</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">보상금</a></li>
+							<li><a href="#">신청/지급건수</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationList.jsp">보상처리</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/compensationList.jsp">보상처리</a></li>
+							<li><a href="#">보상처리 내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/nonconformityList.jsp">부적합 조치</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/nonconformityList.jsp">부적합 조치</a></li>
+							<li><a href="#">부적합 조치 내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 사건</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 사건</a></li>
+							<li><a href="#">농산물 사건 내역</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<!-- 767px 이하: 헤더에서 숨긴 로그인 정보를 메뉴 안에 표시 -->
+				<div class="all-menu-user">
+					<span class="user-name">품질담당자 이OO님</span>
+					<button class="logout-btn">로그아웃</button>
+				</div>
+			</nav>
+		</details>
 	</div>
 </header>
 

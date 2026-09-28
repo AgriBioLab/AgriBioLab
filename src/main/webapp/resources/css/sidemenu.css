@@ -50,50 +50,9 @@
 }
 
 /* ============= 반응형 ============= */
-/* 1023px 이하: 본문 위에 가로 메뉴로 */
+/* 1023px 이하: 사이드메뉴 숨김 (헤더의 전체 메뉴로 이동) */
 @media (max-width: 1023px) {
 	.side-menu {
-		width: auto;
-		padding-top: 24px;
-		border-right: 0;
-	}
-
-	/* 메뉴 제목은 바로 아래 페이지 제목과 겹치므로 숨김 (하위 메뉴 탭만 표시) */
-	.side-title {
 		display: none;
-	}
-
-	.side-section {
-		border-bottom: 0;
-	}
-
-	/* 섹션 제목: 작은 글씨로, 접기 표시(^)는 숨김 */
-	.side-section-title {
-		padding: 12px 0 0;
-		font-size: 15px;
-		color: #555;
-	}
-
-	.side-section-title::after {
-		display: none;
-	}
-
-	/* 섹션이 하나뿐인 메뉴(보상처리 등)는 제목이 side-title 과 같으므로 숨김
-	   :only-of-type = 같은 태그(div)가 형제 중에 하나뿐일 때 */
-	.side-section-title:only-of-type {
-		display: none;
-	}
-
-	.side-menu-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-		padding-top: 12px;
-	}
-
-	.side-menu-list li a {
-		padding: 8px 16px;
-		border: 1px solid #ddd;
-		border-radius: 20px;
 	}
 }

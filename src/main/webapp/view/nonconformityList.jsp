@@ -67,7 +67,6 @@
 			<!-- ============= SEARCH ============= -->
 			<section class="search-box">
 
-
 				<!-- 기간 -->
 				<div class="search-row">
 
@@ -79,48 +78,21 @@
 				<!-- 조치상태 -->
 				<div class="search-row">
 
-					<label class="search-label">조치상태</label> 
+					<label class="search-label">조치상태</label>
 					<select class="search-select">
 						<option>전체</option>
 						<option>조치대기</option>
 						<option>조치진행</option>
 						<option>조치보류</option>
-						<option>조치완료</option>						
+						<option>조치완료</option>
 					</select>
 
 				</div>
-				
+
 				<!-- 부적합조치번호 -->
 				<div class="search-row">
 
 					<label class="search-label">부적합조치번호</label> <input type="text" class="search-input normal" placeholder="NCR-2026-00135">
-
-				</div>
-
-				<!-- 구분 -->
-				<div class="search-row">
-
-					<label class="search-label">구분</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>생산자</option>
-						<option>유통자</option>
-						<option>판매자</option>
-					</select>
-
-				</div>
-				
-				<!-- 대표자명 -->
-				<div class="search-row">
-
-					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
-
-				</div>
-				
-				<!-- 단체/상호명 -->
-				<div class="search-row">
-
-					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -131,10 +103,42 @@
 
 				</div>
 
-				<!-- 품목명 + 조회 -->
+				<!-- 대표자명 -->
+				<div class="search-row">
+
+					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+
+				</div>
+
+				<!-- 단체/상호명 -->
+				<div class="search-row">
+
+					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
+
+				</div>
+
+				<!-- 구분 -->
+				<div class="search-row">
+
+					<span class="search-label">구분</span>
+					<div class="radio-group">
+						<label><input type="radio" name="targetType" value="" checked> 전체</label>
+						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+					</div>
+
+				</div>
+
+				<!-- 품목명 -->
 				<div class="search-row">
 
 					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="사과">
+
+				</div>
+
+				<!-- 조회 -->
+				<div class="search-row full search-actions">
 
 					<button class="search-btn">조회</button>
 

@@ -72,7 +72,6 @@
 			<!-- ============= SEARCH ============= -->
 			<section class="search-box">
 
-
 				<!-- 기간 -->
 				<div class="search-row">
 
@@ -81,29 +80,35 @@
 
 				</div>
 
-				<!-- 신청인 구분 -->
-				<div class="search-row">
-
-					<label class="search-label">신청인 구분</label> 
-					<select class="search-select">
-						<option>전체</option>
-						<option>생산자</option>
-						<option>유통자</option>
-						<option>판매자</option>
-						<option>소비자</option>
-					</select>
-
-				</div>
-
 				<!-- 처리상태 -->
 				<div class="search-row">
 
-					<label class="search-label">처리상태</label> 
+					<label class="search-label">처리상태</label>
 					<select class="search-select">
 						<option>전체</option>
 						<option>보상검토중</option>
 						<option>보상완료</option>
 					</select>
+
+				</div>
+
+				<!-- 구분 -->
+				<div class="search-row">
+
+					<span class="search-label">구분</span>
+					<div class="radio-group">
+						<label><input type="radio" name="targetType" value="" checked> 전체</label>
+						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+					</div>
+
+				</div>
+
+				<!-- 품목명 -->
+				<div class="search-row">
+
+					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="품목명을 입력하세요">
 
 				</div>
 
@@ -114,10 +119,8 @@
 
 				</div>
 
-				<!-- 품목명 + 조회 -->
-				<div class="search-row">
-
-					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="품목명을 입력하세요">
+				<!-- 조회 -->
+				<div class="search-row full search-actions">
 
 					<button class="search-btn">조회</button>
 

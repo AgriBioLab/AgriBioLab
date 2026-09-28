@@ -66,7 +66,6 @@
 			<!-- ============= SEARCH ============= -->
 			<section class="search-box">
 
-
 				<!-- 기간 -->
 				<div class="search-row">
 
@@ -75,37 +74,24 @@
 
 				</div>
 
-				<!-- 사건상태 구분 -->
+				<!-- 사건상태 -->
 				<div class="search-row">
 
-					<label class="search-label">사건상태</label> 
+					<label class="search-label">사건상태</label>
 					<select class="search-select">
 						<option>전체</option>
 						<option>접수</option>
 						<option>조사중</option>
 						<option>처리중</option>
 						<option>조사완료</option>
-					</select>		
-				</div>	
-				
+					</select>
+
+				</div>
+
 				<!-- 사건번호 -->
 				<div class="search-row">
 
 					<label class="search-label">사건번호</label> <input type="text" class="search-input normal" placeholder="INC-2026-000128">
-
-				</div>
-				
-				<!-- 대표자명 -->
-				<div class="search-row">
-
-					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
-
-				</div>
-								
-				<!-- 단체/상호명 -->
-				<div class="search-row">
-
-					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -116,10 +102,42 @@
 
 				</div>
 
-				<!-- 품목명 + 조회 -->
+				<!-- 대표자명 -->
+				<div class="search-row">
+
+					<label class="search-label">대표자명</label> <input type="text" class="search-input normal" placeholder="김현아">
+
+				</div>
+
+				<!-- 단체/상호명 -->
+				<div class="search-row">
+
+					<label class="search-label">단체/상호명</label> <input type="text" class="search-input normal" placeholder="행복농장">
+
+				</div>
+
+				<!-- 구분 -->
+				<div class="search-row">
+
+					<span class="search-label">구분</span>
+					<div class="radio-group">
+						<label><input type="radio" name="targetType" value="" checked> 전체</label>
+						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+					</div>
+
+				</div>
+
+				<!-- 품목명 -->
 				<div class="search-row">
 
 					<label class="search-label">품목명</label> <input type="text" class="search-input normal" placeholder="사과">
+
+				</div>
+
+				<!-- 조회 -->
+				<div class="search-row full search-actions">
 
 					<button class="search-btn">조회</button>
 

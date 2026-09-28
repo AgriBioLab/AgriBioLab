@@ -1,7 +1,12 @@
 @charset "UTF-8";
 
 /* ============= SEARCH BOX ============= */
+/* 검색조건 2열 배치: search-row 가 왼쪽 → 오른쪽 → 다음 줄 순서로 채워짐 */
 .search-box {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);	/* 내용 길이와 상관없이 같은 너비 2칸 */
+	column-gap: 32px;
+	row-gap: 14px;
 	background: #f3f6f9;
 	border-radius: 8px;
 	padding: 28px 30px;
@@ -11,11 +16,16 @@
 .search-row {
 	display: flex;
 	align-items: center;
-	margin-bottom: 14px;
 }
 
-.search-row:last-child {
-	margin-bottom: 0;
+/* 한 줄 전체를 쓰는 행 (기간, 조회 버튼) */
+.search-row.full {
+	grid-column: 1 / -1;
+}
+
+/* 조회 버튼 줄: 오른쪽 정렬 */
+.search-actions {
+	justify-content: flex-end;
 }
 
 .search-label {
@@ -34,7 +44,7 @@
 }
 
 .search-input.date {
-	width: 150px;
+	width: 122px;	/* 기간(날짜 2개)이 반쪽 칸에 들어가도록 */
 }
 
 .search-input.normal {
@@ -42,7 +52,7 @@
 }
 
 .date-separator {
-	margin: 0 10px;
+	margin: 0 6px;
 }
 
 .search-select {
@@ -63,4 +73,25 @@
 	background: #333;
 	color: white;
 	font-size: 13px;
+}
+
+/* 버튼 줄에서는 왼쪽 여백 불필요 */
+.search-actions .search-btn {
+	margin-left: 0;
+}
+
+/* ============= 라디오 버튼 묶음 (구분) ============= */
+.radio-group {
+	white-space: nowrap;	/* 라디오가 두 줄로 나뉘지 않게 */
+}
+
+.radio-group label {
+	margin-right: 10px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.radio-group input {
+	margin-right: 4px;
+	vertical-align: middle;
 }

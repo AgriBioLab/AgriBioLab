@@ -10,7 +10,7 @@ body {
 	font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, "Malgun Gothic", sans-serif;
 	color: #222;
 	background: #fff;
-	font-size: 17px;	/* 본문 기본 글자 크기 */
+	font-size: 15px;	/* 본문 기본 글자 크기 (업무 화면: 정보 밀도 우선) */
 	line-height: 1.5;	/* 줄 높이 150% */
 }
 
@@ -27,7 +27,7 @@ ul {
 
 /* ============= 전체 레이아웃 ============= */  
 .page-layout {
-	max-width: 1248px;	
+	max-width: 1920px;	/* 화면 폭만큼 넓어짐 (아주 넓은 모니터에서만 가운데 정렬) */	
 	margin: 0 auto;
 	padding: 0 24px;	
 	display: flex;

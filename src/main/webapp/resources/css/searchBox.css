@@ -29,10 +29,10 @@
 }
 
 .search-label {
-	width: 110px;	/* 15px 글자 기준 가장 긴 라벨(부적합조치번호)이 한 줄에 들어가는 폭 */
+	width: 110px;	/* 14px 글자 기준 가장 긴 라벨(부적합조치번호)이 한 줄에 들어가는 폭 */
 	flex-shrink: 0;
 	font-weight: 600;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .search-input {
@@ -41,7 +41,7 @@
 	border-radius: 3px;
 	padding: 0 10px;
 	background: white;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .search-input.date {
@@ -63,7 +63,7 @@
 	border-radius: 3px;
 	padding: 0 8px;
 	background: white;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .search-btn {
@@ -74,7 +74,7 @@
 	border-radius: 3px;
 	background: #333;
 	color: white;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 /* 버튼 줄에서는 왼쪽 여백 불필요 */
@@ -91,7 +91,7 @@
 	border-radius: 3px;
 	background: white;
 	color: #333;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .reset-btn:hover {
@@ -105,7 +105,7 @@
 
 .radio-group label {
 	margin-right: 10px;
-	font-size: 15px;
+	font-size: 14px;
 	cursor: pointer;
 }
 

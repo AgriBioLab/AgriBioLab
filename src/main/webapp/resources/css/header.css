@@ -8,7 +8,7 @@
 }
 
 .header-inner {
-	max-width: 1248px;	/* 콘텐츠 1200px + 좌우 여백 24px×2 */
+	max-width: 1920px;	/* 본문과 같은 최대 폭 */
 	height: 100%;
 	margin: 0 auto;
 	padding: 0 24px;	/* 화면 좌우 여백 */
@@ -41,7 +41,7 @@
 	display: flex;
 	align-items: center;
 	gap: 20px;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .user-name {
@@ -53,7 +53,7 @@
 	background: white;
 	padding: 5px 13px;
 	border-radius: 4px;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 /* ============= GNB ============= */
@@ -63,7 +63,7 @@
 }
 
 .gnb-inner {
-	max-width: 1248px;	/* 콘텐츠 1200px + 좌우 여백 24px×2 */
+	max-width: 1920px;	/* 본문과 같은 최대 폭 */
 	height: 100%;
 	margin: 0 auto;
 	padding: 0 24px;
@@ -82,7 +82,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 600;
 }
 
@@ -106,7 +106,7 @@
 	padding: 6px 14px;
 	border: 1px solid #bbb;
 	border-radius: 4px;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 600;
 	cursor: pointer;
 	list-style: none;	/* summary 기본 ▶ 표시 제거 */
@@ -144,7 +144,7 @@
 }
 
 .all-menu-title {
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 700;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .all-menu-list ul a {
-	font-size: 15px;
+	font-size: 14px;
 	color: #555;
 }
 
@@ -168,7 +168,7 @@
 	justify-content: space-between;
 	padding: 14px 0;
 	border-bottom: 1px solid #eee;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 /* ============= 반응형 ============= */

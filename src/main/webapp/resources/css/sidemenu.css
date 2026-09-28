@@ -21,7 +21,7 @@
 
 .side-section-title {
 	padding: 18px 25px;
-	font-size: 17px;
+	font-size: 15px;
 	font-weight: 700;
 	display: flex;
 	justify-content: space-between;
@@ -36,7 +36,7 @@
 .side-menu-list li a {
 	display: block;
 	padding: 13px 25px;
-	font-size: 17px;
+	font-size: 15px;
 }
 
 .side-menu-list li.active a {

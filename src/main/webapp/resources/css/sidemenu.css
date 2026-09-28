@@ -4,7 +4,7 @@
 .side-menu {
 	width: 220px;
 	flex-shrink: 0;
-	padding-top: 45px;
+	padding-top: 97px;	/* 사이드 제목을 페이지 제목(h1)과 같은 높이에 맞춤 (본문 윗여백 + breadcrumb 줄만큼 내림) */
 	border-right: 1px solid #ddd;
 }
 

@@ -40,7 +40,7 @@
 	display: flex;
 	align-items: center;
 	gap: 20px;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .user-name {
@@ -52,7 +52,7 @@
 	background: white;
 	padding: 5px 13px;
 	border-radius: 4px;
-	font-size: 12px;
+	font-size: 15px;
 }
 
 /* ============= GNB ============= */
@@ -112,7 +112,12 @@
 
 	.header-right {
 		gap: 8px;
-		font-size: 12px;
+		font-size: 13px;
+	}
+
+	.logout-btn {
+		padding: 4px 10px;
+		font-size: 13px;
 	}
 
 	/* 메뉴가 화면보다 길면 메뉴 영역만 가로로 밀어서 보기 */

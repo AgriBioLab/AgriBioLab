@@ -5,7 +5,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 10px;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .result-count {
@@ -16,7 +16,7 @@
 	width: 100%;
 	border-collapse: collapse;
 	text-align: center;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 .list-table thead {
@@ -42,7 +42,7 @@
 }
 
 .list-table {
-	min-width: 760px;	/* 이보다 좁아지면 글자가 세로로 쪼개지므로 최소 폭 유지 */
+	min-width: 860px;	/* 이보다 좁아지면 글자가 세로로 쪼개지므로 최소 폭 유지 */
 }
 
 .list-table th,

@@ -10,7 +10,8 @@ body {
 	font-family: "Pretendard GOV Variable", "Pretendard GOV", -apple-system, "Malgun Gothic", sans-serif;
 	color: #222;
 	background: #fff;
-	font-size: 14px;
+	font-size: 17px;	/* 본문 기본 글자 크기 */
+	line-height: 1.5;	/* 줄 높이 150% */
 }
 
 a {
@@ -40,7 +41,7 @@ ul {
 }
 
 .breadcrumb {
-	font-size: 12px;
+	font-size: 13px;
 	color: #666;	/* 흰 배경 대비 5.7:1 (#777 은 4.48:1 로 기준 4.5:1 미달) */
 	margin-bottom: 25px;
 }

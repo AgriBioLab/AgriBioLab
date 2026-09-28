@@ -9,7 +9,7 @@
 }
 
 .detail-section-title {
-	font-size: 17px;
+	font-size: 19px;
 	font-weight: 700;
 	margin-bottom: 12px;
 }
@@ -20,11 +20,11 @@
 	border-collapse: collapse;
 	border-top: 2px solid #333;
 	table-layout: fixed;	/* 내용 길이와 상관없이 칸 너비 고정 → 표끼리 세로 칸 위치가 같아짐 */
-	font-size: 13px;
+	font-size: 17px;
 }
 
 .detail-table th {
-	width: 150px;
+	width: 170px;	/* 17px 글자 기준 가장 긴 항목(농산물 이력번호)이 한 줄에 들어가는 폭 */
 	padding: 12px;
 	border-bottom: 1px solid #ddd;
 	background: #fafafa;
@@ -49,7 +49,7 @@
 	padding: 10px 30px;
 	border: 1px solid #333;
 	background: white;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: 600;
 }
 
@@ -67,7 +67,7 @@
 
 	.detail-table tr {
 		display: grid;
-		grid-template-columns: 110px minmax(0, 1fr);
+		grid-template-columns: 130px minmax(0, 1fr);
 	}
 
 	.detail-table th {

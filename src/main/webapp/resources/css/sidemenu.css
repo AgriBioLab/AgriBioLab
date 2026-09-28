@@ -21,7 +21,7 @@
 
 .side-section-title {
 	padding: 18px 25px;
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: 700;
 	display: flex;
 	justify-content: space-between;
@@ -36,7 +36,7 @@
 .side-menu-list li a {
 	display: block;
 	padding: 13px 25px;
-	font-size: 14px;
+	font-size: 17px;
 }
 
 .side-menu-list li.active a {
@@ -70,7 +70,7 @@
 	/* 섹션 제목: 작은 글씨로, 접기 표시(^)는 숨김 */
 	.side-section-title {
 		padding: 12px 0 0;
-		font-size: 14px;
+		font-size: 15px;
 		color: #555;
 	}
 

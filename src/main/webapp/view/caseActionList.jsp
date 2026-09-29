@@ -77,10 +77,9 @@
 					<label class="search-label" for="actionType">조치유형</label>
 					<select id="actionType" name="actionType" class="search-select">
 						<option value="">전체</option>
-						<option value="SHIP_STOP">출하중지</option>
-						<option value="SALE_STOP">판매중지</option>
+						<option value="RECALL">회수</option>
 						<option value="DISPOSAL">폐기</option>
-						<option value="CONTROL">방제</option>
+						<option value="CHANGE_USE">용도변경</option>
 					</select>
 
 				</div>
@@ -152,6 +151,7 @@
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
 							<th scope="col">진행상태</th>
+							<th scope="col">재해유형</th>
 						</tr>
 					</thead>
 
@@ -166,6 +166,7 @@
 							<td>딸기</td>
 							<td>-</td>
 							<td>접수</td>
+							<td>병해충</td>
 						</tr>
 
 						<tr>
@@ -177,6 +178,7 @@
 							<td>배</td>
 							<td>-</td>
 							<td>보완요청</td>
+							<td>우박</td>
 						</tr>
 
 						<tr>
@@ -188,6 +190,7 @@
 							<td>벼</td>
 							<td>-</td>
 							<td>조치 대상 아님</td>
+							<td>침수</td>
 						</tr>
 
 						<tr>
@@ -197,8 +200,9 @@
 							<td>윤태식</td>
 							<td>해뜰과수원</td>
 							<td>감귤</td>
-							<td>출하중지</td>
+							<td>-</td>
 							<td>조사중</td>
+							<td>태풍</td>
 						</tr>
 
 						<tr>
@@ -208,8 +212,9 @@
 							<td>서민호</td>
 							<td>산마루농장</td>
 							<td>고추</td>
-							<td>방제</td>
+							<td>회수</td>
 							<td>조치 이행</td>
+							<td>병해충</td>
 						</tr>
 
 						<tr>
@@ -219,8 +224,9 @@
 							<td>장은비</td>
 							<td>초록농원</td>
 							<td>배추</td>
-							<td>판매중지</td>
+							<td>용도변경</td>
 							<td>조치 이행</td>
+							<td>침수</td>
 						</tr>
 
 						<tr>
@@ -232,6 +238,7 @@
 							<td>포도</td>
 							<td>폐기</td>
 							<td>조치 이행</td>
+							<td>우박</td>
 						</tr>
 
 						<tr>
@@ -243,6 +250,7 @@
 							<td>참외</td>
 							<td>-</td>
 							<td>반려</td>
+							<td>가뭄</td>
 						</tr>
 
 						<tr>
@@ -252,8 +260,9 @@
 							<td>박연자</td>
 							<td>동동과수원</td>
 							<td>복숭아</td>
-							<td>출하중지</td>
+							<td>-</td>
 							<td>조사중</td>
+							<td>가뭄</td>
 						</tr>
 
 						<tr>
@@ -265,6 +274,7 @@
 							<td>사과</td>
 							<td>폐기</td>
 							<td>조치완료</td>
+							<td>병해충</td>
 						</tr>
 
 						<tr>
@@ -274,8 +284,9 @@
 							<td>이복자</td>
 							<td>가원농장</td>
 							<td>복숭아</td>
-							<td>방제</td>
+							<td>회수</td>
 							<td>조치완료</td>
+							<td>병해충</td>
 						</tr>
 
 						<tr>
@@ -285,8 +296,9 @@
 							<td>송재원</td>
 							<td>한울농장</td>
 							<td>오이</td>
-							<td>판매중지</td>
+							<td>용도변경</td>
 							<td>조치완료</td>
+							<td>냉해</td>
 						</tr>
 					</tbody>
 				</table>

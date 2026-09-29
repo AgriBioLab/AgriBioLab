@@ -56,3 +56,30 @@
 	font-weight: 700;
 	color: #333;
 }
+
+/* ============= 반응형 ============= */
+/* 767px 이하: 요약 수치를 세로로 쌓고 여백·그래프 높이를 줄임 */
+@media (max-width: 767px) {
+	.statistics-result {
+		padding: 20px 16px;
+	}
+
+	.statistics-summary {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.statistics-summary-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.statistics-summary-label {
+		margin-bottom: 0;
+	}
+
+	.statistics-chart-wrap {
+		height: 300px;
+	}
+}

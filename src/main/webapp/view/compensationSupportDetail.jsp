@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 보상처리 상세</title>
+<title>농산물 품질 - 보상·지원 상세</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -18,18 +18,18 @@
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<%@ include file="side_compensation.jsp"%>
+		<%@ include file="side_compensationSupport.jsp"%>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>보상·지원</span> &gt; <span>상세</span>
 			</nav>
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상처리 상세</h1>
+			<h1 class="page-title">보상·지원 상세</h1>
 
 			<!-- ============= 보상 기본정보 (목록 2026-004582 행 기준) ============= -->
 			<section class="detail-section">
@@ -101,7 +101,7 @@
 
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationList.jsp">목록</a>
+				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">목록</a>
 			</div>
 
 		</main>

@@ -1,6 +1,6 @@
 # AgriBioLab
 
-농산물 품질 담당자가 보상처리, 부적합 조치, 농산물 사건, 품질통계를 확인하는 업무 화면입니다.
+농산물 품질 담당자가 보상·지원, 사건조치, 농산물 사건, 품질통계를 확인하는 업무 화면입니다.
 현재는 JSP 화면 초안 단계이며, 이후 MVC Model2(FrontController → Action → Service → DAO)로 전환할 예정입니다.
 
 ## 화면
@@ -8,8 +8,8 @@
 | 메뉴 | 목록 | 상세 |
 |---|---|---|
 | 품질통계 | `view/qualityStatistics.jsp` | - |
-| 보상처리 | `view/compensationList.jsp` | `view/compensationDetail.jsp` |
-| 부적합 조치 | `view/nonconformityList.jsp` | - |
+| 보상·지원 | `view/compensationSupportList.jsp` | `view/compensationSupportDetail.jsp` |
+| 사건조치 | `view/caseActionList.jsp` | - |
 | 농산물 사건 | `view/agricultureCaseList.jsp` | `view/agricultureCaseDetail.jsp` |
 
 ## 개발 환경
@@ -28,7 +28,7 @@
 3. 프로젝트 우클릭 → Run As → **Run on Server**
 4. 브라우저에서 접속
    ```
-   http://localhost:{포트}/AgriBioLab/view/compensationList.jsp
+   http://localhost:{포트}/AgriBioLab/view/compensationSupportList.jsp
    ```
    포트는 각자 Tomcat 설정(`server.xml`)을 따릅니다. 기본값은 8080입니다.
 

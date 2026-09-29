@@ -138,7 +138,7 @@
 					<h2 class="statistics-result-title">재해종류별 보상지급현황</h2>
 
 					<p class="statistics-result-desc">
-						검색 조건에 해당하는 보상처리 데이터를 재해종류별로 집계한 통계입니다.
+						검색 조건에 해당하는 보상·지원 데이터를 재해종류별로 집계한 통계입니다.
 					</p>
 
 					<!-- 요약 수치 -->

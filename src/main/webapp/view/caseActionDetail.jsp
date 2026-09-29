@@ -62,6 +62,12 @@
 						<th scope="row">신청 품목</th>
 						<td colspan="3">사과</td>
 					</tr>
+					<%-- 신청상태가 반려 / 조치 대상 아님일 때만 표시 (이 샘플은 조치완료라 숨김)
+					<tr>
+						<th scope="row">사유</th>
+						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>
+					</tr>
+					--%>
 				</table>
 
 			</section>
@@ -229,33 +235,29 @@
 						<th scope="row">조치 대상 면적</th>
 						<td>3,500㎡</td>
 					</tr>
-					<tr>
-						<th scope="row">출하 중지 여부</th>
-						<td>중지</td>
-						<th scope="row">판매 중지 여부</th>
-						<td>중지</td>
-					</tr>
 				</table>
 
 			</section>
 
-			<!-- ============= 폐기정보 (0~1건) ============= -->
-			<!-- 폐기한 건만 표시 (조치유형이 폐기가 아니면 이 섹션 없음) -->
+			<!-- ============= 조치 이행정보 (0~1건) ============= -->
+			<!-- 조치를 이행한 건만 표시 (폐기·방제 등 모든 조치유형 공통, 조치 전이면 이 섹션 없음) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">폐기정보</h2>
+				<h2 class="detail-section-title">조치 이행정보</h2>
 
 				<table class="detail-table">
-					<caption class="sr-only">폐기정보</caption>
+					<caption class="sr-only">조치 이행정보</caption>
 					<tr>
-						<th scope="row">폐기담당자명</th>
+						<th scope="row">조치담당자</th>
 						<td>이정훈</td>
-						<th scope="row">폐기기관</th>
+						<th scope="row">조치기관</th>
 						<td>○○시 농업기술센터</td>
 					</tr>
 					<tr>
-						<th scope="row">폐기날짜</th>
-						<td colspan="3">2026-09-27</td>
+						<th scope="row">조치날짜</th>
+						<td>2026-09-27</td>
+						<th scope="row">확인날짜</th>
+						<td>2026-09-28</td>
 					</tr>
 				</table>
 

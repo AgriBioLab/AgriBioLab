@@ -56,7 +56,7 @@
 						<option value="RECEIVED">접수</option>
 						<option value="SUPPLEMENT">보완요청</option>
 						<option value="INVESTIGATING">조사중</option>
-						<option value="IN_ACTION">조치중</option>
+						<option value="IN_ACTION">조치 이행</option>
 						<option value="DONE">조치완료</option>
 						<option value="NOT_TARGET">조치 대상 아님</option>
 						<option value="REJECTED">반려</option>
@@ -209,7 +209,7 @@
 							<td>산마루농장</td>
 							<td>고추</td>
 							<td>방제</td>
-							<td>조치중</td>
+							<td>조치 이행</td>
 						</tr>
 
 						<tr>
@@ -220,7 +220,7 @@
 							<td>초록농원</td>
 							<td>배추</td>
 							<td>판매중지</td>
-							<td>조치중</td>
+							<td>조치 이행</td>
 						</tr>
 
 						<tr>
@@ -231,7 +231,7 @@
 							<td>가람농장</td>
 							<td>포도</td>
 							<td>폐기</td>
-							<td>조치중</td>
+							<td>조치 이행</td>
 						</tr>
 
 						<tr>

@@ -46,11 +46,11 @@
 
 				</div>
 
-				<!-- 신청상태 (코드 값은 협의 전 예시)
+				<!-- 진행상태 (코드 값은 협의 전 예시)
 				     반려 = 조사 전 자격 불일치로 종결, 조치 대상 아님 = 조사 후 피해 미인정으로 종결 -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">신청상태</label>
+					<label class="search-label" for="status">진행상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
@@ -151,7 +151,7 @@
 							<th scope="col">농장명</th>
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
-							<th scope="col">신청상태</th>
+							<th scope="col">진행상태</th>
 						</tr>
 					</thead>
 

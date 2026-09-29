@@ -47,7 +47,7 @@
 				<table class="detail-table">
 					<caption class="sr-only">피해신청정보</caption>
 					<tr>
-						<th scope="row">신청상태</th>
+						<th scope="row">진행상태</th>
 						<td>조치완료</td>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
@@ -62,7 +62,7 @@
 						<th scope="row">신청 품목</th>
 						<td colspan="3">사과</td>
 					</tr>
-					<%-- 신청상태가 반려 / 조치 대상 아님일 때만 표시 (이 샘플은 조치완료라 숨김)
+					<%-- 진행상태가 반려 / 조치 대상 아님일 때만 표시 (이 샘플은 조치완료라 숨김)
 					<tr>
 						<th scope="row">사유</th>
 						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>

@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 농산물 사건상세</title>
+<title>농산물 품질 - 농산물 재해 상세</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -25,36 +25,55 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>농산물 사건</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>농산물 재해</span> &gt; <span>상세</span>
 			</nav>
 
 			<!-- Page Title -->
-			<h1 class="page-title">농산물 사건상세</h1>
+			<h1 class="page-title">농산물 재해 상세</h1>
 
-			<!-- ============= 사건기본정보 ============= -->
+			<!-- ============= 재해정보 ============= -->
+			<!-- 등록된 재해 정보 (재해유형·품목·재배지역은 생산자가 피해신청할 때 여기서 가져옴) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">사건기본정보</h2>
+				<h2 class="detail-section-title">재해정보</h2>
 
 				<table class="detail-table">
-					<caption class="sr-only">사건기본정보</caption>
+					<caption class="sr-only">재해정보</caption>
 					<tr>
-						<th scope="row">사건번호</th>
+						<th scope="row">재해번호</th>
 						<td>INC-2026-000128</td>
-						<th scope="row">사건상태</th>
+						<th scope="row">재해상태</th>
 						<td>조사중</td>
 					</tr>
 					<tr>
-						<th scope="row">발생일</th>
-						<td>2026-09-22</td>
-						<th scope="row">사건 등록일</th>
-						<td>2026-09-23</td>
+						<th scope="row">재해유형</th>
+						<td>가뭄</td>
+						<th scope="row">품목명</th>
+						<td>복숭아</td>
 					</tr>
 					<tr>
+						<th scope="row">재배지역</th>
+						<td>인천</td>
+						<th scope="row">재해 등록일</th>
+						<td>2026-09-23</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 피해신청정보 ============= -->
+			<!-- 신청자 정보 (1차: 생산자 / 추후 유통자·판매자). 단체/상호명·농장명은 생산자 정보 -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">피해신청정보</h2>
+
+				<table class="detail-table">
+					<caption class="sr-only">피해신청정보</caption>
+					<tr>
+						<th scope="row">농산물피해신청일</th>
+						<td>2026-09-22</td>
 						<th scope="row">구분</th>
 						<td>생산자</td>
-						<th scope="row">사건유형</th>
-						<td>가뭄</td>
 					</tr>
 					<tr>
 						<th scope="row">대표자명</th>
@@ -63,14 +82,10 @@
 						<td>동동농업협동조합</td>
 					</tr>
 					<tr>
-						<th scope="row">품목명</th>
-						<td>복숭아</td>
-						<th scope="row">재배지역</th>
-						<td>인천</td>
-					</tr>
-					<tr>
+						<th scope="row">농장명</th>
+						<td>동동과수원</td>
 						<th scope="row">농산물 이력번호</th>
-						<td colspan="3">TR-2026-004819</td>
+						<td>TR-2026-004819</td>
 					</tr>
 				</table>
 

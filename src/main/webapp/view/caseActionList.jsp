@@ -129,7 +129,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해신청 목록</span> <span>총<strong>2</strong>건</span>
+				<span class="result-count">피해신청 목록</span> <span>총<strong>12</strong>건</span>
 
 			</div>
 
@@ -152,7 +152,96 @@
 						</tr>
 					</thead>
 
+					<!-- 샘플 데이터: 1차 스프린트 가정에 따라 신청자는 모두 생산자 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
+							<td>2026-09-28</td>
+							<td>생산자</td>
+							<td>정미숙</td>
+							<td>햇살딸기농원</td>
+							<td>딸기</td>
+							<td>-</td>
+							<td>접수</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000135">REQ-2026-000135</a></td>
+							<td>2026-09-27</td>
+							<td>생산자</td>
+							<td>최용준</td>
+							<td>청솔농장</td>
+							<td>배</td>
+							<td>-</td>
+							<td>접수</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
+							<td>2026-09-26</td>
+							<td>생산자</td>
+							<td>한지영</td>
+							<td>푸른들영농조합</td>
+							<td>벼</td>
+							<td>출하중지</td>
+							<td>조사중</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
+							<td>2026-09-25</td>
+							<td>생산자</td>
+							<td>윤태식</td>
+							<td>해뜰과수원</td>
+							<td>감귤</td>
+							<td>출하중지</td>
+							<td>조사중</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
+							<td>2026-09-24</td>
+							<td>생산자</td>
+							<td>서민호</td>
+							<td>산마루농장</td>
+							<td>고추</td>
+							<td>방제</td>
+							<td>조치중</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
+							<td>2026-09-24</td>
+							<td>생산자</td>
+							<td>장은비</td>
+							<td>초록농원</td>
+							<td>배추</td>
+							<td>판매중지</td>
+							<td>조치중</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
+							<td>2026-09-23</td>
+							<td>생산자</td>
+							<td>임동건</td>
+							<td>가람농장</td>
+							<td>포도</td>
+							<td>폐기</td>
+							<td>조치중</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000129">REQ-2026-000129</a></td>
+							<td>2026-09-23</td>
+							<td>생산자</td>
+							<td>강수연</td>
+							<td>들꽃농장</td>
+							<td>참외</td>
+							<td>-</td>
+							<td>반려</td>
+						</tr>
+
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
 							<td>2026-09-22</td>
@@ -172,6 +261,28 @@
 							<td>행복농장</td>
 							<td>사과</td>
 							<td>폐기</td>
+							<td>조치완료</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000126">REQ-2026-000126</a></td>
+							<td>2026-09-18</td>
+							<td>생산자</td>
+							<td>이복자</td>
+							<td>가원농장</td>
+							<td>복숭아</td>
+							<td>방제</td>
+							<td>조치완료</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
+							<td>2026-09-15</td>
+							<td>생산자</td>
+							<td>송재원</td>
+							<td>한울농장</td>
+							<td>오이</td>
+							<td>판매중지</td>
 							<td>조치완료</td>
 						</tr>
 					</tbody>

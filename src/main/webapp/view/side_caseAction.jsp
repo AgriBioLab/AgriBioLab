@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- 사이드메뉴 공통: caseActionList.jsp 에서 <%@ include file="side_caseAction.jsp"%> 로 사용 --%>
+<%-- 사이드메뉴 공통: caseActionList.jsp, caseActionDetail.jsp 에서 <%@ include file="side_caseAction.jsp"%> 로 사용 --%>
 <aside class="side-menu">
 
 	<div class="side-title">피해조치</div>

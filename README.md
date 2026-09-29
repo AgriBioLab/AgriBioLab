@@ -38,7 +38,8 @@
 src/main/webapp/
 ├ view/                  JSP 화면
 │  ├ head.jsp            공통 <head>
-│  └ header.jsp          공통 헤더·GNB
+│  ├ header.jsp          공통 헤더·GNB·전체 메뉴
+│  └ side_○○.jsp         메뉴별 사이드메뉴
 └ resources/css/         스타일
    ├ common.css          전체 공통
    ├ header.css, sidemenu.css

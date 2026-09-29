@@ -104,11 +104,18 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 ### 공통 파일
 | 파일 | 역할 |
 |---|---|
-| `view/head.jsp` | 모든 화면 공통 `<head>` (meta, 공통 CSS) |
-| `view/header.jsp` | 상단 헤더·GNB |
+| `view/head.jsp` | 모든 화면 공통 `<head>` (meta, 웹폰트, 공통 CSS) |
+| `view/header.jsp` | 상단 헤더·GNB·전체 메뉴 |
+| `view/side_○○.jsp` | 메뉴별 사이드메뉴 (예: `side_compensation.jsp`는 보상처리 목록·상세가 함께 사용) |
 | `resources/css/common.css` | 전체 공통 스타일 |
 
 수정하기 전에 팀에 먼저 알린다.
+
+### 화면 구성
+- 모든 화면은 `<%@ include file="head.jsp"%>`로 공통 head를, `<%@ include file="header.jsp"%>`로 헤더를 불러온다.
+- 사이드메뉴는 메뉴별 `side_○○.jsp`를 include한다. 같은 메뉴의 목록·상세는 같은 파일을 쓴다.
+- 화면에서만 쓰는 CSS(`searchBox.css`, `table.css`, `detail.css`)는 각 화면 `<head>`에 직접 추가한다.
+- JSP 안에 `<style>`이나 `style="..."`을 쓰지 않고 `resources/css/`의 파일로 분리한다.
 
 ### 검색조건 이름 (form 전송값)
 
@@ -129,5 +136,5 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 
 ## 6. 저장소 설정
 
-- `main`에는 보호 규칙(`main-protection`)이 걸려 있다: PR 필수, 승인 1명, 강제 push·삭제 금지.
-- ⚠️ 규칙의 대상 브랜치가 `refs/heads/"main", "dev"`라는 하나의 문자열로 입력되어 있어 **`dev`는 보호되지 않고 있다.** 관리자가 Settings → Rules → Rulesets에서 대상을 `main`, `dev` 두 항목으로 나눠 입력해야 한다.
+- 기본 브랜치는 `dev`다.
+- `main`과 `dev`에 보호 규칙(`main-protection`)이 걸려 있다: PR 필수, 승인 1명, 강제 push·삭제 금지.

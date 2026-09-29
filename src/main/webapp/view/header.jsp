@@ -46,17 +46,9 @@
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해신청</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a></li>
-							<li><a href="#">피해조치 내역</a></li>
-						</ul>
-					</li>
-					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 재해</a>
-						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 재해</a></li>
-							<li><a href="#">농산물 재해 내역</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해신청 목록</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -70,8 +62,7 @@
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
 			<li><a href="qualityStatistics.jsp">통계</a></li>
-			<li class="active"><a href="caseActionList.jsp">피해조치</a></li>
-			<li><a href="agricultureCaseList.jsp">농산물 재해</a></li>
+			<li class="active"><a href="caseActionList.jsp">피해신청</a></li>
 		</ul>
 	</div>
 </nav>

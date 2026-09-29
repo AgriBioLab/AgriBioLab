@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해조치 상세</title>
+<title>농산물피해조치 - 피해신청 상세</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -27,14 +27,14 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>피해신청</span> &gt; <span>상세</span>
 			</nav>
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해조치 상세</h1>
+			<h1 class="page-title">피해신청 상세</h1>
 
 			<!-- ============= 피해신청정보 ============= -->
-			<!-- 피해신청 1건 = 피해조치 1건 (목록에서 누른 피해신청번호 기준) -->
+			<!-- 목록에서 누른 피해신청번호 기준 (조치 항목도 피해신청 정보에 함께 있음) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청정보</h2>
@@ -64,7 +64,7 @@
 			</section>
 
 			<!-- ============= 재해정보 ============= -->
-			<!-- 등록된 재해 요약 (전체 내용은 농산물 재해 상세에서 확인) -->
+			<!-- 등록된 재해 요약 (농산물 재해 메뉴를 다시 살리면 재해정보번호에 재해 상세 링크 연결) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">재해정보</h2>
@@ -73,7 +73,7 @@
 					<caption class="sr-only">재해정보</caption>
 					<tr>
 						<th scope="row">재해정보번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000127">INC-2026-000127</a></td>
+						<td>INC-2026-000127</td>
 						<th scope="row">재해유형</th>
 						<td>병해충</td>
 					</tr>

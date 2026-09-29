@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 농산물 사건</title>
+<title>농산물 품질 - 농산물 재해</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>농산물 사건</span> <!--&gt; = > 이 표시 -->
+				<span>홈</span> &gt; <span>농산물 재해</span> <!--&gt; = > 이 표시 -->
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">농산물 사건</h1>
+			<h1 class="page-title">농산물 재해</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">
@@ -45,10 +45,10 @@
 
 				</div>
 
-				<!-- 사건상태 -->
+				<!-- 재해상태 -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">사건상태</label>
+					<label class="search-label" for="status">재해상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
@@ -59,17 +59,17 @@
 
 				</div>
 
-				<!-- 사건번호 -->
+				<!-- 재해번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="caseNo">사건번호</label> <input type="text" id="caseNo" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
+					<label class="search-label" for="caseNo">재해번호</label> <input type="text" id="caseNo" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
 
 				</div>
 
-				<!-- 사건유형 -->
+				<!-- 재해유형 -->
 				<div class="search-row">
 
-					<label class="search-label" for="caseType">사건유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="caseType">재해유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
@@ -120,7 +120,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">농산물 사건 목록</span> <span>총<strong>2</strong>건
+				<span class="result-count">농산물 재해 목록</span> <span>총<strong>2</strong>건
 				</span>
 
 			</div>
@@ -129,18 +129,18 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
-					<caption class="sr-only">농산물 사건 목록</caption>
+					<caption class="sr-only">농산물 재해 목록</caption>
 
 					<thead>
 						<tr>
-							<th scope="col">사건번호</th>
-							<th scope="col">발생일</th>
+							<th scope="col">재해번호</th>
+							<th scope="col">농산물피해신청일</th>
 							<th scope="col">구분</th>
 							<th scope="col">대표자명</th>						
 							<th scope="col">단체/상호명</th>
-							<th scope="col">사건유형</th>
+							<th scope="col">재해유형</th>
 							<th scope="col">품목명</th>
-							<th scope="col">사건상태</th>
+							<th scope="col">재해상태</th>
 						</tr>
 					</thead>
 

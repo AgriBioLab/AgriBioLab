@@ -46,16 +46,19 @@
 
 				</div>
 
-				<!-- 신청상태 (코드 값은 협의 전 예시) -->
+				<!-- 신청상태 (코드 값은 협의 전 예시)
+				     반려 = 조사 전 자격 불일치로 종결, 조치 대상 아님 = 조사 후 피해 미인정으로 종결 -->
 				<div class="search-row">
 
 					<label class="search-label" for="status">신청상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
+						<option value="SUPPLEMENT">보완요청</option>
 						<option value="INVESTIGATING">조사중</option>
 						<option value="IN_ACTION">조치중</option>
 						<option value="DONE">조치완료</option>
+						<option value="NOT_TARGET">조치 대상 아님</option>
 						<option value="REJECTED">반려</option>
 					</select>
 
@@ -173,7 +176,7 @@
 							<td>청솔농장</td>
 							<td>배</td>
 							<td>-</td>
-							<td>접수</td>
+							<td>보완요청</td>
 						</tr>
 
 						<tr>
@@ -183,8 +186,8 @@
 							<td>한지영</td>
 							<td>푸른들영농조합</td>
 							<td>벼</td>
-							<td>출하중지</td>
-							<td>조사중</td>
+							<td>-</td>
+							<td>조치 대상 아님</td>
 						</tr>
 
 						<tr>

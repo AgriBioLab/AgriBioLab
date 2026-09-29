@@ -11,16 +11,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 
-<style>
-.statistics-result { margin-top: 28px; padding: 24px 28px 20px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
-.statistics-result-title { margin: 0; font-size: 20px; font-weight: 600; color: #444; }
-.statistics-result-desc { margin: 7px 0 20px; font-size: 13px; color: #999; }
-.statistics-chart-wrap { position: relative; width: 100%; height: 390px; }
-.statistics-summary { display: flex; gap: 14px; margin-bottom: 22px; }
-.statistics-summary-item { flex: 1; padding: 14px 16px; border: 1px solid #e8e8e8; border-radius: 6px; background: #fafafa; }
-.statistics-summary-label { display: block; font-size: 12px; color: #888; margin-bottom: 6px; }
-.statistics-summary-value { font-size: 20px; font-weight: 700; color: #333; }
-</style>
+<!-- 통계 결과 영역 CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/statistics.css">
 
 </head>
 <body>

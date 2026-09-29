@@ -35,62 +35,71 @@
 			<h1 class="page-title">피해조치</h1>
 
 			<!-- ============= SEARCH ============= -->
+			<!-- 목록 한 줄 = 피해신청 1건 (조치 항목도 피해신청 정보에 함께 있음) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/caseActionList.jsp">
 
-				<!-- 기간 -->
+				<!-- 기간 (신청일) -->
 				<div class="search-row">
 
 					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-23" title="기간 종료일">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
 
-				<!-- 조치상태 -->
+				<!-- 신청상태 (코드 값은 협의 전 예시) -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">조치상태</label>
+					<label class="search-label" for="status">신청상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
-						<option value="WAIT">조치대기</option>
-						<option value="PROGRESS">조치진행</option>
-						<option value="HOLD">조치보류</option>
+						<option value="RECEIVED">접수</option>
+						<option value="INVESTIGATING">조사중</option>
+						<option value="IN_ACTION">조치중</option>
 						<option value="DONE">조치완료</option>
+						<option value="REJECTED">반려</option>
 					</select>
 
 				</div>
 
-				<!-- 피해조치번호 -->
+				<!-- 피해신청번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="actionNo">피해조치번호</label> <input type="text" id="actionNo" name="actionNo" class="search-input normal" placeholder="ACT-2026-00135">
+					<label class="search-label" for="applyNo">피해신청번호</label> <input type="text" id="applyNo" name="applyNo" class="search-input normal" placeholder="REQ-2026-000127">
 
 				</div>
 
-				<!-- 조치유형 -->
+				<!-- 조치유형 (코드 값은 협의 전 예시) -->
 				<div class="search-row">
 
-					<label class="search-label" for="actionType">조치유형</label> <input type="text" id="actionType" name="actionType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="actionType">조치유형</label>
+					<select id="actionType" name="actionType" class="search-select">
+						<option value="">전체</option>
+						<option value="SHIP_STOP">출하중지</option>
+						<option value="SALE_STOP">판매중지</option>
+						<option value="DISPOSAL">폐기</option>
+						<option value="CONTROL">방제</option>
+					</select>
 
 				</div>
 
-				<!-- 대표자명 -->
+				<!-- 신청자명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="applicantName">신청자명</label> <input type="text" id="applicantName" name="applicantName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
-				<!-- 단체/상호명 -->
+				<!-- 농장명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="farmName">농장명</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
-				<!-- 구분 -->
+				<!-- 신청자 분류 -->
 				<div class="search-row">
 
-					<span class="search-label">구분</span>
+					<span class="search-label">신청자 분류</span>
 					<div class="radio-group">
 						<label><input type="radio" name="targetType" value="" checked> 전체</label>
 						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
@@ -120,8 +129,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해조치 목록</span> <span>총<strong>2</strong>건
-				</span>
+				<span class="result-count">피해조치 목록</span> <span>총<strong>2</strong>건</span>
 
 			</div>
 
@@ -133,37 +141,37 @@
 
 					<thead>
 						<tr>
-							<th scope="col">피해조치번호</th>
-							<th scope="col">시작일</th>
-							<th scope="col">구분</th>
-							<th scope="col">대표자명</th>						
-							<th scope="col">단체/상호명</th>
-							<th scope="col">조치유형</th>
+							<th scope="col">피해신청번호</th>
+							<th scope="col">신청일</th>
+							<th scope="col">신청자 분류</th>
+							<th scope="col">신청자명</th>
+							<th scope="col">농장명</th>
 							<th scope="col">품목명</th>
-							<th scope="col">조치상태</th>
+							<th scope="col">조치유형</th>
+							<th scope="col">신청상태</th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<tr>
-							<td>ACT-2026-00136</td>
-							<td>2026-09-01</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
+							<td>2026-09-22</td>
 							<td>생산자</td>
-							<td>이복자</td>
-							<td>가원농장</td>
-							<td>가뭄</td>
+							<td>박연자</td>
+							<td>동동과수원</td>
 							<td>복숭아</td>
-							<td>조치대기</td>
+							<td>출하중지</td>
+							<td>조사중</td>
 						</tr>
-					
+
 						<tr>
-							<td>ACT-2026-00135</td>
-							<td>2026-09-01</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+							<td>2026-09-21</td>
 							<td>생산자</td>
 							<td>김현아</td>
 							<td>행복농장</td>
-							<td>병해충</td>
 							<td>사과</td>
+							<td>폐기</td>
 							<td>조치완료</td>
 						</tr>
 					</tbody>

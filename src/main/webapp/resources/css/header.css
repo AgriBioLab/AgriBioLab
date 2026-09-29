@@ -56,6 +56,30 @@
 	font-size: 14px;
 }
 
+/* 마이페이지 링크: 사람 아이콘 + 글자 */
+.mypage-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.mypage-link:hover {
+	color: #18589a;
+}
+
+.mypage-icon {
+	flex-shrink: 0;
+}
+
+/* 모바일 메뉴 안: 마이페이지·로그아웃을 오른쪽에 나란히 */
+.all-menu-user-btns {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+}
+
 /* ============= GNB ============= */
 .gnb {
 	height: 60px;

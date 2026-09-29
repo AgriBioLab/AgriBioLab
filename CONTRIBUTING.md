@@ -58,7 +58,7 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 
 | 말머리 | 언제 | 예 |
 |---|---|---|
-| `feat` | 새 화면·기능 | `feat: 보상처리 상세 화면 추가` |
+| `feat` | 새 화면·기능 | `feat: 보상·지원 상세 화면 추가` |
 | `fix` | 버그·오타·잘못된 링크 수정 | `fix: 농산물 사건 목록 깨진 ul 태그 정리` |
 | `design` | CSS·화면 모양 변경 | `design: 검색조건 2열 배치` |
 | `refactor` | 동작·모양은 그대로, 구조만 정리 | `refactor: 화면 공통 head 영역을 head.jsp로 분리` |
@@ -75,7 +75,7 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 
 ### 피할 것
 - `수정`, `최종`, `ㅇㅇ`처럼 무엇을 했는지 알 수 없는 메시지
-- 파일명만 적은 메시지 (`compensationList.jsp 수정`) → 화면·기능 이름으로
+- 파일명만 적은 메시지 (`compensationSupportList.jsp 수정`) → 화면·기능 이름으로
 - 참고한 기준이나 근거 설명 → 커밋 대신 **PR 본문**에
 
 ### 커밋 전 확인
@@ -88,7 +88,7 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 ## 4. PR 규칙
 
 - **base는 `dev`.** `main`으로는 제출·시연 전에만 `dev`에서 올린다.
-- 제목은 대표 커밋처럼 쓴다. 예: `feat: 보상처리 상세 화면 추가`
+- 제목은 대표 커밋처럼 쓴다. 예: `feat: 보상·지원 상세 화면 추가`
 - 본문은 PR 템플릿을 채운다. **화면 스크린샷**을 꼭 넣는다.
 - **다른 사람 화면이나 공통 파일**을 바꿨으면 "확인 요청"에 적고, 그 담당자를 리뷰어로 지정한다.
 - **승인 1명**을 받은 뒤 병합한다.
@@ -106,7 +106,7 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 |---|---|
 | `view/head.jsp` | 모든 화면 공통 `<head>` (meta, 웹폰트, 공통 CSS) |
 | `view/header.jsp` | 상단 헤더·GNB·전체 메뉴 |
-| `view/side_○○.jsp` | 메뉴별 사이드메뉴 (예: `side_compensation.jsp`는 보상처리 목록·상세가 함께 사용) |
+| `view/side_○○.jsp` | 메뉴별 사이드메뉴 (예: `side_compensationSupport.jsp`는 보상·지원 목록·상세가 함께 사용) |
 | `resources/css/common.css` | 전체 공통 스타일 |
 
 수정하기 전에 팀에 먼저 알린다.
@@ -124,13 +124,13 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 | 기간 | `startDate`, `endDate` | |
 | 상태 | `status` | "전체"는 `value=""` |
 | 번호 | `receiptNo` / `actionNo` / `caseNo` | 화면별 |
-| 유형 | `caseType` / `ncType` | 화면별 |
+| 유형 | `caseType` / `actionType` | 화면별 |
 | 대표자명 / 단체·상호명 | `ownerName` / `bizName` | |
 | 구분 | `targetType` | `PRODUCER`, `DISTRIBUTOR`, `SELLER` |
 | 품목명 | `itemName` | |
 
 - 입력칸 `name`은 영문 camelCase로 쓴다.
-- 상세 화면으로 넘기는 번호 파라미터는 **`no`**로 통일한다. 예: `compensationDetail.jsp?no=2026-004582`
+- 상세 화면으로 넘기는 번호 파라미터는 **`no`**로 통일한다. 예: `compensationSupportDetail.jsp?no=2026-004582`
 
 ---
 

@@ -11,16 +11,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 
-<style>
-.statistics-result { margin-top: 28px; padding: 24px 28px 20px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
-.statistics-result-title { margin: 0; font-size: 20px; font-weight: 600; color: #444; }
-.statistics-result-desc { margin: 7px 0 20px; font-size: 13px; color: #999; }
-.statistics-chart-wrap { position: relative; width: 100%; height: 390px; }
-.statistics-summary { display: flex; gap: 14px; margin-bottom: 22px; }
-.statistics-summary-item { flex: 1; padding: 14px 16px; border: 1px solid #e8e8e8; border-radius: 6px; background: #fafafa; }
-.statistics-summary-label { display: block; font-size: 12px; color: #888; margin-bottom: 6px; }
-.statistics-summary-value { font-size: 20px; font-weight: 700; color: #333; }
-</style>
+<!-- 통계 결과 영역 CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/statistics.css">
 
 </head>
 <body>
@@ -45,89 +37,65 @@
 			<!-- Page Title -->
 			<h1 class="page-title">재해종류별 통계</h1>
 
-<!-- ============= SEARCH ============= -->
+			<!-- ============= SEARCH ============= -->
+			<!-- 통계 검색조건: 아래 그래프의 재해종류·보상상태 값과 같은 기준 -->
+			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
-<form class="search-box"
-	method="get"
-	action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
+				<!-- 기간 -->
+				<div class="search-row">
 
-	<!-- 기간 -->
-	<div class="search-row">
+					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
-		<label class="search-label" for="startDate">기간</label>
+				</div>
 
-		<input type="date"
-			   id="startDate"
-			   name="startDate"
-			   class="search-input date"
-			   value="2026-09-01">
+				<!-- 재해종류 -->
+				<div class="search-row">
 
-		<span class="date-separator">~</span>
+					<label class="search-label" for="disasterType">재해종류</label>
+					<select id="disasterType" name="disasterType" class="search-select">
+						<option value="">전체</option>
+						<option value="DROUGHT">가뭄</option>
+						<option value="FLOOD">침수</option>
+						<option value="TYPHOON">태풍</option>
+						<option value="HAIL">우박</option>
+						<option value="COLD">냉해</option>
+						<option value="SNOW">대설</option>
+					</select>
 
-		<input type="date"
-			   id="endDate"
-			   name="endDate"
-			   class="search-input date"
-			   value="2026-09-29"
-			   title="기간 종료일">
+				</div>
 
-	</div>
+				<!-- 품목명 -->
+				<div class="search-row">
 
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="품목명을 입력하세요">
 
-	<!-- 품목명 -->
-	<div class="search-row">
+				</div>
 
-		<label class="search-label" for="itemName">품목명</label>
+				<!-- 보상상태 -->
+				<div class="search-row">
 
-		<input type="text"
-			   id="itemName"
-			   name="itemName"
-			   class="search-input normal"
-			   placeholder="품목명을 입력하세요">
+					<label class="search-label" for="status">보상상태</label>
+					<select id="status" name="status" class="search-select">
+						<option value="">전체</option>
+						<option value="RECEIVED">접수</option>
+						<option value="REVIEWING">심사중</option>
+						<option value="APPROVED">지급결정</option>
+						<option value="PAID">지급완료</option>
+						<option value="REJECTED">반려</option>
+					</select>
 
-	</div>
+				</div>
 
+				<!-- 검색 / 초기화 -->
+				<div class="search-row full search-actions">
 
-	<!-- 보상상태 -->
-	<div class="search-row">
+					<button type="submit" class="search-btn">검색</button>
+					<button type="reset" class="reset-btn">초기화</button>
 
-		<label class="search-label" for="compensationStatus">
-			보상상태
-		</label>
+				</div>
 
-		<select id="compensationStatus"
-				name="compensationStatus"
-				class="search-select">
-
-			<option value="">전체</option>
-			<option value="RECEIVED">접수</option>
-			<option value="REVIEWING">심사중</option>
-			<option value="APPROVED">지급결정</option>
-			<option value="PAID">지급완료</option>
-			<option value="REJECTED">반려</option>
-
-		</select>
-
-	</div>
-
-
-	<!-- 검색 / 초기화 -->
-
-	<div class="search-row full search-actions">
-
-		<button type="submit" class="search-btn">
-			검색
-		</button>
-
-		<button type="reset" class="reset-btn">
-			초기화
-		</button>
-
-	</div>
-
-</form>
-
-
+			</form>
 
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
@@ -138,7 +106,7 @@
 					<h2 class="statistics-result-title">재해종류별 보상지급현황</h2>
 
 					<p class="statistics-result-desc">
-						검색 조건에 해당하는 보상처리 데이터를 재해종류별로 집계한 통계입니다.
+						검색 조건에 해당하는 보상·지원 데이터를 재해종류별로 집계한 통계입니다.
 					</p>
 
 					<!-- 요약 수치 -->

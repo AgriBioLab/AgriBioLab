@@ -56,7 +56,7 @@ ul {
 	margin: 0 8px;
 }
 
-/* 첫 글자("홈") 앞 여백은 없앰 → 아래 페이지 제목과 왼쪽 시작선을 맞춤 */
+/*  페이지 제목과 왼쪽 시작선을 맞춤 */
 .breadcrumb span:first-child {
 	margin-left: 0;
 }

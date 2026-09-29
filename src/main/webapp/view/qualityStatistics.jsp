@@ -38,6 +38,7 @@
 			<h1 class="page-title">재해종류별 통계</h1>
 
 			<!-- ============= SEARCH ============= -->
+			<!-- 통계 검색조건: 아래 그래프의 재해종류·보상상태 값과 같은 기준 -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
 				<!-- 기간 -->
@@ -45,6 +46,22 @@
 
 					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
+
+				</div>
+
+				<!-- 재해종류 -->
+				<div class="search-row">
+
+					<label class="search-label" for="disasterType">재해종류</label>
+					<select id="disasterType" name="disasterType" class="search-select">
+						<option value="">전체</option>
+						<option value="DROUGHT">가뭄</option>
+						<option value="FLOOD">침수</option>
+						<option value="TYPHOON">태풍</option>
+						<option value="HAIL">우박</option>
+						<option value="COLD">냉해</option>
+						<option value="SNOW">대설</option>
+					</select>
 
 				</div>
 

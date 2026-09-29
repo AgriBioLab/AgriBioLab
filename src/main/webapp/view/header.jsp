@@ -60,10 +60,10 @@
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 사건</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 재해</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 사건</a></li>
-							<li><a href="#">농산물 사건 내역</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 재해</a></li>
+							<li><a href="#">농산물 재해 내역</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -79,7 +79,7 @@
 			<li><a href="qualityStatistics.jsp">품질통계</a></li>
 			<li class="active"><a href="compensationSupportList.jsp">보상·지원</a></li>
 			<li><a href="caseActionList.jsp">사건조치</a></li>
-			<li><a href="agricultureCaseList.jsp">농산물 사건</a></li>
+			<li><a href="agricultureCaseList.jsp">농산물 재해</a></li>
 		</ul>
 	</div>
 </nav>

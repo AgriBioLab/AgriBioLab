@@ -144,8 +144,8 @@
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 							<tr>
-								<td class="cell-text">농산물 이력 증명서</td>
-								<td>○○농협</td>
+								<td class="cell-text">농업경영체 등록확인서</td>
+								<td>신청자 제출</td>
 								<td>2026-09-23</td>
 								<td>미확인</td>
 								<td>-</td>

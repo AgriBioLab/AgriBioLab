@@ -37,89 +37,48 @@
 			<!-- Page Title -->
 			<h1 class="page-title">재해종류별 통계</h1>
 
-<!-- ============= SEARCH ============= -->
+			<!-- ============= SEARCH ============= -->
+			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
-<form class="search-box"
-	method="get"
-	action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
+				<!-- 기간 -->
+				<div class="search-row">
 
-	<!-- 기간 -->
-	<div class="search-row">
+					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
-		<label class="search-label" for="startDate">기간</label>
+				</div>
 
-		<input type="date"
-			   id="startDate"
-			   name="startDate"
-			   class="search-input date"
-			   value="2026-09-01">
+				<!-- 품목명 -->
+				<div class="search-row">
 
-		<span class="date-separator">~</span>
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="품목명을 입력하세요">
 
-		<input type="date"
-			   id="endDate"
-			   name="endDate"
-			   class="search-input date"
-			   value="2026-09-29"
-			   title="기간 종료일">
+				</div>
 
-	</div>
+				<!-- 보상상태 -->
+				<div class="search-row">
 
+					<label class="search-label" for="status">보상상태</label>
+					<select id="status" name="status" class="search-select">
+						<option value="">전체</option>
+						<option value="RECEIVED">접수</option>
+						<option value="REVIEWING">심사중</option>
+						<option value="APPROVED">지급결정</option>
+						<option value="PAID">지급완료</option>
+						<option value="REJECTED">반려</option>
+					</select>
 
-	<!-- 품목명 -->
-	<div class="search-row">
+				</div>
 
-		<label class="search-label" for="itemName">품목명</label>
+				<!-- 검색 / 초기화 -->
+				<div class="search-row full search-actions">
 
-		<input type="text"
-			   id="itemName"
-			   name="itemName"
-			   class="search-input normal"
-			   placeholder="품목명을 입력하세요">
+					<button type="submit" class="search-btn">검색</button>
+					<button type="reset" class="reset-btn">초기화</button>
 
-	</div>
+				</div>
 
-
-	<!-- 보상상태 -->
-	<div class="search-row">
-
-		<label class="search-label" for="compensationStatus">
-			보상상태
-		</label>
-
-		<select id="compensationStatus"
-				name="compensationStatus"
-				class="search-select">
-
-			<option value="">전체</option>
-			<option value="RECEIVED">접수</option>
-			<option value="REVIEWING">심사중</option>
-			<option value="APPROVED">지급결정</option>
-			<option value="PAID">지급완료</option>
-			<option value="REJECTED">반려</option>
-
-		</select>
-
-	</div>
-
-
-	<!-- 검색 / 초기화 -->
-
-	<div class="search-row full search-actions">
-
-		<button type="submit" class="search-btn">
-			검색
-		</button>
-
-		<button type="reset" class="reset-btn">
-			초기화
-		</button>
-
-	</div>
-
-</form>
-
-
+			</form>
 
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">

@@ -1,0 +1,31 @@
+# ===== 빌드 결과물 (Eclipse가 자동 생성) =====
+/build/
+/bin/
+/target/
+*.class
+*.war
+
+# ===== Eclipse 작업공간·서버 (PC마다 다름) =====
+.metadata/
+Servers/
+*.launch
+
+# ===== 다른 에디터 =====
+.idea/
+.vscode/
+
+# ===== 로그·임시 파일 =====
+*.log
+*.tmp
+*.bak
+
+# ===== OS 자동 생성 파일 =====
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ===== 비밀 정보 (DB 연결 시) =====
+db.properties
+*.env
+
+# .project, .classpath, .settings/ 는 올린다 (Import만 하면 바로 실행되도록)

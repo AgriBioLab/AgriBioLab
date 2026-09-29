@@ -55,6 +55,12 @@
 	text-align: left;
 }
 
+/* ============= 상세 안의 목록 표 (1:N 정보: 현장조사, 제출서류 등) ============= */
+/* 목록 표는 가운데 정렬이 기본이라, 문장이 들어가는 칸만 왼쪽 정렬 */
+.list-table td.cell-text {
+	text-align: left;
+}
+
 /* ============= 하단 이동 ============= */
 .detail-actions {
 	padding-top: 30px;

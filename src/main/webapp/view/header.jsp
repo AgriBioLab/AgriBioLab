@@ -5,12 +5,12 @@
 	<div class="header-inner">
 		<div class="logo">
 			<div class="logo-icon">로고</div>
-			<span>농산물</span>
+			<span>농산물피해조치</span>
 		</div>
 
 		<!-- 로그인 정보 영역 -->
 		<div class="header-right">
-			<span class="user-name">품질담당자</span> <span class="user-name">이*규님</span>
+			<span class="user-name">피해조치담당자</span> <span class="user-name">이*규님</span>
 			<!-- 마이페이지: 아이콘 + 글자 함께 표시 (아이콘만 두면 의미를 알기 어려움) -->
 			<a class="mypage-link" href="${pageContext.request.contextPath}/view/myPage.jsp">
 				<svg class="mypage-icon" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -27,7 +27,7 @@
 			<nav class="all-menu-panel">
 				<!-- 767px 이하: 헤더에서 숨긴 로그인 정보를 메뉴 맨 위에 표시 (메뉴가 길어도 스크롤 없이 보이게) -->
 				<div class="all-menu-user">
-					<span class="user-name">품질담당자 이*규님</span>
+					<span class="user-name">피해조치담당자 이*규님</span>
 					<span class="all-menu-user-btns">
 						<a class="mypage-link" href="${pageContext.request.contextPath}/view/myPage.jsp">
 							<svg class="mypage-icon" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -39,24 +39,17 @@
 
 				<ul class="all-menu-list">
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">품질통계</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">통계</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">보상금</a></li>
 							<li><a href="#">신청/지급건수</a></li>
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상·지원</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상·지원</a></li>
-							<li><a href="#">보상·지원 내역</a></li>
-						</ul>
-					</li>
-					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">사건조치</a>
-						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">사건조치</a></li>
-							<li><a href="#">사건조치 내역</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a></li>
+							<li><a href="#">피해조치 내역</a></li>
 						</ul>
 					</li>
 					<li>
@@ -64,6 +57,13 @@
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">농산물 재해</a></li>
 							<li><a href="#">농산물 재해 내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a></li>
+							<li><a href="#">보상처리 내역</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -76,10 +76,10 @@
 <nav class="gnb">
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
-			<li><a href="qualityStatistics.jsp">품질통계</a></li>
-			<li class="active"><a href="compensationSupportList.jsp">보상·지원</a></li>
-			<li><a href="caseActionList.jsp">사건조치</a></li>
+			<li><a href="qualityStatistics.jsp">통계</a></li>
+			<li><a href="caseActionList.jsp">피해조치</a></li>
 			<li><a href="agricultureCaseList.jsp">농산물 재해</a></li>
+			<li class="active"><a href="compensationSupportList.jsp">보상처리</a></li>
 		</ul>
 	</div>
 </nav>

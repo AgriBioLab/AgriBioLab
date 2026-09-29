@@ -4,7 +4,7 @@
 .side-menu {
 	width: 220px;
 	flex-shrink: 0;
-	padding-top: 45px;
+	padding-top: 97px;	/* 사이드 제목을 페이지 제목(h1)과 같은 높이에 맞춤 (본문 윗여백 + breadcrumb 줄만큼 내림) */
 	border-right: 1px solid #ddd;
 }
 
@@ -36,7 +36,7 @@
 .side-menu-list li a {
 	display: block;
 	padding: 13px 25px;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .side-menu-list li.active a {
@@ -47,4 +47,12 @@
 
 .side-menu-list li a:hover {
 	background: #f5f7f9;
+}
+
+/* ============= 반응형 ============= */
+/* 1023px 이하: 사이드메뉴 숨김 (헤더의 전체 메뉴로 이동) */
+@media (max-width: 1023px) {
+	.side-menu {
+		display: none;
+	}
 }

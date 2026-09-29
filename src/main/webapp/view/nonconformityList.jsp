@@ -1,30 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%@ include file="head.jsp"%>
 
 <title>농산물 품질 - 부적합 조치</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- 헤더 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-
-<!-- 공통 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
-
-<!-- 사이드 메뉴 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
-
-<!-- Search Box CSS -->
+<!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
-
-<!-- table CSS -->
+<!-- 목록 표 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
-
 </head>
 
 <body>
@@ -34,31 +19,16 @@
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
-		<!-- ============= SIDE MENU ============= -->
-		<aside class="side-menu">
-
-			<div class="side-title">부적합 조치</div>
-
-			<div class="side-section">
-
-				<div class="side-section-title">부적합 조치</div>
-
-				<ul class="side-menu-list">
-					<li class="active"><a href="#">부적합 조치</a></li>
-					 <li><a href="#">부적합 조치 내역</a></li>
-				</ul>
-
-			</div>
-
-		</aside>
+		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
+		<%@ include file="side_nonconformity.jsp"%>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
 
 			<!-- Breadcrumb -->
-			<div class="breadcrumb">
+			<nav class="breadcrumb">
 				<span>홈</span> &gt; <span>부적합 조치</span> &gt; <span>부적합 조치</span>
-			</div>
+			</nav>
 
 
 			<!-- Page Title -->
@@ -70,16 +40,16 @@
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label">기간</label> <input type="date" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" name="endDate" class="search-input date" value="2026-09-23">
+					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-23" title="기간 종료일">
 
 				</div>
 
 				<!-- 조치상태 -->
 				<div class="search-row">
 
-					<label class="search-label">조치상태</label>
-					<select name="status" class="search-select">
+					<label class="search-label" for="status">조치상태</label>
+					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="WAIT">조치대기</option>
 						<option value="PROGRESS">조치진행</option>
@@ -92,28 +62,28 @@
 				<!-- 부적합조치번호 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합조치번호</label> <input type="text" name="actionNo" class="search-input normal" placeholder="NCR-2026-00135">
+					<label class="search-label" for="actionNo">부적합조치번호</label> <input type="text" id="actionNo" name="actionNo" class="search-input normal" placeholder="NCR-2026-00135">
 
 				</div>
 
 				<!-- 부적합유형 -->
 				<div class="search-row">
 
-					<label class="search-label">부적합유형</label> <input type="text" name="ncType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="ncType">부적합유형</label> <input type="text" id="ncType" name="ncType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
 				<!-- 대표자명 -->
 				<div class="search-row">
 
-					<label class="search-label">대표자명</label> <input type="text" name="ownerName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
 				<!-- 단체/상호명 -->
 				<div class="search-row">
 
-					<label class="search-label">단체/상호명</label> <input type="text" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -133,7 +103,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label">품목명</label> <input type="text" name="itemName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -156,45 +126,49 @@
 			</div>
 
 			<!-- ============= TABLE ============= -->
-			<table class="list-table">
+			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
+			<div class="table-wrap">
+				<table class="list-table">
+					<caption class="sr-only">부적합 조치 목록</caption>
 
-				<thead>
-					<tr>
-						<th>부적합조치번호</th>
-						<th>시작일</th>
-						<th>구분</th>
-						<th>대표자명</th>						
-						<th>단체/상호명</th>
-						<th>부적합유형</th>
-						<th>품목명</th>
-						<th>조치상태</th>
-					</tr>
-				</thead>
+					<thead>
+						<tr>
+							<th scope="col">부적합조치번호</th>
+							<th scope="col">시작일</th>
+							<th scope="col">구분</th>
+							<th scope="col">대표자명</th>						
+							<th scope="col">단체/상호명</th>
+							<th scope="col">부적합유형</th>
+							<th scope="col">품목명</th>
+							<th scope="col">조치상태</th>
+						</tr>
+					</thead>
 
-				<tbody>
-					<tr>
-						<td>NCR-2026-00136</td>
-						<td>2026-09-01</td>
-						<td>생산자</td>
-						<td>이복자</td>
-						<td>가원농장</td>
-						<td>가뭄</td>
-						<td>복숭아</td>
-						<td>조치대기</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td>NCR-2026-00136</td>
+							<td>2026-09-01</td>
+							<td>생산자</td>
+							<td>이복자</td>
+							<td>가원농장</td>
+							<td>가뭄</td>
+							<td>복숭아</td>
+							<td>조치대기</td>
+						</tr>
 					
-					<tr>
-						<td>NCR-2026-00135</td>
-						<td>2026-09-01</td>
-						<td>생산자</td>
-						<td>김현아</td>
-						<td>행복농장</td>
-						<td>병해충</td>
-						<td>사과</td>
-						<td>조치완료</td>
-					</tr>
-				</tbody>
-			</table>
+						<tr>
+							<td>NCR-2026-00135</td>
+							<td>2026-09-01</td>
+							<td>생산자</td>
+							<td>김현아</td>
+							<td>행복농장</td>
+							<td>병해충</td>
+							<td>사과</td>
+							<td>조치완료</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
 		</main>
 

@@ -29,22 +29,23 @@
 }
 
 .search-label {
-	width: 100px;
+	width: 110px;	/* 14px 글자 기준 가장 긴 라벨(부적합조치번호)이 한 줄에 들어가는 폭 */
 	flex-shrink: 0;
 	font-weight: 600;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .search-input {
-	height: 36px;
+	height: 40px;
 	border: 1px solid #bbb;
 	border-radius: 3px;
 	padding: 0 10px;
 	background: white;
+	font-size: 14px;
 }
 
 .search-input.date {
-	width: 122px;	/* 기간(날짜 2개)이 반쪽 칸에 들어가도록 */
+	width: 130px;	/* 기간(날짜 2개)이 반쪽 칸에 들어가도록 */
 }
 
 .search-input.normal {
@@ -57,22 +58,23 @@
 
 .search-select {
 	width: 160px;
-	height: 36px;
+	height: 40px;
 	border: 1px solid #bbb;
 	border-radius: 3px;
 	padding: 0 8px;
 	background: white;
+	font-size: 14px;
 }
 
 .search-btn {
-	height: 36px;
+	height: 40px;
 	margin-left: 10px;
 	padding: 0 22px;
 	border: 1px solid #333;
 	border-radius: 3px;
 	background: #333;
 	color: white;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 /* 버튼 줄에서는 왼쪽 여백 불필요 */
@@ -82,14 +84,14 @@
 
 /* 초기화 버튼: 검색 버튼과 같은 크기, 흰 배경 */
 .reset-btn {
-	height: 36px;
+	height: 40px;
 	margin-left: 8px;
 	padding: 0 22px;
 	border: 1px solid #333;
 	border-radius: 3px;
 	background: white;
 	color: #333;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .reset-btn:hover {
@@ -103,11 +105,49 @@
 
 .radio-group label {
 	margin-right: 10px;
-	font-size: 13px;
+	font-size: 14px;
 	cursor: pointer;
 }
 
 .radio-group input {
 	margin-right: 4px;
 	vertical-align: middle;
+}
+
+/* ============= 반응형 ============= */
+/* 1279px 이하: 검색조건 1열
+   (1024~1279px 는 사이드메뉴가 있어 본문이 좁아 2열이 들어가지 않음) */
+@media (max-width: 1279px) {
+	.search-box {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* 767px 이하: 라벨 위, 입력칸 아래 (입력칸 전체 폭) */
+@media (max-width: 767px) {
+	.search-box {
+		padding: 20px 16px;
+		row-gap: 16px;
+	}
+
+	.search-row {
+		flex-wrap: wrap;
+	}
+
+	.search-label {
+		width: 100%;
+		margin-bottom: 6px;
+	}
+
+	.search-input.normal,
+	.search-select {
+		width: 100%;
+	}
+
+	/* 기간: 날짜 두 칸이 한 줄을 나눠 씀 */
+	.search-input.date {
+		flex: 1;
+		width: auto;
+		min-width: 0;
+	}
 }

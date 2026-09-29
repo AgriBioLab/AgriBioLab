@@ -3,6 +3,33 @@
 /* ============= 상세화면 공통 (조회 전용) ============= */
 /* 페이지 제목은 목록과 같은 common.css 의 .page-title 사용 */
 
+/* ============= 제목 + 상세 번호 ============= */
+/* 제목은 왼쪽, 지금 보고 있는 건의 번호는 오른쪽 위 (좁은 화면에서는 제목 아래로 내려감) */
+.detail-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px 24px;
+	margin-bottom: 45px;
+}
+
+.detail-head .page-title {
+	margin-bottom: 0;
+}
+
+.detail-no {
+	margin: 0;
+	font-size: 15px;
+	color: #666;
+}
+
+.detail-no strong {
+	margin-left: 8px;
+	font-size: 18px;
+	color: #222;
+}
+
 /* ============= 섹션 ============= */
 .detail-section {
 	margin-bottom: 40px;
@@ -83,6 +110,10 @@
 /* ============= 반응형 ============= */
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
+	.detail-head {
+		margin-bottom: 24px;	/* 모바일 페이지 제목 아래 간격과 같게 */
+	}
+
 	.detail-table,
 	.detail-table tbody {
 		display: block;

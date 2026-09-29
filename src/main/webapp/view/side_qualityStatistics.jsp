@@ -2,7 +2,7 @@
 <%-- 사이드메뉴 공통: qualityStatistics.jsp 에서 <%@ include file="side_qualityStatistics.jsp"%> 로 사용 --%>
 <aside class="side-menu">
 
-	<div class="side-title">품질통계</div>
+	<div class="side-title">통계</div>
 
 	<div class="side-section">
 

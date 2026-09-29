@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 보상·지원</title>
+<title>농산물피해조치 - 보상처리</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상·지원</span> &gt; <span>보상·지원</span>
+				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>보상처리</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상·지원</h1>
+			<h1 class="page-title">보상처리</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/compensationSupportList.jsp">
@@ -64,10 +64,10 @@
 
 				</div>
 
-				<!-- 사건유형 -->
+				<!-- 재해유형 -->
 				<div class="search-row">
 
-					<label class="search-label" for="caseType">사건유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="caseType">재해유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
 
 				</div>
 
@@ -118,7 +118,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">보상·지원 목록</span> <span>총<strong>2</strong>건
+				<span class="result-count">보상처리 목록</span> <span>총<strong>2</strong>건
 				</span>
 
 			</div>
@@ -127,7 +127,7 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
-					<caption class="sr-only">보상·지원 목록</caption>
+					<caption class="sr-only">보상처리 목록</caption>
 
 					<thead>
 						<tr>
@@ -136,7 +136,7 @@
 							<th scope="col">구분</th>
 							<th scope="col">대표자명</th>
 							<th scope="col">단체/상호명</th>
-							<th scope="col">사건유형</th>
+							<th scope="col">재해유형</th>
 							<th scope="col">품목명</th>
 							<th scope="col">처리상태</th>
 						</tr>

@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 사건조치</title>
+<title>농산물피해조치 - 피해조치</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>사건조치</span> &gt; <span>사건조치</span>
+				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>피해조치</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">사건조치</h1>
+			<h1 class="page-title">피해조치</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/caseActionList.jsp">
@@ -59,10 +59,10 @@
 
 				</div>
 
-				<!-- 사건조치번호 -->
+				<!-- 피해조치번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="actionNo">사건조치번호</label> <input type="text" id="actionNo" name="actionNo" class="search-input normal" placeholder="ACT-2026-00135">
+					<label class="search-label" for="actionNo">피해조치번호</label> <input type="text" id="actionNo" name="actionNo" class="search-input normal" placeholder="ACT-2026-00135">
 
 				</div>
 
@@ -120,7 +120,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">사건조치 목록</span> <span>총<strong>2</strong>건
+				<span class="result-count">피해조치 목록</span> <span>총<strong>2</strong>건
 				</span>
 
 			</div>
@@ -129,11 +129,11 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
-					<caption class="sr-only">사건조치 목록</caption>
+					<caption class="sr-only">피해조치 목록</caption>
 
 					<thead>
 						<tr>
-							<th scope="col">사건조치번호</th>
+							<th scope="col">피해조치번호</th>
 							<th scope="col">시작일</th>
 							<th scope="col">구분</th>
 							<th scope="col">대표자명</th>						

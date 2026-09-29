@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 품질통계</title>
+<title>농산물피해조치 - 통계</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -30,7 +30,7 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>품질통계</span> &gt; <span>재해종류별 통계</span>
+				<span>홈</span> &gt; <span>통계</span> &gt; <span>재해종류별 통계</span>
 			</nav>
 
 
@@ -106,7 +106,7 @@
 					<h2 class="statistics-result-title">재해종류별 보상지급현황</h2>
 
 					<p class="statistics-result-desc">
-						검색 조건에 해당하는 보상·지원 데이터를 재해종류별로 집계한 통계입니다.
+						검색 조건에 해당하는 보상처리 데이터를 재해종류별로 집계한 통계입니다.
 					</p>
 
 					<!-- 요약 수치 -->

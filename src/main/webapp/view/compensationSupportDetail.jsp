@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물 품질 - 보상·지원 상세</title>
+<title>농산물피해조치 - 보상처리 상세</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -25,11 +25,11 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상·지원</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>상세</span>
 			</nav>
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상·지원 상세</h1>
+			<h1 class="page-title">보상처리 상세</h1>
 
 			<!-- ============= 보상 기본정보 (목록 2026-004582 행 기준) ============= -->
 			<section class="detail-section">
@@ -53,7 +53,7 @@
 					<tr>
 						<th scope="row">구분</th>
 						<td>생산자</td>
-						<th scope="row">사건유형</th>
+						<th scope="row">재해유형</th>
 						<td>병해충</td>
 					</tr>
 					<tr>
@@ -65,7 +65,7 @@
 					<tr>
 						<th scope="row">품목명</th>
 						<td>사과</td>
-						<th scope="row">관련 사건번호</th>
+						<th scope="row">관련 재해번호</th>
 						<td><a class="case-link" href="${pageContext.request.contextPath}/view/agricultureCaseDetail.jsp?no=INC-2026-000127">INC-2026-000127</a></td>
 					</tr>
 				</table>

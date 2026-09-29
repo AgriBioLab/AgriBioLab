@@ -30,15 +30,15 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>통계</span> &gt; <span>재해종류별 통계</span>
+				<span>홈</span> &gt; <span>통계</span> &gt; <span>재해유형별 통계</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">재해종류별 통계</h1>
+			<h1 class="page-title">재해유형별 통계</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 통계 검색조건: 아래 그래프의 재해종류·보상상태 값과 같은 기준 -->
+			<!-- 통계 검색조건: 아래 그래프의 재해유형·보상상태 값과 같은 기준 -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
 				<!-- 기간 -->
@@ -49,10 +49,10 @@
 
 				</div>
 
-				<!-- 재해종류 -->
+				<!-- 재해유형 -->
 				<div class="search-row">
 
-					<label class="search-label" for="disasterType">재해종류</label>
+					<label class="search-label" for="disasterType">재해유형</label>
 					<select id="disasterType" name="disasterType" class="search-select">
 						<option value="">전체</option>
 						<option value="DROUGHT">가뭄</option>
@@ -103,10 +103,10 @@
 				<!-- ============= STATISTICS ============= -->
 				<section class="statistics-result">
 
-					<h2 class="statistics-result-title">재해종류별 보상지급현황</h2>
+					<h2 class="statistics-result-title">재해유형별 보상지급현황</h2>
 
 					<p class="statistics-result-desc">
-						검색 조건에 해당하는 보상처리 데이터를 재해종류별로 집계한 통계입니다.
+						검색 조건에 해당하는 피해조치 데이터를 재해유형별로 집계한 통계입니다.
 					</p>
 
 					<!-- 요약 수치 -->
@@ -129,7 +129,7 @@
 
 					</div>
 
-					<!-- 재해종류별 그래프 -->
+					<!-- 재해유형별 그래프 -->
 					<div class="statistics-chart-wrap">
 						<canvas id="disasterStatisticsChart"></canvas>
 					</div>

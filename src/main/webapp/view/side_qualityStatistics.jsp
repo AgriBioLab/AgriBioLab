@@ -9,7 +9,7 @@
 		<div class="side-section-title">보상금</div>
 
 		<ul class="side-menu-list">
-			<li class="active"><a href="#">재해종류별</a></li>
+			<li class="active"><a href="#">재해유형별</a></li>
 			<li><a href="#">지역별</a></li>
 			<li><a href="#">기간별</a></li>
 			<li><a href="#">품목별</a></li>
@@ -18,7 +18,7 @@
 		<div class="side-section-title">신청/지급건수</div>
 
 		<ul class="side-menu-list">
-			<li class="active"><a href="#">재해종류별</a></li>
+			<li class="active"><a href="#">재해유형별</a></li>
 			<li><a href="#">지역별</a></li>
 			<li><a href="#">기간별</a></li>
 			<li><a href="#">품목별</a></li>

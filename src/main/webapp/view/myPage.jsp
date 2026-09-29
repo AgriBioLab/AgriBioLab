@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<th scope="row">담당 업무</th>
-						<td colspan="3">보상처리, 부적합 조치, 농산물 사건 관리</td>
+						<td colspan="3">보상·지원, 사건조치, 농산물 사건 관리</td>
 					</tr>
 					<tr>
 						<th scope="row">사무실 전화</th>
@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th scope="row">사용 메뉴</th>
-						<td colspan="3">품질통계, 보상처리, 부적합 조치, 농산물 사건</td>
+						<td colspan="3">품질통계, 보상·지원, 사건조치, 농산물 사건</td>
 					</tr>
 					<tr>
 						<th scope="row">담당 지역</th>

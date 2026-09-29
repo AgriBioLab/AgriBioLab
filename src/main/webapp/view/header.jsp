@@ -59,13 +59,6 @@
 							<li><a href="#">농산물 재해 내역</a></li>
 						</ul>
 					</li>
-					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a>
-						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a></li>
-							<li><a href="#">보상처리 내역</a></li>
-						</ul>
-					</li>
 				</ul>
 			</nav>
 		</details>
@@ -77,9 +70,8 @@
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
 			<li><a href="qualityStatistics.jsp">통계</a></li>
-			<li><a href="caseActionList.jsp">피해조치</a></li>
+			<li class="active"><a href="caseActionList.jsp">피해조치</a></li>
 			<li><a href="agricultureCaseList.jsp">농산물 재해</a></li>
-			<li class="active"><a href="compensationSupportList.jsp">보상처리</a></li>
 		</ul>
 	</div>
 </nav>

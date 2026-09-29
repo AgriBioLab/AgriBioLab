@@ -8,6 +8,20 @@
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<style>
+.statistics-result { margin-top: 28px; padding: 24px 28px 20px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
+.statistics-result-title { margin: 0; font-size: 20px; font-weight: 600; color: #444; }
+.statistics-result-desc { margin: 7px 0 20px; font-size: 13px; color: #999; }
+.statistics-chart-wrap { position: relative; width: 100%; height: 390px; }
+.statistics-summary { display: flex; gap: 14px; margin-bottom: 22px; }
+.statistics-summary-item { flex: 1; padding: 14px 16px; border: 1px solid #e8e8e8; border-radius: 6px; background: #fafafa; }
+.statistics-summary-label { display: block; font-size: 12px; color: #888; margin-bottom: 6px; }
+.statistics-summary-value { font-size: 20px; font-weight: 700; color: #333; }
+</style>
+
 </head>
 <body>
 
@@ -18,7 +32,7 @@
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
 		<%@ include file="side_qualityStatistics.jsp"%>
-		
+
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
 
@@ -31,70 +45,218 @@
 			<!-- Page Title -->
 			<h1 class="page-title">재해종류별 통계</h1>
 
-			<!-- ============= SEARCH ============= -->
-			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
+<!-- ============= SEARCH ============= -->
 
-				<!-- 기간 -->
-				<div class="search-row">
+<form class="search-box"
+	method="get"
+	action="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
 
-					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-23" title="기간 종료일">
+	<!-- 기간 -->
+	<div class="search-row">
 
-				</div>
+		<label class="search-label" for="startDate">기간</label>
 
-				<!-- 처리상태 -->
-				<div class="search-row">
+		<input type="date"
+			   id="startDate"
+			   name="startDate"
+			   class="search-input date"
+			   value="2026-09-01">
 
-					<label class="search-label" for="status">처리상태</label>
-					<select id="status" name="status" class="search-select">
-						<option value="">전체</option>
-						<option value="REVIEW">보상검토중</option>
-						<option value="DONE">보상완료</option>
-					</select>
+		<span class="date-separator">~</span>
 
-				</div>
+		<input type="date"
+			   id="endDate"
+			   name="endDate"
+			   class="search-input date"
+			   value="2026-09-29"
+			   title="기간 종료일">
 
-				<!-- 구분 -->
-				<div class="search-row">
+	</div>
 
-					<span class="search-label">구분</span>
-					<div class="radio-group">
-						<label><input type="radio" name="targetType" value="" checked> 전체</label>
-						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
-						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
-						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
-					</div>
 
-				</div>
+	<!-- 품목명 -->
+	<div class="search-row">
 
-				<!-- 품목명 -->
-				<div class="search-row">
+		<label class="search-label" for="itemName">품목명</label>
 
-					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="품목명을 입력하세요">
+		<input type="text"
+			   id="itemName"
+			   name="itemName"
+			   class="search-input normal"
+			   placeholder="품목명을 입력하세요">
 
-				</div>
+	</div>
 
-				<!-- 신청인명 -->
-				<div class="search-row">
 
-					<label class="search-label" for="applicantName">신청인명(상호)</label> <input type="text" id="applicantName" name="applicantName" class="search-input normal" placeholder="신청인명을 입력하세요">
+	<!-- 보상상태 -->
+	<div class="search-row">
 
-				</div>
+		<label class="search-label" for="compensationStatus">
+			보상상태
+		</label>
 
-				<!-- 검색 / 초기화 -->
-				<div class="search-row full search-actions">
+		<select id="compensationStatus"
+				name="compensationStatus"
+				class="search-select">
 
-					<button type="submit" class="search-btn">검색</button>
-					<button type="reset" class="reset-btn">초기화</button>
+			<option value="">전체</option>
+			<option value="RECEIVED">접수</option>
+			<option value="REVIEWING">심사중</option>
+			<option value="APPROVED">지급결정</option>
+			<option value="PAID">지급완료</option>
+			<option value="REJECTED">반려</option>
 
-				</div>
+		</select>
 
-			</form>
+	</div>
+
+
+	<!-- 검색 / 초기화 -->
+
+	<div class="search-row full search-actions">
+
+		<button type="submit" class="search-btn">
+			검색
+		</button>
+
+		<button type="reset" class="reset-btn">
+			초기화
+		</button>
+
+	</div>
+
+</form>
+
+
 
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
+				<!-- ============= STATISTICS ============= -->
+				<section class="statistics-result">
+
+					<h2 class="statistics-result-title">재해종류별 보상지급현황</h2>
+
+					<p class="statistics-result-desc">
+						검색 조건에 해당하는 보상처리 데이터를 재해종류별로 집계한 통계입니다.
+					</p>
+
+					<!-- 요약 수치 -->
+					<div class="statistics-summary">
+
+						<div class="statistics-summary-item">
+							<span class="statistics-summary-label">총 신청금액</span>
+							<span class="statistics-summary-value">12,840백만원</span>
+						</div>
+
+						<div class="statistics-summary-item">
+							<span class="statistics-summary-label">총 지급금액</span>
+							<span class="statistics-summary-value">9,420백만원</span>
+						</div>
+
+						<div class="statistics-summary-item">
+							<span class="statistics-summary-label">지급률</span>
+							<span class="statistics-summary-value">73.4%</span>
+						</div>
+
+					</div>
+
+					<!-- 재해종류별 그래프 -->
+					<div class="statistics-chart-wrap">
+						<canvas id="disasterStatisticsChart"></canvas>
+					</div>
+
+				</section>
+
 			</div>
+
+			<script>
+				// 현재는 JSP 화면 확인을 위한 예시 데이터입니다.
+				// 추후 Controller에서 DB 집계 결과를 전달받아 이 값만 교체하면 됩니다.
+				const disasterLabels = [
+					"가뭄",
+					"침수",
+					"태풍",
+					"우박",
+					"냉해",
+					"대설"
+				];
+
+				const requestedAmounts = [
+					2150, 2850, 2350, 1420, 1780, 2290
+				];
+
+				const paidAmounts = [
+					1540, 2100, 1760, 980, 1320, 1720
+				];
+
+				new Chart(document.getElementById("disasterStatisticsChart"), {
+					type: "bar",
+
+					data: {
+						labels: disasterLabels,
+
+						datasets: [
+							{
+								label: "신청금액(백만원)",
+								data: requestedAmounts,
+								backgroundColor: "#4285F4",
+								barThickness: 18
+							},
+							{
+								label: "지원·보상금액(백만원)",
+								data: paidAmounts,
+								backgroundColor: "#F04438",
+								barThickness: 18
+							}
+						]
+					},
+
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+
+						plugins: {
+							legend: {
+								position: "bottom",
+								labels: {
+									boxWidth: 12,
+									padding: 18,
+									font: { size: 12 }
+								}
+							},
+
+							tooltip: {
+								callbacks: {
+									label: function(context) {
+										return context.dataset.label + ": "
+											+ context.raw.toLocaleString() + "백만원";
+									}
+								}
+							}
+						},
+
+						scales: {
+							y: {
+								beginAtZero: true,
+								title: {
+									display: true,
+									text: "금액(백만원)"
+								},
+								grid: {
+									color: "#e5e5e5"
+								}
+							},
+
+							x: {
+								grid: {
+									display: false
+								}
+							}
+						}
+					}
+				});
+			</script>
 
 		</main>
 	</div>

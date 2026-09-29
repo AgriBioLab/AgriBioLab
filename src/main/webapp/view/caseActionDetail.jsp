@@ -30,13 +30,16 @@
 				<span>홈</span> &gt; <span>피해신청</span> &gt; <span>상세</span>
 			</nav>
 
-			<!-- Page Title -->
-			<h1 class="page-title">피해신청 상세</h1>
+			<!-- Page Title + 이 상세의 번호 (오른쪽 위) -->
+			<div class="detail-head">
+				<h1 class="page-title">피해신청 상세</h1>
+				<p class="detail-no">피해신청번호 <strong>REQ-2026-000127</strong></p>
+			</div>
 
 			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000127 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회) --%>
 
 			<!-- ============= 피해신청정보 ============= -->
-			<!-- 목록에서 누른 피해신청번호 기준 (조치 항목도 피해신청 정보에 함께 있음) -->
+			<!-- 피해신청번호는 제목 오른쪽 위에 표시 (조치 항목도 피해신청 정보에 함께 있음) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청정보</h2>
@@ -44,22 +47,16 @@
 				<table class="detail-table">
 					<caption class="sr-only">피해신청정보</caption>
 					<tr>
-						<th scope="row">피해신청번호</th>
-						<td>REQ-2026-000127</td>
 						<th scope="row">신청상태</th>
 						<td>조치완료</td>
-					</tr>
-					<tr>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
-						<th scope="row">신청자 분류</th>
-						<td>생산자</td>
 					</tr>
 					<tr>
+						<th scope="row">신청자 분류</th>
+						<td>생산자</td>
 						<th scope="row">신청자명</th>
 						<td>김현아</td>
-						<th scope="row">농산물 이력번호</th>
-						<td>TR-2026-004802</td>
 					</tr>
 				</table>
 
@@ -84,6 +81,7 @@
 			</section>
 
 			<!-- ============= 생산자정보 ============= -->
+			<%-- 생산자정보_일련번호로 연결 (조회용 키라 화면에는 표시하지 않음) --%>
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">생산자정보</h2>
@@ -99,89 +97,14 @@
 					<tr>
 						<th scope="row">품목명</th>
 						<td>사과</td>
-						<th scope="row">재배지역</th>
-						<td>경북 영주</td>
-					</tr>
-					<tr>
 						<th scope="row">재배면적</th>
-						<td colspan="3">5,000㎡</td>
+						<td>5,000㎡</td>
+					</tr>
+					<tr>
+						<th scope="row">농장주소</th>
+						<td colspan="3">경상북도 영주시 풍기읍 ○○로 123</td>
 					</tr>
 				</table>
-
-			</section>
-
-			<!-- ============= 피해조치정보 ============= -->
-			<!-- 조치 기간 = 조치 시작일 ~ 조치 완료일 (첫 줄에 colspan이 있으면 고정 폭 표의 칸 너비가 틀어져서 한 칸으로 묶음) -->
-			<section class="detail-section">
-
-				<h2 class="detail-section-title">피해조치정보</h2>
-
-				<table class="detail-table">
-					<caption class="sr-only">피해조치정보</caption>
-					<tr>
-						<th scope="row">조치유형</th>
-						<td>폐기</td>
-						<th scope="row">조치 기간</th>
-						<td>2026-09-24 ~ 2026-09-27</td>
-					</tr>
-					<tr>
-						<th scope="row">조치 대상 수량</th>
-						<td>1,200kg</td>
-						<th scope="row">조치 대상 면적</th>
-						<td>3,500㎡</td>
-					</tr>
-					<tr>
-						<th scope="row">출하 중지 여부</th>
-						<td>중지</td>
-						<th scope="row">판매 중지 여부</th>
-						<td>중지</td>
-					</tr>
-				</table>
-
-			</section>
-
-			<!-- ============= 피해현장조사 정보 (여러 건) ============= -->
-			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시 -->
-			<section class="detail-section">
-
-				<h2 class="detail-section-title">피해현장조사 정보</h2>
-
-				<div class="table-wrap">
-					<table class="list-table">
-						<caption class="sr-only">피해현장조사 정보</caption>
-						<thead>
-							<tr>
-								<th scope="col">조사일</th>
-								<th scope="col">조사담당자명</th>
-								<th scope="col">피해유형</th>
-								<th scope="col">피해면적</th>
-								<th scope="col">피해율</th>
-								<th scope="col">피해내용</th>
-								<th scope="col">현장조사결과</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>2026-09-22</td>
-								<td>박민수</td>
-								<td>병해충</td>
-								<td>2,000㎡</td>
-								<td>40%</td>
-								<td class="cell-text">탄저병 초기 증상 확인</td>
-								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
-							</tr>
-							<tr>
-								<td>2026-09-24</td>
-								<td>박민수</td>
-								<td>병해충</td>
-								<td>3,500㎡</td>
-								<td>70%</td>
-								<td class="cell-text">과실 상품성이 저하되고 수확량이 감소함</td>
-								<td class="cell-text">피해 과실 폐기 필요</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 
 			</section>
 
@@ -231,6 +154,81 @@
 						</tbody>
 					</table>
 				</div>
+
+			</section>
+
+			<!-- ============= 피해현장조사 정보 (여러 건) ============= -->
+			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시 -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">피해현장조사 정보</h2>
+
+				<div class="table-wrap">
+					<table class="list-table">
+						<caption class="sr-only">피해현장조사 정보</caption>
+						<thead>
+							<tr>
+								<th scope="col">조사일</th>
+								<th scope="col">조사담당자명</th>
+								<th scope="col">피해유형</th>
+								<th scope="col">피해면적</th>
+								<th scope="col">피해율</th>
+								<th scope="col">피해내용</th>
+								<th scope="col">현장조사결과</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2026-09-22</td>
+								<td>박민수</td>
+								<td>병해충</td>
+								<td>2,000㎡</td>
+								<td>40%</td>
+								<td class="cell-text">탄저병 초기 증상 확인</td>
+								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
+							</tr>
+							<tr>
+								<td>2026-09-24</td>
+								<td>박민수</td>
+								<td>병해충</td>
+								<td>3,500㎡</td>
+								<td>70%</td>
+								<td class="cell-text">과실 상품성이 저하되고 수확량이 감소함</td>
+								<td class="cell-text">피해 과실 폐기 필요</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</section>
+
+			<!-- ============= 피해조치정보 ============= -->
+			<!-- 조치 기간 = 조치 시작일 ~ 조치 완료일 (첫 줄에 colspan이 있으면 고정 폭 표의 칸 너비가 틀어져서 한 칸으로 묶음) -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">피해조치정보</h2>
+
+				<table class="detail-table">
+					<caption class="sr-only">피해조치정보</caption>
+					<tr>
+						<th scope="row">조치유형</th>
+						<td>폐기</td>
+						<th scope="row">조치 기간</th>
+						<td>2026-09-24 ~ 2026-09-27</td>
+					</tr>
+					<tr>
+						<th scope="row">조치 대상 수량</th>
+						<td>1,200kg</td>
+						<th scope="row">조치 대상 면적</th>
+						<td>3,500㎡</td>
+					</tr>
+					<tr>
+						<th scope="row">출하 중지 여부</th>
+						<td>중지</td>
+						<th scope="row">판매 중지 여부</th>
+						<td>중지</td>
+					</tr>
+				</table>
 
 			</section>
 

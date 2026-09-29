@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<th scope="row">담당 업무</th>
-						<td colspan="3">피해조치, 농산물 재해, 보상처리 관리</td>
+						<td colspan="3">피해조치, 농산물 재해 관리</td>
 					</tr>
 					<tr>
 						<th scope="row">사무실 전화</th>
@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th scope="row">사용 메뉴</th>
-						<td colspan="3">통계, 피해조치, 농산물 재해, 보상처리</td>
+						<td colspan="3">통계, 피해조치, 농산물 재해</td>
 					</tr>
 					<tr>
 						<th scope="row">담당 지역</th>

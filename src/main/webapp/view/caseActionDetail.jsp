@@ -77,7 +77,7 @@
 					<caption class="sr-only">재해정보</caption>
 					<tr>
 						<th scope="row">재해정보번호</th>
-						<td>INC-2026-000127</td>
+						<td>DIS-2026-000127</td>
 						<th scope="row">재해유형</th>
 						<td>병해충</td>
 					</tr>

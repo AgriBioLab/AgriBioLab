@@ -9,7 +9,7 @@
 		<div class="side-section-title">보상처리</div>
 
 		<ul class="side-menu-list">
-			<li class="active"><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 목록</a></li>
+			<li class="active"><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a></li>
 		</ul>
 
 	</div>

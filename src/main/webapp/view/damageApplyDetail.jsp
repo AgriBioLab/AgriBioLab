@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해신청 상세</title>
+<title>농산물피해조치 - 피해신청</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>피해신청</span>
 			</nav>
 
 			<!-- Page Title + 이 상세의 번호 (피해신청번호 = 신청·조치 화면 공통 조회 키) -->
 			<div class="detail-head">
-				<h1 class="page-title">피해신청 상세</h1>
+				<h1 class="page-title">피해신청</h1>
 				<p class="detail-no">피해신청번호 <strong>REQ-2026-000136</strong></p>
 			</div>
 

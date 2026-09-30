@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해신청 목록</title>
+<title>농산물피해조치 - 피해신청</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청</span> &gt; <span>피해신청 목록</span>
+				<span>홈</span> &gt; <span>피해신청</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해신청 목록</h1>
+			<h1 class="page-title">피해신청</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 상호(업체)로 표시, 대표자 이름은 상세에서만 (생산자 신청이면 상호와 생산 농장이 같음) -->
@@ -134,7 +134,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해신청 목록</span> <span>총<strong>10</strong>건</span>
+				<span class="result-count">검색 결과</span> <span>총<strong>10</strong>건</span>
 
 			</div>
 

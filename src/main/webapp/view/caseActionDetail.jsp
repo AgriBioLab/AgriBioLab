@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해조치 상세</title>
+<title>농산물피해조치 - 피해조치</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -27,11 +27,11 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>피해조치</span>
 			</nav>
 
 			<!-- Page Title (조치에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
-			<h1 class="page-title">피해조치 상세</h1>
+			<h1 class="page-title">피해조치</h1>
 
 			<!-- ============= 요약 정보 ============= -->
 			<!-- 조치 단계 요약 (조사 완료·조치 완료 날짜는 바로 아래 처리 흐름에서, 전체 처리 일수는 보상처리 상세에서) -->

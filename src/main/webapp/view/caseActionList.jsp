@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해조치 목록</title>
+<title>농산물피해조치 - 피해조치</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>피해조치 목록</span>
+				<span>홈</span> &gt; <span>피해조치</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해조치 목록</h1>
+			<h1 class="page-title">피해조치</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 조치 기준 목록: 한 줄 = 피해신청 1건의 조치 (조사중·조치 이행·조치완료), 조회 키는 피해신청번호 -->
@@ -112,7 +112,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해조치 목록</span> <span>총<strong>6</strong>건</span>
+				<span class="result-count">검색 결과</span> <span>총<strong>6</strong>건</span>
 
 			</div>
 

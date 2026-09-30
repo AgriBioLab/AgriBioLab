@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 보상처리 상세</title>
+<title>농산물피해조치 - 보상처리</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -27,11 +27,11 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>상세</span>
+				<span>홈</span> &gt; <span>보상처리</span>
 			</nav>
 
 			<!-- Page Title (보상에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
-			<h1 class="page-title">보상처리 상세</h1>
+			<h1 class="page-title">보상처리</h1>
 
 			<!-- ============= 요약 정보 ============= -->
 			<!-- 핵심 화면 모니터링용: 청구액과 최종 산정액의 차이, 처리 일수(신청일 ~ 지급일, 부지급은 결정일, 진행 중은 경과일), 지급일은 바로 아래 처리 흐름에서 -->

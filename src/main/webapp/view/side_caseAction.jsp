@@ -9,7 +9,7 @@
 		<div class="side-section-title">피해조치</div>
 
 		<ul class="side-menu-list">
-			<li class="active"><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 목록</a></li>
+			<li class="active"><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a></li>
 		</ul>
 
 	</div>

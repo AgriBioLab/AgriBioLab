@@ -88,7 +88,7 @@
 					</tr>
 					<tr>
 						<th scope="row">판정자</th>
-						<td>박민수</td>
+						<td>정우진 (팀장)</td>
 						<th scope="row">판정일</th>
 						<td>2026-10-01</td>
 					</tr>

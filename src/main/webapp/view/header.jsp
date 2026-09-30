@@ -48,9 +48,9 @@
 					</li>
 					--%>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해신청</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해신청 목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 목록</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -66,7 +66,7 @@
 			<%-- 통계 메뉴 숨김 (다시 보이려면 이 주석만 해제)
 			<li><a href="qualityStatistics.jsp">통계</a></li>
 			--%>
-			<li class="active"><a href="caseActionList.jsp">피해신청</a></li>
+			<li class="active"><a href="caseActionList.jsp">피해조치</a></li>
 		</ul>
 	</div>
 </nav>

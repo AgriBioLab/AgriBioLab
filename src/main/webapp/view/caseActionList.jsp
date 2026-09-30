@@ -94,6 +94,13 @@
 
 				</div>
 
+				<!-- 처리 담당자 -->
+				<div class="search-row">
+
+					<label class="search-label" for="managerName">처리 담당자</label> <input type="text" id="managerName" name="managerName" class="search-input normal" placeholder="박민수">
+
+				</div>
+
 				<!-- 검색 / 초기화 -->
 				<div class="search-row full search-actions">
 
@@ -113,7 +120,8 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 재해유형·품목명: 등록된 재해정보에서 불러온 값 / 조치 기간·종결일: 조치 전이거나 진행 중이면 '-' --%>
+			<%-- 모니터링 기준: 처리 담당자(배정), 처리 일수(종결 건은 신청일~종결일, 진행 중은 오늘까지 '○일 경과'), 종결일(진행 중이면 '-')
+			     재해유형·품목명은 등록된 재해정보에서 불러온 값 --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">피해조치 목록</caption>
@@ -125,8 +133,9 @@
 							<th scope="col">품목명</th>
 							<th scope="col">재해유형</th>
 							<th scope="col">조치유형</th>
-							<th scope="col">조치 기간</th>
 							<th scope="col">진행상태</th>
+							<th scope="col">처리 담당자</th>
+							<th scope="col">처리 일수</th>
 							<th scope="col">종결일</th>
 						</tr>
 					</thead>
@@ -139,8 +148,9 @@
 							<td>벼</td>
 							<td>침수</td>
 							<td>-</td>
-							<td>-</td>
 							<td>조치 대상 아님</td>
+							<td>김서연</td>
+							<td>3일</td>
 							<td>2026-09-29</td>
 						</tr>
 
@@ -150,8 +160,9 @@
 							<td>감귤</td>
 							<td>태풍</td>
 							<td>-</td>
-							<td>-</td>
 							<td>조사중</td>
+							<td>최지훈</td>
+							<td>5일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -161,8 +172,9 @@
 							<td>고추</td>
 							<td>병해충</td>
 							<td>회수</td>
-							<td>2026-09-27 ~ 2026-10-04</td>
 							<td>조치 이행</td>
+							<td>박민수</td>
+							<td>6일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -172,8 +184,9 @@
 							<td>배추</td>
 							<td>침수</td>
 							<td>용도변경</td>
-							<td>2026-09-26 ~ 2026-10-03</td>
 							<td>조치 이행</td>
+							<td>김서연</td>
+							<td>6일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -183,8 +196,9 @@
 							<td>포도</td>
 							<td>우박</td>
 							<td>폐기</td>
-							<td>2026-09-25 ~ 2026-09-30</td>
 							<td>조치 이행</td>
+							<td>최지훈</td>
+							<td>7일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -194,8 +208,9 @@
 							<td>복숭아</td>
 							<td>가뭄</td>
 							<td>-</td>
-							<td>-</td>
 							<td>조사중</td>
+							<td>박민수</td>
+							<td>8일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -205,8 +220,9 @@
 							<td>사과</td>
 							<td>병해충</td>
 							<td>폐기</td>
-							<td>2026-09-24 ~ 2026-09-27</td>
 							<td>조치완료</td>
+							<td>박민수</td>
+							<td>7일</td>
 							<td>2026-09-28</td>
 						</tr>
 
@@ -216,8 +232,9 @@
 							<td>복숭아</td>
 							<td>병해충</td>
 							<td>회수</td>
-							<td>2026-09-20 ~ 2026-09-24</td>
 							<td>조치완료</td>
+							<td>박민수</td>
+							<td>7일</td>
 							<td>2026-09-25</td>
 						</tr>
 
@@ -227,8 +244,9 @@
 							<td>오이</td>
 							<td>냉해</td>
 							<td>용도변경</td>
-							<td>2026-09-17 ~ 2026-09-22</td>
 							<td>조치완료</td>
+							<td>최지훈</td>
+							<td>8일</td>
 							<td>2026-09-23</td>
 						</tr>
 					</tbody>

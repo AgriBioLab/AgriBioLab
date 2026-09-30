@@ -35,7 +35,7 @@
 			<h1 class="page-title">피해조치 목록</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건의 조치 (조사 이후 건만, 조회 키는 피해신청번호) -->
+			<!-- 목록 한 줄 = 피해신청 1건의 조치 (조사중·조치 이행·조치완료, 조회 키는 피해신청번호) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/caseActionList.jsp">
 
 				<!-- 기간 (신청일) -->
@@ -46,7 +46,7 @@
 
 				</div>
 
-				<!-- 진행상태: 조사 이후 건만 (접수·보완요청·반려는 피해신청 메뉴에서) -->
+				<!-- 진행상태: 조사 이후 조치가 진행되는 건만 (접수·보완요청·반려·조치 대상 아님은 피해신청 메뉴에서) -->
 				<div class="search-row">
 
 					<label class="search-label" for="status">진행상태</label>
@@ -55,7 +55,6 @@
 						<option value="INVESTIGATING">조사중</option>
 						<option value="IN_ACTION">조치 이행</option>
 						<option value="DONE">조치완료</option>
-						<option value="NOT_TARGET">조치 대상 아님</option>
 					</select>
 
 				</div>
@@ -114,7 +113,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해조치 목록</span> <span>총<strong>9</strong>건</span>
+				<span class="result-count">피해조치 목록</span> <span>총<strong>8</strong>건</span>
 
 			</div>
 
@@ -141,7 +140,7 @@
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 조사 이후 건 9건 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 조치 진행 건 8건 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
@@ -201,18 +200,6 @@
 							<td>최지훈</td>
 							<td>5일 경과</td>
 							<td>-</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
-							<td>푸른들영농조합</td>
-							<td>벼</td>
-							<td>침수</td>
-							<td>-</td>
-							<td>조치 대상 아님</td>
-							<td>김서연</td>
-							<td>3일</td>
-							<td>2026-09-29</td>
 						</tr>
 
 						<tr>

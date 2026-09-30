@@ -67,13 +67,6 @@
 
 				</div>
 
-				<!-- 처리 담당자 -->
-				<div class="search-row">
-
-					<label class="search-label" for="managerName">처리 담당자</label> <input type="text" id="managerName" name="managerName" class="search-input normal" placeholder="박민수">
-
-				</div>
-
 				<!-- 농장명 -->
 				<div class="search-row">
 
@@ -101,15 +94,15 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">보상처리 목록</span> <span>총<strong>8</strong>건</span>
+				<span class="result-count">보상처리 목록</span> <span>총<strong>4</strong>건</span>
 
 			</div>
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 핵심 화면(모니터링 첫 화면): 조치완료된 건만 보상처리로 넘어옴
-			     처리 일수 = 신청일 ~ 지급일(부지급은 결정일), 진행 중(심사중·지급결정)은 오늘까지 '○일 경과'
-			     정렬: 최신 신청이 위 (모든 목록 공통), 재해유형·품목명은 등록된 재해정보에서 불러온 값 --%>
+			<%-- 핵심 화면: 조치완료된 건만 보상처리로 넘어옴, 목록은 식별·금액·상태·지급일만
+			     (처리 담당자·처리 일수는 상세 요약에서, 담당자별·지연 분석은 통계에서)
+			     정렬: 최신 신청이 위, 최종 산정액 = 확인 수량 × 단가 × 지원율 (부지급은 '-') --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">보상처리 목록</caption>
@@ -122,13 +115,11 @@
 							<th scope="col">재해유형</th>
 							<th scope="col">최종 산정액</th>
 							<th scope="col">보상상태</th>
-							<th scope="col">처리 담당자</th>
-							<th scope="col">처리 일수</th>
 							<th scope="col">지급일</th>
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 보상상태 4가지 각 2건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 보상상태 4가지 각 1건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
@@ -137,94 +128,39 @@
 							<td>병해충</td>
 							<td>8,400,000원</td>
 							<td>지급완료</td>
-							<td>박민수</td>
-							<td>9일</td>
 							<td>2026-09-30</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
-							<td>바람농장</td>
-							<td>감자</td>
-							<td>침수</td>
-							<td>2,100,000원</td>
-							<td>심사중</td>
-							<td>최지훈</td>
-							<td>14일 경과</td>
-							<td>-</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
-							<td>은하농원</td>
-							<td>딸기</td>
-							<td>병해충</td>
-							<td>5,600,000원</td>
-							<td>지급결정</td>
-							<td>박민수</td>
-							<td>16일 경과</td>
-							<td>-</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000129">REQ-2026-000129</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 							<td>솔밭농장</td>
 							<td>배</td>
 							<td>우박</td>
 							<td>3,150,000원</td>
 							<td>심사중</td>
-							<td>김서연</td>
-							<td>18일 경과</td>
 							<td>-</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
-							<td>들녘농장</td>
-							<td>양파</td>
-							<td>가뭄</td>
-							<td>-</td>
-							<td>부지급</td>
-							<td>최지훈</td>
-							<td>11일</td>
-							<td>-</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 							<td>새봄농원</td>
 							<td>토마토</td>
 							<td>침수</td>
 							<td>2,450,000원</td>
 							<td>지급결정</td>
-							<td>김서연</td>
-							<td>20일 경과</td>
 							<td>-</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000126">REQ-2026-000126</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
 							<td>가원농장</td>
 							<td>복숭아</td>
 							<td>병해충</td>
 							<td>-</td>
 							<td>부지급</td>
-							<td>박민수</td>
-							<td>11일</td>
 							<td>-</td>
 						</tr>
 
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
-							<td>한울농장</td>
-							<td>오이</td>
-							<td>냉해</td>
-							<td>1,800,000원</td>
-							<td>지급완료</td>
-							<td>최지훈</td>
-							<td>14일</td>
-							<td>2026-09-22</td>
-						</tr>
 </tbody>
 				</table>
 			</div>

@@ -134,7 +134,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해신청 목록</span> <span>총<strong>20</strong>건</span>
+				<span class="result-count">피해신청 목록</span> <span>총<strong>10</strong>건</span>
 
 			</div>
 
@@ -159,21 +159,10 @@
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 진행상태 7가지 각 2건 이상, 총 20건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 진행상태 7가지 각 1건 (조치완료는 보상상태별 4건), 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000144">REQ-2026-000144</a></td>
-							<td>2026-09-29</td>
-							<td>생산자</td>
-							<td>김*호</td>
-							<td>초원농장</td>
-							<td>옥수수</td>
-							<td>접수</td>
-							<td>태풍</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000143">REQ-2026-000143</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000140">REQ-2026-000140</a></td>
 							<td>2026-09-28</td>
 							<td>생산자</td>
 							<td>정*숙</td>
@@ -184,18 +173,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000142">REQ-2026-000142</a></td>
-							<td>2026-09-27</td>
-							<td>생산자</td>
-							<td>권*윤</td>
-							<td>햇빛농장</td>
-							<td>고구마</td>
-							<td>보완요청</td>
-							<td>가뭄</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000141">REQ-2026-000141</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000139">REQ-2026-000139</a></td>
 							<td>2026-09-26</td>
 							<td>생산자</td>
 							<td>최*준</td>
@@ -206,18 +184,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000140">REQ-2026-000140</a></td>
-							<td>2026-09-25</td>
-							<td>생산자</td>
-							<td>윤*식</td>
-							<td>해뜰과수원</td>
-							<td>감귤</td>
-							<td>조사중</td>
-							<td>태풍</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000139">REQ-2026-000139</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
 							<td>2026-09-24</td>
 							<td>생산자</td>
 							<td>박*자</td>
@@ -225,17 +192,6 @@
 							<td>복숭아</td>
 							<td>조사중</td>
 							<td>가뭄</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
-							<td>2026-09-23</td>
-							<td>생산자</td>
-							<td>장*비</td>
-							<td>초록농원</td>
-							<td>배추</td>
-							<td>조치 이행</td>
-							<td>침수</td>
 						</tr>
 
 						<tr>
@@ -262,17 +218,6 @@
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000135">REQ-2026-000135</a></td>
-							<td>2026-09-19</td>
-							<td>생산자</td>
-							<td>임*늘</td>
-							<td>하늘농원</td>
-							<td>수박</td>
-							<td>반려</td>
-							<td>가뭄</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
 							<td>2026-09-18</td>
 							<td>생산자</td>
 							<td>강*연</td>
@@ -283,29 +228,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
-							<td>2026-09-17</td>
-							<td>생산자</td>
-							<td>노*정</td>
-							<td>맑은샘농장</td>
-							<td>상추</td>
-							<td>조치 대상 아님</td>
-							<td>우박</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
-							<td>2026-09-16</td>
-							<td>생산자</td>
-							<td>조*수</td>
-							<td>바람농장</td>
-							<td>감자</td>
-							<td>조치완료</td>
-							<td>침수</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
 							<td>2026-09-15</td>
 							<td>생산자</td>
 							<td>한*영</td>
@@ -316,18 +239,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
-							<td>2026-09-14</td>
-							<td>생산자</td>
-							<td>황*경</td>
-							<td>은하농원</td>
-							<td>딸기</td>
-							<td>조치완료</td>
-							<td>병해충</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000129">REQ-2026-000129</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 							<td>2026-09-12</td>
 							<td>생산자</td>
 							<td>배*우</td>
@@ -338,18 +250,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
-							<td>2026-09-11</td>
-							<td>생산자</td>
-							<td>오*라</td>
-							<td>들녘농장</td>
-							<td>양파</td>
-							<td>조치완료</td>
-							<td>가뭄</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 							<td>2026-09-10</td>
 							<td>생산자</td>
 							<td>문*호</td>
@@ -360,7 +261,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000126">REQ-2026-000126</a></td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
 							<td>2026-09-09</td>
 							<td>생산자</td>
 							<td>이*자</td>
@@ -368,17 +269,6 @@
 							<td>복숭아</td>
 							<td>조치완료</td>
 							<td>병해충</td>
-						</tr>
-
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
-							<td>2026-09-08</td>
-							<td>생산자</td>
-							<td>송*원</td>
-							<td>한울농장</td>
-							<td>오이</td>
-							<td>조치완료</td>
-							<td>냉해</td>
 						</tr>
 					</tbody>
 				</table>

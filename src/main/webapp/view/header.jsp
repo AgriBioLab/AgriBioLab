@@ -46,6 +46,12 @@
 						</ul>
 					</li>
 					<li>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a>
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 목록</a></li>
+						</ul>
+					</li>
+					<li>
 						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 목록</a></li>
@@ -68,6 +74,7 @@
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
 			<li><a href="qualityStatistics.jsp">통계</a></li>
+			<li><a href="compensationSupportList.jsp">보상처리</a></li>
 			<li class="active"><a href="caseActionList.jsp">피해조치</a></li>
 			<li><a href="damageApplyList.jsp">피해신청</a></li>
 		</ul>

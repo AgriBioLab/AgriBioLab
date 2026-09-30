@@ -8,7 +8,7 @@
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
-<!-- 목록 표 CSS (현장조사·제출서류처럼 여러 건인 정보) -->
+<!-- 목록 표 CSS (현장조사처럼 여러 건인 정보) -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
@@ -30,11 +30,8 @@
 				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>상세</span>
 			</nav>
 
-			<!-- Page Title + 이 상세의 번호 (오른쪽 위) -->
-			<div class="detail-head">
-				<h1 class="page-title">피해조치 상세</h1>
-				<p class="detail-no">피해신청번호 <strong>REQ-2026-000127</strong></p>
-			</div>
+			<!-- Page Title (조치에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
+			<h1 class="page-title">피해조치 상세</h1>
 
 			<!-- ============= 요약 정보 ============= -->
 			<!-- 담당자가 이 건의 현재 단계를 한눈에 보도록 핵심 값만 한 줄로 (자세한 값은 아래 표)
@@ -45,20 +42,12 @@
 					<dd>조치완료</dd>
 				</div>
 				<div>
-					<dt>재해유형</dt>
-					<dd>병해충</dd>
-				</div>
-				<div>
-					<dt>품목</dt>
-					<dd>사과</dd>
-				</div>
-				<div>
 					<dt>조치유형</dt>
 					<dd>폐기</dd>
 				</div>
 				<div>
-					<dt>신청일</dt>
-					<dd>2026-09-21</dd>
+					<dt>조치 기간</dt>
+					<dd>2026-09-24 ~ 2026-09-27</dd>
 				</div>
 				<div>
 					<dt>종결일</dt>
@@ -70,137 +59,27 @@
 			     진행상태 조치완료 = 서류 모두 확인 → 현장조사 완료 → 조치 결정 → 조치 이행 → 담당자 이행 확인까지 끝나 종결된 상태
 			     날짜 흐름: 발생 9/15 → 신청 9/21 → 서류 확인 9/22~23 → 조사 9/22·9/24 → 조치 기간 9/24~27 → 이행 9/27 → 이행 확인 9/28 --%>
 
-			<!-- ============= 피해신청정보 ============= -->
-			<!-- 피해신청번호는 제목 오른쪽 위에 표시 (조치 항목도 피해신청 정보에 함께 있음) -->
+			<!-- ============= 신청 요약 ============= -->
+			<!-- 담당자는 신청을 간단히 확인하고, 자세한 신청 내용은 피해신청 상세에서 (같은 피해신청번호로 조회) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">피해신청정보</h2>
+				<h2 class="detail-section-title">신청 요약</h2>
 
 				<table class="detail-table">
-					<caption class="sr-only">피해신청정보</caption>
+					<caption class="sr-only">신청 요약</caption>
 					<tr>
-						<th scope="row">진행상태</th>
-						<td>조치완료</td>
+						<th scope="row">피해신청번호</th>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a> (신청 상세 보기)</td>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
 					</tr>
 					<tr>
-						<th scope="row">신청자명</th>
-						<td>김현아</td>
-						<th scope="row">신청자 분류</th>
-						<td>생산자</td>
-					</tr>
-					<%-- 진행상태가 반려 / 조치 대상 아님일 때만 표시 (이 샘플은 조치완료라 숨김)
-					<tr>
-						<th scope="row">사유</th>
-						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>
-					</tr>
-					--%>
-				</table>
-
-			</section>
-
-			<!-- ============= 재해정보 ============= -->
-			<!-- 생산자가 신청할 때 등록된 재해를 우편번호 찾기처럼 골라 불러옴 → 신청에는 재해정보_일련번호만 저장
-		     재해 1건 = 품목 1개 (여러 품목이면 품목별로 재해를 따로 등록), 재해유형·품목·발생지역은 코드 → 이름으로 표시
-		     담당자 확인용: 발생 지역 ↔ 농장주소, 발생일 ↔ 신청일 (농산물 재해 메뉴를 다시 살리면 재해정보번호에 링크 연결) -->
-			<section class="detail-section">
-
-				<h2 class="detail-section-title">재해정보</h2>
-
-				<table class="detail-table">
-					<caption class="sr-only">재해정보</caption>
-					<tr>
-						<th scope="row">재해정보번호</th>
-						<td>DIS-2026-000127</td>
-						<th scope="row">재해유형</th>
-						<td>병해충</td>
-					</tr>
-					<tr>
-						<th scope="row">품목</th>
-						<td>사과</td>
-						<th scope="row">발생일</th>
-						<td>2026-09-15</td>
-					</tr>
-					<tr>
-						<th scope="row">발생 지역</th>
-						<td colspan="3">경상북도 영주시 풍기읍</td>
+						<th scope="row">신청자 · 농장</th>
+						<td>김현아 · 행복농장</td>
+						<th scope="row">재해유형 · 품목</th>
+						<td>병해충 · 사과</td>
 					</tr>
 				</table>
-
-			</section>
-
-			<!-- ============= 생산자정보 ============= -->
-			<%-- 생산자정보_일련번호로 연결 (조회용 키라 화면에는 표시하지 않음) --%>
-			<section class="detail-section">
-
-				<h2 class="detail-section-title">생산자정보</h2>
-
-				<table class="detail-table">
-					<caption class="sr-only">생산자정보</caption>
-					<tr>
-						<th scope="row">생산자명</th>
-						<td>김현아</td>
-						<th scope="row">농장명</th>
-						<td>행복농장</td>
-					</tr>
-					<tr>
-						<th scope="row">재배면적</th>
-						<td>5,000㎡</td>
-						<th scope="row">농장주소</th>
-						<td>경상북도 영주시 풍기읍 ○○로 123</td>
-					</tr>
-				</table>
-
-			</section>
-
-			<!-- ============= 피해신청서류 정보 (여러 건) ============= -->
-			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 -->
-			<section class="detail-section">
-
-				<h2 class="detail-section-title">피해신청서류 정보</h2>
-
-				<div class="table-wrap">
-					<table class="list-table">
-						<caption class="sr-only">피해신청서류 정보</caption>
-						<thead>
-							<tr>
-								<th scope="col">서류명</th>
-								<th scope="col">제출기관</th>
-								<th scope="col">제출일</th>
-								<th scope="col">확인상태</th>
-								<th scope="col">확인일</th>
-								<th scope="col">첨부파일</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="cell-text">피해신청서</td>
-								<td>신청자 제출</td>
-								<td>2026-09-21</td>
-								<td>확인</td>
-								<td>2026-09-22</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
-							<tr>
-								<td class="cell-text">피해 현장 사진</td>
-								<td>신청자 제출</td>
-								<td>2026-09-21</td>
-								<td>확인</td>
-								<td>2026-09-22</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
-							<tr>
-								<td class="cell-text">농업경영체 등록확인서</td>
-								<td>신청자 제출</td>
-								<td>2026-09-23</td>
-								<td>확인</td>
-								<td>2026-09-23</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 
 			</section>
 

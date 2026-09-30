@@ -69,7 +69,7 @@
 					<caption class="sr-only">신청 요약</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a> (신청 상세 보기)</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
 					</tr>

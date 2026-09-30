@@ -148,6 +148,7 @@
 							<th scope="col">신청자 분류</th>
 							<th scope="col">신청자명</th>
 							<th scope="col">농장명</th>
+							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
 							<th scope="col">진행상태</th>

@@ -85,7 +85,7 @@
 					</tr>
 					<tr>
 						<th scope="row">생산 농장</th>
-						<td colspan="3">행복농장 (신청 업체와 같음)</td>
+						<td colspan="3">행복농장</td>
 					</tr>
 					<tr>
 						<th scope="row">신청 서류</th>

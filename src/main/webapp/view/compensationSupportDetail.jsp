@@ -87,7 +87,7 @@
 					</tr>
 					<tr>
 						<th scope="row">생산 농장</th>
-						<td colspan="3">행복농장 (신청 업체와 같음)</td>
+						<td colspan="3">행복농장</td>
 					</tr>
 					<tr>
 						<th scope="row">신청 서류</th>
@@ -191,7 +191,7 @@
 						<th scope="row">지급 기관</th>
 						<td>○○도 농업재해지원팀</td>
 						<th scope="row">수령인</th>
-						<td>김*아 (청구인과 같음)</td>
+						<td>김*아</td>
 					</tr>
 					<tr>
 						<th scope="row">결정자</th>

@@ -48,19 +48,19 @@
 					<li>
 						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리</a></li>
 						</ul>
 					</li>
 					<li>
 						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치</a></li>
 						</ul>
 					</li>
 					<li>
 						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청 목록</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청</a></li>
 						</ul>
 					</li>
 				</ul>

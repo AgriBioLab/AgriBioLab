@@ -35,13 +35,13 @@
 			<h1 class="page-title">피해조치 목록</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건의 조치 (조사중·조치 이행·조치완료, 조회 키는 피해신청번호) -->
+			<!-- 조치 기준 목록: 한 줄 = 피해신청 1건의 조치 (조사중·조치 이행·조치완료), 조회 키는 피해신청번호 -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/caseActionList.jsp">
 
-				<!-- 기간 (신청일) -->
+				<!-- 조치 결정일 기간 (조치 기준 조회) -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+					<label class="search-label" for="startDate">조치 결정일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
@@ -79,10 +79,16 @@
 
 				</div>
 
-				<!-- 농장명 -->
+				<!-- 신청자 분류 (피해신청은 생산자·유통자·판매자 모두 가능) -->
 				<div class="search-row">
 
-					<label class="search-label" for="farmName">농장명</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
+					<span class="search-label">신청자 분류</span>
+					<div class="radio-group">
+						<label><input type="radio" name="targetType" value="" checked> 전체</label>
+						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+					</div>
 
 				</div>
 
@@ -112,8 +118,8 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 목록은 식별·상태·종결일만 (처리 담당자·처리 일수는 상세 요약에서, 담당자별·지연 분석은 통계에서)
-			     정렬: 최신 신청이 위 (모든 목록 공통), 재해유형·품목명은 등록된 재해정보에서 불러온 값 --%>
+			<%-- 조치 기준: 누구(신청자 분류·신청자)에게 어떤 조치를, 언제(조치 기간)·어디서(조치기관) 했고 언제 끝났나(조치 종결일)
+			     조사중이면 조치 항목은 '-', 신청자는 개인 이름 가림·업체명 그대로, 정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">피해조치 목록</caption>
@@ -121,12 +127,14 @@
 					<thead>
 						<tr>
 							<th scope="col">피해신청번호</th>
-							<th scope="col">농장명</th>
+							<th scope="col">신청자 분류</th>
+							<th scope="col">신청자</th>
 							<th scope="col">품목명</th>
-							<th scope="col">재해유형</th>
 							<th scope="col">조치유형</th>
+							<th scope="col">조치 기간</th>
+							<th scope="col">조치기관</th>
 							<th scope="col">진행상태</th>
-							<th scope="col">종결일</th>
+							<th scope="col">조치 종결일</th>
 						</tr>
 					</thead>
 
@@ -134,9 +142,11 @@
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
-							<td>동동과수원</td>
+							<td>생산자</td>
+							<td>박*자</td>
 							<td>복숭아</td>
-							<td>가뭄</td>
+							<td>-</td>
+							<td>-</td>
 							<td>-</td>
 							<td>조사중</td>
 							<td>-</td>
@@ -144,50 +154,60 @@
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000137">REQ-2026-000137</a></td>
-							<td>산마루농장</td>
+							<td>생산자</td>
+							<td>서*호</td>
 							<td>고추</td>
-							<td>병해충</td>
 							<td>회수</td>
+							<td>2026-09-26 ~ 2026-10-03</td>
+							<td>○○시 농업기술센터</td>
 							<td>조치 이행</td>
 							<td>-</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
-							<td>행복농장</td>
+							<td>생산자</td>
+							<td>김*아</td>
 							<td>사과</td>
-							<td>병해충</td>
 							<td>폐기</td>
+							<td>2026-09-24 ~ 2026-09-27</td>
+							<td>○○시 농업기술센터</td>
 							<td>조치완료</td>
 							<td>2026-09-28</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
-							<td>솔밭농장</td>
+							<td>생산자</td>
+							<td>배*우</td>
 							<td>배</td>
-							<td>우박</td>
 							<td>회수</td>
+							<td>2026-09-15 ~ 2026-09-19</td>
+							<td>○○군 농업기술센터</td>
 							<td>조치완료</td>
 							<td>2026-09-20</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
-							<td>새봄농원</td>
+							<td>판매자</td>
+							<td>새봄마트</td>
 							<td>토마토</td>
-							<td>침수</td>
 							<td>폐기</td>
+							<td>2026-09-13 ~ 2026-09-17</td>
+							<td>○○군 농업기술센터</td>
 							<td>조치완료</td>
 							<td>2026-09-18</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
-							<td>가원농장</td>
+							<td>생산자</td>
+							<td>이*자</td>
 							<td>복숭아</td>
-							<td>병해충</td>
 							<td>회수</td>
+							<td>2026-09-12 ~ 2026-09-16</td>
+							<td>○○시 농업기술센터</td>
 							<td>조치완료</td>
 							<td>2026-09-17</td>
 						</tr>

@@ -35,7 +35,7 @@
 			<h1 class="page-title">피해신청 목록</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청자 이름은 가림 -->
+			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청자는 생산자·유통자·판매자 (개인 이름은 가림, 업체명은 그대로) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/damageApplyList.jsp">
 
 				<!-- 기간 (신청일) -->
@@ -94,10 +94,10 @@
 
 				</div>
 
-				<!-- 농장명 -->
+				<!-- 생산 농장 (신청자가 유통자·판매자여도 생산한 농장은 항상 있음) -->
 				<div class="search-row">
 
-					<label class="search-label" for="farmName">농장명</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="farmName">생산 농장</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -150,7 +150,7 @@
 							<th scope="col">신청일</th>
 							<th scope="col">신청자 분류</th>
 							<th scope="col">신청자명</th>
-							<th scope="col">농장명</th>
+							<th scope="col">생산 농장</th>
 							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>
 							<th scope="col">진행상태</th>
@@ -175,8 +175,8 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000139">REQ-2026-000139</a></td>
 							<td>2026-09-26</td>
-							<td>생산자</td>
-							<td>최*준</td>
+							<td>유통자</td>
+							<td>청솔유통</td>
 							<td>청솔농장</td>
 							<td>배</td>
 							<td>보완요청</td>
@@ -252,8 +252,8 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 							<td>2026-09-10</td>
-							<td>생산자</td>
-							<td>문*호</td>
+							<td>판매자</td>
+							<td>새봄마트</td>
 							<td>새봄농원</td>
 							<td>토마토</td>
 							<td>조치완료</td>

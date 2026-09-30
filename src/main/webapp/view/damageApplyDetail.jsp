@@ -83,6 +83,12 @@
 						<th scope="row">사유</th>
 						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>
 					</tr>
+					<tr>
+						<th scope="row">판정자</th>
+						<td>이*규</td>
+						<th scope="row">판정일</th>
+						<td>2026-10-01</td>
+					</tr>
 					--%>
 				</table>
 
@@ -143,7 +149,7 @@
 			</section>
 
 			<!-- ============= 피해신청서류 정보 (여러 건) ============= -->
-			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 -->
+			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 (확인자·확인일을 짝으로 기록, 미확인이면 '-') -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청서류 정보</h2>
@@ -158,6 +164,7 @@
 								<th scope="col">제출일</th>
 								<th scope="col">확인상태</th>
 								<th scope="col">확인일</th>
+								<th scope="col">확인자</th>
 								<th scope="col">첨부파일</th>
 							</tr>
 						</thead>
@@ -168,6 +175,7 @@
 								<td>2026-09-21</td>
 								<td>확인</td>
 								<td>2026-09-22</td>
+								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 							<tr>
@@ -176,6 +184,7 @@
 								<td>2026-09-21</td>
 								<td>확인</td>
 								<td>2026-09-22</td>
+								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 							<tr>
@@ -184,6 +193,7 @@
 								<td>2026-09-23</td>
 								<td>확인</td>
 								<td>2026-09-23</td>
+								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 						</tbody>

@@ -30,6 +30,34 @@
 	color: #222;
 }
 
+/* ============= 요약 정보 (제목 아래 핵심 값 한 줄) ============= */
+.detail-summary {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	margin: 0 0 40px;
+	padding: 16px 0;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #ddd;
+	background: #fafafa;
+}
+
+.detail-summary div {
+	padding: 0 20px;
+}
+
+.detail-summary dt {
+	margin-bottom: 4px;
+	font-size: 14px;
+	color: #666;
+}
+
+.detail-summary dd {
+	margin: 0;
+	font-size: 17px;
+	font-weight: 700;
+	color: #222;
+}
+
 /* ============= 섹션 ============= */
 .detail-section {
 	margin-bottom: 40px;
@@ -110,6 +138,12 @@
 /* ============= 반응형 ============= */
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
+	/* 요약 정보: 한 줄에 2개씩 */
+	.detail-summary {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px 0;
+	}
+
 	.detail-head {
 		margin-bottom: 24px;	/* 모바일 페이지 제목 아래 간격과 같게 */
 	}

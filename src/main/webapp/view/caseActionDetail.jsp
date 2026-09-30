@@ -64,7 +64,7 @@
 			     날짜 흐름: 발생 9/15 → 신청 9/21 → 서류 확인 9/22~23 → 조사 9/22·9/24 → 조치 결정 9/24 → 조치 기간 9/24~27 → 이행 9/27 → 이행 확인 9/28 --%>
 
 			<!-- ============= 대상 정보 ============= -->
-			<!-- 누구의 무엇인지 식별 (신청일·신청 상세 이동은 처리 흐름에서), 신청자 이름은 가림, 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
+			<!-- 누구의 무엇인지 식별 (피해신청번호를 누르면 피해신청 상세, 단계별 날짜는 처리 흐름에서), 신청자 이름은 가림, 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">대상 정보</h2>
@@ -73,7 +73,7 @@
 					<caption class="sr-only">대상 정보</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td>REQ-2026-000136</td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 						<th scope="row">재해유형 · 품목</th>
 						<td>병해충 · 사과</td>
 					</tr>

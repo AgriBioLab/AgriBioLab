@@ -9,6 +9,7 @@
 	<ol class="detail-flow">
 		<li class="is-done step-apply">신청 <span class="flow-date">2026-09-21</span></li>
 		<li class="is-done step-survey">조사 완료 <span class="flow-date">2026-09-24</span></li>
+		<li class="is-done step-decision">조치 결정 <span class="flow-date">2026-09-24</span></li>
 		<li class="is-done step-action">조치 완료 <span class="flow-date">2026-09-28</span></li>
 		<li class="is-done step-comp">보상 지급 <span class="flow-date">2026-09-30</span></li>
 	</ol>

@@ -33,7 +33,7 @@
 /* ============= 요약 정보 (제목 아래 핵심 값 한 줄) ============= */
 .detail-summary {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	margin: 0 0 40px;
 	padding: 16px 0;
 	border-top: 2px solid #333;

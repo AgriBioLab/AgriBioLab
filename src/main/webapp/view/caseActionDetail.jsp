@@ -33,6 +33,11 @@
 			<!-- Page Title (조치에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
 			<h1 class="page-title">피해조치 상세</h1>
 
+			<!-- ============= 처리 흐름 (신청 → 조사 → 조치 → 보상, 같은 피해신청번호) ============= -->
+			<div class="flow-here-action">
+				<%@ include file="flow_damage.jsp"%>
+			</div>
+
 			<!-- ============= 요약 정보 ============= -->
 			<!-- 총괄 담당자 모니터링용: 지금 단계, 누가 맡았나, 언제 끝났나, 며칠 걸렸나
 		     처리 담당자 = 이 건을 배정받은 담당자, 요약에만 표시 (조치기관의 이행 담당자, 회차별 조사담당자와 다름)
@@ -243,6 +248,8 @@
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionList.jsp">목록</a>
+				<%-- 조치완료 건만 표시, 같은 피해신청번호로 보상처리 상세 이동 --%>
+				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">보상처리 보기</a>
 				<%-- 2차: 진행상태가 조치완료일 때만 표시, 상세 내용을 모아 조치 이행 확인서를 인쇄·PDF로 출력
 				<a class="list-btn" href="#">조치 이행 확인서 출력</a>
 				--%>

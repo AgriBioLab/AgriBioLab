@@ -36,6 +36,11 @@
 				<p class="detail-no">피해신청번호 <strong>REQ-2026-000127</strong></p>
 			</div>
 
+			<!-- ============= 처리 흐름 (신청 → 조사 → 조치 → 보상, 같은 피해신청번호) ============= -->
+			<div class="flow-here-apply">
+				<%@ include file="flow_damage.jsp"%>
+			</div>
+
 			<!-- ============= 요약 정보 ============= -->
 			<dl class="detail-summary">
 				<div>

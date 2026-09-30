@@ -121,6 +121,7 @@
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<%-- 모니터링 기준: 처리 담당자(배정), 처리 일수(종결 건은 신청일~종결일, 진행 중은 오늘까지 '○일 경과'), 종결일(진행 중이면 '-')
+			     정렬: 진행 중 건을 경과일이 긴 순서로 먼저, 종결 건은 최근 종결 순서로 아래 (늦어지는 건이 맨 위)
 			     재해유형·품목명은 등록된 재해정보에서 불러온 값 --%>
 			<div class="table-wrap">
 				<table class="list-table">
@@ -143,26 +144,26 @@
 					<!-- 샘플 데이터: 조사 이후 건 9건 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
-							<td>푸른들영농조합</td>
-							<td>벼</td>
-							<td>침수</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
+							<td>동동과수원</td>
+							<td>복숭아</td>
+							<td>가뭄</td>
 							<td>-</td>
-							<td>조치 대상 아님</td>
-							<td>김서연</td>
-							<td>3일</td>
-							<td>2026-09-29</td>
+							<td>조사중</td>
+							<td>박민수</td>
+							<td>8일 경과</td>
+							<td>-</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
-							<td>해뜰과수원</td>
-							<td>감귤</td>
-							<td>태풍</td>
-							<td>-</td>
-							<td>조사중</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
+							<td>가람농장</td>
+							<td>포도</td>
+							<td>우박</td>
+							<td>폐기</td>
+							<td>조치 이행</td>
 							<td>최지훈</td>
-							<td>5일 경과</td>
+							<td>7일 경과</td>
 							<td>-</td>
 						</tr>
 
@@ -191,27 +192,27 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
-							<td>가람농장</td>
-							<td>포도</td>
-							<td>우박</td>
-							<td>폐기</td>
-							<td>조치 이행</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
+							<td>해뜰과수원</td>
+							<td>감귤</td>
+							<td>태풍</td>
+							<td>-</td>
+							<td>조사중</td>
 							<td>최지훈</td>
-							<td>7일 경과</td>
+							<td>5일 경과</td>
 							<td>-</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
-							<td>동동과수원</td>
-							<td>복숭아</td>
-							<td>가뭄</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000134">REQ-2026-000134</a></td>
+							<td>푸른들영농조합</td>
+							<td>벼</td>
+							<td>침수</td>
 							<td>-</td>
-							<td>조사중</td>
-							<td>박민수</td>
-							<td>8일 경과</td>
-							<td>-</td>
+							<td>조치 대상 아님</td>
+							<td>김서연</td>
+							<td>3일</td>
+							<td>2026-09-29</td>
 						</tr>
 
 						<tr>

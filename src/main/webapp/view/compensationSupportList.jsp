@@ -75,6 +75,13 @@
 
 				</div>
 
+				<!-- 대표자명 (이름 전체로 검색, 목록에는 가려서 표시, 개인농가는 신청인 본인) -->
+				<div class="search-row">
+
+					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
+
+				</div>
+
 				<!-- 신청자 분류 (보상 대상은 생산자·유통자·판매자 모두 가능) -->
 				<div class="search-row">
 
@@ -114,7 +121,7 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 보상 기준(핵심 화면): 누구(신청자 분류·단체/상호명)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
+			<%-- 보상 기준(핵심 화면): 누구(신청자 분류·단체/상호명·대표자)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
 			     조치완료된 건만 보상처리로 넘어옴, 부지급은 산정액·지급 기관 '-', 최종 산정액 = 확인 수량 × 단가 × 지원율(샘플 80%)
 			     정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
@@ -126,6 +133,7 @@
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청자 분류</th>
 							<th scope="col">단체/상호명</th>
+							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>
 							<th scope="col">청구액</th>
 							<th scope="col">최종 산정액</th>
@@ -141,6 +149,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 							<td>생산자</td>
 							<td>행복농장</td>
+							<td>김*아</td>
 							<td>사과</td>
 							<td>9,590,000원</td>
 							<td>6,720,000원</td>
@@ -153,6 +162,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 							<td>생산자</td>
 							<td>솔밭농장</td>
+							<td>배*우</td>
 							<td>배</td>
 							<td>3,600,000원</td>
 							<td>2,520,000원</td>
@@ -165,6 +175,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 							<td>판매자</td>
 							<td>새봄마트</td>
+							<td>문*호</td>
 							<td>토마토</td>
 							<td>2,800,000원</td>
 							<td>1,960,000원</td>
@@ -177,6 +188,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
 							<td>생산자</td>
 							<td>가원농장</td>
+							<td>이*자</td>
 							<td>복숭아</td>
 							<td>2,400,000원</td>
 							<td>-</td>

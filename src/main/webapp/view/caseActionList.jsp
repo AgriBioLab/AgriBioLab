@@ -129,6 +129,7 @@
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청자 분류</th>
 							<th scope="col">단체/상호명</th>
+							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
 							<th scope="col">조치 기간</th>
@@ -143,7 +144,8 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
 							<td>생산자</td>
-							<td>동동과수원</td>
+							<td>-</td>
+							<td>박*자</td>
 							<td>복숭아</td>
 							<td>-</td>
 							<td>-</td>
@@ -156,6 +158,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000137">REQ-2026-000137</a></td>
 							<td>생산자</td>
 							<td>산마루농장</td>
+							<td>서*호</td>
 							<td>고추</td>
 							<td>회수</td>
 							<td>2026-09-26 ~ 2026-10-03</td>
@@ -168,6 +171,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 							<td>생산자</td>
 							<td>행복농장</td>
+							<td>김*아</td>
 							<td>사과</td>
 							<td>폐기</td>
 							<td>2026-09-24 ~ 2026-09-27</td>
@@ -180,6 +184,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 							<td>생산자</td>
 							<td>솔밭농장</td>
+							<td>배*우</td>
 							<td>배</td>
 							<td>회수</td>
 							<td>2026-09-15 ~ 2026-09-19</td>
@@ -192,6 +197,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 							<td>판매자</td>
 							<td>새봄마트</td>
+							<td>문*호</td>
 							<td>토마토</td>
 							<td>폐기</td>
 							<td>2026-09-13 ~ 2026-09-17</td>
@@ -204,6 +210,7 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
 							<td>생산자</td>
 							<td>가원농장</td>
+							<td>이*자</td>
 							<td>복숭아</td>
 							<td>회수</td>
 							<td>2026-09-12 ~ 2026-09-16</td>

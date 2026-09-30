@@ -35,7 +35,7 @@
 			<h1 class="page-title">피해신청</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자 이름은 상세에서만 (생산자 신청이면 단체/상호명와 생산 농장이 같음) -->
+			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자는 가려서 표시·이름 전체로 검색, 개인농가는 단체/상호명 '-' (생산자 신청이면 단체/상호명와 생산 농장이 같음) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/damageApplyList.jsp">
 
 				<!-- 기간 (신청일) -->
@@ -94,10 +94,24 @@
 
 				</div>
 
+				<!-- 대표자명 (이름 전체로 검색, 목록에는 가려서 표시, 개인농가는 신청인 본인) -->
+				<div class="search-row">
+
+					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
+
+				</div>
+
 				<!-- 생산 농장 (신청자가 유통자·판매자여도 생산한 농장은 항상 있음) -->
 				<div class="search-row">
 
 					<label class="search-label" for="farmName">생산 농장</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
+
+				</div>
+
+				<!-- 품목명 -->
+				<div class="search-row">
+
+					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -111,13 +125,6 @@
 						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
 						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
 					</div>
-
-				</div>
-
-				<!-- 품목명 -->
-				<div class="search-row">
-
-					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -150,6 +157,7 @@
 							<th scope="col">신청일</th>
 							<th scope="col">신청자 분류</th>
 							<th scope="col">단체/상호명</th>
+							<th scope="col">대표자</th>
 							<th scope="col">생산 농장</th>
 							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>
@@ -166,6 +174,7 @@
 							<td>2026-09-28</td>
 							<td>생산자</td>
 							<td>햇살딸기농원</td>
+							<td>정*숙</td>
 							<td>햇살딸기농원</td>
 							<td>딸기</td>
 							<td>접수</td>
@@ -177,6 +186,7 @@
 							<td>2026-09-26</td>
 							<td>유통자</td>
 							<td>청솔유통</td>
+							<td>최*준</td>
 							<td>청솔농장</td>
 							<td>배</td>
 							<td>보완요청</td>
@@ -187,8 +197,9 @@
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
 							<td>2026-09-24</td>
 							<td>생산자</td>
-							<td>동동과수원</td>
-							<td>동동과수원</td>
+							<td>-</td>
+							<td>박*자</td>
+							<td>박*자 농가</td>
 							<td>복숭아</td>
 							<td>조사중</td>
 							<td>가뭄</td>
@@ -199,6 +210,7 @@
 							<td>2026-09-22</td>
 							<td>생산자</td>
 							<td>산마루농장</td>
+							<td>서*호</td>
 							<td>산마루농장</td>
 							<td>고추</td>
 							<td>조치 이행</td>
@@ -210,6 +222,7 @@
 							<td>2026-09-21</td>
 							<td>생산자</td>
 							<td>행복농장</td>
+							<td>김*아</td>
 							<td>행복농장</td>
 							<td>사과</td>
 							<td>조치완료</td>
@@ -221,6 +234,7 @@
 							<td>2026-09-18</td>
 							<td>생산자</td>
 							<td>들꽃농장</td>
+							<td>강*연</td>
 							<td>들꽃농장</td>
 							<td>참외</td>
 							<td>반려</td>
@@ -232,6 +246,7 @@
 							<td>2026-09-15</td>
 							<td>생산자</td>
 							<td>푸른들영농조합</td>
+							<td>한*영</td>
 							<td>푸른들영농조합</td>
 							<td>벼</td>
 							<td>조치 대상 아님</td>
@@ -243,6 +258,7 @@
 							<td>2026-09-12</td>
 							<td>생산자</td>
 							<td>솔밭농장</td>
+							<td>배*우</td>
 							<td>솔밭농장</td>
 							<td>배</td>
 							<td>조치완료</td>
@@ -254,6 +270,7 @@
 							<td>2026-09-10</td>
 							<td>판매자</td>
 							<td>새봄마트</td>
+							<td>문*호</td>
 							<td>새봄농원</td>
 							<td>토마토</td>
 							<td>조치완료</td>
@@ -265,6 +282,7 @@
 							<td>2026-09-09</td>
 							<td>생산자</td>
 							<td>가원농장</td>
+							<td>이*자</td>
 							<td>가원농장</td>
 							<td>복숭아</td>
 							<td>조치완료</td>

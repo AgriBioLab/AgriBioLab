@@ -137,7 +137,7 @@
 					</tr>
 					<tr>
 						<th scope="row">결정자</th>
-						<td>이*규</td>
+						<td>박민수</td>
 						<th scope="row">지급결정일</th>
 						<td>2026-09-29</td>
 					</tr>

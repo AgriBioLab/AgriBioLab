@@ -160,7 +160,7 @@
 					</tr>
 					<tr>
 						<th scope="row">결정자</th>
-						<td>이*규</td>
+						<td>박민수</td>
 						<th scope="row">조치 결정일</th>
 						<td>2026-09-24</td>
 					</tr>
@@ -174,25 +174,14 @@
 						<th scope="row">조치 내용</th>
 						<td colspan="3">피해 과실 1,200kg 전량 수거 후 매몰 폐기</td>
 					</tr>
-					<%-- 진행상태가 조치 대상 아님일 때만 표시 (조사 후 판정이라 피해조치 쪽 사유, 반려 사유는 피해신청 상세)
-					<tr>
-						<th scope="row">판정 사유</th>
-						<td colspan="3">피해율 기준 미달 (N02) - 2차 조사 피해율 12%</td>
-					</tr>
-					<tr>
-						<th scope="row">판정자</th>
-						<td>이*규</td>
-						<th scope="row">판정일</th>
-						<td>2026-09-29</td>
-					</tr>
-					--%>
 				</table>
 
 			</section>
 
 			<!-- ============= 피해현장조사 정보 (여러 건) ============= -->
 			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시, 조사 보고서 = 첨부서류 중 서류구분 조사(SURVEY), 조사 1회당 1건
-		     조사 판정: 추가 조사(MORE) / 조사 완료(DONE), '조사 완료'인 회차의 조사일 = 조사완료일 -->
+		     조사 판정: 추가 조사(MORE) / 조사 완료(DONE), '조사 완료'인 회차의 조사일 = 조사완료일
+		     정렬: 최신 차수가 맨 위 (1차가 맨 아래) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해현장조사 정보</h2>
@@ -216,18 +205,6 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>1차</td>
-								<td>2026-09-22</td>
-								<td>박민수</td>
-								<td>과실 병반</td>
-								<td>2,000㎡</td>
-								<td>40%</td>
-								<td class="cell-text">탄저병 초기 증상 확인</td>
-								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
-								<td>추가 조사</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
-							<tr>
 								<td>2차</td>
 								<td>2026-09-24</td>
 								<td>박민수</td>
@@ -237,6 +214,18 @@
 								<td class="cell-text">과실 상품성이 저하되고 수확량이 감소함</td>
 								<td class="cell-text">피해 과실 폐기 필요</td>
 								<td>조사 완료</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
+							</tr>
+							<tr>
+								<td>1차</td>
+								<td>2026-09-22</td>
+								<td>박민수</td>
+								<td>과실 병반</td>
+								<td>2,000㎡</td>
+								<td>40%</td>
+								<td class="cell-text">탄저병 초기 증상 확인</td>
+								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
+								<td>추가 조사</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 						</tbody>

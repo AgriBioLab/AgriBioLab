@@ -91,7 +91,7 @@
 					</tr>
 					<tr>
 						<th scope="row">발생 지역</th>
-						<td>경북 영주시 풍기읍</td>
+						<td>경상북도 영주시 풍기읍</td>
 						<th scope="row">발생일</th>
 						<td>2026-09-15</td>
 					</tr>

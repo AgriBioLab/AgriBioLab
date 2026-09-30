@@ -36,12 +36,8 @@
 				<p class="detail-no">피해신청번호 <strong>REQ-2026-000136</strong></p>
 			</div>
 
-			<!-- ============= 처리 흐름 (신청 → 조사 → 조치 → 보상, 같은 피해신청번호) ============= -->
-			<div class="flow-here-apply">
-				<%@ include file="flow_damage.jsp"%>
-			</div>
-
 			<!-- ============= 요약 정보 ============= -->
+			<!-- 신청 요약 (신청일 등 단계별 날짜는 바로 아래 처리 흐름에서) -->
 			<dl class="detail-summary">
 				<div>
 					<dt>진행상태</dt>
@@ -55,11 +51,12 @@
 					<dt>품목</dt>
 					<dd>사과</dd>
 				</div>
-				<div>
-					<dt>신청일</dt>
-					<dd>2026-09-21</dd>
-				</div>
 			</dl>
+
+			<!-- ============= 처리 흐름 (요약 바로 아래, 같은 피해신청번호의 단계별 날짜) ============= -->
+			<div class="flow-here-apply">
+				<%@ include file="flow_damage.jsp"%>
+			</div>
 
 			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000136 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회) --%>
 

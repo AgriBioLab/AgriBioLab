@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<th scope="row">담당 업무</th>
-						<td colspan="3">피해신청 조사·조치 관리</td>
+						<td colspan="3">피해조치 관리</td>
 					</tr>
 					<tr>
 						<th scope="row">사무실 전화</th>
@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th scope="row">사용 메뉴</th>
-						<td colspan="3">통계, 피해신청</td>
+						<td colspan="3">통계, 피해조치</td>
 					</tr>
 					<tr>
 						<th scope="row">담당 지역</th>

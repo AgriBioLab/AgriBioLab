@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해신청 목록</title>
+<title>농산물피해조치 - 피해조치 목록</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청</span> &gt; <span>피해신청 목록</span>
+				<span>홈</span> &gt; <span>피해조치</span> &gt; <span>피해조치 목록</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해신청 목록</h1>
+			<h1 class="page-title">피해조치 목록</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 목록 한 줄 = 피해신청 1건 (조치 항목도 피해신청 정보에 함께 있음) -->
@@ -131,7 +131,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">피해신청 목록</span> <span>총<strong>12</strong>건</span>
+				<span class="result-count">피해조치 목록</span> <span>총<strong>12</strong>건</span>
 
 			</div>
 
@@ -139,7 +139,7 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
-					<caption class="sr-only">피해신청 목록</caption>
+					<caption class="sr-only">피해조치 목록</caption>
 
 					<thead>
 						<tr>

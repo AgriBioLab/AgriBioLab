@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
 </head>
 
-<body>
+<body class="menu-comp">
 
 	<%@ include file="header.jsp"%>
 

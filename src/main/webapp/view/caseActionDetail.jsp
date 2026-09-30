@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
-<body>
+<body class="menu-action">
 
 	<%@ include file="header.jsp"%>
 

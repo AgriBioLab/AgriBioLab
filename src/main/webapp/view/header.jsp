@@ -70,13 +70,14 @@
 </header>
 
 <!-- ============= GNB ============= -->
+<%-- 선택 표시: 각 화면 body 의 메뉴 클래스(menu-stats / comp / action / apply)와 짝이 맞는 메뉴를 header.css 에서 표시 --%>
 <nav class="gnb">
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
-			<li><a href="qualityStatistics.jsp">통계</a></li>
-			<li class="active"><a href="compensationSupportList.jsp">보상처리</a></li>
-			<li><a href="caseActionList.jsp">피해조치</a></li>
-			<li><a href="damageApplyList.jsp">피해신청</a></li>
+			<li class="gnb-stats"><a href="qualityStatistics.jsp">통계</a></li>
+			<li class="gnb-comp"><a href="compensationSupportList.jsp">보상처리</a></li>
+			<li class="gnb-action"><a href="caseActionList.jsp">피해조치</a></li>
+			<li class="gnb-apply"><a href="damageApplyList.jsp">피해신청</a></li>
 		</ul>
 	</div>
 </nav>

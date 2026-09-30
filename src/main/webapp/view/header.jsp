@@ -74,8 +74,8 @@
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
 			<li><a href="qualityStatistics.jsp">통계</a></li>
-			<li><a href="compensationSupportList.jsp">보상처리</a></li>
-			<li class="active"><a href="caseActionList.jsp">피해조치</a></li>
+			<li class="active"><a href="compensationSupportList.jsp">보상처리</a></li>
+			<li><a href="caseActionList.jsp">피해조치</a></li>
 			<li><a href="damageApplyList.jsp">피해신청</a></li>
 		</ul>
 	</div>

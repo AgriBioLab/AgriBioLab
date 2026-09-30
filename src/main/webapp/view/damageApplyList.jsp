@@ -35,7 +35,7 @@
 			<h1 class="page-title">피해신청</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 상호(업체)로 표시, 대표자 이름은 상세에서만 (생산자 신청이면 상호와 생산 농장이 같음) -->
+			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자 이름은 상세에서만 (생산자 신청이면 단체/상호명와 생산 농장이 같음) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/damageApplyList.jsp">
 
 				<!-- 기간 (신청일) -->
@@ -87,10 +87,10 @@
 
 				</div>
 
-				<!-- 상호 (신청 업체: 생산자 농가·유통 업체·판매 업체) -->
+				<!-- 단체/상호명 (신청 업체: 생산자 농가·유통 업체·판매 업체) -->
 				<div class="search-row">
 
-					<label class="search-label" for="bizName">상호</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -149,7 +149,7 @@
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청일</th>
 							<th scope="col">신청자 분류</th>
-							<th scope="col">상호</th>
+							<th scope="col">단체/상호명</th>
 							<th scope="col">생산 농장</th>
 							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>

@@ -46,7 +46,8 @@
 
 				</div>
 
-				<!-- 보상상태 (코드 값은 협의 전 예시, 통계 화면 보상상태와 맞출 것) -->
+				<!-- 보상상태 (코드 값은 협의 전 예시, 통계 화면 보상상태와 맞출 것)
+				     1차는 신청 1건 = 보상 1건: 부지급이면 종결, 재청구·이의신청은 2차 (그때 보상접수번호 추가) -->
 				<div class="search-row">
 
 					<label class="search-label" for="status">보상상태</label>
@@ -67,10 +68,10 @@
 
 				</div>
 
-				<!-- 상호 (신청 업체) -->
+				<!-- 단체/상호명 (신청 업체) -->
 				<div class="search-row">
 
-					<label class="search-label" for="bizName">상호</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -113,7 +114,7 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 보상 기준(핵심 화면): 누구(신청자 분류·상호)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
+			<%-- 보상 기준(핵심 화면): 누구(신청자 분류·단체/상호명)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
 			     조치완료된 건만 보상처리로 넘어옴, 부지급은 산정액·지급 기관 '-', 최종 산정액 = 확인 수량 × 단가 × 지원율(샘플 80%)
 			     정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
@@ -124,7 +125,7 @@
 						<tr>
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청자 분류</th>
-							<th scope="col">상호</th>
+							<th scope="col">단체/상호명</th>
 							<th scope="col">품목명</th>
 							<th scope="col">청구액</th>
 							<th scope="col">최종 산정액</th>

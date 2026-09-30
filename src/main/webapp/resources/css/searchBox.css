@@ -29,7 +29,7 @@
 }
 
 .search-label {
-	width: 110px;	/* 14px 글자 기준 가장 긴 라벨(사건조치번호)이 한 줄에 들어가는 폭 */
+	width: 110px;	/* 14px 글자 기준 가장 긴 라벨(피해조치번호)이 한 줄에 들어가는 폭 */
 	flex-shrink: 0;
 	font-weight: 600;
 	font-size: 14px;

@@ -3,6 +3,115 @@
 /* ============= 상세화면 공통 (조회 전용) ============= */
 /* 페이지 제목은 목록과 같은 common.css 의 .page-title 사용 */
 
+/* ============= 제목 + 상세 번호 ============= */
+/* 제목은 왼쪽, 지금 보고 있는 건의 번호는 오른쪽 위 (좁은 화면에서는 제목 아래로 내려감) */
+.detail-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px 24px;
+	margin-bottom: 45px;
+}
+
+.detail-head .page-title {
+	margin-bottom: 0;
+}
+
+.detail-no {
+	margin: 0;
+	font-size: 15px;
+	color: #666;
+}
+
+.detail-no strong {
+	margin-left: 8px;
+	font-size: 18px;
+	color: #222;
+}
+
+/* ============= 처리 흐름 (요약 바로 아래 한 줄 경로) ============= */
+/* 진행 기록만 (이동 링크 없음): 신청 2026-09-21 › 조사 완료 2026-09-24 › 조치 완료 2026-09-28 › 보상 지급 2026-09-30 */
+.detail-flow-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 12px;
+	margin: -28px 0 40px;	/* 요약 아래 간격(40px)을 줄여 요약에 붙여 보이게 */
+	font-size: 14px;
+}
+
+.detail-flow-title {
+	font-weight: 600;
+	color: #333;
+}
+
+.detail-flow {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* 아직 안 된 단계는 흐리게 */
+.detail-flow li {
+	color: #999;
+}
+
+.detail-flow li.is-done {
+	color: #333;
+}
+
+/* 단계 사이 구분 기호 */
+.detail-flow li + li::before {
+	content: "›";
+	margin: 0 10px;
+	color: #999;
+}
+
+.detail-flow .flow-date {
+	margin-left: 4px;
+	color: #666;
+}
+
+/* 지금 보고 있는 화면의 단계 */
+.flow-here-apply .step-apply,
+.flow-here-action .step-action,
+.flow-here-comp .step-comp {
+	font-weight: 700;
+}
+
+/* ============= 요약 정보 (제목 아래 핵심 값 한 줄, 바로 아래 처리 흐름) ============= */
+.detail-summary {
+	display: grid;
+	grid-auto-flow: column;	/* 항목 수만큼 같은 폭으로 한 줄에 (화면마다 칸 수가 달라도 됨) */
+	grid-auto-columns: 1fr;
+	margin: 0 0 40px;
+	padding: 16px 0;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #ddd;
+	background: #fafafa;
+}
+
+.detail-summary div {
+	padding: 0 20px;
+}
+
+.detail-summary dt {
+	margin-bottom: 4px;
+	font-size: 14px;
+	color: #666;
+}
+
+.detail-summary dd {
+	margin: 0;
+	font-size: 17px;
+	font-weight: 700;
+	color: #222;
+}
+
 /* ============= 섹션 ============= */
 .detail-section {
 	margin-bottom: 40px;
@@ -55,6 +164,12 @@
 	text-align: left;
 }
 
+/* ============= 상세 안의 목록 표 (1:N 정보: 현장조사, 제출서류 등) ============= */
+/* 목록 표는 가운데 정렬이 기본이라, 문장이 들어가는 칸만 왼쪽 정렬 */
+.list-table td.cell-text {
+	text-align: left;
+}
+
 /* ============= 하단 이동 ============= */
 .detail-actions {
 	padding-top: 30px;
@@ -77,6 +192,30 @@
 /* ============= 반응형 ============= */
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
+	/* 처리 흐름: '처리 흐름' 아래에 단계를 한 줄에 하나씩 (구분 기호 대신 세로 나열) */
+	.detail-flow-wrap {
+		flex-direction: column;
+	}
+
+	.detail-flow {
+		flex-direction: column;
+	}
+
+	.detail-flow li + li::before {
+		content: none;
+	}
+
+	/* 요약 정보: 한 줄에 2개씩 */
+	.detail-summary {
+		grid-auto-flow: row;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px 0;
+	}
+
+	.detail-head {
+		margin-bottom: 24px;	/* 모바일 페이지 제목 아래 간격과 같게 */
+	}
+
 	.detail-table,
 	.detail-table tbody {
 		display: block;
@@ -84,7 +223,7 @@
 
 	.detail-table tr {
 		display: grid;
-		grid-template-columns: 120px minmax(0, 1fr);
+		grid-template-columns: 140px minmax(0, 1fr);	/* 가장 긴 항목('재해유형 · 품목', '신청자와의 관계')이 한 줄에 들어가는 폭 */
 	}
 
 	.detail-table th {

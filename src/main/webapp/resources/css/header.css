@@ -110,7 +110,11 @@
 	font-weight: 600;
 }
 
-.gnb-menu li.active {
+/* 지금 화면의 메뉴: body 클래스와 메뉴 클래스가 짝이 맞을 때 표시 (화면마다 active 를 따로 적지 않음) */
+.menu-stats .gnb-stats,
+.menu-comp .gnb-comp,
+.menu-action .gnb-action,
+.menu-apply .gnb-apply {
 	color: #18589a;
 	border-bottom: 4px solid #18589a;
 }

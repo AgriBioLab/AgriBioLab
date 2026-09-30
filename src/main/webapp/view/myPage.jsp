@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th scope="row">사용 메뉴</th>
-						<td colspan="3">통계, 피해조치, 피해신청</td>
+						<td colspan="3">통계, 보상처리, 피해조치, 피해신청</td>
 					</tr>
 					<tr>
 						<th scope="row">담당 지역</th>

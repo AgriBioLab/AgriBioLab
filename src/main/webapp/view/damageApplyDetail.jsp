@@ -92,7 +92,7 @@
 					</tr>
 					<tr>
 						<th scope="row">판정자</th>
-						<td>정우진 (팀장)</td>
+						<td>정우진 (○○시 농업정책과 팀장)</td>
 						<th scope="row">판정일</th>
 						<td>2026-10-01</td>
 					</tr>

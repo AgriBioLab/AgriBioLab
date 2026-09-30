@@ -61,7 +61,7 @@
 				</div>
 			</dl>
 
-			<%-- 샘플 데이터: REQ-2026-000127 (김현아 · 행복농장) 조치완료 → 보상 지급완료 --%>
+			<%-- 샘플 데이터: REQ-2026-000136 (김현아 · 행복농장) 조치완료 → 보상 지급완료 --%>
 
 			<!-- ============= 신청 요약 ============= -->
 			<!-- 신청 내용은 피해신청 상세에서 (같은 피해신청번호) -->
@@ -73,7 +73,7 @@
 					<caption class="sr-only">신청 요약</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
 					</tr>
@@ -97,7 +97,7 @@
 					<caption class="sr-only">조치 요약</caption>
 					<tr>
 						<th scope="row">조치유형</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000127">폐기</a></td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">폐기</a></td>
 						<th scope="row">조치 종결일</th>
 						<td>2026-09-28</td>
 					</tr>

@@ -71,7 +71,7 @@
 				</div>
 			</dl>
 
-			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000127 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회)
+			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000136 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회)
 			     진행상태 조치완료 = 서류 모두 확인 → 현장조사 완료 → 조치 결정 → 조치 이행 → 담당자 이행 확인까지 끝나 종결된 상태
 			     날짜 흐름: 발생 9/15 → 신청 9/21 → 서류 확인 9/22~23 → 조사 9/22·9/24 → 조치 결정 9/24 → 조치 기간 9/24~27 → 이행 9/27 → 이행 확인 9/28 --%>
 
@@ -86,7 +86,7 @@
 					<caption class="sr-only">신청 요약</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 						<th scope="row">신청일</th>
 						<td>2026-09-21</td>
 					</tr>
@@ -98,7 +98,7 @@
 					</tr>
 					<tr>
 						<th scope="row">신청 서류</th>
-						<td colspan="3">피해신청서 <a class="case-link" href="#">내려받기</a> · 피해 현장 사진 <a class="case-link" href="#">내려받기</a> · 농업경영체 등록확인서 <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">농업경영체 등록확인서 <a class="case-link" href="#">내려받기</a> · 피해신청서 <a class="case-link" href="#">내려받기</a> · 피해 현장 사진 <a class="case-link" href="#">내려받기</a></td>
 					</tr>
 				</table>
 
@@ -238,7 +238,7 @@
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionList.jsp">목록</a>
 				<%-- 조치완료 건만 표시, 같은 피해신청번호로 보상처리 상세 이동 --%>
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">보상처리 보기</a>
+				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">보상처리 보기</a>
 				<%-- 2차: 진행상태가 조치완료일 때만 표시, 상세 내용을 모아 조치 이행 확인서를 인쇄·PDF로 출력
 				<a class="list-btn" href="#">조치 이행 확인서 출력</a>
 				--%>

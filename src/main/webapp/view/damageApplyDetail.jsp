@@ -33,7 +33,7 @@
 			<!-- Page Title + 이 상세의 번호 (피해신청번호 = 신청·조치 화면 공통 조회 키) -->
 			<div class="detail-head">
 				<h1 class="page-title">피해신청 상세</h1>
-				<p class="detail-no">피해신청번호 <strong>REQ-2026-000127</strong></p>
+				<p class="detail-no">피해신청번호 <strong>REQ-2026-000136</strong></p>
 			</div>
 
 			<!-- ============= 처리 흐름 (신청 → 조사 → 조치 → 보상, 같은 피해신청번호) ============= -->
@@ -61,7 +61,7 @@
 				</div>
 			</dl>
 
-			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000127 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회) --%>
+			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000136 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회) --%>
 
 			<!-- ============= 피해신청정보 ============= -->
 			<!-- 피해신청번호는 제목 오른쪽 위에 표시 -->
@@ -155,7 +155,7 @@
 			</section>
 
 			<!-- ============= 피해신청서류 정보 (여러 건) ============= -->
-			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 (확인자·확인일을 짝으로 기록, 미확인이면 '-') -->
+			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 (확인자·확인일을 짝으로 기록, 미확인이면 '-', 최신 제출이 위) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청서류 정보</h2>
@@ -176,6 +176,15 @@
 						</thead>
 						<tbody>
 							<tr>
+								<td class="cell-text">농업경영체 등록확인서</td>
+								<td>신청자 제출</td>
+								<td>2026-09-23</td>
+								<td>확인</td>
+								<td>2026-09-23</td>
+								<td>박민수</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
+							</tr>
+							<tr>
 								<td class="cell-text">피해신청서</td>
 								<td>신청자 제출</td>
 								<td>2026-09-21</td>
@@ -193,15 +202,6 @@
 								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
-							<tr>
-								<td class="cell-text">농업경영체 등록확인서</td>
-								<td>신청자 제출</td>
-								<td>2026-09-23</td>
-								<td>확인</td>
-								<td>2026-09-23</td>
-								<td>박민수</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -212,7 +212,7 @@
 			<!-- 조사 이후(조사중·조치 이행·조치완료·조치 대상 아님) 건만 피해조치 보기 버튼 표시, 같은 피해신청번호로 이동 -->
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">목록</a>
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000127">피해조치 보기</a>
+				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">피해조치 보기</a>
 			</div>
 
 		</main>

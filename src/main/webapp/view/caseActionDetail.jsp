@@ -150,6 +150,7 @@
 			</section>
 
 			<!-- ============= 피해신청서류 정보 (여러 건) ============= -->
+			<!-- 첨부서류 중 서류구분 = 신청(APPLY), 생산자가 제출 → 담당자가 확인 -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청서류 정보</h2>
@@ -199,7 +200,7 @@
 			</section>
 
 			<!-- ============= 피해현장조사 정보 (여러 건) ============= -->
-			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시 -->
+			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시, 조사 보고서 = 첨부서류 중 서류구분 조사(SURVEY), 조사 1회당 1건 -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해현장조사 정보</h2>
@@ -216,6 +217,7 @@
 								<th scope="col">피해율</th>
 								<th scope="col">피해내용</th>
 								<th scope="col">현장조사결과</th>
+								<th scope="col">조사 보고서</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -227,6 +229,7 @@
 								<td>40%</td>
 								<td class="cell-text">탄저병 초기 증상 확인</td>
 								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 							<tr>
 								<td>2026-09-24</td>
@@ -236,6 +239,7 @@
 								<td>70%</td>
 								<td class="cell-text">과실 상품성이 저하되고 수확량이 감소함</td>
 								<td class="cell-text">피해 과실 폐기 필요</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -269,7 +273,8 @@
 
 			<!-- ============= 조치 이행정보 (0~1건) ============= -->
 			<!-- 조치를 이행한 건만 표시 (회수·폐기·용도변경 모든 조치유형 공통, 조치 전이면 이 섹션 없음)
-		     조치 이행날짜 = 실제로 이행한 날, 이행 확인날짜 = 담당자가 이행을 확인한 날 -->
+		     조치 이행날짜 = 실제로 이행한 날, 이행 확인날짜 = 담당자가 이행을 확인한 날
+		     이행 증빙 = 첨부서류 중 서류구분 이행(ACTION), 조치기관이 발급한 확인서 (회수 확인서, 폐기 확인서 등) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">조치 이행정보</h2>
@@ -288,6 +293,10 @@
 						<th scope="row">이행 확인날짜</th>
 						<td>2026-09-28</td>
 					</tr>
+					<tr>
+						<th scope="row">이행 증빙</th>
+						<td colspan="3">폐기 확인서 (○○시 농업기술센터 발급) <a class="case-link" href="#">내려받기</a></td>
+					</tr>
 				</table>
 
 			</section>
@@ -295,6 +304,9 @@
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionList.jsp">목록</a>
+				<%-- 2차: 진행상태가 조치완료일 때만 표시, 상세 내용을 모아 조치 이행 확인서를 인쇄·PDF로 출력
+				<a class="list-btn" href="#">조치 이행 확인서 출력</a>
+				--%>
 			</div>
 
 		</main>

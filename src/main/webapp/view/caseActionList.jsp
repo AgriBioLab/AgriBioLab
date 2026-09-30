@@ -35,7 +35,7 @@
 			<h1 class="page-title">피해조치</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 조치 기준 목록: 한 줄 = 피해신청 1건의 조치 (조사중·조치 이행·조치완료), 조회 키는 피해신청번호 -->
+			<!-- 조치 기준 목록: 한 줄 = 피해신청 1건의 조치 (조사중·조치중·조치완료), 조회 키는 피해신청번호 -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/caseActionList.jsp">
 
 				<!-- 조치 결정일 기간 (조치 기준 조회) -->
@@ -46,14 +46,14 @@
 
 				</div>
 
-				<!-- 진행상태: 조사 이후 조치가 진행되는 건만 (접수·보완요청·반려·조치 대상 아님은 피해신청 메뉴에서) -->
+				<!-- 조치상태: 조사 이후 조치가 진행되는 건만 (접수·보완요청·반려·조치 대상 아님은 피해신청 메뉴에서) -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">진행상태</label>
+					<label class="search-label" for="status">조치상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="INVESTIGATING">조사중</option>
-						<option value="IN_ACTION">조치 이행</option>
+						<option value="IN_ACTION">조치중</option>
 						<option value="DONE">조치완료</option>
 					</select>
 
@@ -118,8 +118,8 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 조치 기준: 누구(구분·단체/상호명)에게 어떤 조치를, 언제(조치 기간)·어디서(입회 기관) 했고 언제 끝났나(조치 종결일)
-			     조사중이면 조치 항목은 '-', 신청 주체는 단체/상호명로 표시, 정렬: 최신 신청이 위 --%>
+			<%-- 조치 기준: 누구(구분·단체/상호명·대표자)에게 어떤 조치를 언제까지(이행기한) 결정했고 언제 끝났나(조치 완료일 = 이행 확인일)
+			     조사중이면 조치 항목은 '-', 대표자는 가림, 정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">피해조치 목록</caption>
@@ -132,14 +132,13 @@
 							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
-							<th scope="col">조치 기간</th>
-							<th scope="col">입회 기관</th>
-							<th scope="col">진행상태</th>
-							<th scope="col">조치 종결일</th>
+							<th scope="col">이행기한</th>
+							<th scope="col">조치상태</th>
+							<th scope="col">조치 완료일</th>
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 조사중·조치 이행 각 1건, 조치완료 4건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 조사중·조치중 각 1건, 조치완료 4건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
@@ -147,7 +146,6 @@
 							<td>-</td>
 							<td>박*자</td>
 							<td>복숭아</td>
-							<td>-</td>
 							<td>-</td>
 							<td>-</td>
 							<td>조사중</td>
@@ -161,9 +159,8 @@
 							<td>서*호</td>
 							<td>고추</td>
 							<td>회수</td>
-							<td>2026-09-26 ~ 2026-10-03</td>
-							<td>○○시 농업기술센터</td>
-							<td>조치 이행</td>
+							<td>2026-10-03</td>
+							<td>조치중</td>
 							<td>-</td>
 						</tr>
 
@@ -174,8 +171,7 @@
 							<td>김*아</td>
 							<td>사과</td>
 							<td>폐기</td>
-							<td>2026-09-24 ~ 2026-09-27</td>
-							<td>○○시 농업기술센터</td>
+							<td>2026-09-27</td>
 							<td>조치완료</td>
 							<td>2026-09-28</td>
 						</tr>
@@ -187,8 +183,7 @@
 							<td>배*우</td>
 							<td>배</td>
 							<td>회수</td>
-							<td>2026-09-15 ~ 2026-09-19</td>
-							<td>○○군 농업기술센터</td>
+							<td>2026-09-19</td>
 							<td>조치완료</td>
 							<td>2026-09-20</td>
 						</tr>
@@ -200,8 +195,7 @@
 							<td>문*호</td>
 							<td>토마토</td>
 							<td>폐기</td>
-							<td>2026-09-13 ~ 2026-09-17</td>
-							<td>○○군 농업기술센터</td>
+							<td>2026-09-17</td>
 							<td>조치완료</td>
 							<td>2026-09-18</td>
 						</tr>
@@ -213,8 +207,7 @@
 							<td>이*자</td>
 							<td>복숭아</td>
 							<td>회수</td>
-							<td>2026-09-12 ~ 2026-09-16</td>
-							<td>○○시 농업기술센터</td>
+							<td>2026-09-16</td>
 							<td>조치완료</td>
 							<td>2026-09-17</td>
 						</tr>

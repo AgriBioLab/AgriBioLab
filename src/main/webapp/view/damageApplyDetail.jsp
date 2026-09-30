@@ -91,10 +91,8 @@
 						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>
 					</tr>
 					<tr>
-						<th scope="row">판정자</th>
-						<td>정우진 (○○시 농업정책과 팀장)</td>
-						<th scope="row">판정일</th>
-						<td>2026-10-01</td>
+						<th scope="row">결정일</th>
+						<td colspan="3">2026-10-01</td>
 					</tr>
 					--%>
 				</table>
@@ -167,7 +165,7 @@
 						<thead>
 							<tr>
 								<th scope="col">서류명</th>
-								<th scope="col">제출기관</th>
+								<th scope="col">제출처</th>
 								<th scope="col">제출일</th>
 								<th scope="col">확인상태</th>
 								<th scope="col">확인일</th>
@@ -178,7 +176,7 @@
 						<tbody>
 							<tr>
 								<td class="cell-text">농업경영체 등록확인서</td>
-								<td>신청자 제출</td>
+								<td>신청인</td>
 								<td>2026-09-23</td>
 								<td>확인</td>
 								<td>2026-09-23</td>
@@ -187,7 +185,7 @@
 							</tr>
 							<tr>
 								<td class="cell-text">피해신청서</td>
-								<td>신청자 제출</td>
+								<td>신청인</td>
 								<td>2026-09-21</td>
 								<td>확인</td>
 								<td>2026-09-22</td>
@@ -196,7 +194,7 @@
 							</tr>
 							<tr>
 								<td class="cell-text">피해 현장 사진</td>
-								<td>신청자 제출</td>
+								<td>신청인</td>
 								<td>2026-09-21</td>
 								<td>확인</td>
 								<td>2026-09-22</td>

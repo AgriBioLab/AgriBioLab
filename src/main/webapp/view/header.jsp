@@ -10,7 +10,7 @@
 
 		<!-- 로그인 정보 영역 -->
 		<div class="header-right">
-			<span class="user-name">피해조치담당자</span> <span class="user-name">이*규님</span>
+			<span class="user-name">품질담당자</span> <span class="user-name">이*규님</span>
 			<!-- 마이페이지: 아이콘 + 글자 함께 표시 (아이콘만 두면 의미를 알기 어려움) -->
 			<a class="mypage-link" href="${pageContext.request.contextPath}/view/myPage.jsp">
 				<svg class="mypage-icon" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -27,7 +27,7 @@
 			<nav class="all-menu-panel">
 				<!-- 767px 이하: 헤더에서 숨긴 로그인 정보를 메뉴 맨 위에 표시 (메뉴가 길어도 스크롤 없이 보이게) -->
 				<div class="all-menu-user">
-					<span class="user-name">피해조치담당자 이*규님</span>
+					<span class="user-name">품질담당자 이*규님</span>
 					<span class="all-menu-user-btns">
 						<a class="mypage-link" href="${pageContext.request.contextPath}/view/myPage.jsp">
 							<svg class="mypage-icon" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>

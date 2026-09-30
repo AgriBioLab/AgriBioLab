@@ -223,7 +223,7 @@
 
 	.detail-table tr {
 		display: grid;
-		grid-template-columns: 120px minmax(0, 1fr);
+		grid-template-columns: 140px minmax(0, 1fr);	/* 가장 긴 항목('재해유형 · 품목', '신청자와의 관계')이 한 줄에 들어가는 폭 */
 	}
 
 	.detail-table th {

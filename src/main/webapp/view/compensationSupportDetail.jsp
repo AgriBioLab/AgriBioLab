@@ -8,6 +8,8 @@
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
+<!-- 목록 표 CSS (관련 서류처럼 여러 건인 정보) -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
 <body class="menu-comp">
@@ -37,14 +39,18 @@
 			</div>
 
 			<!-- ============= 요약 정보 ============= -->
-			<!-- 핵심 화면 모니터링용: 보상이 어디까지 왔고 얼마가 언제 지급됐나, 처리 일수 = 신청일 ~ 지급일(부지급은 결정일, 진행 중이면 오늘까지 경과일) -->
+			<!-- 핵심 화면 모니터링용: 청구액과 최종 산정액의 차이, 지급 여부, 처리 일수(신청일 ~ 지급일, 부지급은 결정일, 진행 중은 경과일) -->
 			<dl class="detail-summary">
 				<div>
 					<dt>보상상태</dt>
 					<dd>지급완료</dd>
 				</div>
 				<div>
-					<dt>보상금액</dt>
+					<dt>청구액</dt>
+					<dd>9,590,000원</dd>
+				</div>
+				<div>
+					<dt>최종 산정액</dt>
 					<dd>8,400,000원</dd>
 				</div>
 				<div>
@@ -61,7 +67,7 @@
 				</div>
 			</dl>
 
-			<%-- 샘플 데이터: REQ-2026-000136 (김*아 · 행복농장) 조치완료 → 보상 지급완료 --%>
+			<%-- 샘플 데이터: REQ-2026-000136 (김*아 · 행복농장) 청구 9,590,000원 → 산정 8,400,000원 → 9/30 지급완료 --%>
 
 			<!-- ============= 대상 정보 ============= -->
 			<!-- 누구의 무엇인지 식별 (신청일·신청 상세 이동은 처리 흐름에서), 신청자 이름은 가림, 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
@@ -89,30 +95,81 @@
 
 			</section>
 
-			<!-- ============= 보상금 정보 ============= -->
-			<!-- 누가·언제: 결정자·지급결정일, 지급 처리자·지급일 (계좌는 가려서 표시) -->
+			<!-- ============= 청구 정보 ============= -->
+			<!-- 생산자가 피해신청 때 청구한 내용 (보상의 출발점) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상금 정보</h2>
+				<h2 class="detail-section-title">청구 정보</h2>
 
 				<table class="detail-table">
-					<caption class="sr-only">보상금 정보</caption>
+					<caption class="sr-only">청구 정보</caption>
 					<tr>
-						<th scope="row">보상 대상 수량</th>
-						<td>1,200kg</td>
-						<th scope="row">단가</th>
-						<td>7,000원/kg</td>
+						<th scope="row">청구 금액</th>
+						<td>9,590,000원</td>
+						<th scope="row">청구일</th>
+						<td>2026-09-21</td>
 					</tr>
 					<tr>
-						<th scope="row">보상금액</th>
-						<td>8,400,000원</td>
-						<th scope="row">지급 계좌</th>
-						<td>○○은행 ***-**-1234 (김*아)</td>
+						<th scope="row">청구 수량</th>
+						<td>1,370kg</td>
+						<th scope="row">청구 면적</th>
+						<td>3,800㎡</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 산정 정보 ============= -->
+			<!-- 지원 기준 정책(재해유형·품목별 단가·지원율)으로 계산한 금액과 근거, 청구와 다르면 조정 사유 기록
+		     (표 첫 줄에 colspan 이 있으면 고정 폭 표의 칸 너비가 틀어져서 첫 줄은 두 칸 짝으로) -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">산정 정보</h2>
+
+				<table class="detail-table">
+					<caption class="sr-only">산정 정보</caption>
+					<tr>
+						<th scope="row">적용 기준</th>
+						<td>2026년 재해 지원 기준 (고시 예시)</td>
+						<th scope="row">품목 단가</th>
+						<td>7,000원/kg (사과)</td>
 					</tr>
 					<tr>
-						<th scope="row">산정근거</th>
-						<td colspan="3">폐기 수량 1,200kg × 단가 7,000원 = 8,400,000원</td>
+						<th scope="row">확인 수량</th>
+						<td>1,200kg (현장조사·이행 확인)</td>
+						<th scope="row">지원율</th>
+						<td>100%</td>
 					</tr>
+					<tr>
+						<th scope="row">산정식</th>
+						<td colspan="3">확인 수량 1,200kg × 단가 7,000원 × 지원율 100% = 8,400,000원</td>
+					</tr>
+					<tr>
+						<th scope="row">조정 사유</th>
+						<td colspan="3">현장조사 확인 수량 기준으로 조정 (청구 1,370kg → 확인 1,200kg, 1,190,000원 감액)</td>
+					</tr>
+					<tr>
+						<th scope="row">산정자</th>
+						<td>박민수</td>
+						<th scope="row">산정일</th>
+						<td>2026-09-29</td>
+					</tr>
+					<tr>
+						<th scope="row">최종 산정액</th>
+						<td colspan="3"><strong>8,400,000원</strong></td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 지급 정보 ============= -->
+			<!-- 누가·언제: 결정자·지급결정일, 지급 처리자·지급일 (계좌·명의는 가림) -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">지급 정보</h2>
+
+				<table class="detail-table">
+					<caption class="sr-only">지급 정보</caption>
 					<tr>
 						<th scope="row">결정자</th>
 						<td>박민수</td>
@@ -125,6 +182,10 @@
 						<th scope="row">지급일</th>
 						<td>2026-09-30</td>
 					</tr>
+					<tr>
+						<th scope="row">지급 계좌</th>
+						<td colspan="3">○○은행 ***-**-1234 (김*아)</td>
+					</tr>
 					<%-- 보상상태가 부지급일 때만 표시
 					<tr>
 						<th scope="row">부지급 사유</th>
@@ -132,6 +193,60 @@
 					</tr>
 					--%>
 				</table>
+
+			</section>
+
+			<!-- ============= 관련 서류 (여러 건) ============= -->
+			<!-- 첨부서류 중 서류구분 보상(COMP), 최신이 위, 기관 발급 서류는 확인 대상이 아니라 '-' -->
+			<section class="detail-section">
+
+				<h2 class="detail-section-title">관련 서류</h2>
+
+				<div class="table-wrap">
+					<table class="list-table">
+						<caption class="sr-only">관련 서류</caption>
+						<thead>
+							<tr>
+								<th scope="col">서류명</th>
+								<th scope="col">제출기관</th>
+								<th scope="col">제출일</th>
+								<th scope="col">확인상태</th>
+								<th scope="col">확인일</th>
+								<th scope="col">확인자</th>
+								<th scope="col">첨부파일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="cell-text">지급 결정 통지서</td>
+								<td>○○기관 발급</td>
+								<td>2026-09-29</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
+							</tr>
+							<tr>
+								<td class="cell-text">통장 사본</td>
+								<td>신청자 제출</td>
+								<td>2026-09-21</td>
+								<td>확인</td>
+								<td>2026-09-22</td>
+								<td>박민수</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
+							</tr>
+							<tr>
+								<td class="cell-text">보상금 청구서</td>
+								<td>신청자 제출</td>
+								<td>2026-09-21</td>
+								<td>확인</td>
+								<td>2026-09-22</td>
+								<td>박민수</td>
+								<td><a class="case-link" href="#">내려받기</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
 			</section>
 

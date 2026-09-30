@@ -30,26 +30,45 @@
 	color: #222;
 }
 
-/* ============= 처리 흐름 (신청 → 조사 → 조치 → 보상) ============= */
-/* 단계마다 위쪽 선: 끝난 단계는 파란색, 남은 단계는 회색 */
+/* ============= 처리 흐름 (요약 바로 아래 한 줄 경로) ============= */
+/* 피해신청 2026-09-21 › 조사 완료 2026-09-24 › 조치 완료 2026-09-28 › 보상 지급 2026-09-30 */
+.detail-flow-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 12px;
+	margin: -28px 0 40px;	/* 요약 아래 간격(40px)을 줄여 요약에 붙여 보이게 */
+	font-size: 14px;
+}
+
+.detail-flow-title {
+	font-weight: 600;
+	color: #333;
+}
+
 .detail-flow {
 	display: flex;
-	margin: 0 0 24px;
+	flex-wrap: wrap;
+	row-gap: 4px;
+	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
+/* 아직 안 된 단계는 흐리게 */
 .detail-flow li {
-	flex: 1;
-	padding: 10px 12px 0;
-	border-top: 3px solid #ddd;
-	font-size: 14px;
-	color: #666;
+	color: #999;
 }
 
 .detail-flow li.is-done {
-	border-top-color: #1f4e9c;
-	color: #222;
+	color: #333;
+}
+
+/* 단계 사이 구분 기호 */
+.detail-flow li + li::before {
+	content: "›";
+	margin: 0 10px;
+	color: #999;
 }
 
 /* 단계 이름을 누르면 그 단계 상세로 이동 */
@@ -59,8 +78,7 @@
 }
 
 .detail-flow .flow-date {
-	display: block;
-	margin-top: 2px;
+	margin-left: 4px;
 	color: #666;
 }
 
@@ -71,7 +89,7 @@
 	font-weight: 700;
 }
 
-/* ============= 요약 정보 (제목 아래 핵심 값 한 줄) ============= */
+/* ============= 요약 정보 (제목 아래 핵심 값 한 줄, 바로 아래 처리 흐름) ============= */
 .detail-summary {
 	display: grid;
 	grid-auto-flow: column;	/* 항목 수만큼 같은 폭으로 한 줄에 (화면마다 칸 수가 달라도 됨) */
@@ -180,14 +198,17 @@
 /* ============= 반응형 ============= */
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
-	/* 처리 흐름: 한 줄에 2단계씩 */
-	.detail-flow {
-		flex-wrap: wrap;
-		row-gap: 12px;
+	/* 처리 흐름: '처리 흐름' 아래에 단계를 한 줄에 하나씩 (구분 기호 대신 세로 나열) */
+	.detail-flow-wrap {
+		flex-direction: column;
 	}
 
-	.detail-flow li {
-		flex: 0 0 50%;
+	.detail-flow {
+		flex-direction: column;
+	}
+
+	.detail-flow li + li::before {
+		content: none;
 	}
 
 	/* 요약 정보: 한 줄에 2개씩 */

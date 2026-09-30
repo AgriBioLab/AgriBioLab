@@ -82,10 +82,10 @@
 
 				</div>
 
-				<!-- 신청자 분류 (보상 대상은 생산자·유통자·판매자 모두 가능) -->
+				<!-- 구분 (보상 대상은 생산자·유통자·판매자 모두 가능) -->
 				<div class="search-row">
 
-					<span class="search-label">신청자 분류</span>
+					<span class="search-label">구분</span>
 					<div class="radio-group">
 						<label><input type="radio" name="targetType" value="" checked> 전체</label>
 						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
@@ -121,7 +121,7 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 보상 기준(핵심 화면): 누구(신청자 분류·단체/상호명·대표자)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
+			<%-- 보상 기준(핵심 화면): 누구(구분·단체/상호명·대표자)가 얼마를 청구했고(청구액) 얼마로 산정됐으며(최종 산정액) 어디서(지급 기관) 언제 지급됐나(지급일)
 			     조치완료된 건만 보상처리로 넘어옴, 부지급은 산정액·지급 기관 '-', 최종 산정액 = 확인 수량 × 단가 × 지원율(샘플 80%)
 			     정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
@@ -131,7 +131,7 @@
 					<thead>
 						<tr>
 							<th scope="col">피해신청번호</th>
-							<th scope="col">신청자 분류</th>
+							<th scope="col">구분</th>
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>

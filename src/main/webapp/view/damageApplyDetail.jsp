@@ -77,7 +77,7 @@
 					<tr>
 						<th scope="row">단체/상호명</th>
 						<td>행복농장</td>
-						<th scope="row">신청자 분류</th>
+						<th scope="row">구분</th>
 						<td>생산자</td>
 					</tr>
 					<tr>

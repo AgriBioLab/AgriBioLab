@@ -115,10 +115,10 @@
 
 				</div>
 
-				<!-- 신청자 분류 -->
+				<!-- 구분 -->
 				<div class="search-row">
 
-					<span class="search-label">신청자 분류</span>
+					<span class="search-label">구분</span>
 					<div class="radio-group">
 						<label><input type="radio" name="targetType" value="" checked> 전체</label>
 						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
@@ -155,7 +155,7 @@
 						<tr>
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청일</th>
-							<th scope="col">신청자 분류</th>
+							<th scope="col">구분</th>
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
 							<th scope="col">생산 농장</th>

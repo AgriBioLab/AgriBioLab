@@ -79,10 +79,10 @@
 
 				</div>
 
-				<!-- 신청자 분류 (피해신청은 생산자·유통자·판매자 모두 가능) -->
+				<!-- 구분 (피해신청은 생산자·유통자·판매자 모두 가능) -->
 				<div class="search-row">
 
-					<span class="search-label">신청자 분류</span>
+					<span class="search-label">구분</span>
 					<div class="radio-group">
 						<label><input type="radio" name="targetType" value="" checked> 전체</label>
 						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
@@ -118,7 +118,7 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 조치 기준: 누구(신청자 분류·단체/상호명)에게 어떤 조치를, 언제(조치 기간)·어디서(조치기관) 했고 언제 끝났나(조치 종결일)
+			<%-- 조치 기준: 누구(구분·단체/상호명)에게 어떤 조치를, 언제(조치 기간)·어디서(조치기관) 했고 언제 끝났나(조치 종결일)
 			     조사중이면 조치 항목은 '-', 신청 주체는 단체/상호명로 표시, 정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
 				<table class="list-table">
@@ -127,7 +127,7 @@
 					<thead>
 						<tr>
 							<th scope="col">피해신청번호</th>
-							<th scope="col">신청자 분류</th>
+							<th scope="col">구분</th>
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>

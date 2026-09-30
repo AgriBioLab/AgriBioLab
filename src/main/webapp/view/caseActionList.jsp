@@ -118,8 +118,8 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 조치 기준: 누구(신청자 분류·신청자)에게 어떤 조치를, 언제(조치 기간)·어디서(조치기관) 했고 언제 끝났나(조치 종결일)
-			     조사중이면 조치 항목은 '-', 신청자는 개인 이름 가림·업체명 그대로, 정렬: 최신 신청이 위 --%>
+			<%-- 조치 기준: 누구(신청자 분류·상호)에게 어떤 조치를, 언제(조치 기간)·어디서(조치기관) 했고 언제 끝났나(조치 종결일)
+			     조사중이면 조치 항목은 '-', 신청 주체는 상호로 표시, 정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">피해조치 목록</caption>
@@ -128,7 +128,7 @@
 						<tr>
 							<th scope="col">피해신청번호</th>
 							<th scope="col">신청자 분류</th>
-							<th scope="col">신청자</th>
+							<th scope="col">상호</th>
 							<th scope="col">품목명</th>
 							<th scope="col">조치유형</th>
 							<th scope="col">조치 기간</th>
@@ -143,7 +143,7 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000138">REQ-2026-000138</a></td>
 							<td>생산자</td>
-							<td>박*자</td>
+							<td>동동과수원</td>
 							<td>복숭아</td>
 							<td>-</td>
 							<td>-</td>
@@ -155,7 +155,7 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000137">REQ-2026-000137</a></td>
 							<td>생산자</td>
-							<td>서*호</td>
+							<td>산마루농장</td>
 							<td>고추</td>
 							<td>회수</td>
 							<td>2026-09-26 ~ 2026-10-03</td>
@@ -167,7 +167,7 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
 							<td>생산자</td>
-							<td>김*아</td>
+							<td>행복농장</td>
 							<td>사과</td>
 							<td>폐기</td>
 							<td>2026-09-24 ~ 2026-09-27</td>
@@ -179,7 +179,7 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 							<td>생산자</td>
-							<td>배*우</td>
+							<td>솔밭농장</td>
 							<td>배</td>
 							<td>회수</td>
 							<td>2026-09-15 ~ 2026-09-19</td>
@@ -203,7 +203,7 @@
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
 							<td>생산자</td>
-							<td>이*자</td>
+							<td>가원농장</td>
 							<td>복숭아</td>
 							<td>회수</td>
 							<td>2026-09-12 ~ 2026-09-16</td>

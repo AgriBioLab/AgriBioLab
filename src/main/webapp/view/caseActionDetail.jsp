@@ -39,11 +39,7 @@
 			</div>
 
 			<!-- ============= 요약 정보 ============= -->
-			<!-- 총괄 담당자 모니터링용: 지금 단계, 누가 맡았나, 언제 끝났나, 며칠 걸렸나
-		     처리 담당자 = 이 건을 배정받은 담당자, 요약에만 표시 (조치기관의 이행 담당자, 회차별 조사담당자와 다름)
-		     종결일: 조치완료 = 이행 확인날짜, 반려·조치 대상 아님 = 판정한 날, 진행 중이면 '-'
-		     조사완료일 = 조사 판정이 '조사 완료'인 회차의 조사일 (조사 중이면 '-')
-		     처리 일수 = 신청일 ~ 종결일 (진행 중이면 오늘까지 경과일) -->
+			<!-- 조치 단계 요약 (전체 처리 일수는 핵심 화면인 보상처리 상세에서), 조사완료일 = '조사 완료' 판정 회차의 조사일, 조치 종결일 = 이행 확인날짜 -->
 			<dl class="detail-summary">
 				<div>
 					<dt>진행상태</dt>
@@ -62,12 +58,8 @@
 					<dd>2026-09-24</dd>
 				</div>
 				<div>
-					<dt>종결일</dt>
+					<dt>조치 종결일</dt>
 					<dd>2026-09-28</dd>
-				</div>
-				<div>
-					<dt>처리 일수</dt>
-					<dd>7일</dd>
 				</div>
 			</dl>
 
@@ -75,26 +67,23 @@
 			     진행상태 조치완료 = 서류 모두 확인 → 현장조사 완료 → 조치 결정 → 조치 이행 → 담당자 이행 확인까지 끝나 종결된 상태
 			     날짜 흐름: 발생 9/15 → 신청 9/21 → 서류 확인 9/22~23 → 조사 9/22·9/24 → 조치 결정 9/24 → 조치 기간 9/24~27 → 이행 9/27 → 이행 확인 9/28 --%>
 
-			<!-- ============= 신청 요약 ============= -->
-			<!-- 담당자는 신청을 간단히 확인하고, 자세한 신청 내용은 피해신청 상세에서 (같은 피해신청번호로 조회)
-		     신청 서류는 내려받기만 (확인 처리는 피해신청 상세에서), 미확인 서류는 서류명 뒤에 '(미확인)' 표시 -->
+			<!-- ============= 대상 정보 ============= -->
+			<!-- 누구의 무엇인지 식별 (신청일·신청 상세 이동은 처리 흐름에서), 신청자 이름은 가림, 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">신청 요약</h2>
+				<h2 class="detail-section-title">대상 정보</h2>
 
 				<table class="detail-table">
-					<caption class="sr-only">신청 요약</caption>
+					<caption class="sr-only">대상 정보</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
-						<th scope="row">신청일</th>
-						<td>2026-09-21</td>
+						<td>REQ-2026-000136</td>
+						<th scope="row">재해유형 · 품목</th>
+						<td>병해충 · 사과</td>
 					</tr>
 					<tr>
 						<th scope="row">신청자 · 농장</th>
-						<td>김현아 · 행복농장</td>
-						<th scope="row">재해유형 · 품목</th>
-						<td>병해충 · 사과</td>
+						<td colspan="3">김*아 · 행복농장</td>
 					</tr>
 					<tr>
 						<th scope="row">신청 서류</th>
@@ -237,8 +226,6 @@
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionList.jsp">목록</a>
-				<%-- 조치완료 건만 표시, 같은 피해신청번호로 보상처리 상세 이동 --%>
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">보상처리 보기</a>
 				<%-- 2차: 진행상태가 조치완료일 때만 표시, 상세 내용을 모아 조치 이행 확인서를 인쇄·PDF로 출력
 				<a class="list-btn" href="#">조치 이행 확인서 출력</a>
 				--%>

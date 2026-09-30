@@ -64,7 +64,7 @@
 			<%-- 샘플 데이터: 생산자 본인이 신청한 REQ-2026-000136 1건 (목록의 어느 번호를 눌러도 이 화면, MVC2 전환 시 번호로 조회) --%>
 
 			<!-- ============= 피해신청정보 ============= -->
-			<!-- 피해신청번호는 제목 오른쪽 위에 표시 -->
+			<!-- 피해신청번호는 제목 오른쪽 위에 표시, 신청자·생산자 이름은 가림 (직원 이름은 실명) -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해신청정보</h2>
@@ -79,7 +79,7 @@
 					</tr>
 					<tr>
 						<th scope="row">신청자명</th>
-						<td>김현아</td>
+						<td>김*아</td>
 						<th scope="row">신청자 분류</th>
 						<td>생산자</td>
 					</tr>
@@ -140,7 +140,7 @@
 					<caption class="sr-only">생산자정보</caption>
 					<tr>
 						<th scope="row">생산자명</th>
-						<td>김현아</td>
+						<td>김*아</td>
 						<th scope="row">농장명</th>
 						<td>행복농장</td>
 					</tr>
@@ -209,10 +209,8 @@
 			</section>
 
 			<!-- ============= 하단 이동 ============= -->
-			<!-- 조사 이후(조사중·조치 이행·조치완료·조치 대상 아님) 건만 피해조치 보기 버튼 표시, 같은 피해신청번호로 이동 -->
 			<div class="detail-actions">
 				<a class="list-btn" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">목록</a>
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/caseActionDetail.jsp?no=REQ-2026-000136">피해조치 보기</a>
 			</div>
 
 		</main>

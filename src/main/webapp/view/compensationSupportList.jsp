@@ -63,7 +63,7 @@
 				<!-- 피해신청번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="applyNo">피해신청번호</label> <input type="text" id="applyNo" name="applyNo" class="search-input normal" placeholder="REQ-2026-000127">
+					<label class="search-label" for="applyNo">피해신청번호</label> <input type="text" id="applyNo" name="applyNo" class="search-input normal" placeholder="REQ-2026-000136">
 
 				</div>
 
@@ -107,13 +107,13 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">보상처리 목록</span> <span>총<strong>3</strong>건</span>
+				<span class="result-count">보상처리 목록</span> <span>총<strong>8</strong>건</span>
 
 			</div>
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 조치완료된 건만 보상처리로 넘어옴 / 정렬: 지급 전 건을 조치 종결이 오래된 순서로 먼저, 지급완료 건은 아래
+			<%-- 조치완료된 건만 보상처리로 넘어옴 / 정렬: 최신 신청이 위 (모든 목록 공통)
 			     재해유형·품목명은 등록된 재해정보에서 불러온 값, 보상금액은 조치 대상 수량 × 단가 --%>
 			<div class="table-wrap">
 				<table class="list-table">
@@ -132,15 +132,70 @@
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 조치완료 건 3건 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 보상상태 4가지 각 2건, 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
-							<td>한울농장</td>
-							<td>오이</td>
-							<td>냉해</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
+							<td>행복농장</td>
+							<td>사과</td>
+							<td>병해충</td>
+							<td>폐기</td>
+							<td>8,400,000원</td>
+							<td>지급완료</td>
+							<td>2026-09-30</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
+							<td>바람농장</td>
+							<td>감자</td>
+							<td>침수</td>
+							<td>회수</td>
+							<td>2,100,000원</td>
+							<td>심사중</td>
+							<td>-</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000130">REQ-2026-000130</a></td>
+							<td>은하농원</td>
+							<td>딸기</td>
+							<td>병해충</td>
+							<td>폐기</td>
+							<td>5,600,000원</td>
+							<td>지급결정</td>
+							<td>-</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000129">REQ-2026-000129</a></td>
+							<td>솔밭농장</td>
+							<td>배</td>
+							<td>우박</td>
+							<td>회수</td>
+							<td>3,150,000원</td>
+							<td>심사중</td>
+							<td>-</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000128">REQ-2026-000128</a></td>
+							<td>들녘농장</td>
+							<td>양파</td>
+							<td>가뭄</td>
 							<td>용도변경</td>
-							<td>1,800,000원</td>
+							<td>-</td>
+							<td>부지급</td>
+							<td>-</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+							<td>새봄농원</td>
+							<td>토마토</td>
+							<td>침수</td>
+							<td>폐기</td>
+							<td>2,450,000원</td>
 							<td>지급결정</td>
 							<td>-</td>
 						</tr>
@@ -151,20 +206,20 @@
 							<td>복숭아</td>
 							<td>병해충</td>
 							<td>회수</td>
-							<td>3,150,000원</td>
-							<td>심사중</td>
+							<td>-</td>
+							<td>부지급</td>
 							<td>-</td>
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
-							<td>행복농장</td>
-							<td>사과</td>
-							<td>병해충</td>
-							<td>폐기</td>
-							<td>8,400,000원</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
+							<td>한울농장</td>
+							<td>오이</td>
+							<td>냉해</td>
+							<td>용도변경</td>
+							<td>1,800,000원</td>
 							<td>지급완료</td>
-							<td>2026-09-30</td>
+							<td>2026-09-22</td>
 						</tr>
 					</tbody>
 				</table>

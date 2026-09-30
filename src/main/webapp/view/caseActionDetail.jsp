@@ -37,6 +37,7 @@
 			<!-- 총괄 담당자 모니터링용: 지금 단계, 누가 맡았나, 언제 끝났나, 며칠 걸렸나
 		     처리 담당자 = 이 건을 배정받은 담당자, 요약에만 표시 (조치기관의 이행 담당자, 회차별 조사담당자와 다름)
 		     종결일: 조치완료 = 이행 확인날짜, 반려·조치 대상 아님 = 판정한 날, 진행 중이면 '-'
+		     조사완료일 = 조사 판정이 '조사 완료'인 회차의 조사일 (조사 중이면 '-')
 		     처리 일수 = 신청일 ~ 종결일 (진행 중이면 오늘까지 경과일) -->
 			<dl class="detail-summary">
 				<div>
@@ -50,6 +51,10 @@
 				<div>
 					<dt>조치유형</dt>
 					<dd>폐기</dd>
+				</div>
+				<div>
+					<dt>조사완료일</dt>
+					<dd>2026-09-24</dd>
 				</div>
 				<div>
 					<dt>종결일</dt>
@@ -96,7 +101,7 @@
 
 			<!-- ============= 조치 이행정보 (0~1건) ============= -->
 			<!-- 조치를 이행한 건만 표시 (회수·폐기·용도변경 모든 조치유형 공통, 이행 전이면 '조치 이행 전입니다.' 안내)
-		     이행 담당자 = 조치기관에서 실제로 이행한 사람, 조치 이행날짜 = 실제로 이행한 날, 이행 확인날짜 = 담당자가 확인한 날
+		     이행 담당자·조치 이행날짜 = 조치기관에서 실제로 이행한 사람과 날, 이행 확인자·이행 확인날짜 = 이행을 확인한 담당자와 날
 		     조치 이행날짜가 조치 기간을 넘으면 이행 확인 의견에 지연 사유 기록
 		     이행 증빙 = 첨부서류 중 서류구분 이행(ACTION), 조치기관이 발급한 확인서 (회수 확인서, 폐기 확인서 등) -->
 			<section class="detail-section">
@@ -108,14 +113,18 @@
 					<tr>
 						<th scope="row">이행 담당자</th>
 						<td>이정훈</td>
-						<th scope="row">조치기관</th>
-						<td>○○시 농업기술센터</td>
-					</tr>
-					<tr>
 						<th scope="row">조치 이행날짜</th>
 						<td>2026-09-27</td>
+					</tr>
+					<tr>
+						<th scope="row">이행 확인자</th>
+						<td>박민수</td>
 						<th scope="row">이행 확인날짜</th>
 						<td>2026-09-28</td>
+					</tr>
+					<tr>
+						<th scope="row">조치기관</th>
+						<td colspan="3">○○시 농업기술센터</td>
 					</tr>
 					<tr>
 						<th scope="row">이행 확인 의견</th>
@@ -141,6 +150,12 @@
 					<tr>
 						<th scope="row">조치유형</th>
 						<td>폐기</td>
+						<th scope="row">조치 기간</th>
+						<td>2026-09-24 ~ 2026-09-27</td>
+					</tr>
+					<tr>
+						<th scope="row">결정자</th>
+						<td>이*규</td>
 						<th scope="row">조치 결정일</th>
 						<td>2026-09-24</td>
 					</tr>
@@ -151,10 +166,6 @@
 						<td>3,500㎡</td>
 					</tr>
 					<tr>
-						<th scope="row">조치 기간</th>
-						<td colspan="3">2026-09-24 ~ 2026-09-27</td>
-					</tr>
-					<tr>
 						<th scope="row">조치 내용</th>
 						<td colspan="3">피해 과실 1,200kg 전량 수거 후 매몰 폐기</td>
 					</tr>
@@ -163,13 +174,20 @@
 						<th scope="row">판정 사유</th>
 						<td colspan="3">피해율 기준 미달 (N02) - 2차 조사 피해율 12%</td>
 					</tr>
+					<tr>
+						<th scope="row">판정자</th>
+						<td>이*규</td>
+						<th scope="row">판정일</th>
+						<td>2026-09-29</td>
+					</tr>
 					--%>
 				</table>
 
 			</section>
 
 			<!-- ============= 피해현장조사 정보 (여러 건) ============= -->
-			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시, 조사 보고서 = 첨부서류 중 서류구분 조사(SURVEY), 조사 1회당 1건 -->
+			<!-- 피해신청 1건에 조사가 여러 번 있을 수 있어 목록 표로 표시, 조사 보고서 = 첨부서류 중 서류구분 조사(SURVEY), 조사 1회당 1건
+		     조사 판정: 추가 조사(MORE) / 조사 완료(DONE), '조사 완료'인 회차의 조사일 = 조사완료일 -->
 			<section class="detail-section">
 
 				<h2 class="detail-section-title">피해현장조사 정보</h2>
@@ -179,6 +197,7 @@
 						<caption class="sr-only">피해현장조사 정보</caption>
 						<thead>
 							<tr>
+								<th scope="col">차수</th>
 								<th scope="col">조사일</th>
 								<th scope="col">조사담당자명</th>
 								<th scope="col">피해유형</th>
@@ -186,11 +205,13 @@
 								<th scope="col">피해율</th>
 								<th scope="col">피해내용</th>
 								<th scope="col">현장조사결과</th>
+								<th scope="col">조사 판정</th>
 								<th scope="col">조사 보고서</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
+								<td>1차</td>
 								<td>2026-09-22</td>
 								<td>박민수</td>
 								<td>과실 병반</td>
@@ -198,9 +219,11 @@
 								<td>40%</td>
 								<td class="cell-text">탄저병 초기 증상 확인</td>
 								<td class="cell-text">확산 우려가 있어 재조사 필요</td>
+								<td>추가 조사</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 							<tr>
+								<td>2차</td>
 								<td>2026-09-24</td>
 								<td>박민수</td>
 								<td>과실 부패</td>
@@ -208,6 +231,7 @@
 								<td>70%</td>
 								<td class="cell-text">과실 상품성이 저하되고 수확량이 감소함</td>
 								<td class="cell-text">피해 과실 폐기 필요</td>
+								<td>조사 완료</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
 							</tr>
 						</tbody>

@@ -120,7 +120,7 @@
 							<th scope="col">농장명</th>
 							<th scope="col">품목명</th>
 							<th scope="col">재해유형</th>
-							<th scope="col">보상금액</th>
+							<th scope="col">최종 산정액</th>
 							<th scope="col">보상상태</th>
 							<th scope="col">처리 담당자</th>
 							<th scope="col">처리 일수</th>

@@ -30,6 +30,47 @@
 	color: #222;
 }
 
+/* ============= 처리 흐름 (신청 → 조사 → 조치 → 보상) ============= */
+/* 단계마다 위쪽 선: 끝난 단계는 파란색, 남은 단계는 회색 */
+.detail-flow {
+	display: flex;
+	margin: 0 0 24px;
+	padding: 0;
+	list-style: none;
+}
+
+.detail-flow li {
+	flex: 1;
+	padding: 10px 12px 0;
+	border-top: 3px solid #ddd;
+	font-size: 14px;
+	color: #666;
+}
+
+.detail-flow li.is-done {
+	border-top-color: #1f4e9c;
+	color: #222;
+}
+
+/* 단계 이름을 누르면 그 단계 상세로 이동 */
+.detail-flow a {
+	color: #1f4e9c;
+	text-decoration: underline;
+}
+
+.detail-flow .flow-date {
+	display: block;
+	margin-top: 2px;
+	color: #666;
+}
+
+/* 지금 보고 있는 화면의 단계 */
+.flow-here-apply .step-apply,
+.flow-here-action .step-action,
+.flow-here-comp .step-comp {
+	font-weight: 700;
+}
+
 /* ============= 요약 정보 (제목 아래 핵심 값 한 줄) ============= */
 .detail-summary {
 	display: grid;
@@ -139,6 +180,16 @@
 /* ============= 반응형 ============= */
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
+	/* 처리 흐름: 한 줄에 2단계씩 */
+	.detail-flow {
+		flex-wrap: wrap;
+		row-gap: 12px;
+	}
+
+	.detail-flow li {
+		flex: 0 0 50%;
+	}
+
 	/* 요약 정보: 한 줄에 2개씩 */
 	.detail-summary {
 		grid-auto-flow: row;

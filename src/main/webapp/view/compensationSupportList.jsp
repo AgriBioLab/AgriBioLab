@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 보상처리</title>
+<title>농산물피해조치 - 보상처리 목록</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,74 +27,63 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>보상처리</span>
+				<span>홈</span> &gt; <span>보상처리</span> &gt; <span>보상처리 목록</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상처리</h1>
+			<h1 class="page-title">보상처리 목록</h1>
 
 			<!-- ============= SEARCH ============= -->
+			<!-- 목록 한 줄 = 조치완료된 피해신청 1건의 보상 (조회 키는 피해신청번호) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/compensationSupportList.jsp">
 
-				<!-- 기간 -->
+				<!-- 기간 (신청일) -->
 				<div class="search-row">
 
 					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-23" title="기간 종료일">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
 
-				<!-- 처리상태 -->
+				<!-- 보상상태 (코드 값은 협의 전 예시, 통계 화면 보상상태와 맞출 것) -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">처리상태</label>
+					<label class="search-label" for="status">보상상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
-						<option value="REVIEW">보상검토중</option>
-						<option value="DONE">보상완료</option>
+						<option value="REVIEWING">심사중</option>
+						<option value="APPROVED">지급결정</option>
+						<option value="PAID">지급완료</option>
+						<option value="NOT_PAID">부지급</option>
 					</select>
 
 				</div>
 
-				<!-- 접수번호 -->
+				<!-- 피해신청번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="receiptNo">접수번호</label> <input type="text" id="receiptNo" name="receiptNo" class="search-input normal" placeholder="2026-004582">
+					<label class="search-label" for="applyNo">피해신청번호</label> <input type="text" id="applyNo" name="applyNo" class="search-input normal" placeholder="REQ-2026-000127">
 
 				</div>
 
-				<!-- 재해유형 -->
+				<!-- 조치유형 (코드 값은 협의 전 예시) -->
 				<div class="search-row">
 
-					<label class="search-label" for="caseType">재해유형</label> <input type="text" id="caseType" name="caseType" class="search-input normal" placeholder="병해충">
+					<label class="search-label" for="actionType">조치유형</label>
+					<select id="actionType" name="actionType" class="search-select">
+						<option value="">전체</option>
+						<option value="RECALL">회수</option>
+						<option value="DISPOSAL">폐기</option>
+						<option value="CHANGE_USE">용도변경</option>
+					</select>
 
 				</div>
 
-				<!-- 대표자명 -->
+				<!-- 농장명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
-
-				</div>
-
-				<!-- 단체/상호명 -->
-				<div class="search-row">
-
-					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
-
-				</div>
-
-				<!-- 구분 -->
-				<div class="search-row">
-
-					<span class="search-label">구분</span>
-					<div class="radio-group">
-						<label><input type="radio" name="targetType" value="" checked> 전체</label>
-						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
-						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
-						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
-					</div>
+					<label class="search-label" for="farmName">농장명</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -118,52 +107,65 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">보상처리 목록</span> <span>총<strong>2</strong>건
-				</span>
+				<span class="result-count">보상처리 목록</span> <span>총<strong>3</strong>건</span>
 
 			</div>
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
+			<%-- 조치완료된 건만 보상처리로 넘어옴 / 정렬: 지급 전 건을 조치 종결이 오래된 순서로 먼저, 지급완료 건은 아래
+			     재해유형·품목명은 등록된 재해정보에서 불러온 값, 보상금액은 조치 대상 수량 × 단가 --%>
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">보상처리 목록</caption>
 
 					<thead>
 						<tr>
-							<th scope="col">접수번호</th>
-							<th scope="col">신청일</th>
-							<th scope="col">구분</th>
-							<th scope="col">대표자명</th>
-							<th scope="col">단체/상호명</th>
-							<th scope="col">재해유형</th>
+							<th scope="col">피해신청번호</th>
+							<th scope="col">농장명</th>
 							<th scope="col">품목명</th>
-							<th scope="col">처리상태</th>
+							<th scope="col">재해유형</th>
+							<th scope="col">조치유형</th>
+							<th scope="col">보상금액</th>
+							<th scope="col">보상상태</th>
+							<th scope="col">지급일</th>
 						</tr>
 					</thead>
 
+					<!-- 샘플 데이터: 조치완료 건 3건 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=2026-004571">2026-004571</a></td>
-							<td>2026-09-10</td>
-							<td>생산자</td>
-							<td>최길동</td>						
-							<td>가나배영농조합법인</td>
-							<td>가뭄</td>
-							<td>배</td>
-							<td>보상검토중</td>
-						</tr>
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=2026-004582">2026-004582</a></td>
-							<td>2026-09-21</td>
-							<td>생산자</td>
-							<td>김현아</td>
-							<td>행복농장</td>
-							<td>병해충</td>
-							<td>사과</td>
-							<td>보상완료</td>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000125">REQ-2026-000125</a></td>
+							<td>한울농장</td>
+							<td>오이</td>
+							<td>냉해</td>
+							<td>용도변경</td>
+							<td>1,800,000원</td>
+							<td>지급결정</td>
+							<td>-</td>
 						</tr>
 
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000126">REQ-2026-000126</a></td>
+							<td>가원농장</td>
+							<td>복숭아</td>
+							<td>병해충</td>
+							<td>회수</td>
+							<td>3,150,000원</td>
+							<td>심사중</td>
+							<td>-</td>
+						</tr>
+
+						<tr>
+							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000127">REQ-2026-000127</a></td>
+							<td>행복농장</td>
+							<td>사과</td>
+							<td>병해충</td>
+							<td>폐기</td>
+							<td>8,400,000원</td>
+							<td>지급완료</td>
+							<td>2026-09-30</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>

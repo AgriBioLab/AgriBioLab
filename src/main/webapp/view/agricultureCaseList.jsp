@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 농산물 재해</title>
+<title>농산물품질 - 등록된 재해 정보와 현장조사 결과 조회</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,42 +27,42 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>농산물 재해</span> <!--&gt; = > 이 표시 -->
+				<span>홈</span> &gt; <span>등록된 재해 정보와 현장조사 결과 조회</span> <!--&gt; = > 이 표시 -->
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">농산물 재해</h1>
+			<h1 class="page-title">등록된 재해 정보와 현장조사 결과 조회</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/agricultureCaseList.jsp">
 
-				<!-- 기간 -->
+				<!-- 재해 등록일 기간 -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+					<label class="search-label" for="startDate">재해 등록일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-10-01" title="기간 종료일">
 
 				</div>
 
-				<!-- 재해상태 -->
+				<!-- 재해 조사 진행상태 -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">재해상태</label>
+					<label class="search-label" for="status">재해 조사 진행상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
 						<option value="INVESTIGATING">조사중</option>
 						<option value="PROCESSING">처리중</option>
-						<option value="INVESTIGATED">조사완료</option>
+						<option value="INVESTIGATED">현장조사 결과 등록 완료</option>
 					</select>
 
 				</div>
 
-				<!-- 재해번호 -->
+				<!-- 재해정보번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="caseNo">재해번호</label> <input type="text" id="caseNo" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
+					<label class="search-label" for="caseNo">재해정보번호</label> <input type="text" id="caseNo" name="caseNo" class="search-input normal" placeholder="INC-2026-000128">
 
 				</div>
 
@@ -103,7 +103,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="itemName">품목</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
 
 				</div>
 
@@ -120,7 +120,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">농산물 재해 목록</span> <span>총<strong>2</strong>건
+				<span class="result-count">등록된 재해 정보와 현장조사 결과 목록</span> <span>총<strong>2</strong>건
 				</span>
 
 			</div>
@@ -129,18 +129,18 @@
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
 			<div class="table-wrap">
 				<table class="list-table">
-					<caption class="sr-only">농산물 재해 목록</caption>
+					<caption class="sr-only">등록된 재해 정보와 현장조사 결과 목록</caption>
 
 					<thead>
 						<tr>
-							<th scope="col">재해번호</th>
-							<th scope="col">농산물피해신청일</th>
+							<th scope="col">재해정보번호</th>
+							<th scope="col">피해신청 접수일</th>
 							<th scope="col">구분</th>
 							<th scope="col">대표자명</th>						
 							<th scope="col">단체/상호명</th>
 							<th scope="col">재해유형</th>
-							<th scope="col">품목명</th>
-							<th scope="col">재해상태</th>
+							<th scope="col">품목</th>
+							<th scope="col">재해 조사 진행상태</th>
 						</tr>
 					</thead>
 
@@ -164,7 +164,7 @@
 							<td>행복농장</td>
 							<td>병해충</td>
 							<td>사과</td>
-							<td>조사완료</td>
+							<td>현장조사 결과 등록 완료</td>
 						</tr>
 					</tbody>
 				</table>

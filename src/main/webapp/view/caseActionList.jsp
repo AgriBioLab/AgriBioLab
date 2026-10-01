@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해조치</title>
+<title>농산물품질 - 피해조치 진행상태 및 수행 결과 조회</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해조치</span>
+				<span>홈</span> &gt; <span>피해조치 진행상태 및 수행 결과 조회</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해조치</h1>
+			<h1 class="page-title">피해조치 진행상태 및 수행 결과 조회</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 조치 기준 목록: 한 줄 = 피해신청 1건의 조치 (조사중·조치중·조치완료), 조회 키는 피해신청번호 -->
@@ -41,7 +41,7 @@
 				<!-- 조치 결정일 기간 (조치 기준 조회) -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">조치 결정일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+					<label class="search-label" for="startDate">조치 방법 확정일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
@@ -49,12 +49,12 @@
 				<!-- 조치상태: 조사 이후 조치가 진행되는 건만 (접수·보완요청·반려·조치 대상 아님은 피해신청 메뉴에서) -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">조치상태</label>
+					<label class="search-label" for="status">피해조치 진행상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="INVESTIGATING">조사중</option>
 						<option value="IN_ACTION">조치중</option>
-						<option value="DONE">조치완료</option>
+						<option value="DONE">조치 수행 및 결과 확인 완료</option>
 					</select>
 
 				</div>
@@ -66,10 +66,10 @@
 
 				</div>
 
-				<!-- 조치유형 (코드 값은 협의 전 예시) -->
+				<!-- 조치 방법 (코드 값은 협의 전 예시) -->
 				<div class="search-row">
 
-					<label class="search-label" for="actionType">조치유형</label>
+					<label class="search-label" for="actionType">조치 방법</label>
 					<select id="actionType" name="actionType" class="search-select">
 						<option value="">전체</option>
 						<option value="RECALL">회수</option>
@@ -118,7 +118,7 @@
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 조치 기준: 누구(구분·단체/상호명·대표자)에게 어떤 조치를 언제까지(이행기한) 결정했고 언제 끝났나(조치 완료일 = 이행 확인일)
+			<%-- 조치 기준: 누구(구분·단체/상호명·대표자)에게 어떤 조치를 언제까지 끝내도록 확정했고 언제 결과 확인이 끝났나(조치 결과 확인일)
 			     조사중이면 조치 항목은 '-', 대표자는 가림, 정렬: 최신 신청이 위 --%>
 			<div class="table-wrap">
 				<table class="list-table">
@@ -131,10 +131,10 @@
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
 							<th scope="col">품목명</th>
-							<th scope="col">조치유형</th>
-							<th scope="col">이행기한</th>
-							<th scope="col">조치상태</th>
-							<th scope="col">조치 완료일</th>
+							<th scope="col">조치 방법</th>
+							<th scope="col">조치 완료 요청기한</th>
+							<th scope="col">피해조치 진행상태</th>
+							<th scope="col">실제 조치 수행 완료일</th>
 						</tr>
 					</thead>
 
@@ -172,7 +172,7 @@
 							<td>사과</td>
 							<td>폐기</td>
 							<td>2026-09-27</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>2026-09-28</td>
 						</tr>
 
@@ -184,7 +184,7 @@
 							<td>배</td>
 							<td>회수</td>
 							<td>2026-09-19</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>2026-09-20</td>
 						</tr>
 
@@ -196,7 +196,7 @@
 							<td>토마토</td>
 							<td>폐기</td>
 							<td>2026-09-17</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>2026-09-18</td>
 						</tr>
 
@@ -208,7 +208,7 @@
 							<td>복숭아</td>
 							<td>회수</td>
 							<td>2026-09-16</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>2026-09-17</td>
 						</tr>
 					</tbody>

@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 피해신청</title>
+<title>농산물품질 - 피해신청 접수 및 처리상태 조회</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,21 +27,21 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청</span>
+				<span>홈</span> &gt; <span>피해신청 접수 및 처리상태 조회</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해신청</h1>
+			<h1 class="page-title">피해신청 접수 및 처리상태 조회</h1>
 
 			<!-- ============= SEARCH ============= -->
-			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자는 가려서 표시·이름 전체로 검색, 개인농가는 단체/상호명 '-' (생산자 신청이면 단체/상호명와 생산 농장이 같음) -->
+			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자는 가려서 표시·이름 전체로 검색, 개인농가는 단체/상호명 '-' (생산자 신청이면 단체/상호명와 생산지가 같음) -->
 			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/damageApplyList.jsp">
 
 				<!-- 기간 (신청일) -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+					<label class="search-label" for="startDate">피해신청 접수일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
@@ -50,14 +50,14 @@
 				     반려 = 조사 전 자격 불일치로 종결, 조치 대상 아님 = 조사 후 피해 미인정으로 종결 -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">진행상태</label>
+					<label class="search-label" for="status">피해신청 처리상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
 						<option value="SUPPLEMENT">보완요청</option>
 						<option value="INVESTIGATING">조사중</option>
 						<option value="IN_ACTION">조치중</option>
-						<option value="DONE">조치완료</option>
+						<option value="DONE">조치 수행 및 결과 확인 완료</option>
 						<option value="NOT_TARGET">조치 대상 아님</option>
 						<option value="REJECTED">반려</option>
 					</select>
@@ -101,10 +101,10 @@
 
 				</div>
 
-				<!-- 생산 농장 (신청자가 유통자·판매자여도 생산한 농장은 항상 있음) -->
+				<!-- 생산지 (신청자가 유통자·판매자여도 생산지는 항상 있음) -->
 				<div class="search-row">
 
-					<label class="search-label" for="farmName">생산 농장</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="farmName">생산지</label> <input type="text" id="farmName" name="farmName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
@@ -154,14 +154,14 @@
 					<thead>
 						<tr>
 							<th scope="col">피해신청번호</th>
-							<th scope="col">신청일</th>
+							<th scope="col">피해신청 접수일</th>
 							<th scope="col">구분</th>
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
-							<th scope="col">생산 농장</th>
+							<th scope="col">생산지</th>
 							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>
-							<th scope="col">진행상태</th>
+							<th scope="col">피해신청 처리상태</th>
 							<%-- 재해유형: 생산자가 신청 전에 등록된 재해를 불러와 신청하므로 그 재해의 유형 (신청에는 재해정보_일련번호만 저장) --%>
 							<th scope="col">재해유형</th>
 						</tr>
@@ -225,7 +225,7 @@
 							<td>김*아</td>
 							<td>행복농장</td>
 							<td>사과</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>병해충</td>
 						</tr>
 
@@ -261,7 +261,7 @@
 							<td>배*우</td>
 							<td>솔밭농장</td>
 							<td>배</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>우박</td>
 						</tr>
 
@@ -273,7 +273,7 @@
 							<td>문*호</td>
 							<td>새봄농원</td>
 							<td>토마토</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>침수</td>
 						</tr>
 
@@ -285,7 +285,7 @@
 							<td>이*자</td>
 							<td>가원농장</td>
 							<td>복숭아</td>
-							<td>조치완료</td>
+							<td>조치 수행 및 결과 확인 완료</td>
 							<td>병해충</td>
 						</tr>
 					</tbody>

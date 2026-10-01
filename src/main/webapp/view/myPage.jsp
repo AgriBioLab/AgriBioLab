@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 마이페이지</title>
+<title>농산물품질 - 마이페이지</title>
 
 <!-- 상세 CSS (정보표) -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">

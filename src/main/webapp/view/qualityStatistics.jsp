@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 통계</title>
+<title>농산물품질 - 재해·보상·품질 영향 통계분석</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -30,12 +30,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>통계</span> &gt; <span>재해유형별 통계</span>
+				<span>홈</span> &gt; <span>재해·보상·품질 영향 통계분석</span> &gt; <span>재해유형별 보상금 비교 분석</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">재해유형별 통계</h1>
+			<h1 class="page-title">재해유형별 보상금 비교 분석</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 통계 검색조건: 아래 그래프의 재해유형·보상상태 값과 같은 기준 -->
@@ -44,7 +44,7 @@
 				<!-- 기간 -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
+					<label class="search-label" for="startDate">통계 분석 기간</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
 
 				</div>
@@ -75,13 +75,13 @@
 				<!-- 보상상태 -->
 				<div class="search-row">
 
-					<label class="search-label" for="status">보상상태</label>
+					<label class="search-label" for="status">보상처리 진행상태</label>
 					<select id="status" name="status" class="search-select">
 						<option value="">전체</option>
 						<option value="RECEIVED">접수</option>
 						<option value="REVIEWING">심사중</option>
-						<option value="APPROVED">지급결정</option>
-						<option value="PAID">지급완료</option>
+						<option value="APPROVED">보상금 지급 확정</option>
+						<option value="PAID">보상금 입금 완료</option>
 						<option value="REJECTED">반려</option>
 					</select>
 
@@ -103,10 +103,10 @@
 				<!-- ============= STATISTICS ============= -->
 				<section class="statistics-result">
 
-					<h2 class="statistics-result-title">재해유형별 보상지급현황</h2>
+					<h2 class="statistics-result-title">재해유형별 신청 금액과 지급 금액 비교</h2>
 
 					<p class="statistics-result-desc">
-						검색 조건에 해당하는 피해조치 데이터를 재해유형별로 집계한 통계입니다.
+						검색 조건에 해당하는 피해조치와 보상처리 데이터를 재해유형별로 묶어 신청 금액, 지급 금액, 지급률을 비교합니다.
 					</p>
 
 					<!-- 요약 수치 -->

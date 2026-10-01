@@ -2,11 +2,11 @@
 <%-- 사이드메뉴 공통: qualityStatistics.jsp 에서 <%@ include file="side_qualityStatistics.jsp"%> 로 사용 --%>
 <aside class="side-menu">
 
-	<div class="side-title">통계</div>
+	<div class="side-title">재해·보상·품질 영향 통계분석</div>
 
 	<div class="side-section">
 
-		<div class="side-section-title">보상금</div>
+		<div class="side-section-title">보상금 통계</div>
 
 		<ul class="side-menu-list">
 			<li class="active"><a href="#">재해유형별</a></li>
@@ -15,7 +15,7 @@
 			<li><a href="#">품목별</a></li>
 		</ul>
 
-		<div class="side-section-title">신청/지급건수</div>
+		<div class="side-section-title">신청·지급 건수 통계</div>
 
 		<ul class="side-menu-list">
 			<li><a href="#">재해유형별</a></li>

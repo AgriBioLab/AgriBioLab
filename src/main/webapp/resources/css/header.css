@@ -49,6 +49,7 @@
 }
 
 .logout-btn {
+	display: inline-block;
 	border: 1px solid #bbb;
 	background: white;
 	padding: 5px 13px;
@@ -101,13 +102,16 @@
 }
 
 .gnb-menu li {
-	width: 180px;
+	min-width: 230px;
+	padding: 0 16px;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 600;
+	text-align: center;
+	word-break: keep-all;
 }
 
 /* 지금 화면의 메뉴: body 클래스와 메뉴 클래스가 짝이 맞을 때 표시 (화면마다 active 를 따로 적지 않음) */

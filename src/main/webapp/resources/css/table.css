@@ -19,7 +19,7 @@
 
 .list-table {
 	width: 100%;
-	min-width: 800px;	/* 이보다 좁아지면 글자가 세로로 쪼개지므로 최소 폭 유지 */
+	min-width: 1040px;	/* 설명형 컬럼명이 한 글자씩 쪼개지지 않도록 최소 폭 유지 */
 	border-collapse: collapse;
 	text-align: center;
 	font-size: 14px;

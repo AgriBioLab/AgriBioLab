@@ -144,7 +144,7 @@
 }
 
 .detail-table th {
-	width: 150px;	/* 15px 글자 기준 가장 긴 항목(농산물 이력번호)이 한 줄에 들어가는 폭 */
+	width: 220px;	/* 이해관계자 리뷰용 설명형 항목명이 읽히도록 폭 확보 */
 	padding: 12px;
 	border-bottom: 1px solid #ddd;
 	background: #fafafa;
@@ -223,7 +223,7 @@
 
 	.detail-table tr {
 		display: grid;
-		grid-template-columns: 140px minmax(0, 1fr);	/* 가장 긴 항목('재해유형 · 품목', '신청자와의 관계')이 한 줄에 들어가는 폭 */
+		grid-template-columns: 160px minmax(0, 1fr);	/* 모바일에서도 항목명이 한 글자씩 쪼개지지 않게 */
 	}
 
 	.detail-table th {

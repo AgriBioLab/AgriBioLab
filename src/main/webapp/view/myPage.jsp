@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물피해조치 - 마이페이지</title>
+<title>농산물품질 - 마이페이지</title>
 
 <!-- 상세 CSS (정보표) -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -52,7 +52,7 @@
 					</tr>
 					<tr>
 						<th scope="row">담당 업무</th>
-						<td colspan="3">피해신청 확인, 피해조치 관리</td>
+						<td colspan="3">보상처리·피해조치·피해신청 모니터링, 통계</td>
 					</tr>
 					<tr>
 						<th scope="row">사무실 전화</th>
@@ -73,7 +73,7 @@
 					<caption class="sr-only">권한 정보</caption>
 					<tr>
 						<th scope="row">권한</th>
-						<td>피해조치담당자</td>
+						<td>품질담당자 (조회)</td>
 						<th scope="row">권한 부여일</th>
 						<td>2026-03-02</td>
 					</tr>

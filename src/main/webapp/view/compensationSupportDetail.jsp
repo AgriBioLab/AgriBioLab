@@ -116,7 +116,7 @@
 						<th scope="row">보상 신청 금액</th>
 						<td>9,590,000원</td>
 						<th scope="row">보상 신청일</th>
-						<td>2026-09-21</td>
+						<td>2026-09-29</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 수량</th>
@@ -242,7 +242,7 @@
 								<th scope="col">제출일</th>
 								<th scope="col">서류 검토 상태</th>
 								<th scope="col">서류 검토일</th>
-								<th scope="col">서류 검토 담당자</th>
+								<th scope="col">서류 검토자</th>
 								<th scope="col">첨부파일</th>
 							</tr>
 						</thead>

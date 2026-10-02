@@ -131,6 +131,7 @@
 					<thead>
 						<tr>
 							<th scope="col">피해신청번호</th>
+							<th scope="col">보상금 신청일</th>
 							<th scope="col">구분</th>
 							<th scope="col">단체/상호명</th>
 							<th scope="col">대표자</th>
@@ -139,7 +140,6 @@
 							<th scope="col">최종 보상금</th>
 							<th scope="col">보상처리 진행상태</th>
 							<th scope="col">보상금을 지급한 기관</th>
-							<th scope="col">보상금 지급일</th>
 						</tr>
 					</thead>
 
@@ -147,6 +147,7 @@
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
+							<td>2026-09-29</td>
 							<td>생산자</td>
 							<td>행복농장</td>
 							<td>김*아</td>
@@ -155,11 +156,12 @@
 							<td>6,720,000원</td>
 							<td>보상금 입금 완료</td>
 							<td>○○도 농업재해기관</td>
-							<td>2026-09-30</td>
+							
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
+							<td>2026-09-27</td>
 							<td>생산자</td>
 							<td>솔밭농장</td>
 							<td>배*우</td>
@@ -168,11 +170,11 @@
 							<td>2,520,000원</td>
 							<td>심사중</td>
 							<td>○○도 농업재해기관</td>
-							<td>-</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
+							<td>2026-09-25</td>
 							<td>판매자</td>
 							<td>새봄마트</td>
 							<td>문*호</td>
@@ -181,11 +183,11 @@
 							<td>1,960,000원</td>
 							<td>보상금 지급 확정</td>
 							<td>○○도 농업재해기관</td>
-							<td>-</td>
 						</tr>
 
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
+							<td>2026-09-23</td>
 							<td>생산자</td>
 							<td>가원농장</td>
 							<td>이*자</td>
@@ -193,7 +195,6 @@
 							<td>2,400,000원</td>
 							<td>-</td>
 							<td>부지급</td>
-							<td>-</td>
 							<td>-</td>
 						</tr>
 					</tbody>

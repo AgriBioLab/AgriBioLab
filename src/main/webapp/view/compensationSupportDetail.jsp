@@ -200,7 +200,7 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금을 지급한 기관</th>
-						<td>○○도</td>
+						<td>○○도 농업재해기관</td>
 						<th scope="row">보상금 지급 담당자</th>
 						<td>한소영</td>
 					</tr>

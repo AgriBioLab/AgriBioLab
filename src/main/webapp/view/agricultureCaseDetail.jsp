@@ -108,7 +108,7 @@
 						<th scope="row">현장에서 확인한 피해원인</th>
 						<td>가뭄</td>
 						<th scope="row">현장에서 확인한 피해율</th>
-						<td>피해율 계산 중</td>
+						<td>피해율 산정 중</td>
 					</tr>
 					<tr>
 						<th scope="row">재배면적</th>

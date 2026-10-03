@@ -73,7 +73,7 @@
 					<caption class="sr-only">권한 정보</caption>
 					<tr>
 						<th scope="row">권한</th>
-						<td>품질담당자 (조회)</td>
+						<td>조회 담당자</td>
 						<th scope="row">권한 부여일</th>
 						<td>2026-03-02</td>
 					</tr>

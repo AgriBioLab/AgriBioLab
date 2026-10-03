@@ -2,14 +2,14 @@
 <%-- 사이드메뉴 공통: caseActionList.jsp, caseActionDetail.jsp 에서 <%@ include file="side_caseAction.jsp"%> 로 사용 --%>
 <aside class="side-menu">
 
-	<div class="side-title">피해조치 진행상태 및 수행 결과 조회</div>
+	<div class="side-title">피해조치 결과 조회</div>
 
 	<div class="side-section">
 
-		<div class="side-section-title">피해조치 진행상태 및 수행 결과 조회</div>
+		<div class="side-section-title">피해조치 결과 조회</div>
 
 		<ul class="side-menu-list">
-			<li class="active"><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 진행상태 및 수행 결과 조회</a></li>
+			<li class="active"><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 결과 조회</a></li>
 		</ul>
 
 	</div>

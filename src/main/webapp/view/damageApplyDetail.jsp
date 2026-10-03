@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물품질 - 피해신청 접수 및 처리상태 조회</title>
+<title>농산물품질 - 피해신청 처리상태 조회</title>
 
 <!-- 상세 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청 접수 및 처리상태 조회</span>
+				<span>홈</span> &gt; <span>피해신청 처리상태 조회</span>
 			</nav>
 
 			<!-- Page Title + 이 상세의 번호 (피해신청번호 = 신청·조치 화면 공통 조회 키) -->
 			<div class="detail-head">
-				<h1 class="page-title">피해신청 접수 및 처리상태 조회</h1>
+				<h1 class="page-title">피해신청 처리상태 조회</h1>
 				<p class="detail-no">피해신청번호 <strong>REQ-2026-000136</strong></p>
 			</div>
 
@@ -40,8 +40,8 @@
 			<!-- 신청 요약 (신청일 등 단계별 날짜는 바로 아래 처리 흐름에서) -->
 			<dl class="detail-summary">
 				<div>
-					<dt>피해신청 처리상태</dt>
-					<dd>조치 수행 및 결과 확인 완료</dd>
+					<dt>통합 진행상태</dt>
+					<dd>지급결과 확인</dd>
 				</div>
 				<div>
 					<dt>재해유형</dt>
@@ -69,8 +69,8 @@
 				<table class="detail-table">
 					<caption class="sr-only">피해신청 접수 정보</caption>
 					<tr>
-						<th scope="row">피해신청 처리상태</th>
-						<td>조치 수행 및 결과 확인 완료</td>
+						<th scope="row">통합 진행상태</th>
+						<td>지급결과 확인</td>
 						<th scope="row">피해신청 접수일</th>
 						<td>2026-09-21</td>
 					</tr>
@@ -84,8 +84,7 @@
 						<th scope="row">대표자명</th>
 						<td colspan="3">김*아</td>
 					</tr>
-					<%-- 진행상태가 반려 / 조치 대상 아님일 때만 표시 (이 샘플은 조치완료라 숨김)
-					     반려 사유 R01~R04 (조사 전), 조치 대상 아님 사유 N01~N02 (조사 후, 피해조치 목록에는 나오지 않음)
+					<%-- 신청 또는 조사 단계에서 종결된 건일 때만 사유를 표시
 					<tr>
 						<th scope="row">사유</th>
 						<td colspan="3">보완 기한 내 미보완 (R01) - 2026-09-30까지 농업경영체 등록확인서 미제출</td>
@@ -178,7 +177,7 @@
 								<td class="cell-text">농업경영체 등록확인서(생산자 자격 확인)</td>
 								<td>신청인</td>
 								<td>2026-09-23</td>
-								<td>서류 검토 완료</td>
+								<td>서류 확인 완료</td>
 								<td>2026-09-23</td>
 								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
@@ -187,7 +186,7 @@
 								<td class="cell-text">피해신청서(피해 접수 내용)</td>
 								<td>신청인</td>
 								<td>2026-09-21</td>
-								<td>서류 검토 완료</td>
+								<td>서류 확인 완료</td>
 								<td>2026-09-22</td>
 								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>
@@ -196,7 +195,7 @@
 								<td class="cell-text">피해 현장 사진(피해 사실 증빙)</td>
 								<td>신청인</td>
 								<td>2026-09-21</td>
-								<td>서류 검토 완료</td>
+								<td>서류 확인 완료</td>
 								<td>2026-09-22</td>
 								<td>박민수</td>
 								<td><a class="case-link" href="#">내려받기</a></td>

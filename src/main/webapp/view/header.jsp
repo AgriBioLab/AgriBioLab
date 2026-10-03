@@ -39,28 +39,28 @@
 
 				<ul class="all-menu-list">
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">재해·보상·품질 영향 통계분석</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">품질통계 조회</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">보상금 통계</a></li>
 							<li><a href="#">신청·지급 건수 통계</a></li>
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 진행상태 및 지급결과 조회</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 지급결과 조회</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 진행상태 및 지급결과 조회</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">보상처리 지급결과 조회</a></li>
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 진행상태 및 수행 결과 조회</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 결과 조회</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 진행상태 및 수행 결과 조회</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/caseActionList.jsp">피해조치 결과 조회</a></li>
 						</ul>
 					</li>
 					<li>
-						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청 접수 및 처리상태 조회</a>
+						<a class="all-menu-title" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청 처리상태 조회</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청 접수 및 처리상태 조회</a></li>
+							<li><a href="${pageContext.request.contextPath}/view/damageApplyList.jsp">피해신청 처리상태 조회</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -73,10 +73,10 @@
 <nav class="gnb">
 	<div class="gnb-inner">
 		<ul class="gnb-menu">
-			<li class="gnb-stats"><a href="qualityStatistics.jsp">재해·보상·품질 영향 통계분석</a></li>
-			<li class="gnb-comp"><a href="compensationSupportList.jsp">보상처리 진행상태 및 지급결과 조회</a></li>
-			<li class="gnb-action"><a href="caseActionList.jsp">피해조치 진행상태 및 수행 결과 조회</a></li>
-			<li class="gnb-apply"><a href="damageApplyList.jsp">피해신청 접수 및 처리상태 조회</a></li>
+			<li class="gnb-stats"><a href="qualityStatistics.jsp">품질통계 조회</a></li>
+			<li class="gnb-comp"><a href="compensationSupportList.jsp">보상처리 지급결과 조회</a></li>
+			<li class="gnb-action"><a href="caseActionList.jsp">피해조치 결과 조회</a></li>
+			<li class="gnb-apply"><a href="damageApplyList.jsp">피해신청 처리상태 조회</a></li>
 		</ul>
 	</div>
 </nav>

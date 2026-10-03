@@ -36,20 +36,20 @@
 
 				<div class="work-menu-grid">
 					<a class="work-menu-card primary" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">
-						<strong>보상처리 진행상태 및 지급결과 조회</strong>
-						<span>보상 신청부터 계산, 지급까지의 진행상태와 지급결과를 조회합니다.</span>
+						<strong>보상처리 지급결과 조회</strong>
+						<span>보상 신청부터 산정, 지급까지의 전체 흐름과 지급결과를 조회합니다.</span>
 					</a>
 					<a class="work-menu-card" href="${pageContext.request.contextPath}/view/qualityStatistics.jsp">
-						<strong>재해·보상·품질 영향 통계분석</strong>
+						<strong>품질통계 조회</strong>
 						<span>재해유형, 품목, 지역, 보상금 기준으로 품질관리 판단에 필요한 통계를 분석합니다.</span>
 					</a>
 					<a class="work-menu-card" href="${pageContext.request.contextPath}/view/caseActionList.jsp">
-						<strong>피해조치 진행상태 및 수행 결과 조회</strong>
-						<span>피해신청 이후 확정된 조치의 진행상태와 실제 수행 결과를 조회합니다.</span>
+						<strong>피해조치 결과 조회</strong>
+						<span>피해신청 이후 전체 흐름 안에서 조치 계획과 실제 수행 결과를 조회합니다.</span>
 					</a>
 					<a class="work-menu-card" href="${pageContext.request.contextPath}/view/damageApplyList.jsp">
-						<strong>피해신청 접수 및 처리상태 조회</strong>
-						<span>피해신청 접수 건별로 재해유형, 품목, 처리상태를 조회합니다.</span>
+						<strong>피해신청 처리상태 조회</strong>
+						<span>피해신청 접수 건별로 재해유형, 품목, 신청 정보를 조회합니다.</span>
 					</a>
 				</div>
 			</section>
@@ -68,7 +68,7 @@
 						<dd>7건</dd>
 					</div>
 					<div>
-						<dt>보상금 계산</dt>
+						<dt>보상금 산정</dt>
 						<dd>4건</dd>
 					</div>
 					<div>
@@ -81,7 +81,7 @@
 			<!-- ============= 최근 업무 ============= -->
 			<section class="index-section">
 				<div class="index-section-head">
-					<h2 class="index-section-title">최근 보상처리 진행상태 및 지급결과</h2>
+					<h2 class="index-section-title">최근 보상처리 지급결과</h2>
 					<a class="index-more-link" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">전체보기</a>
 				</div>
 
@@ -94,7 +94,7 @@
 								<th scope="col">단체/상호명</th>
 								<th scope="col">품목명</th>
 								<th scope="col">최종 보상금</th>
-								<th scope="col">보상처리 진행상태</th>
+								<th scope="col">보상금 지급일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -103,21 +103,21 @@
 								<td>행복농장</td>
 								<td>사과</td>
 								<td>6,720,000원</td>
-								<td>보상금 입금 완료</td>
+								<td>2026-09-30</td>
 							</tr>
 							<tr>
 								<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
 								<td>솔밭농장</td>
 								<td>배</td>
 								<td>2,520,000원</td>
-								<td>심사중</td>
+								<td>2026-09-28</td>
 							</tr>
 							<tr>
 								<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
 								<td>새봄마트</td>
 								<td>토마토</td>
-								<td>0원</td>
-								<td>부지급</td>
+								<td>1,960,000원</td>
+								<td>2026-09-26</td>
 							</tr>
 						</tbody>
 					</table>

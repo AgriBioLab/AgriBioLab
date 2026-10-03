@@ -29,3 +29,8 @@ db.properties
 *.env
 
 # .project, .classpath, .settings/ 는 올린다 (Import만 하면 바로 실행되도록)
+
+# ===== 도구 산출물·의존성 (레포에 올리지 않는다) =====
+.codex/
+node_modules/
+__screenshots__/

@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물품질 - 피해신청 접수 및 처리상태 조회</title>
+<title>농산물품질 - 피해신청 처리상태 조회</title>
 
 <!-- 검색영역 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
@@ -27,12 +27,12 @@
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>피해신청 접수 및 처리상태 조회</span>
+				<span>홈</span> &gt; <span>피해신청 처리상태 조회</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">피해신청 접수 및 처리상태 조회</h1>
+			<h1 class="page-title">피해신청 처리상태 조회</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 목록 한 줄 = 피해신청 1건, 모든 진행상태 (조치 내용은 피해조치 메뉴에서), 신청 주체는 단체/상호명(업체)로 표시, 대표자는 가려서 표시·이름 전체로 검색, 개인농가는 단체/상호명 '-' (생산자 신청이면 단체/상호명와 생산지가 같음) -->
@@ -43,24 +43,6 @@
 
 					<label class="search-label" for="startDate">피해신청 접수일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
 						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
-
-				</div>
-
-				<!-- 진행상태 (코드 값은 협의 전 예시)
-				     반려 = 조사 전 자격 불일치로 종결, 조치 대상 아님 = 조사 후 피해 미인정으로 종결 -->
-				<div class="search-row">
-
-					<label class="search-label" for="status">피해신청 처리상태</label>
-					<select id="status" name="status" class="search-select">
-						<option value="">전체</option>
-						<option value="RECEIVED">접수</option>
-						<option value="SUPPLEMENT">보완요청</option>
-						<option value="INVESTIGATING">조사중</option>
-						<option value="IN_ACTION">조치중</option>
-						<option value="DONE">조치 수행 및 결과 확인 완료</option>
-						<option value="NOT_TARGET">조치 대상 아님</option>
-						<option value="REJECTED">반려</option>
-					</select>
 
 				</div>
 
@@ -161,13 +143,12 @@
 							<th scope="col">생산지</th>
 							<%-- 품목명: 재해유형과 함께 등록된 재해정보에서 불러온 값 (재해 1건 = 품목 1개) --%>
 							<th scope="col">품목명</th>
-							<th scope="col">피해신청 처리상태</th>
 							<%-- 재해유형: 생산자가 신청 전에 등록된 재해를 불러와 신청하므로 그 재해의 유형 (신청에는 재해정보_일련번호만 저장) --%>
 							<th scope="col">재해유형</th>
 						</tr>
 					</thead>
 
-					<!-- 샘플 데이터: 진행상태 7가지 각 1건 (조치완료는 보상상태별 4건), 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
+					<!-- 샘플 데이터: 최신 신청이 위 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
 							<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000140">REQ-2026-000140</a></td>
@@ -177,7 +158,6 @@
 							<td>정*숙</td>
 							<td>햇살딸기농원</td>
 							<td>딸기</td>
-							<td>접수</td>
 							<td>병해충</td>
 						</tr>
 
@@ -189,7 +169,6 @@
 							<td>최*준</td>
 							<td>청솔농장</td>
 							<td>배</td>
-							<td>보완요청</td>
 							<td>우박</td>
 						</tr>
 
@@ -201,7 +180,6 @@
 							<td>박*자</td>
 							<td>박*자 농가</td>
 							<td>복숭아</td>
-							<td>조사중</td>
 							<td>가뭄</td>
 						</tr>
 
@@ -213,7 +191,6 @@
 							<td>서*호</td>
 							<td>산마루농장</td>
 							<td>고추</td>
-							<td>조치중</td>
 							<td>병해충</td>
 						</tr>
 
@@ -225,7 +202,6 @@
 							<td>김*아</td>
 							<td>행복농장</td>
 							<td>사과</td>
-							<td>조치 수행 및 결과 확인 완료</td>
 							<td>병해충</td>
 						</tr>
 
@@ -237,7 +213,6 @@
 							<td>강*연</td>
 							<td>들꽃농장</td>
 							<td>참외</td>
-							<td>반려</td>
 							<td>가뭄</td>
 						</tr>
 
@@ -249,7 +224,6 @@
 							<td>한*영</td>
 							<td>푸른들영농조합</td>
 							<td>벼</td>
-							<td>조치 대상 아님</td>
 							<td>침수</td>
 						</tr>
 
@@ -261,7 +235,6 @@
 							<td>배*우</td>
 							<td>솔밭농장</td>
 							<td>배</td>
-							<td>조치 수행 및 결과 확인 완료</td>
 							<td>우박</td>
 						</tr>
 
@@ -273,7 +246,6 @@
 							<td>문*호</td>
 							<td>새봄농원</td>
 							<td>토마토</td>
-							<td>조치 수행 및 결과 확인 완료</td>
 							<td>침수</td>
 						</tr>
 
@@ -285,7 +257,6 @@
 							<td>이*자</td>
 							<td>가원농장</td>
 							<td>복숭아</td>
-							<td>조치 수행 및 결과 확인 완료</td>
 							<td>병해충</td>
 						</tr>
 					</tbody>

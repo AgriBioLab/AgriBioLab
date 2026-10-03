@@ -4,7 +4,7 @@
 <head>
 <%@ include file="head.jsp"%>
 
-<title>농산물품질 - 담당자 로그인</title>
+<title>농산물품질 - 품질담당자 로그인</title>
 
 <!-- 로그인 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
@@ -19,7 +19,7 @@
 				<p class="login-system-name">농산물품질</p>
 			</div>
 
-			<h1 id="loginTitle" class="login-title">담당자 로그인</h1>
+			<h1 id="loginTitle" class="login-title">품질담당자 로그인</h1>
 
 			<form class="login-form" method="get" action="${pageContext.request.contextPath}/view/index.jsp">
 				<div class="login-field">

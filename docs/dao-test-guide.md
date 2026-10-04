@@ -17,7 +17,8 @@ Run the SQL files in this order against Oracle:
 1. `sql/01_create_tables.sql`
 2. `sql/02_create_constraints.sql`
 3. `sql/03_create_sequences.sql`
-4. `sql/04_insert_sample_data.sql`
+4. `sql/sample_data.sql`
+5. `sql/04_select_check.sql`
 
 ## Database Settings
 

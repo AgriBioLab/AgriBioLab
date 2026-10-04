@@ -64,19 +64,19 @@ class CompensationDAOImplTest {
         CompensationDetailVO detail = result.get();
         assertEquals("REQ-2026-000136", detail.getApplyNo());
         assertEquals("행복농장", detail.getBusinessName());
-        assertEquals("김현아", detail.getOwnerName());
-        assertEquals("집중호우", detail.getDisasterType());
+        assertEquals("김민아", detail.getOwnerName());
+        assertEquals("병해충", detail.getDisasterType());
         assertEquals("사과", detail.getItemName());
         assertEquals(0, new BigDecimal("9590000").compareTo(detail.getRequestAmount()));
         assertEquals(0, new BigDecimal("6720000").compareTo(detail.getFinalAmount()));
         assertEquals("○○도 보상산정기관", detail.getCalculationOrgName());
         assertEquals("○○도 보상지급기관", detail.getPaymentOrgName());
-        assertEquals("매몰 폐기", detail.getActionMethod());
+        assertEquals("폐기", detail.getActionMethod());
         assertEquals(0, new BigDecimal("1200").compareTo(detail.getActualActionQtyKg()));
-        assertEquals(LocalDate.of(2026, 9, 25), detail.getResultCheckedAt());
-        assertEquals(LocalDate.of(2026, 9, 20), detail.getSurveyCompletedAt());
-        assertEquals(Integer.valueOf(2), detail.getFinalSurveyRound());
-        assertEquals(0, new BigDecimal("35.5").compareTo(detail.getFinalDamageRate()));
+        assertEquals(LocalDate.of(2026, 9, 28), detail.getResultCheckedAt());
+        assertEquals(LocalDate.of(2026, 9, 24), detail.getSurveyCompletedAt());
+        assertEquals(Integer.valueOf(1), detail.getFinalSurveyRound());
+        assertEquals(0, new BigDecimal("70").compareTo(detail.getFinalDamageRate()));
         assertNotNull(detail.getAttachments());
         assertFalse(detail.getAttachments().isEmpty());
     }

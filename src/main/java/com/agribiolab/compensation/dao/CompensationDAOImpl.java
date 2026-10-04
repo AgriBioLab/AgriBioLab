@@ -19,95 +19,119 @@ import com.agribiolab.compensation.vo.CompensationVO;
 public class CompensationDAOImpl implements CompensationDAO {
     private static final String LIST_SELECT =
         "SELECT " +
-        "    a.apply_no, " +
-        "    CASE a.target_type " +
-        "        WHEN 'PRODUCER' THEN '생산자' " +
-        "        WHEN 'DISTRIBUTOR' THEN '유통자' " +
-        "        WHEN 'SELLER' THEN '판매자' " +
-        "    END AS target_type_name, " +
-        "    NVL(a.business_name, '-') AS business_name, " +
-        "    SUBSTR(a.owner_name, 1, 1) || '*' || SUBSTR(a.owner_name, -1) AS owner_name_masked, " +
-        "    a.item_name, " +
-        "    c.final_amount, " +
-        "    c.payment_date, " +
-        "    c.payment_org_name " +
-        "FROM damage_application a " +
-        "JOIN compensation c ON c.application_id = a.application_id " +
+        "    ada.app_id AS apply_no, " +
+        "    ap.app_category AS target_type_name, " +
+        "    NVL(ap.organization_name, '-') AS business_name, " +
+        "    SUBSTR(ap.representative_name, 1, 1) || '*' || SUBSTR(ap.representative_name, -1) AS owner_name_masked, " +
+        "    ada.product_name AS item_name, " +
+        "    calc.final_compensation_amount AS final_amount, " +
+        "    pay.payment_completion_date AS payment_date, " +
+        "    pay.payment_institution AS payment_org_name " +
+        "FROM agriculture_damage_app ada " +
+        "JOIN applicant ap ON ap.applicant_id = ada.applicant_id " +
+        "LEFT JOIN compensation_claim claim ON claim.app_id = ada.app_id " +
+        "LEFT JOIN compensation_calc calc ON calc.claim_id = claim.compensation_claim_id " +
+        "LEFT JOIN compensation_payment pay ON pay.compensation_claim_id = claim.compensation_claim_id " +
         "WHERE 1 = 1 ";
 
     private static final String LIST_ORDER =
-        "ORDER BY c.payment_date DESC NULLS LAST, a.apply_no DESC";
+        "ORDER BY pay.payment_completion_date DESC NULLS LAST, ada.app_id DESC";
 
     private static final String DETAIL_SELECT =
         "SELECT " +
-        "    a.apply_no, " +
-        "    a.target_type, " +
-        "    CASE a.target_type " +
-        "        WHEN 'PRODUCER' THEN '생산자' " +
-        "        WHEN 'DISTRIBUTOR' THEN '유통자' " +
-        "        WHEN 'SELLER' THEN '판매자' " +
-        "    END AS target_type_name, " +
-        "    a.business_name, " +
-        "    a.owner_name, " +
-        "    a.disaster_type, " +
-        "    a.item_name, " +
-        "    a.production_place, " +
-        "    c.request_amount, " +
-        "    c.request_date, " +
-        "    c.request_qty_kg, " +
-        "    c.request_area_m2, " +
-        "    c.basis_name, " +
-        "    c.unit_price, " +
-        "    c.apply_rate, " +
-        "    c.calculation_formula_text, " +
-        "    c.adjustment_reason, " +
-        "    c.calculation_org_name, " +
-        "    c.calculation_manager_name, " +
-        "    c.calculated_at, " +
-        "    c.final_amount, " +
-        "    c.payment_confirmed_at, " +
-        "    c.payment_date, " +
-        "    c.payment_org_name, " +
-        "    c.payment_manager_name, " +
-        "    c.payee_name, " +
-        "    c.masked_account_no, " +
-        "    c.payment_exclusion_reason, " +
-        "    ar.action_method, " +
-        "    ar.plan_content, " +
-        "    ar.actual_action_qty_kg, " +
-        "    ar.result_checked_at, " +
-        "    s.survey_completed_at, " +
-        "    s.final_survey_round, " +
-        "    s.final_damage_rate, " +
-        "    s.final_damage_area_m2 " +
-        "FROM damage_application a " +
-        "JOIN compensation c ON c.application_id = a.application_id " +
-        "LEFT JOIN damage_action_result ar ON ar.application_id = a.application_id " +
-        "LEFT JOIN damage_survey s ON s.application_id = a.application_id " +
-        "WHERE a.apply_no = ?";
+        "    ada.app_id AS apply_no, " +
+        "    ap.app_category AS target_type, " +
+        "    ap.app_category AS target_type_name, " +
+        "    ap.organization_name AS business_name, " +
+        "    ap.representative_name AS owner_name, " +
+        "    ada.disaster_type, " +
+        "    ada.product_name AS item_name, " +
+        "    ada.production_area AS production_place, " +
+        "    claim.compensation_claim_amount AS request_amount, " +
+        "    claim.claim_date AS request_date, " +
+        "    claim.compensation_claim_quantity AS request_qty_kg, " +
+        "    claim.compensation_claim_area AS request_area_m2, " +
+        "    calc.calc_criterion AS basis_name, " +
+        "    calc.criterion_unit_price AS unit_price, " +
+        "    calc.compensation_applied_rate AS apply_rate, " +
+        "    NULL AS calculation_formula_text, " +
+        "    calc.difference_reason AS adjustment_reason, " +
+        "    calc.calc_institution_name AS calculation_org_name, " +
+        "    calc.calc_charger_name AS calculation_manager_name, " +
+        "    calc.calc_completion_date AS calculated_at, " +
+        "    calc.final_compensation_amount AS final_amount, " +
+        "    pay.payment_decision_date AS payment_confirmed_at, " +
+        "    pay.payment_completion_date AS payment_date, " +
+        "    pay.payment_institution AS payment_org_name, " +
+        "    pay.payment_charger_name AS payment_manager_name, " +
+        "    pay.recipient_name AS payee_name, " +
+        "    pay.payment_account_number AS masked_account_no, " +
+        "    NULL AS payment_exclusion_reason, " +
+        "    act.action_type AS action_method, " +
+        "    act.plan_action_content AS plan_content, " +
+        "    act.execution_confirm_quantity AS actual_action_qty_kg, " +
+        "    act.execution_confirm_date AS result_checked_at, " +
+        "    inv.invest_date AS survey_completed_at, " +
+        "    1 AS final_survey_round, " +
+        "    inv.damage_rate AS final_damage_rate, " +
+        "    inv.damage_area AS final_damage_area_m2 " +
+        "FROM agriculture_damage_app ada " +
+        "JOIN applicant ap ON ap.applicant_id = ada.applicant_id " +
+        "LEFT JOIN compensation_claim claim ON claim.app_id = ada.app_id " +
+        "LEFT JOIN compensation_calc calc ON calc.claim_id = claim.compensation_claim_id " +
+        "LEFT JOIN compensation_payment pay ON pay.compensation_claim_id = claim.compensation_claim_id " +
+        "LEFT JOIN damage_action act ON act.app_id = ada.app_id " +
+        "LEFT JOIN damage_site_invest inv ON inv.app_id = ada.app_id " +
+        "WHERE ada.app_id = ?";
 
     private static final String ATTACHMENT_SELECT =
-        "SELECT " +
-        "    f.file_id, " +
-        "    f.file_category, " +
-        "    f.document_name, " +
-        "    f.submit_source, " +
-        "    f.submitted_at, " +
-        "    f.checked_yn, " +
-        "    CASE f.checked_yn " +
-        "        WHEN 'Y' THEN '서류 확인 완료' " +
-        "        ELSE '서류 확인 전' " +
-        "    END AS checked_text, " +
-        "    f.checked_at, " +
-        "    f.checked_by, " +
-        "    f.file_path " +
-        "FROM attachment_file f " +
-        "JOIN damage_application a ON a.application_id = f.application_id " +
-        "LEFT JOIN compensation c ON c.compensation_id = f.compensation_id " +
-        "WHERE a.apply_no = ? ";
-
-    private static final String ATTACHMENT_ORDER =
-        "ORDER BY f.file_category, f.submitted_at DESC, f.file_id DESC";
+        "WITH target AS (SELECT ? AS app_id FROM dual), " +
+        "claim_target AS ( " +
+        "    SELECT claim.compensation_claim_id, calc.compensation_calc_id, pay.compensation_payment_id " +
+        "    FROM compensation_claim claim " +
+        "    LEFT JOIN compensation_calc calc ON calc.claim_id = claim.compensation_claim_id " +
+        "    LEFT JOIN compensation_payment pay ON pay.compensation_claim_id = claim.compensation_claim_id " +
+        "    JOIN target t ON t.app_id = claim.app_id " +
+        "), action_target AS ( " +
+        "    SELECT damage_action_id FROM damage_action act JOIN target t ON t.app_id = act.app_id " +
+        "), invest_target AS ( " +
+        "    SELECT invest_id FROM damage_site_invest inv JOIN target t ON t.app_id = inv.app_id " +
+        ") " +
+        "SELECT * FROM ( " +
+        "    SELECT app_doc_id AS file_id, 'APP' AS file_category, doc_name AS document_name, " +
+        "           '신청' AS submit_source, NULL AS submitted_at, NULL AS checked_yn, " +
+        "           NULL AS checked_text, NULL AS checked_at, NULL AS checked_by, file_url AS file_path " +
+        "    FROM app_doc d JOIN target t ON t.app_id = d.app_id " +
+        "    UNION ALL " +
+        "    SELECT 100000 + d.invest_doc_id AS file_id, 'INVEST' AS file_category, d.doc_name AS document_name, " +
+        "           '현장조사' AS submit_source, NULL AS submitted_at, NULL AS checked_yn, " +
+        "           NULL AS checked_text, NULL AS checked_at, NULL AS checked_by, d.file_url AS file_path " +
+        "    FROM invest_doc d JOIN invest_target it ON it.invest_id = d.invest_id " +
+        "    UNION ALL " +
+        "    SELECT 200000 + d.action_doc_id AS file_id, 'ACTION' AS file_category, d.doc_name AS document_name, " +
+        "           '피해조치' AS submit_source, NULL AS submitted_at, NULL AS checked_yn, " +
+        "           NULL AS checked_text, NULL AS checked_at, NULL AS checked_by, d.file_url AS file_path " +
+        "    FROM damage_action_doc d JOIN action_target at ON at.damage_action_id = d.action_id " +
+        "    UNION ALL " +
+        "    SELECT 300000 + d.claim_doc_id AS file_id, 'COMP' AS file_category, d.doc_name AS document_name, " +
+        "           d.submission_place AS submit_source, d.submission_date AS submitted_at, " +
+        "           CASE WHEN d.confirm_date IS NULL THEN 'N' ELSE 'Y' END AS checked_yn, " +
+        "           CASE WHEN d.confirm_date IS NULL THEN '서류 확인 전' ELSE '서류 확인 완료' END AS checked_text, " +
+        "           d.confirm_date AS checked_at, d.reviewer_name AS checked_by, d.file_url AS file_path " +
+        "    FROM compensation_claim_doc d JOIN claim_target ct ON ct.compensation_claim_id = d.compensation_claim_id " +
+        "    UNION ALL " +
+        "    SELECT 400000 + d.calc_doc_id AS file_id, 'COMP' AS file_category, d.doc_name AS document_name, " +
+        "           '보상금 산정' AS submit_source, NULL AS submitted_at, NULL AS checked_yn, " +
+        "           NULL AS checked_text, NULL AS checked_at, NULL AS checked_by, d.file_url AS file_path " +
+        "    FROM compensation_calc_doc d JOIN claim_target ct ON ct.compensation_calc_id = d.compensation_calc_id " +
+        "    UNION ALL " +
+        "    SELECT 500000 + d.payment_doc_id AS file_id, 'COMP' AS file_category, d.doc_name AS document_name, " +
+        "           '보상금 지급' AS submit_source, NULL AS submitted_at, NULL AS checked_yn, " +
+        "           NULL AS checked_text, NULL AS checked_at, NULL AS checked_by, d.file_url AS file_path " +
+        "    FROM compensation_payment_doc d JOIN claim_target ct ON ct.compensation_payment_id = d.compensation_payment_id " +
+        ") docs " +
+        "WHERE (? IS NULL OR docs.file_category = ?) " +
+        "ORDER BY docs.file_category, docs.submitted_at DESC NULLS LAST, docs.file_id DESC";
 
     @Override
     public List<CompensationVO> findCompensationList(CompensationSearchVO search) throws SQLException {
@@ -159,8 +183,8 @@ public class CompensationDAOImpl implements CompensationDAO {
 
     @Override
     public List<AttachmentFileVO> findCompensationAttachments(String applyNo, String fileCategory) throws SQLException {
-        QueryBuilder query = buildAttachmentQuery(fileCategory);
         List<AttachmentFileVO> attachments = new ArrayList<>();
+        String normalizedCategory = normalizeCategory(fileCategory);
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -168,9 +192,10 @@ public class CompensationDAOImpl implements CompensationDAO {
 
         try {
             conn = DBUtil.getConnection();
-            pstmt = conn.prepareStatement(query.toSql());
+            pstmt = conn.prepareStatement(ATTACHMENT_SELECT);
             pstmt.setString(1, applyNo);
-            query.bindFrom(pstmt, 2);
+            pstmt.setString(2, normalizedCategory);
+            pstmt.setString(3, normalizedCategory);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -190,45 +215,35 @@ public class CompensationDAOImpl implements CompensationDAO {
         }
 
         if (search.getStartDate() != null) {
-            query.append("AND c.payment_date >= ? ");
+            query.append("AND pay.payment_completion_date >= ? ");
             query.add(Date.valueOf(search.getStartDate()));
         }
         if (search.getEndDate() != null) {
-            query.append("AND c.payment_date < ? ");
+            query.append("AND pay.payment_completion_date < ? ");
             query.add(Date.valueOf(search.getEndDate().plusDays(1)));
         }
         if (hasText(search.getApplyNo())) {
-            query.append("AND a.apply_no = ? ");
+            query.append("AND ada.app_id = ? ");
             query.add(search.getApplyNo().trim());
         }
         if (hasText(search.getBizName())) {
-            query.append("AND a.business_name LIKE '%' || ? || '%' ");
+            query.append("AND ap.organization_name LIKE '%' || ? || '%' ");
             query.add(search.getBizName().trim());
         }
         if (hasText(search.getOwnerName())) {
-            query.append("AND a.owner_name LIKE '%' || ? || '%' ");
+            query.append("AND ap.representative_name LIKE '%' || ? || '%' ");
             query.add(search.getOwnerName().trim());
         }
         if (hasText(search.getTargetType())) {
-            query.append("AND a.target_type = ? ");
-            query.add(search.getTargetType().trim());
+            query.append("AND ap.app_category = ? ");
+            query.add(toAppCategory(search.getTargetType()));
         }
         if (hasText(search.getItemName())) {
-            query.append("AND a.item_name LIKE '%' || ? || '%' ");
+            query.append("AND ada.product_name LIKE '%' || ? || '%' ");
             query.add(search.getItemName().trim());
         }
 
         query.append(" ").append(LIST_ORDER);
-        return query;
-    }
-
-    private QueryBuilder buildAttachmentQuery(String fileCategory) {
-        QueryBuilder query = new QueryBuilder(ATTACHMENT_SELECT);
-        if (hasText(fileCategory)) {
-            query.append("AND f.file_category = ? ");
-            query.add(fileCategory.trim());
-        }
-        query.append(" ").append(ATTACHMENT_ORDER);
         return query;
     }
 
@@ -311,6 +326,24 @@ public class CompensationDAOImpl implements CompensationDAO {
         return rs.wasNull() ? null : value;
     }
 
+    private String toAppCategory(String targetType) {
+        String value = targetType.trim();
+        if ("PRODUCER".equalsIgnoreCase(value)) {
+            return "생산자";
+        }
+        if ("DISTRIBUTOR".equalsIgnoreCase(value)) {
+            return "유통자";
+        }
+        if ("SELLER".equalsIgnoreCase(value)) {
+            return "판매자";
+        }
+        return value;
+    }
+
+    private String normalizeCategory(String fileCategory) {
+        return hasText(fileCategory) ? fileCategory.trim().toUpperCase() : null;
+    }
+
     private boolean hasText(String value) {
         return value != null && !value.trim().isEmpty();
     }
@@ -333,12 +366,8 @@ public class CompensationDAOImpl implements CompensationDAO {
         }
 
         void bind(PreparedStatement pstmt) throws SQLException {
-            bindFrom(pstmt, 1);
-        }
-
-        void bindFrom(PreparedStatement pstmt, int startIndex) throws SQLException {
             for (int i = 0; i < params.size(); i++) {
-                pstmt.setObject(startIndex + i, params.get(i));
+                pstmt.setObject(i + 1, params.get(i));
             }
         }
 

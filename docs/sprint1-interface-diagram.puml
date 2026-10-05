@@ -1,0 +1,168 @@
+@startuml
+title 1st Sprint DAO Interface Design
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #FFFFCC
+  BorderColor #444444
+  ArrowColor #444444
+}
+
+package "officer" {
+  class QualityOfficerVO {
+    - officerId: int
+    - username: String
+    - name: String
+    - department: String
+  }
+
+  interface QualityOfficerDAOInterface {
+    + login(username: String, password: String): QualityOfficerVO
+  }
+}
+
+package "compensation.search" {
+  class CompensationSearchVO {
+    - startDate: LocalDate
+    - endDate: LocalDate
+    - appId: String
+    - organizationName: String
+    - representativeName: String
+    - appCategory: String
+    - productName: String
+  }
+
+  class CompensationListVO {
+    - appId: String
+    - appCategory: String
+    - organizationName: String
+    - representativeName: String
+    - productName: String
+    - finalCompensationAmount: BigDecimal
+    - paymentCompletionDate: LocalDate
+    - paymentInstitution: String
+  }
+
+  interface CompensationListDAOInterface {
+    + selectCompensationList(search: CompensationSearchVO): List<CompensationListVO>
+    + countCompensationList(search: CompensationSearchVO): int
+    + selectAppIdByClaimId(compensationClaimId: int): String
+  }
+}
+
+package "compensation.detail" {
+  class CompensationDetailVO {
+    - appId: String
+    - appCategory: String
+    - organizationName: String
+    - representativeName: String
+    - productName: String
+    - compensationClaimAmount: BigDecimal
+    - finalCompensationAmount: BigDecimal
+    - paymentCompletionDate: LocalDate
+  }
+
+  class CompensationClaimVO {
+    - compensationClaimId: int
+    - appId: String
+    - compensationClaimAmount: BigDecimal
+    - compensationClaimArea: BigDecimal
+    - compensationClaimQuantity: BigDecimal
+    - claimDate: LocalDate
+  }
+
+  class CompensationCalcVO {
+    - compensationCalcId: int
+    - claimId: int
+    - calcChargerName: String
+    - calcInstitutionName: String
+    - calcCriterion: String
+    - calcQuantity: BigDecimal
+    - criterionUnitPrice: BigDecimal
+    - finalCompensationAmount: BigDecimal
+    - calcCompletionDate: LocalDate
+  }
+
+  class CompensationPaymentVO {
+    - compensationPaymentId: int
+    - compensationClaimId: int
+    - paymentChargerName: String
+    - paymentInstitution: String
+    - recipientName: String
+    - paymentAmount: BigDecimal
+    - paymentCompletionDate: LocalDate
+  }
+
+  class DamageActionVO {
+    - damageActionId: int
+    - appId: String
+    - actionType: String
+    - planActionContent: String
+    - executionConfirmQuantity: BigDecimal
+    - executionConfirmDate: LocalDate
+  }
+
+  class DamageInvestVO {
+    - investId: int
+    - appId: String
+    - investigatorName: String
+    - damageType: String
+    - damageArea: BigDecimal
+    - damageRate: BigDecimal
+    - investDate: LocalDate
+  }
+
+  interface CompensationDetailDAOInterface {
+    + selectCompensationDetail(appId: String): CompensationDetailVO
+    + selectCompensationClaim(appId: String): CompensationClaimVO
+    + selectCompensationCalc(compensationClaimId: int): CompensationCalcVO
+    + selectCompensationPayment(compensationClaimId: int): CompensationPaymentVO
+    + selectDamageActionSummary(appId: String): DamageActionVO
+    + selectDamageInvestSummary(appId: String): DamageInvestVO
+  }
+}
+
+package "compensation.document" {
+  class DocumentVO {
+    - docId: int
+    - docType: String
+    - relatedId: int
+    - docName: String
+    - fileUrl: String
+    - submissionPlace: String
+    - submissionDate: LocalDate
+    - reviewerName: String
+    - confirmDate: LocalDate
+  }
+
+  interface CompensationDocumentDAOInterface {
+    + selectAppDocs(appId: String): List<DocumentVO>
+    + selectInvestDocs(investId: int): List<DocumentVO>
+    + selectActionDocs(actionId: int): List<DocumentVO>
+    + selectClaimDocs(compensationClaimId: int): List<DocumentVO>
+    + selectCalcDocs(compensationCalcId: int): List<DocumentVO>
+    + selectPaymentDocs(compensationPaymentId: int): List<DocumentVO>
+    + selectAllDocsByAppId(appId: String): List<DocumentVO>
+  }
+}
+
+QualityOfficerDAOInterface ..> QualityOfficerVO
+CompensationListDAOInterface ..> CompensationSearchVO
+CompensationListDAOInterface ..> CompensationListVO
+CompensationDetailDAOInterface ..> CompensationDetailVO
+CompensationDetailDAOInterface ..> CompensationClaimVO
+CompensationDetailDAOInterface ..> CompensationCalcVO
+CompensationDetailDAOInterface ..> CompensationPaymentVO
+CompensationDetailDAOInterface ..> DamageActionVO
+CompensationDetailDAOInterface ..> DamageInvestVO
+CompensationDocumentDAOInterface ..> DocumentVO
+
+CompensationDetailVO o-- CompensationClaimVO
+CompensationDetailVO o-- CompensationCalcVO
+CompensationDetailVO o-- CompensationPaymentVO
+CompensationDetailVO o-- DamageActionVO
+CompensationDetailVO o-- DamageInvestVO
+CompensationDetailVO o-- DocumentVO
+
+@enduml

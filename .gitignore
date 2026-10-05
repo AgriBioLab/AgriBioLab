@@ -34,3 +34,16 @@ db.properties
 .codex/
 node_modules/
 __screenshots__/
+
+# ===== 로컬 DB 스크립트·이번 작업 검토 자료 =====
+*.sql
+*.zip
+/sql/
+/docs/sql-review-source/
+/docs/change-history/2026-10-05-db-sample-changes.md
+/docs/quality-officer-login-guide.md
+/docs/sprint1-interface-design.md
+/docs/sprint1-interface-diagram.puml
+/docs/sprint1-sample-data-review.md
+/docs/sheet-cell-comments.png
+/db.properties.example

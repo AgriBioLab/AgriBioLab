@@ -1,4 +1,4 @@
-package model.vo.lwg;
+package model.vo;
 
 public class CompensationProgressVO {
 

@@ -1,4 +1,4 @@
-package model.dao.pgt;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.vo.pgt.CompensationListVO;
-import util.Query_pgt;
+import model.vo.CompensationListVO;
+import util.Query;
 
 public class CompensationListDAO {
 	private Connection conn;
@@ -21,7 +21,7 @@ public class CompensationListDAO {
 		CompensationListVO vo = null;
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONLIST_BY_APPLICATION_ID);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_ID);
 			pstmt.setString(1,applicationId);
 			ResultSet rs=pstmt.executeQuery();
 			
@@ -41,7 +41,7 @@ public class CompensationListDAO {
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONLIST_BY_APPLICATION_CATEGORY);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_CATEGORY);
 			pstmt.setString(1,applicationCategory);
 			ResultSet rs=pstmt.executeQuery();
 			
@@ -63,7 +63,7 @@ public class CompensationListDAO {
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONLIST_BY_ORGANIZATION_NAME);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_ORGANIZATION_NAME);
 			pstmt.setString(1,organizationName);
 			ResultSet rs=pstmt.executeQuery();
 			
@@ -83,7 +83,7 @@ public class CompensationListDAO {
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONLIST_BY_REPRESENTATIVE_NAME);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_REPRESENTATIVE_NAME);
 			pstmt.setString(1,representativeName);
 			ResultSet rs=pstmt.executeQuery();
 			
@@ -103,7 +103,7 @@ public class CompensationListDAO {
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONLIST_BY_PRODUCT_NAME);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_PRODUCT_NAME);
 			pstmt.setString(1,productName);
 			ResultSet rs=pstmt.executeQuery();
 			
@@ -123,7 +123,7 @@ public class CompensationListDAO {
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query_pgt.GET_COMPENSATIONlIST_BY_PAYMENT_COMPLETION_DATE);
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONlIST_BY_PAYMENT_COMPLETION_DATE);
 			pstmt.setString(1,startDate);
 			pstmt.setString(2, endDate);
 			ResultSet rs=pstmt.executeQuery();

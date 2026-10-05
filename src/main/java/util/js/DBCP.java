@@ -17,7 +17,8 @@ public class DBCP {
 	public static Connection getConnection() throws SQLException {
 		if(dbcp ==null) dbcp=new DBCP();
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe"; // -> throws
-		return DriverManager.getConnection(url, "hr", "hr");
+//		return DriverManager.getConnection(url, "hr", "hr");
+		return DriverManager.getConnection(url, "agri", "agri");
 	}
 	
 }

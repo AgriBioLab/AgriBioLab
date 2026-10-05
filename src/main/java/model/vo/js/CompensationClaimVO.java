@@ -10,11 +10,10 @@ public class CompensationClaimVO {
 
 	public CompensationClaimVO(int compensationClaimAmount, int compensationClaimArea, int compensationClaimQuantity,
 			Date claimDate) {
-		super();
-		this.compensationClaimAmount = compensationClaimAmount;
-		this.compensationClaimArea = compensationClaimArea;
-		this.compensationClaimQuantity = compensationClaimQuantity;
-		this.claimDate = claimDate;
+		setCompensationClaimAmount(compensationClaimAmount);
+		setCompensationClaimArea(compensationClaimArea);
+		setCompensationClaimQuantity(compensationClaimQuantity);
+		setClaimDate(claimDate);
 	}
 
 	public int getCompensationClaimAmount() {
@@ -49,4 +48,10 @@ public class CompensationClaimVO {
 		this.claimDate = claimDate;
 	}
 
+	@Override
+	public String toString() {
+		return "CompensationClaimVO [compensationClaimAmount=" + compensationClaimAmount + ", compensationClaimArea="
+				+ compensationClaimArea + ", compensationClaimQuantity=" + compensationClaimQuantity + ", claimDate="
+				+ claimDate + "]";
+	}
 }

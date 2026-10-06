@@ -17,6 +17,25 @@ public class CompensationListDAO {
 		this.conn=conn;
 	}
 	
+	public CompensationListVO getCompensationList() {
+		CompensationListVO vo = null;
+		
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_ID);
+			ResultSet rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo = new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
 	public CompensationListVO getCompensationListByApplicationId(String applicationId) {
 		CompensationListVO vo = null;
 		

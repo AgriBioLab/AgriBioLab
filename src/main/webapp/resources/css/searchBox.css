@@ -152,3 +152,12 @@
 		min-width: 0;
 	}
 }
+
+@media (max-width: 767px) {
+    .radio-group { white-space: normal; }
+    .radio-group label { display: inline-block; margin-bottom: 8px; }
+}
+
+@media (max-width: 767px) {
+    .radio-group { width: 100%; min-width: 0; }
+}

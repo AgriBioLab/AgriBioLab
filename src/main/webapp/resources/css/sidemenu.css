@@ -59,3 +59,12 @@
 		display: none;
 	}
 }
+
+/* 공통 사이드 HTML을 담는 영역 */
+#side {
+    width: 280px;
+    flex-shrink: 0;
+}
+@media (max-width: 1023px) {
+    #side { display: none; }
+}

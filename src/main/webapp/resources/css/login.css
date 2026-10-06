@@ -127,3 +127,18 @@
 		font-size: 22px;
 	}
 }
+
+/* 메인 화면의 로그인 진입 링크 */
+.main-login-link {
+    display: block;
+    text-align: center;
+    line-height: 42px;
+}
+
+.main-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 20px;
+    margin-bottom: 24px;
+}

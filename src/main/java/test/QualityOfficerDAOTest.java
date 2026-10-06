@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.dao.QualityOfficerDAO;
+import model.vo.QualityOfficerVO;
 
 public class QualityOfficerDAOTest {
 	private static Connection conn;
@@ -34,10 +35,12 @@ public class QualityOfficerDAOTest {
 	public void 로그인_성공() throws SQLException {
 		String username = "quality01";
 		String password = "quality1234";
+		
+		QualityOfficerVO vo = dao.login(username, password);
 		 
-		assertNotNull(dao.login(username, password));
-		assertEquals(dao.login(username, password).getUsername(), username);
-		assertEquals(dao.login(username, password).getPassword(), password);
+		assertNotNull(vo);
+		assertEquals(vo.getUsername(), username);
+		assertEquals(vo.getPassword(), password);
 	}
 	
 	@Test

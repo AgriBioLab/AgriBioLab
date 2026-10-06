@@ -1,4 +1,4 @@
-package test.pgt;
+package test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,15 +14,17 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import model.dao.pgt.CompensationListDAO;
-import model.vo.pgt.CompensationListVO;
+import model.dao.CompensationListDAO;
+import model.vo.CompensationListVO;
 
 public class CompensationListDAOTest {
 	private static Connection conn;
+	private static CompensationListDAO dao;
 
 	@BeforeClass
 	public static void before() throws SQLException {
-		conn=util.DBCP.getConnection();
+		conn = util.DBCP.getConnection();
+		dao = new CompensationListDAO(conn);
 	}
 	
 	@AfterClass
@@ -35,7 +37,6 @@ public class CompensationListDAOTest {
 	@Test
 	public void 피해신청번호_필터_검색() throws SQLException {			
 		String applicationId = "REQ-2026-000136";
-		CompensationListDAO dao = new CompensationListDAO(conn);
 		
 		assertNotNull(dao.getCompensationListByApplicationId(applicationId));
 		assertEquals(dao.getCompensationListByApplicationId(applicationId).getApplicationId(), applicationId);
@@ -44,7 +45,6 @@ public class CompensationListDAOTest {
 	@Test
 	public void 구분_필터_검색() throws SQLException {			
 		String applicationCategory = "생산자";
-		CompensationListDAO dao = new CompensationListDAO(conn);
 		
 		List<CompensationListVO> list = dao.getCompensationListByApplicationCategory(applicationCategory);
 		
@@ -59,7 +59,6 @@ public class CompensationListDAOTest {
 	@Test
 	public void 단체_상호명_필터_검색() throws SQLException {			
 		String organizationName = "행복농장";
-		CompensationListDAO dao = new CompensationListDAO(conn);		
 		
 		List<CompensationListVO> list = dao.getCompensationListByOrganizationName(organizationName);
 				
@@ -74,7 +73,6 @@ public class CompensationListDAOTest {
 	@Test
 	public void 대표자_필터_검색() throws SQLException {			
 		String representativeName = "최현우";
-		CompensationListDAO dao = new CompensationListDAO(conn);		
 		
 		List<CompensationListVO> list = dao.getCompensationListByRepresentativeName(representativeName);
 		
@@ -89,7 +87,6 @@ public class CompensationListDAOTest {
 	@Test
 	public void 품목명_필터_검색() throws SQLException {			
 		String productName = "사과";
-		CompensationListDAO dao = new CompensationListDAO(conn);		
 		
 		List<CompensationListVO> list = dao.getCompensationListByProductName(productName);
 		
@@ -106,8 +103,6 @@ public class CompensationListDAOTest {
 		String startDate = "2026-09-01";
 		String endDate = "2026-09-30";
 //		String endDate = "2026-09-29"; // 실패 케이스
-
-		CompensationListDAO dao = new CompensationListDAO(conn);	
 		
 		List<CompensationListVO> list = dao.getCompensationListByPaymentCompletionDate(startDate, endDate);
 						

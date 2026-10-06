@@ -1,4 +1,4 @@
-package model.vo.js;
+package model.vo;
 
 import java.sql.Date;
 

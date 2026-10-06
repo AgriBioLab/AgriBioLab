@@ -1,4 +1,4 @@
-package model.vo.pgt;
+package model.vo;
 
 import java.sql.Date;
 

@@ -1,4 +1,4 @@
-package model.vo.js;
+package model.vo;
 
 public class InvestigationSummaryVO {
 	private String investDate;

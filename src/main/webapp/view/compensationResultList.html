@@ -1,48 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%@ include file="head.jsp"%>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
+<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/sidemenu.css">
 
-<title>농산물품질 - 보상처리 지급결과 조회</title>
+<title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 검색영역 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
+<link rel="stylesheet" href="../resources/css/searchBox.css?v=20261006">
 <!-- 목록 표 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
+<link rel="stylesheet" href="../resources/css/table.css">
 </head>
 
 <body class="menu-comp">
 
-	<%@ include file="header.jsp"%>
+	<div id="header"></div>
 
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<%@ include file="side_compensationSupport.jsp"%>
+		<div id="side"></div>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리 지급결과 조회</span>
+				<span>홈</span> &gt; <span>보상처리결과 조회</span>
 			</nav>
 
 
 			<!-- Page Title -->
-			<h1 class="page-title">보상처리 지급결과 조회</h1>
+			<h1 class="page-title">보상처리결과 조회</h1>
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 보상 기준 목록: 한 줄 = 조치완료된 피해신청 1건의 보상 (조회 키는 피해신청번호) -->
-			<form class="search-box" method="get" action="${pageContext.request.contextPath}/view/compensationSupportList.jsp">
+			<form class="search-box">
 
 				<!-- 보상금 지급일 기간 (지급결과 기준 조회) -->
 				<div class="search-row">
 
 					<label class="search-label" for="startDate">보상금 지급일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-29" title="기간 종료일">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-30" title="기간 종료일">
 
 				</div>
 
@@ -90,7 +94,7 @@
 				<!-- 검색 / 초기화 -->
 				<div class="search-row full search-actions">
 
-					<button type="submit" class="search-btn">검색</button>
+					<button type="button" class="search-btn">검색</button>
 					<button type="reset" class="reset-btn">초기화</button>
 
 				</div>
@@ -100,14 +104,13 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">검색 결과</span> <span>총<strong>4</strong>건</span>
+				<span class="result-count">검색 결과</span> <span>총<strong>3</strong>건</span>
 
 			</div>
 
 			<!-- ============= TABLE ============= -->
 			<!-- 좁은 화면에서는 표 영역 안에서만 가로 스크롤 -->
-			<%-- 보상 지급결과 기준: 누구의 어떤 품목에 최종 보상금이 얼마로 산정됐고, 지급일·지급기관이 무엇인지 확인
-			     정렬: 최신 지급일이 위, 지급제외 건은 지급일·지급기관 '-' --%>
+
 			<div class="table-wrap">
 				<table class="list-table">
 					<caption class="sr-only">보상처리 목록</caption>
@@ -128,7 +131,7 @@
 					<!-- 샘플 데이터: 보상금 지급일 최신순 (MVC2 전환 시 c:forEach 로 교체) -->
 					<tbody>
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
+							<td><a class="case-link" href="compensationResultDetail.html?no=REQ-2026-000136">REQ-2026-000136</a></td>
 							<td>생산자</td>
 							<td>행복농장</td>
 							<td>김*아</td>
@@ -136,11 +139,11 @@
 							<td>6,720,000원</td>
 							<td>2026-09-30</td>
 							<td>○○도 보상지급기관</td>
-							
+
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000133">REQ-2026-000133</a></td>
+							<td>REQ-2026-000133</td>
 							<td>생산자</td>
 							<td>솔밭농장</td>
 							<td>배*우</td>
@@ -151,7 +154,7 @@
 						</tr>
 
 						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000132">REQ-2026-000132</a></td>
+							<td>REQ-2026-000132</td>
 							<td>판매자</td>
 							<td>새봄마트</td>
 							<td>문*호</td>
@@ -161,16 +164,7 @@
 							<td>○○도 보상지급기관</td>
 						</tr>
 
-						<tr>
-							<td><a class="case-link" href="${pageContext.request.contextPath}/view/compensationSupportDetail.jsp?no=REQ-2026-000131">REQ-2026-000131</a></td>
-							<td>생산자</td>
-							<td>가원농장</td>
-							<td>이*자</td>
-							<td>복숭아</td>
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-						</tr>
+
 					</tbody>
 				</table>
 			</div>
@@ -179,5 +173,6 @@
 
 	</div>
 
+<script src="../resources/js/common.js"></script>
 </body>
 </html>

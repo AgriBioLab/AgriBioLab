@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
+<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/sidemenu.css">
+
+<title>농산물품질 - 품질담당자 로그인</title>
+
+<!-- 로그인 CSS -->
+<link rel="stylesheet" href="../resources/css/login.css">
+</head>
+
+<body class="login-page">
+
+	<main class="login-wrap">
+		<section class="login-panel" aria-labelledby="loginTitle">
+			<div class="login-brand">
+				<div class="login-logo">logo</div>
+				<p class="login-system-name">농산물품질</p>
+			</div>
+
+			<h1 id="loginTitle" class="login-title">품질담당자 로그인</h1>
+
+			<form class="login-form" onsubmit="return login();">
+				<div class="login-field">
+					<label for="loginId">아이디</label>
+					<input type="text" id="loginId" name="loginId" value="quality01" required autocomplete="username">
+				</div>
+
+				<div class="login-field">
+					<label for="loginPassword">비밀번호</label>
+					<div class="password-input-wrap">
+						<input type="password" id="loginPassword" name="loginPassword" value="quality1234" required autocomplete="current-password">
+						<button type="button" class="password-toggle" onclick="showPassword();">보이기</button>
+					</div>
+				</div>
+
+				<button type="submit" class="login-submit">로그인</button>
+			</form>
+		</section>
+	</main>
+
+	<script src="../resources/js/login.js"></script>
+
+</body>
+</html>

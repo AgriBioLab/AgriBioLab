@@ -1,81 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%@ include file="head.jsp"%>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
+<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/sidemenu.css">
 
-<title>농산물품질 - 보상처리 지급결과 조회</title>
+<title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 상세 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css">
+<link rel="stylesheet" href="../resources/css/detail.css?v=20261006">
 <!-- 목록 표 CSS (관련 서류처럼 여러 건인 정보) -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
+<link rel="stylesheet" href="../resources/css/table.css">
 </head>
 
 <body class="menu-comp">
 
-	<%@ include file="header.jsp"%>
+	<div id="header"></div>
 
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<%@ include file="side_compensationSupport.jsp"%>
+		<div id="side"></div>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
 
 			<!-- Breadcrumb -->
 			<nav class="breadcrumb">
-				<span>홈</span> &gt; <span>보상처리 지급결과 조회</span>
+				<span>홈</span> &gt; <span>보상처리결과 조회</span>
 			</nav>
 
 			<!-- Page Title (보상에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
-			<h1 class="page-title">보상처리 지급결과 조회</h1>
+			<h1 class="page-title">보상처리결과 조회</h1>
 
 			<!-- ============= 요약 정보 ============= -->
 			<!-- 핵심 화면 모니터링용: 보상 신청 금액과 최종 보상금의 차이, 처리 일수(보상 신청일 ~ 지급일, 부지급은 확정일, 진행 중은 경과일), 지급일은 바로 아래 전체 흐름에서 -->
-			<dl class="detail-summary">
-				<div>
-					<dt>통합 진행상태</dt>
-					<dd>지급결과 확인</dd>
-				</div>
-				<div>
-					<dt>보상 신청 금액</dt>
-					<dd>9,590,000원</dd>
-				</div>
-				<div>
-					<dt>최종 보상금</dt>
-					<dd>6,720,000원</dd>
-				</div>
-				<div>
-					<dt>조치담당자</dt>
-					<dd>박민수</dd>
-				</div>
-				<div>
-					<dt>보상 신청부터 지급까지 걸린 기간</dt>
-					<dd>9일</dd>
-				</div>
-			</dl>
+			<div class="detail-summary-wrap">
+<table class="detail-summary">
+    <caption class="sr-only">보상처리결과 요약</caption>
+    <thead>
+        <tr>
+            <th scope="col">통합 진행상태</th>
+            <th scope="col">보상 신청 금액</th>
+            <th scope="col">최종 보상금</th>
+            <th scope="col">조치담당자</th>
+            <th scope="col">보상 신청부터 지급까지 걸린 기간</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>지급결과 확인</td>
+            <td>9,590,000원</td>
+            <td>6,720,000원</td>
+            <td>박민수</td>
+            <td>9일</td>
+        </tr>
+    </tbody>
+</table>
+</div>
 
 			<!-- ============= 처리 흐름 (요약 바로 아래, 같은 피해신청번호의 단계별 날짜) ============= -->
 			<div class="flow-here-comp">
-				<%@ include file="flow_damage.jsp"%>
+
+
+<div class="detail-flow-wrap">
+	<span class="detail-flow-title">피해신청부터 지급결과까지 전체 흐름</span>
+	<ol class="detail-flow">
+		<li class="is-done step-apply">피해신청 접수 <span class="flow-date">2026-09-21</span></li>
+		<li class="is-done step-survey">현장조사 결과 등록 <span class="flow-date">2026-09-24</span></li>
+		<li class="is-done step-decision">조치 방법 확정 <span class="flow-date">2026-09-24</span></li>
+		<li class="is-done step-action">조치 수행 결과 확인 <span class="flow-date">2026-09-28</span></li>
+		<li class="is-done step-comp">지급결과 확인 <span class="flow-date">2026-09-30</span></li>
+	</ol>
+</div>
+
 			</div>
 
-			<%-- 샘플 데이터: REQ-2026-000136 (김*아 · 행복농장) 보상 신청 9,590,000원 → 산정 6,720,000원(지원율 80%) → 9/30 지급결과 확인 --%>
+
 
 			<!-- ============= 신청 정보 ============= -->
 			<!-- 피해신청 기준 정보: 누구의 무엇인지 식별, 개인농가는 단체/상호명 '-'·대표자 = 신청인 본인 (피해신청번호를 누르면 피해신청 상세, 단계별 날짜는 처리 흐름에서), 신청 주체는 단체/상호명(업체: 생산자·유통자·판매자)와 대표자, 대표자 이름은 가림, 생산지는 그 농산물을 생산한 곳 (생산자 신청이면 단체/상호명와 같음), 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">피해신청 접수 정보</h2>
+				<div class="detail-section-title">피해신청 접수 정보</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">피해신청 접수 정보</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td><a class="case-link" href="${pageContext.request.contextPath}/view/damageApplyDetail.jsp?no=REQ-2026-000136">REQ-2026-000136</a></td>
+						<td>REQ-2026-000136</td>
 						<th scope="row">재해유형 · 품목</th>
 						<td>병해충 · 사과</td>
 					</tr>
@@ -101,7 +118,7 @@
 			<!-- 1차 스프린트는 피해신청자와 보상신청자가 같은 건만 다룬다. 신청 금액·일자·수량 중심으로 표시한다. -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상 신청 정보</h2>
+				<div class="detail-section-title">보상 신청 정보</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">보상 신청 정보</caption>
@@ -128,7 +145,7 @@
 		     (표 첫 줄에 colspan 이 있으면 고정 폭 표의 칸 너비가 틀어져서 첫 줄은 두 칸 짝으로) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상금 산정 근거 및 최종 금액</h2>
+				<div class="detail-section-title">보상금 산정 근거 및 최종 금액</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">보상금 산정 근거 및 최종 금액</caption>
@@ -180,7 +197,7 @@
 		     1차 스프린트는 피해신청자와 보상신청자가 같은 건만 표시 -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상금 지급 처리 결과</h2>
+				<div class="detail-section-title">보상금 지급 처리 결과</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">보상금 지급 처리 결과</caption>
@@ -208,12 +225,7 @@
 						<th scope="row">보상금 지급 결과 문서</th>
 						<td colspan="3">지급 결정 통지서(지급 결정 결과 통보) <a class="case-link" href="#">내려받기</a></td>
 					</tr>
-					<%-- 지급 제외 건일 때만 표시 (사유 코드: P01 조치 수행 증빙 미제출 / P02 지원 기준 미해당 / P03 다른 보상과 중복 / P04 지원 한도 초과)
-					<tr>
-						<th scope="row">지급 제외 사유</th>
-						<td colspan="3">조치 수행 증빙 미제출 (P01)</td>
-					</tr>
-					--%>
+
 				</table>
 
 			</section>
@@ -222,7 +234,7 @@
 			<!-- 첨부서류 중 서류구분 보상(COMP), 신청인이 제출한 확인 대상 서류, 최신이 위 -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상 신청 제출 서류 확인 현황</h2>
+				<div class="detail-section-title">보상 신청 제출 서류 확인 현황</div>
 
 				<div class="table-wrap">
 					<table class="list-table">
@@ -267,7 +279,7 @@
 			<!-- 보상금 산정의 근거가 되는 피해조치 상세의 조치 수행 결과 (실제 조치 수량 = 산정 정보의 실제 조치 수량) -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상금 산정에 사용한 조치 수행 결과 요약</h2>
+				<div class="detail-section-title">보상금 산정에 사용한 조치 수행 결과 요약</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">보상금 산정에 사용한 조치 수행 결과 요약</caption>
@@ -291,7 +303,7 @@
 			<!-- 조치·보상 판단의 근거가 되는 최종 조사 결과 -->
 			<section class="detail-section">
 
-				<h2 class="detail-section-title">보상금 산정에 사용한 현장조사 결과 요약</h2>
+				<div class="detail-section-title">보상금 산정에 사용한 현장조사 결과 요약</div>
 
 				<table class="detail-table">
 					<caption class="sr-only">보상금 산정에 사용한 현장조사 결과 요약</caption>
@@ -313,12 +325,13 @@
 
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
-				<a class="list-btn" href="${pageContext.request.contextPath}/view/compensationSupportList.jsp">목록</a>
+				<a class="list-btn" href="compensationResultList.html">목록</a>
 			</div>
 
 		</main>
 
 	</div>
 
+<script src="../resources/js/common.js"></script>
 </body>
 </html>

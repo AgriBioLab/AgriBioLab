@@ -35,6 +35,16 @@ public class CompensationListDAOTest {
 	}
 	
 	@Test
+	public void 전체_목록_검색() throws SQLException {			
+		List<CompensationListVO> list = dao.getCompensationList();
+		
+		assertNotNull(list);
+	    assertFalse(list.isEmpty());
+
+	    assertTrue(list.size() > 0);
+	}
+	
+	@Test
 	public void 피해신청번호_필터_검색() throws SQLException {			
 		String applicationId = "REQ-2026-000136";
 		

@@ -129,7 +129,6 @@
 							<th scope="col">품목명</th>
 							<th scope="col">최종 보상금</th>
 							<th scope="col">보상금 지급일</th>
-							<th scope="col">보상금 지급 기관</th>
 						</tr>
 					</thead>
 
@@ -139,17 +138,16 @@
     					<c:forEach items="${compensationList}" var="compensation" >
         					<tr>
             					<td>
-                					<a class="case-link" href="compensationResultDetail.html?no=${compensation.appId}">
-                    					${compensation.appId}
+                					<a class="case-link" href="compensationResultDetail.html?cmd=${compensation.applicationId}">
+                    					${compensation.applicationId}
                 					</a>
             					</td>
-            					<td>${compensation.appCategory}</td>
+            					<td>${compensation.applicationCategory}</td>
             					<td>${compensation.organizationName}</td>
             					<td>${compensation.representativeName}</td>
             					<td>${compensation.productName}</td>
             					<td>${compensation.paymentAmount}원</td>
             					<td>${compensation.paymentCompletionDate}</td>
-            					<td>${compensation.paymentOrganization}</td>
         					</tr>
     					</c:forEach>
 

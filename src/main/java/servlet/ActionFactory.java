@@ -1,5 +1,7 @@
 package servlet;
 
+import java.sql.SQLException;
+
 public class ActionFactory {
 	
 	public static Action getAction(String cmd) {
@@ -8,8 +10,11 @@ public class ActionFactory {
 		
 		switch(cmd) {
 		case "compensationListUI":
-			action = new CompensationListUIAction();
-		
+			try {
+				action = new CompensationListUIAction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		

@@ -9,6 +9,8 @@ public interface Query {
 	
 	String GET_APPLICATION_DOCUMENTS = "SELECT doc_name, file_url FROM app_doc WHERE app_id = ?";
 	
+	String GET_COMPENSATIONLIST = null;
+	
 	String GET_COMPENSATIONLIST_BY_APPLICATION_ID = "SELECT a.app_id, a.product_name, ap.app_category, ap.representative_name, ap.organization_name, cp.payment_completion_date, cp.payment_amount FROM agriculture_damage_app a JOIN applicant ap ON a.applicant_id = ap.applicant_id LEFT JOIN compensation_claim cc ON a.app_id = cc.app_id LEFT JOIN compensation_payment cp ON cc.compensation_claim_id = cp.compensation_claim_id WHERE a.app_id=? ORDER BY a.app_date DESC";
 
 	String GET_COMPENSATIONLIST_BY_APPLICATION_CATEGORY = "SELECT a.app_id, a.product_name, ap.app_category, ap.representative_name, ap.organization_name, cp.payment_completion_date, cp.payment_amount FROM agriculture_damage_app a JOIN applicant ap ON a.applicant_id = ap.applicant_id LEFT JOIN compensation_claim cc ON a.app_id = cc.app_id LEFT JOIN compensation_payment cp ON cc.compensation_claim_id = cp.compensation_claim_id WHERE app_category = ? ORDER BY a.app_date DESC";

@@ -9,16 +9,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="../resources/css/header.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 상세 CSS -->
-<link rel="stylesheet" href="../resources/css/detail.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css?v=20261006">
 <!-- 목록 표 CSS (관련 서류처럼 여러 건인 정보) -->
-<link rel="stylesheet" href="../resources/css/table.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
 <body class="menu-comp">
@@ -338,7 +338,7 @@
 
 	</div>
 
-<script src="../resources/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 
 
 

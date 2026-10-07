@@ -16,5 +16,5 @@ function loadHTML(id, url) {
     xhr.send();
 }
 
-loadHTML("header", "common/header.html");
-loadHTML("side", "common/side.html");
+loadHTML("header", contextPath + "/view/common/header.html");
+loadHTML("side", contextPath + "/view/common/side.html");

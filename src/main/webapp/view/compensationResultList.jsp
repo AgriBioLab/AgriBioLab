@@ -9,16 +9,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="../resources/css/header.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 검색영역 CSS -->
-<link rel="stylesheet" href="../resources/css/searchBox.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css?v=20261006">
 <!-- 목록 표 CSS -->
-<link rel="stylesheet" href="../resources/css/table.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
 <body class="menu-comp">
@@ -129,6 +129,7 @@
 							<th scope="col">품목명</th>
 							<th scope="col">최종 보상금</th>
 							<th scope="col">보상금 지급일</th>
+							<th scope="col">보상급 지급 기관</th>
 						</tr>
 					</thead>
 
@@ -138,16 +139,17 @@
     					<c:forEach items="${compensationList}" var="compensation" >
         					<tr>
             					<td>
-                					<a class="case-link" href="compensationResultDetail.html?cmd=${compensation.applicationId}">
-                    					${compensation.applicationId}
+                					<a class="case-link" href="compensationResultDetail.html?cmd=${compensation.appId}">
+                    					${compensation.appId}
                 					</a>
             					</td>
-            					<td>${compensation.applicationCategory}</td>
+            					<td>${compensation.appCategory}</td>
             					<td>${compensation.organizationName}</td>
             					<td>${compensation.representativeName}</td>
             					<td>${compensation.productName}</td>
             					<td>${compensation.paymentAmount}원</td>
             					<td>${compensation.paymentCompletionDate}</td>
+            					<td>${compensation.paymentInstitution}</td>
         					</tr>
     					</c:forEach>
 
@@ -158,8 +160,12 @@
 		</main>
 
 	</div>
+	
+<script>
+    const contextPath = "${pageContext.request.contextPath}";
+</script>
 
-<script src="../resources/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 </body>
 </html>
     

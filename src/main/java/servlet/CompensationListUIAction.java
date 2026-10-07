@@ -29,6 +29,8 @@ public class CompensationListUIAction implements Action{
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 
         List<CompensationListVO> compensationList = dao.getCompensationList();
+        
+        System.out.println(compensationList);
 
         request.setAttribute("compensationList", compensationList);
 		

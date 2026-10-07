@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
+import model.vo.DocumentsVO;
 import model.vo.DamageApplicationVO;
 import util.DBCP;
 
@@ -25,6 +27,7 @@ public class compensationDetailAction implements Action {
 			CompensationSummaryVO compensationSummary = dao.getCompensationSummary(appId);
 			CompensationClaimVO compensationClaim = dao.getCompensationClaim(appId);
 			DamageActionSummaryVO damageActionSummary = dao.getDamageActionSummary(appId);
+			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
 
 
@@ -35,6 +38,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("compensationSummaryDffDay", dffDay);
 			request.setAttribute("compensationClaim", compensationClaim);
 			request.setAttribute("damageActionSummary", damageActionSummary);
+			request.setAttribute("damageApplicationDocuments", damageApplicationDocuments);
 			request.setAttribute("damageApplication", damageApplication);
 
 		} catch (SQLException e) {

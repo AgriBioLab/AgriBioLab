@@ -11,10 +11,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.dao.CompensationDetailDAO;
-import model.vo.ApplicationReceptionVO;
-import model.vo.CompensationCalculationVO;
+import model.vo.DamageApplicationReceptionVO;
+import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimDocumentVO;
-import model.vo.CompensationDetailSummaryVO;
+import model.vo.CompensationSummaryVO;
 import model.vo.CompensationPaymentVO;
 import model.vo.CompensationProgressVO;
 import model.vo.DamageActionSummaryVO;
@@ -43,7 +43,7 @@ public class CompensationDetailDAOTest {
 	public void 상세_상단_요약_조회_성공() throws SQLException {			
 		String applicationId = "REQ-2026-000136";
 
-		CompensationDetailSummaryVO vo = dao.getCompensationDetail(applicationId);
+		CompensationSummaryVO vo = dao.getCompensationSummary(applicationId);
 		assertNotNull(vo);
 		assertEquals(vo.getApplicationId(), applicationId);
 	}
@@ -103,20 +103,20 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 피해신청_접수_정보_조회_성공() {
 		String testAppId = "REQ-2026-000131";
-		ApplicationReceptionVO vo = dao.getApplicationReception(testAppId);
+		DamageApplicationReceptionVO vo = dao.getDamageApplicationReception(testAppId);
 		assertNotNull(vo);
 		assertEquals(testAppId, vo.getAppId());
 	}
 
 	@Test
 	public void 피해신청_접수_정보_조회_없는_경우() {
-		assertNull(dao.getApplicationReception("nnnn"));
+		assertNull(dao.getDamageApplicationReception("nnnn"));
 	}
 
 	@Test
 	public void 보상금_산정_정보_조회_성공() {
 		int testClaimId = 2;
-		CompensationCalculationVO vo = dao.getCompensationCalculation(testClaimId);
+		CompensationCalcVO vo = dao.getCompensationCalc(testClaimId);
 		assertNotNull(vo);
 		assertEquals(6720000, vo.getFinalCompensationAmount());
 		assertEquals(7000, vo.getCriterionUnitPrice());
@@ -124,7 +124,7 @@ public class CompensationDetailDAOTest {
 
 	@Test
 	public void 보상금_산정_정보_조회_없는_경우() {
-		assertNull(dao.getCompensationCalculation(99999));
+		assertNull(dao.getCompensationCalc(99999));
 	}
 
 	@Test
@@ -188,7 +188,7 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 현장조사_결과_요약_조회() {
 		String appId = "REQ-2026-000134";
-		InvestigationSummaryVO vo = dao.getDamageInvestigationSummary(appId);
+		InvestigationSummaryVO vo = dao.getInvestigationSummary(appId);
 
 		assertNotNull(vo);
 		assertEquals("2026-09-26 00:00:00", vo.getInvestDate());
@@ -198,7 +198,7 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 현장조사_결과_요약_없음() {
 		String appId = "nnnnn";
-		InvestigationSummaryVO vo = dao.getDamageInvestigationSummary(appId);
+		InvestigationSummaryVO vo = dao.getInvestigationSummary(appId);
 
 		assertNull(vo);
 	}
@@ -206,7 +206,7 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 피해신청_문서_조회() {
 		String appId = "REQ-2026-000136";
-		List<DocumentsVO>  vos = dao.getApplicationDocuments(appId);
+		List<DocumentsVO>  vos = dao.getDamageApplicationDocuments(appId);
 
 		assertTrue(!vos.isEmpty());
 		assertEquals("피해신청서", vos.get(0).getDocName());
@@ -215,7 +215,7 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 피해신청_문서_조회_없음() {
 		String appId = "nnnnn";
-		List<DocumentsVO>  vos = dao.getApplicationDocuments(appId);
+		List<DocumentsVO>  vos = dao.getDamageApplicationDocuments(appId);
 
 		assertTrue(vos.isEmpty());
 	}

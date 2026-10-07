@@ -2,7 +2,7 @@ package model.vo;
 
 import java.sql.Date;
 
-public class CompensationDetailSummaryVO {
+public class CompensationSummaryVO {
 	private String applicationId;
     private String applicationStatus;
     private int compensationClaimAmount;
@@ -11,9 +11,9 @@ public class CompensationDetailSummaryVO {
     private Date claimDate;
     private Date paymentCompletionDate;
     
-    public CompensationDetailSummaryVO() {}
+    public CompensationSummaryVO() {}
     
-    public CompensationDetailSummaryVO(String applicationId, String applicationStatus, int compensationClaimAmount,
+    public CompensationSummaryVO(String applicationId, String applicationStatus, int compensationClaimAmount,
 			int finalCompensationAmount, String actionChargerName, Date claimDate, Date paymentCompletionDate) {
     	setApplicationId(applicationId);
     	setApplicationStatus(applicationStatus);

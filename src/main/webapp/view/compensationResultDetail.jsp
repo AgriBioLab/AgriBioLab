@@ -58,11 +58,11 @@
     </thead>
     <tbody>
         <tr>
-            <td>${summary.applicationStatus}</td>
-            <td>${summary.compensationClaimAmount}</td>
-            <td>${summary.finalCompensationAmount}</td>
-            <td>${summary.actionChargerName}</td>
-            <td>${day}</td>
+            <td>${compensationSummary.applicationStatus}</td>
+            <td>${compensationSummary.compensationClaimAmount}</td>
+            <td>${compensationSummary.finalCompensationAmount}</td>
+            <td>${compensationSummary.actionChargerName}</td>
+            <td>${compensationSummaryDffDay}</td>
         </tr>
     </tbody>
     
@@ -130,15 +130,15 @@
 					<caption class="sr-only">보상 신청 정보</caption>
 					<tr>
 						<th scope="row">보상 신청 금액</th>
-						<td>${claim.compensationClaimAmount}</td>
+						<td>${compensationClaim.compensationClaimAmount}</td>
 						<th scope="row">보상 신청일</th>
-						<td>${claim.claimDate}</td>
+						<td>${compensationClaim.claimDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 수량</th>
-						<td>${claim.compensationClaimQuantity}</td>
+						<td>${compensationClaim.compensationClaimQuantity}</td>
 						<th scope="row">보상 신청 면적</th>
-						<td>${claim.compensationClaimArea }</td>
+						<td>${compensationClaim.compensationClaimArea }</td>
 					</tr>
 				</table>
 

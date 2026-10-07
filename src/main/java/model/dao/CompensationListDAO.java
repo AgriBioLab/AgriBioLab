@@ -26,7 +26,7 @@ public class CompensationListDAO {
 			ResultSet rs=stmt.executeQuery(Query.GET_COMPENSATIONLIST);
 			
 			while(rs.next()) {
-				list.add( new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add( new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			stmt.close();
@@ -37,16 +37,16 @@ public class CompensationListDAO {
 		return list;
 	}
 	
-	public CompensationListVO getCompensationListByApplicationId(String applicationId) {
+	public CompensationListVO getCompensationListByAppId(String appId) {
 		CompensationListVO vo = null;
 		
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_ID);
-			pstmt.setString(1,applicationId);
+			pstmt.setString(1,appId);
 			ResultSet rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				vo = new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"));
+				vo = new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution"));
 			}
 			rs.close();
 			pstmt.close();
@@ -57,16 +57,16 @@ public class CompensationListDAO {
 		return vo;
 	}
 
-	public List<CompensationListVO> getCompensationListByApplicationCategory(String applicationCategory){
+	public List<CompensationListVO> getCompensationListByAppCategory(String appCategory){
 		List<CompensationListVO> list = new ArrayList<>();
 		
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_CATEGORY);
-			pstmt.setString(1,applicationCategory);
+			pstmt.setString(1,appCategory);
 			ResultSet rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			pstmt.close();
@@ -88,7 +88,7 @@ public class CompensationListDAO {
 			ResultSet rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			pstmt.close();
@@ -108,7 +108,7 @@ public class CompensationListDAO {
 			ResultSet rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			pstmt.close();
@@ -128,7 +128,7 @@ public class CompensationListDAO {
 			ResultSet rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			pstmt.close();
@@ -149,7 +149,7 @@ public class CompensationListDAO {
 			ResultSet rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount")));
+				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
 			rs.close();
 			pstmt.close();

@@ -10,6 +10,7 @@ import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalculationVO;
 import model.vo.CompensationClaimVO;
 import model.vo.CompensationDetailSummaryVO;
+import model.vo.DamageActionSummaryVO;
 import util.DBCP;
 
 public class compensationSummaryAction implements Action {
@@ -22,10 +23,12 @@ public class compensationSummaryAction implements Action {
 			CompensationDetailSummaryVO summary = dao.getCompensationDetail(appId);
 //			Long day = (vo.getPaymentCompletionDate().getTime() - vo.getClaimDate().getTime());
 			CompensationClaimVO claim = dao.getCompensationClaim(appId);
+			DamageActionSummaryVO damageActionSummary = dao.getDamageActionSummary(appId);
 			
 			request.setAttribute("summary", summary);
 //			request.setAttribute("day", day);
 			request.setAttribute("claim", claim);
+			request.setAttribute("damageActionSummary", damageActionSummary);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

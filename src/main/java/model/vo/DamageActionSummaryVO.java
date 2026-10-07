@@ -6,16 +6,16 @@ public class DamageActionSummaryVO {
 	private String actionType;
 	private int executionConfirmQuantity;
 	private String planActionContent;
-	private Date executionConfirmDATE;
+	private Date executionConfirmDate;
 	
 	public DamageActionSummaryVO() {}
  	
 	public DamageActionSummaryVO(String actionType, int executionConfirmQuantity, String planActionContent,
-			Date executionConfirmDATE) {
+			Date executionConfirmDate) {
 		setActionType(actionType);
 		setExecutionConfirmQuantity(executionConfirmQuantity);
 		setPlanActionContent(planActionContent);
-		setExecutionConfirmDATE(executionConfirmDATE);
+		setexecutionConfirmDate(executionConfirmDate);
 	}
 
 	public String getActionType() { return actionType; }
@@ -27,8 +27,8 @@ public class DamageActionSummaryVO {
 	public String getPlanActionContent() { return planActionContent; }
 	public void setPlanActionContent(String planActionContent) { this.planActionContent = planActionContent; }
 
-	public Date getExecutionConfirmDATE() { return executionConfirmDATE; }
-	public void setExecutionConfirmDATE(Date executionConfirmDATE) { this.executionConfirmDATE = executionConfirmDATE; }
+	public Date getexecutionConfirmDate() { return executionConfirmDate; }
+	public void setexecutionConfirmDate(Date executionConfirmDate) { this.executionConfirmDate = executionConfirmDate; }
 	
 	
 	

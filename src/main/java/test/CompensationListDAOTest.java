@@ -35,24 +35,34 @@ public class CompensationListDAOTest {
 	}
 	
 	@Test
-	public void 피해신청번호_필터_검색() throws SQLException {			
-		String applicationId = "REQ-2026-000136";
+	public void 전체_목록_검색() throws SQLException {			
+		List<CompensationListVO> list = dao.getCompensationList();
 		
-		assertNotNull(dao.getCompensationListByApplicationId(applicationId));
-		assertEquals(dao.getCompensationListByApplicationId(applicationId).getApplicationId(), applicationId);
+		assertNotNull(list);
+	    assertFalse(list.isEmpty());
+
+	    assertTrue(list.size() > 0);
+	}
+	
+	@Test
+	public void 피해신청번호_필터_검색() throws SQLException {			
+		String appId = "REQ-2026-000136";
+		
+		assertNotNull(dao.getCompensationListByAppId(appId));
+		assertEquals(dao.getCompensationListByAppId(appId).getAppId(), appId);
 	}
 	
 	@Test
 	public void 구분_필터_검색() throws SQLException {			
-		String applicationCategory = "생산자";
+		String appCategory = "생산자";
 		
-		List<CompensationListVO> list = dao.getCompensationListByApplicationCategory(applicationCategory);
+		List<CompensationListVO> list = dao.getCompensationListByAppCategory(appCategory);
 		
 		assertNotNull(list);
 	    assertFalse(list.isEmpty());
 		
 		for(CompensationListVO vo : list) {
-			assertEquals(vo.getApplicationCategory(), applicationCategory);
+			assertEquals(vo.getAppCategory(), appCategory);
 		}
 	}
 	

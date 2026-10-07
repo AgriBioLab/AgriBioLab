@@ -291,15 +291,15 @@
 					<caption class="sr-only">보상금 산정에 사용한 조치 수행 결과 요약</caption>
 					<tr>
 						<th scope="row">조치 방법</th>
-						<td>폐기</td>
+						<td>${damageActionSummary.actionType}</td>
 						<th scope="row">조치 계획 내용</th>
-						<td>피해 과실 전량 수거 후 매몰 폐기</td>
+						<td>${damageActionSummary.planActionContent}</td>
 					</tr>
 					<tr>
 						<th scope="row">실제 조치 수량</th>
-						<td>1,200kg</td>
+						<td>${damageActionSummary.executionConfirmQuantity}</td>
 						<th scope="row">조치 결과 확인일</th>
-						<td>2026-09-28</td>
+						<td>${damageActionSummary.executionConfirmDate}</td>
 					</tr>
 				</table>
 

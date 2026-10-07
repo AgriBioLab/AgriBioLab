@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import model.dao.CompensationDetailDAO;
+import model.vo.CompensationCalculationVO;
+import model.vo.CompensationClaimVO;
 import model.vo.CompensationDetailSummaryVO;
 import util.DBCP;
 
@@ -17,10 +19,13 @@ public class compensationSummaryAction implements Action {
 		try {
 			String appId = request.getParameter("appId");
 			CompensationDetailDAO dao = new CompensationDetailDAO(DBCP.getConnection());
-			CompensationDetailSummaryVO vo = dao.getCompensationDetail(appId);
+			CompensationDetailSummaryVO summary = dao.getCompensationDetail(appId);
 //			Long day = (vo.getPaymentCompletionDate().getTime() - vo.getClaimDate().getTime());
-			request.setAttribute("summary", vo);
+			CompensationClaimVO claim = dao.getCompensationClaim(appId);
+			
+			request.setAttribute("summary", summary);
 //			request.setAttribute("day", day);
+			request.setAttribute("claim", claim);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

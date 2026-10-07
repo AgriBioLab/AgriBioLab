@@ -1,6 +1,6 @@
 package model.vo;
 
-public class ApplicationReceptionVO {
+public class DamageApplicationVO {
 	private String appId;
 	private String organizationName;
 	private String appCategory;
@@ -10,9 +10,9 @@ public class ApplicationReceptionVO {
 	private String representativeName;
 
 
-	public ApplicationReceptionVO() {}
+	public DamageApplicationVO() {}
 
-	public ApplicationReceptionVO(String appId, String organizationName, String appCategory, String productionArea,
+	public DamageApplicationVO(String appId, String organizationName, String appCategory, String productionArea,
 			String disasterType, String productName, String representativeName) {
 		setAppId(appId);
 		setOrganizationName(organizationName);

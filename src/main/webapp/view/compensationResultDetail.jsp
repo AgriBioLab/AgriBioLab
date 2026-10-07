@@ -58,11 +58,11 @@
     </thead>
     <tbody>
         <tr>
-            <td>${summary.applicationStatus}</td>
-            <td>${summary.compensationClaimAmount}</td>
-            <td>${summary.finalCompensationAmount}</td>
-            <td>${summary.actionChargerName}</td>
-            <td>${day}</td>
+            <td>${compensationSummary.applicationStatus}</td>
+            <td>${compensationSummary.compensationClaimAmount}</td>
+            <td>${compensationSummary.finalCompensationAmount}</td>
+            <td>${compensationSummary.actionChargerName}</td>
+            <td>${compensationSummaryDffDay}</td>
         </tr>
     </tbody>
     
@@ -70,17 +70,17 @@
 </div>
 
 			<!-- ============= 처리 흐름 (요약 바로 아래, 같은 피해신청번호의 단계별 날짜) ============= -->
-			<div class="flow-here-comp">
+			<div class="progress-here-comp">
 
 
-<div class="detail-flow-wrap">
-	<span class="detail-flow-title">피해신청부터 지급결과까지 전체 흐름</span>
-	<ol class="detail-flow">
-		<li class="is-done step-apply">피해신청 접수 <span class="flow-date">2026-09-21</span></li>
-		<li class="is-done step-survey">현장조사 결과 등록 <span class="flow-date">2026-09-24</span></li>
-		<li class="is-done step-decision">조치 방법 확정 <span class="flow-date">2026-09-24</span></li>
-		<li class="is-done step-action">조치 수행 결과 확인 <span class="flow-date">2026-09-28</span></li>
-		<li class="is-done step-comp">지급결과 확인 <span class="flow-date">2026-09-30</span></li>
+<div class="detail-progress-wrap">
+	<span class="detail-progress-title">피해신청부터 지급결과까지 전체 흐름</span>
+	<ol class="detail-progress">
+		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">2026-09-21</span></li>
+		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">2026-09-24</span></li>
+		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">2026-09-24</span></li>
+		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">2026-09-28</span></li>
+		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">2026-09-30</span></li>
 	</ol>
 </div>
 
@@ -130,15 +130,15 @@
 					<caption class="sr-only">보상 신청 정보</caption>
 					<tr>
 						<th scope="row">보상 신청 금액</th>
-						<td>${claim.compensationClaimAmount}</td>
+						<td>${compensationClaim.compensationClaimAmount}</td>
 						<th scope="row">보상 신청일</th>
-						<td>${claim.claimDate}</td>
+						<td>${compensationClaim.claimDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 수량</th>
-						<td>${claim.compensationClaimQuantity}</td>
+						<td>${compensationClaim.compensationClaimQuantity}</td>
 						<th scope="row">보상 신청 면적</th>
-						<td>${claim.compensationClaimArea }</td>
+						<td>${compensationClaim.compensationClaimArea }</td>
 					</tr>
 				</table>
 

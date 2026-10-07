@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.vo.ApplicationReceptionVO;
-import model.vo.CompensationCalculationVO;
+import model.vo.DamageApplicationVO;
+import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimDocumentVO;
-import model.vo.CompensationDetailSummaryVO;
+import model.vo.CompensationSummaryVO;
 import model.vo.CompensationPaymentVO;
 import model.vo.CompensationProgressVO;
 import model.vo.DamageActionSummaryVO;
@@ -26,8 +26,8 @@ public class CompensationDetailDAO {
 		this.conn=conn;
 	}
 	
-	public CompensationDetailSummaryVO getCompensationDetail(String applicationId) {
-		CompensationDetailSummaryVO vo = null;
+	public CompensationSummaryVO getCompensationSummary(String applicationId) {
+		CompensationSummaryVO vo = null;
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_COMPENSATION_DETAIL);
@@ -35,7 +35,7 @@ public class CompensationDetailDAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				vo = new CompensationDetailSummaryVO(applicationId, rs.getString("app_status"), rs.getInt("compensation_claim_amount"), rs.getInt("payment_amount"), rs.getString("action_charger_name"), rs.getDate("claim_date"), rs.getDate("payment_completion_date"));	
+				vo = new CompensationSummaryVO(applicationId, rs.getString("app_status"), rs.getInt("compensation_claim_amount"), rs.getInt("payment_amount"), rs.getString("action_charger_name"), rs.getDate("claim_date"), rs.getDate("payment_completion_date"));	
 			}
 			rs.close();
 			pstmt.close();
@@ -107,8 +107,8 @@ public class CompensationDetailDAO {
 	}
 	
 	
-	public ApplicationReceptionVO getApplicationReception(String appId) {
-		ApplicationReceptionVO appVO = null;
+	public DamageApplicationVO getDamageApplication(String appId) {
+		DamageApplicationVO appVO = null;
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_APPLICATION_RECEPTION);
@@ -116,7 +116,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				appVO = new ApplicationReceptionVO(
+				appVO = new DamageApplicationVO(
 						rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			}
 
@@ -129,8 +129,8 @@ public class CompensationDetailDAO {
 		return appVO;
 	}
 
-	public CompensationCalculationVO getCompensationCalculation(int compensationClaimId) {
-		CompensationCalculationVO calcVO = null;
+	public CompensationCalcVO getCompensationCalc(int compensationClaimId) {
+		CompensationCalcVO calcVO = null;
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_COMPENSATION_CALCULATION);
@@ -138,7 +138,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next() ) {
-				calcVO = new CompensationCalculationVO(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
+				calcVO = new CompensationCalcVO(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
 			}
 
 			rs.close();
@@ -236,7 +236,7 @@ public class CompensationDetailDAO {
 		return compensationClaimVo;
 	}
 
-	public InvestigationSummaryVO getDamageInvestigationSummary(String applicationId) {
+	public InvestigationSummaryVO getInvestigationSummary(String applicationId) {
 		InvestigationSummaryVO investVo = null;
 
 		try {
@@ -257,7 +257,7 @@ public class CompensationDetailDAO {
 		return investVo;
 	}
 
-	public List<DocumentsVO> getApplicationDocuments(String applicationId) {
+	public List<DocumentsVO> getDamageApplicationDocuments(String applicationId) {
 		List<DocumentsVO> documentVOs = new ArrayList<DocumentsVO>();
 
 		try {

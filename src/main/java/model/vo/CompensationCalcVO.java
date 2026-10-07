@@ -1,6 +1,6 @@
 package model.vo;
 
-public class CompensationCalculationVO {
+public class CompensationCalcVO {
 
 	private String calcCriterion;
 	private int calcQuantity;
@@ -12,9 +12,9 @@ public class CompensationCalculationVO {
 	private double compensationAppliedRate;
 	private String calcChargerName;
 
-	public CompensationCalculationVO() {}
+	public CompensationCalcVO() {}
 
-	public CompensationCalculationVO(String calcCriterion, int calcQuantity, String differenceReason,
+	public CompensationCalcVO(String calcCriterion, int calcQuantity, String differenceReason,
 			String calcInstitutionName, String calcCompletionDate, int finalCompensationAmount, int criterionUnitPrice,
 			double compensationAppliedRate, String calcChargerName) {
 		setCalcCriterion(calcCriterion);

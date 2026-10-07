@@ -16,8 +16,8 @@ public class ActionFactory {
 				e.printStackTrace();
 			}
       break;
-    case "compensationSummaryAction":
-      action = new compensationSummaryAction();
+    case "compensationDetailAction":
+      action = new compensationDetailAction();
 			break;
 		}
 		

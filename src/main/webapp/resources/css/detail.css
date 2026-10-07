@@ -32,7 +32,7 @@
 
 /* ============= 처리 흐름 (요약 바로 아래 한 줄 경로) ============= */
 /* 진행 기록만 (이동 링크 없음): 신청 2026-09-21 › 조사 완료 2026-09-24 › 조치 완료 2026-09-28 › 보상 지급 2026-09-30 */
-.detail-flow-wrap {
+.detail-progress-wrap {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
@@ -41,12 +41,12 @@
 	font-size: 14px;
 }
 
-.detail-flow-title {
+.detail-progress-title {
 	font-weight: 600;
 	color: #333;
 }
 
-.detail-flow {
+.detail-progress {
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 4px;
@@ -56,22 +56,22 @@
 }
 
 /* 아직 안 된 단계는 흐리게 */
-.detail-flow li {
+.detail-progress li {
 	color: #999;
 }
 
-.detail-flow li.is-done {
+.detail-progress li.is-done {
 	color: #333;
 }
 
 /* 단계 사이 구분 기호 */
-.detail-flow li + li::before {
+.detail-progress li + li::before {
 	content: "›";
 	margin: 0 10px;
 	color: #999;
 }
 
-.detail-flow .flow-date {
+.detail-progress .flow-date {
 	margin-left: 4px;
 	color: #666;
 }
@@ -191,15 +191,15 @@
 /* 767px 이하: 한 줄에 [항목 | 값] 하나씩 (th td th td → th td / th td) */
 @media (max-width: 767px) {
 	/* 처리 흐름: '처리 흐름' 아래에 단계를 한 줄에 하나씩 (구분 기호 대신 세로 나열) */
-	.detail-flow-wrap {
+	.detail-progress-wrap {
 		flex-direction: column;
 	}
 
-	.detail-flow {
+	.detail-progress {
 		flex-direction: column;
 	}
 
-	.detail-flow li + li::before {
+	.detail-progress li + li::before {
 		content: none;
 	}
 

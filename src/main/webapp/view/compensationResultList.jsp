@@ -138,7 +138,7 @@
     					<c:forEach items="${compensationList}" var="compensation" >
         					<tr>
             					<td>
-                					<a class="case-link" href="controller?cmd=compensationSummaryAction&appId=${compensation.appId}">
+                					<a class="case-link" href="controller?cmd=compensationDetailAction&appId=${compensation.appId}">
                     					${compensation.appId}
                 					</a>
             					</td>

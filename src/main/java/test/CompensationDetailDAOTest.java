@@ -40,6 +40,15 @@ public class CompensationDetailDAOTest {
 	}
 	
 	@Test
+	public void 보상신청_일련번호_가져오기_성공() throws SQLException {
+		String applicationId = "REQ-2026-000137";
+		
+		int id = dao.getCompensationClaimId(applicationId);
+		
+		assertEquals(3, id);
+	}
+	
+	@Test
 	public void 상세_상단_요약_조회_성공() throws SQLException {			
 		String applicationId = "REQ-2026-000136";
 

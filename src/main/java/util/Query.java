@@ -1,6 +1,8 @@
 package util;
 
 public interface Query {
+	String GET_COMPENSATION_CLAIM_ID = "SELECT compensation_claim_id FROM compensation_claim WHERE app_id = ?";
+	
 	String QUALITY_OFFICER_LOGIN = "SELECT username, password, position, name FROM quality_assurance_officer WHERE username = ? AND password = ?";
 	
 	String GET_COMPENSATION_CLAIM = "SELECT compensation_claim_amount, compensation_claim_quantity, claim_date, compensation_claim_area FROM compensation_claim WHERE app_id = ?";

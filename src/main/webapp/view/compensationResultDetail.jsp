@@ -98,19 +98,19 @@
 					<caption class="sr-only">피해신청 접수 정보</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td>REQ-2026-000136</td>
+						<td>${damageApplication.appId}</td>
 						<th scope="row">재해유형 · 품목</th>
-						<td>병해충 · 사과</td>
+						<td>${damageApplication.disasterType} · ${damageApplication.productName}</td>
 					</tr>
 					<tr>
 						<th scope="row">단체/상호명</th>
-						<td>행복농장 (생산자)</td>
+						<td>${damageApplication.organizationName}</td>
 						<th scope="row">대표자</th>
-						<td>김*아</td>
+						<td>${damageApplication.representativeName}</td>
 					</tr>
 					<tr>
 						<th scope="row">생산지</th>
-						<td colspan="3">행복농장</td>
+						<td colspan="3">${damageApplication.productionArea}</td>
 					</tr>
 					<tr>
 						<th scope="row">피해신청 관련 서류</th>

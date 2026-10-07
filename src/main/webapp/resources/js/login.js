@@ -4,7 +4,7 @@ function login() {
     var password = document.getElementById("loginPassword").value;
 
     if (username == "quality01" && password == "quality1234") {
-        location.href = "compensationResultList.html";
+        location.href = document.getElementsByClassName("login-form")[0].action + "?cmd=compensationListUI";
     } else {
         alert("아이디 또는 비밀번호가 틀렸습니다.");
     }

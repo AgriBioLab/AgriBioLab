@@ -14,6 +14,7 @@ import model.vo.CompensationClaimVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
+import model.vo.DamageApplicationVO;
 import util.DBCP;
 
 public class compensationDetailAction implements Action {
@@ -27,23 +28,26 @@ public class compensationDetailAction implements Action {
 			CompensationClaimVO compensationClaim = dao.getCompensationClaim(appId);
 			DamageActionSummaryVO damageActionSummary = dao.getDamageActionSummary(appId);
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
+			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
+
 
             // 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
-			
+
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
 			request.setAttribute("compensationClaim", compensationClaim);
 			request.setAttribute("damageActionSummary", damageActionSummary);
 			request.setAttribute("damageApplicationDocuments", damageApplicationDocuments);
-			
+			request.setAttribute("damageApplication", damageApplication);
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "view/compensationResultDetail.jsp";
 	}
-	
+
     // 처리 기간 계산
 	private Long calculateDays(Date startDate, Date endDate) {
 

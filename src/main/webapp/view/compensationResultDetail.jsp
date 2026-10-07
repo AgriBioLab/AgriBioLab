@@ -6,12 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
+<%@ include file="common/head.jsp" %>
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
@@ -23,13 +18,13 @@
 
 <body class="menu-comp">
 
-	<div id="header"></div>
+	<%@ include file="common/header.jsp" %>
 
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<div id="side"></div>
+		<%@ include file="common/side_compensationResult.jsp" %>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
@@ -98,19 +93,19 @@
 					<caption class="sr-only">피해신청 접수 정보</caption>
 					<tr>
 						<th scope="row">피해신청번호</th>
-						<td>REQ-2026-000136</td>
+						<td>${damageApplication.appId}</td>
 						<th scope="row">재해유형 · 품목</th>
-						<td>병해충 · 사과</td>
+						<td>${damageApplication.disasterType} · ${damageApplication.productName}</td>
 					</tr>
 					<tr>
 						<th scope="row">단체/상호명</th>
-						<td>행복농장 (생산자)</td>
+						<td>${damageApplication.organizationName}</td>
 						<th scope="row">대표자</th>
-						<td>김*아</td>
+						<td>${damageApplication.representativeName}</td>
 					</tr>
 					<tr>
 						<th scope="row">생산지</th>
-						<td colspan="3">행복농장</td>
+						<td colspan="3">${damageApplication.productionArea}</td>
 					</tr>
 					<tr>
 						<th scope="row">피해신청 관련 서류</th>
@@ -335,14 +330,14 @@
 
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
-				<a class="list-btn" href="compensationResultList.html">목록</a>
+				<a class="list-btn" href="${pageContext.request.contextPath}/controller?cmd=compensationListUI">목록</a>
 			</div>
 
 		</main>
 
 	</div>
 
-<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
+
 
 
 

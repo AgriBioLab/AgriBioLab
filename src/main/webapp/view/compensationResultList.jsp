@@ -39,7 +39,6 @@
 				<span>홈</span> &gt; <span>보상처리결과 조회</span>
 			</nav>
 
-
 			<!-- Page Title -->
 			<h1 class="page-title">보상처리결과 조회</h1>
 
@@ -139,7 +138,7 @@
     					<c:forEach items="${compensationList}" var="compensation" >
         					<tr>
             					<td>
-                					<a class="case-link" href="compensationResultDetail.html?cmd=${compensation.appId}">
+                					<a class="case-link" href="controller?cmd=compensationSummaryAction&appId=${compensation.appId}">
                     					${compensation.appId}
                 					</a>
             					</td>

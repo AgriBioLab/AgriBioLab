@@ -15,23 +15,17 @@ import util.DBCP;
 public class CompensationListUIAction implements Action{
 	private static Connection conn;
 	private static CompensationListDAO dao;
-	
-	
 
 	public CompensationListUIAction() throws SQLException {
 		conn = DBCP.getConnection();
 		dao = new CompensationListDAO(conn);
 	}
 
-
-
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 
         List<CompensationListVO> compensationList = dao.getCompensationList();
         
-        System.out.println(compensationList);
-
         request.setAttribute("compensationList", compensationList);
 		
 		return "view/compensationResultList.jsp";

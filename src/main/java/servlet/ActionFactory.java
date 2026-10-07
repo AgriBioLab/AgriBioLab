@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class ActionFactory {
 	
 	public static Action getAction(String cmd) {
-		if(cmd==null) cmd="";
+	  if(cmd==null) cmd="";
 		Action action = null;
 		
 		switch(cmd) {
@@ -15,8 +15,11 @@ public class ActionFactory {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+      break;
+    case "compensationSummaryAction":
+      action = new compensationSummaryAction();
+			break;
 		}
-		
 		
 		return action;
 	}

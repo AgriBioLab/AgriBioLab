@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/controller")
 public class FrontController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");

@@ -18,9 +18,9 @@ public class compensationSummaryAction implements Action {
 			String appId = request.getParameter("appId");
 			CompensationDetailDAO dao = new CompensationDetailDAO(DBCP.getConnection());
 			CompensationDetailSummaryVO vo = dao.getCompensationDetail(appId);
-			Long day = (vo.getPaymentCompletionDate().getTime() - vo.getClaimDate().getTime());
+//			Long day = (vo.getPaymentCompletionDate().getTime() - vo.getClaimDate().getTime());
 			request.setAttribute("summary", vo);
-			request.setAttribute("day", day);
+//			request.setAttribute("day", day);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

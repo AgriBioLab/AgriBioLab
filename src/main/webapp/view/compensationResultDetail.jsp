@@ -1,19 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="../resources/css/header.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 상세 CSS -->
-<link rel="stylesheet" href="../resources/css/detail.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css?v=20261006">
 <!-- 목록 표 CSS (관련 서류처럼 여러 건인 정보) -->
-<link rel="stylesheet" href="../resources/css/table.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
 
 <body class="menu-comp">
@@ -41,6 +46,25 @@
 			<!-- 핵심 화면 모니터링용: 보상 신청 금액과 최종 보상금의 차이, 처리 일수(보상 신청일 ~ 지급일, 부지급은 확정일, 진행 중은 경과일), 지급일은 바로 아래 전체 흐름에서 -->
 			<div class="detail-summary-wrap">
 <table class="detail-summary" id="detail-summary">
+    <caption class="sr-only">보상처리결과 요약</caption>
+    <thead>
+        <tr>
+            <th scope="col">통합 진행상태</th>
+            <th scope="col">보상 신청 금액</th>
+            <th scope="col">최종 보상금</th>
+            <th scope="col">조치담당자</th>
+            <th scope="col">보상 신청부터 지급까지 걸린 기간</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>${summary.applicationStatus}</td>
+            <td>${summary.compensationClaimAmount}</td>
+            <td>${summary.finalCompensationAmount}</td>
+            <td>${summary.actionChargerName}</td>
+            <td>${day}</td>
+        </tr>
+    </tbody>
     
 </table>
 </div>
@@ -314,16 +338,9 @@
 
 	</div>
 
-<script src="../resources/js/common.js"></script>
-
-<script type="text/javascript">
-window.onload = function(){
-	
-}
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 
 
-
-</script>
 
 </body>
 </html>

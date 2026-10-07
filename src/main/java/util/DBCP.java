@@ -1,5 +1,4 @@
 package util;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ public class DBCP {
 	}
 	public static Connection getConnection() throws SQLException {
 		if(dbcp ==null) dbcp=new DBCP();
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
-		return DriverManager.getConnection(url, "system", "sys");
+		String url = "jdbc:oracle:thin:@192.168.0.26:1521:xe";
+		return DriverManager.getConnection(url, "hr", "hr");
 	}
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.vo.DamageApplicationReceptionVO;
+import model.vo.DamageApplicationVO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimDocumentVO;
 import model.vo.CompensationSummaryVO;
@@ -107,8 +107,8 @@ public class CompensationDetailDAO {
 	}
 	
 	
-	public DamageApplicationReceptionVO getDamageApplicationReception(String appId) {
-		DamageApplicationReceptionVO appVO = null;
+	public DamageApplicationVO getDamageApplication(String appId) {
+		DamageApplicationVO appVO = null;
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_APPLICATION_RECEPTION);
@@ -116,7 +116,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				appVO = new DamageApplicationReceptionVO(
+				appVO = new DamageApplicationVO(
 						rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			}
 

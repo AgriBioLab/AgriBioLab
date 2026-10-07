@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.dao.CompensationDetailDAO;
-import model.vo.DamageApplicationReceptionVO;
+import model.vo.DamageApplicationVO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimDocumentVO;
 import model.vo.CompensationSummaryVO;
@@ -103,14 +103,14 @@ public class CompensationDetailDAOTest {
 	@Test
 	public void 피해신청_접수_정보_조회_성공() {
 		String testAppId = "REQ-2026-000131";
-		DamageApplicationReceptionVO vo = dao.getDamageApplicationReception(testAppId);
+		DamageApplicationVO vo = dao.getDamageApplication(testAppId);
 		assertNotNull(vo);
 		assertEquals(testAppId, vo.getAppId());
 	}
 
 	@Test
 	public void 피해신청_접수_정보_조회_없는_경우() {
-		assertNull(dao.getDamageApplicationReception("nnnn"));
+		assertNull(dao.getDamageApplication("nnnn"));
 	}
 
 	@Test

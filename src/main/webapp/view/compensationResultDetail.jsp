@@ -130,15 +130,15 @@
 					<caption class="sr-only">보상 신청 정보</caption>
 					<tr>
 						<th scope="row">보상 신청 금액</th>
-						<td>9,590,000원</td>
+						<td>${claim.compensationClaimAmount}</td>
 						<th scope="row">보상 신청일</th>
-						<td>2026-09-29</td>
+						<td>${claim.claimDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 수량</th>
-						<td>1,370kg</td>
+						<td>${claim.compensationClaimQuantity}</td>
 						<th scope="row">보상 신청 면적</th>
-						<td>3,800㎡</td>
+						<td>${claim.compensationClaimArea }</td>
 					</tr>
 				</table>
 

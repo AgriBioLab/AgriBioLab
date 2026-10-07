@@ -114,7 +114,11 @@
 					</tr>
 					<tr>
 						<th scope="row">피해신청 관련 서류</th>
-						<td colspan="3">피해신청서(피해 접수 내용) <a class="case-link" href="#">내려받기</a> · 농업경영체 등록확인서(생산자 자격 확인) <a class="case-link" href="#">내려받기</a> · 피해 현장 사진(피해 사실 증빙) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+							<c:forEach items="${damageApplicationDocuments}" var="damageApplication">
+								${damageApplication.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+					</td>
 					</tr>
 				</table>
 

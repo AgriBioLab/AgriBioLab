@@ -6,12 +6,7 @@
     <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
+<%@ include file="common/head.jsp" %>
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
@@ -23,13 +18,13 @@
 
 <body class="menu-comp">
 
-	<div id="header"></div>
+	<%@ include file="common/header.jsp" %>
 
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<div id="side"></div>
+		<%@ include file="common/side_compensationResult.jsp" %>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
@@ -138,7 +133,7 @@
     					<c:forEach items="${compensationList}" var="compensation" >
         					<tr>
             					<td>
-                					<a class="case-link" href="controller?cmd=compensationDetailAction&appId=${compensation.appId}">
+							<a class="case-link" href="${pageContext.request.contextPath}/controller?cmd=compensationDetailAction&amp;appId=${compensation.appId}">
                     					${compensation.appId}
                 					</a>
             					</td>
@@ -160,11 +155,7 @@
 
 	</div>
 	
-<script>
-    const contextPath = "${pageContext.request.contextPath}";
-</script>
 
-<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 </body>
 </html>
     

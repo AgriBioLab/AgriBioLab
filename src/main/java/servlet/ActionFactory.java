@@ -9,6 +9,12 @@ public class ActionFactory {
 		Action action = null;
 		
 		switch(cmd) {
+        case "qualityOfficerLoginUI":
+            action = new QualityOfficerLoginUIAction();
+            break;
+        case "qualityOfficerLogout":
+            action = new QualityOfficerLogoutAction();
+            break;
 		case "compensationListUI":
 			try {
 				action = new CompensationListUIAction();

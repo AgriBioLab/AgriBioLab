@@ -6,12 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sidemenu.css">
+<%@ include file="common/head.jsp" %>
 
 <title>농산물품질 - 보상처리결과 조회</title>
 
@@ -23,13 +18,13 @@
 
 <body class="menu-comp">
 
-	<div id="header"></div>
+	<%@ include file="common/header.jsp" %>
 
 	<!-- ============= PAGE LAYOUT ============= -->
 	<div class="page-layout">
 
 		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
-		<div id="side"></div>
+		<%@ include file="common/side_compensationResult.jsp" %>
 
 		<!-- ============= CONTENT ============= -->
 		<main class="content">
@@ -331,14 +326,14 @@
 
 			<!-- ============= 하단 이동 ============= -->
 			<div class="detail-actions">
-				<a class="list-btn" href="compensationResultList.html">목록</a>
+				<a class="list-btn" href="${pageContext.request.contextPath}/controller?cmd=compensationListUI">목록</a>
 			</div>
 
 		</main>
 
 	</div>
 
-<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
+
 
 
 

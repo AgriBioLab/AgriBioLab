@@ -1,17 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard-gov/dist/web/static/pretendard-gov-subset.min.css">
-<link rel="stylesheet" href="../resources/css/common.css?v=20261006">
-<link rel="stylesheet" href="../resources/css/header.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css">
+<%@ include file="common/head.jsp" %>
 
 <title>농산물품질 - 품질담당자 로그인</title>
 
 <!-- 로그인 CSS -->
-<link rel="stylesheet" href="../resources/css/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
 </head>
 
 <body class="login-page">
@@ -25,7 +21,7 @@
 
 			<h1 id="loginTitle" class="login-title">품질담당자 로그인</h1>
 
-			<form action="../controller" class="login-form" onsubmit="return login();">
+			<form action="${pageContext.request.contextPath}/controller" class="login-form" onsubmit="return login();">
 				<div class="login-field">
 					<label for="loginId">아이디</label>
 					<input type="text" id="loginId" name="loginId" value="quality01" required autocomplete="username">
@@ -44,7 +40,7 @@
 		</section>
 	</main>
 
-	<script src="../resources/js/login.js?v=20261007"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/login.js?v=20261007"></script>
 
 </body>
 </html>

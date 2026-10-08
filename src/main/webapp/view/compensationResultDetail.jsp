@@ -190,7 +190,8 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 결과 문서</th>
-						<td colspan="3">보상금 산정 내역서(산정 기준 및 산정식) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+						보상금 산정 내역서(산정 기준 및 산정식) <a class="case-link" href="#">내려받기</a></td>
 					</tr>
 				</table>
 
@@ -228,7 +229,11 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 결과 문서</th>
-						<td colspan="3">지급 결정 통지서(지급 결정 결과 통보) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+							<c:forEach items="${compensationPaymentDocuments}" var="compensationPaymentDocuments">
+								${compensationPaymentDocuments.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+						</td>
 					</tr>
 
 				</table>

@@ -52,7 +52,7 @@ public interface Query {
 			+ "WHERE compensation_claim_id = ?";
 
 	String GET_COMPENSATION_PAYMENT_DOCUMENTS = "SELECT doc.doc_name, doc.file_url "
-			+ "FROM compensation_payment_doc doc JOIN compensation_payment payment ON doc.compensation_payment_id = doc.compensation_payment_id "
+			+ "FROM compensation_payment_doc doc JOIN compensation_payment payment ON doc.compensation_payment_id = payment.compensation_payment_id "
 			+ "WHERE payment .compensation_claim_id= ?";
 	
 	String GET_COMPENSATION_PROGRESS = "SELECT agri.app_date, invest.INVEST_DATE, action.plan_action_confirm_date, action.execution_confirm_date, payment.payment_completion_date "

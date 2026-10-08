@@ -168,7 +168,7 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
-						<td colspan="3"><!-- 실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원 --></td>
+						<td colspan="3">${compensationCalcFormula}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>

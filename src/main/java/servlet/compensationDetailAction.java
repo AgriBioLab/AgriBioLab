@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimVO;
+import model.vo.CompensationPaymentVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
@@ -35,7 +36,9 @@ public class compensationDetailAction implements Action {
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
 
-            // 처리 기간 계산
+			CompensationPaymentVO CompensationPayment = dao.getCompensationPayment(compensationId);
+           
+			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
 			String compensationCalcFormula = getCompensationCalcFormula(compensationCalc); 
@@ -49,7 +52,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
 			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
-
+			request.setAttribute("CompensationPayment", CompensationPayment);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

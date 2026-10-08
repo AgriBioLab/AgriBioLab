@@ -12,6 +12,7 @@ import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimVO;
 import model.vo.CompensationPaymentVO;
+import model.vo.CompensationProgressVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
@@ -32,16 +33,18 @@ public class compensationDetailAction implements Action {
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
 			InvestigationSummaryVO investigationSummary = dao.getInvestigationSummary(appId);
+			CompensationProgressVO compensationProgress = dao.getCompensationProgress(appId);
 
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
+			List<DocumentsVO> compensationPaymentDocuments = dao.getCompensationPaymentDocuments(compensationId);
 
 			CompensationPaymentVO compensationPayment = dao.getCompensationPayment(compensationId);
 			List<DocumentsVO>investigationDocuments  = dao.getInvestigationDocuments(compensationId);
 			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
-			// 
+			String compensationCalcFormula = getCompensationCalcFormula(compensationCalc); 
 
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
@@ -53,7 +56,9 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("compensationCalc", compensationCalc);
 			request.setAttribute("compensationPayment", compensationPayment);
 			request.setAttribute("investigationDocuments", investigationDocuments);
-			
+			request.setAttribute("compensationPaymentDocuments", compensationPaymentDocuments);
+			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
+			request.setAttribute("compensationProgress", compensationProgress);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,5 +79,13 @@ public class compensationDetailAction implements Action {
 	}
 	
 	//보상금 산정식
-
+	public String getCompensationCalcFormula(CompensationCalcVO compensationCalc) {
+	    return String.format(
+	        "실제 조치 수량 %,dkg × 단가 %,d원 × 지원율 %.0f%% = %,d원",
+	        compensationCalc.getCalcQuantity(),
+	        compensationCalc.getCriterionUnitPrice(),
+	        compensationCalc.getCompensationAppliedRate(),
+	        compensationCalc.getFinalCompensationAmount()
+	    );
+	}
 }

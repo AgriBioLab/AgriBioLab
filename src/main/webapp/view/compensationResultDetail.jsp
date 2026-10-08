@@ -71,11 +71,11 @@
 <div class="detail-progress-wrap">
 	<span class="detail-progress-title">피해신청부터 지급결과까지 전체 흐름</span>
 	<ol class="detail-progress">
-		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">2026-09-21</span></li>
-		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">2026-09-24</span></li>
-		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">2026-09-24</span></li>
-		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">2026-09-28</span></li>
-		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">2026-09-30</span></li>
+		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">${compensationProgress.appDate}</span></li>
+		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">${compensationProgress.investDate}</span></li>
+		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">${compensationProgress.planActionConfirmDate}</span></li>
+		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">${compensationProgress.executionConfirmDate}</span></li>
+		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">${compensationProgress.paymentCompletionDate}</span></li>
 	</ol>
 </div>
 
@@ -168,7 +168,7 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
-						<td colspan="3"><!-- 실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원 --></td>
+						<td colspan="3">${compensationCalcFormula}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>
@@ -233,7 +233,11 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 결과 문서</th>
-						<td colspan="3">지급 결정 통지서(지급 결정 결과 통보) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+							<c:forEach items="${compensationPaymentDocuments}" var="compensationPaymentDocuments">
+								${compensationPaymentDocuments.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+						</td>
 					</tr>
 
 				</table>

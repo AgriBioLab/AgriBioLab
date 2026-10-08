@@ -58,7 +58,6 @@ public class CompensationListUIAction implements Action{
         		
         request.setAttribute("compensationList", compensationList);
         
-        
 		return "view/compensationResultList.jsp";
 	}
 

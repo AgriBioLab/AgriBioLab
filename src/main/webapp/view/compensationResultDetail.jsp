@@ -71,11 +71,11 @@
 <div class="detail-progress-wrap">
 	<span class="detail-progress-title">피해신청부터 지급결과까지 전체 흐름</span>
 	<ol class="detail-progress">
-		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">2026-09-21</span></li>
-		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">2026-09-24</span></li>
-		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">2026-09-24</span></li>
-		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">2026-09-28</span></li>
-		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">2026-09-30</span></li>
+		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">${compensationProgress.appDate}</span></li>
+		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">${compensationProgress.investDate}</span></li>
+		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">${compensationProgress.planActionConfirmDate}</span></li>
+		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">${compensationProgress.executionConfirmDate}</span></li>
+		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">${compensationProgress.paymentCompletionDate}</span></li>
 	</ol>
 </div>
 
@@ -156,41 +156,46 @@
 					<caption class="sr-only">보상금 산정 근거 및 최종 금액</caption>
 					<tr>
 						<th scope="row">적용한 보상 기준</th>
-						<td>○○ 농산물 재해 피해 지원 기준 (제2026-○○호)</td>
+						<td>${compensationCalc.calcCriterion}</td>
 						<th scope="row">보상 기준 단가</th>
-						<td>7,000원/kg (사과)</td>
+						<td>${compensationCalc.criterionUnitPrice}원/kg (사과)</td> <!-- 품목명 누락. 작업 필요 -->
 					</tr>
-					<tr>
+					<tr> <!--여기부터 -->
 						<th scope="row">보상 산정에 반영한 실제 조치 수량</th>
-						<td>1,200kg (조치 수행 결과)</td>
+						<td>${compensationCalc.calcQuantity}kg (조치 수행 결과)</td>
 						<th scope="row">보상 적용 비율</th>
-						<td>80%</td>
+						<td>${compensationCalc.compensationAppliedRate}%</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
-						<td colspan="3">실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원</td>
+						<td colspan="3">${compensationCalcFormula}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>
-						<td colspan="3">보상 신청 수량 1,370kg 대신 실제 조치 수량 1,200kg에 지원율 80% 적용 (보상 신청 금액 대비 2,870,000원 감액)</td>
+						<td colspan="3">${compensationCalc.differenceReason}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 기관</th>
-						<td>○○도 보상산정기관</td>
+						<td>${compensationCalc.calcInstitutionName}</td>
 						<th scope="row">보상금 산정 담당자</th>
-						<td>박민수</td>
+						<td>${compensationCalc.calcChargerName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금을 산정한 날짜</th>
-						<td colspan="3">2026-09-29</td>
+						<td colspan="3">${compensationCalc.calcCompletionDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">최종 보상금</th>
-						<td colspan="3"><strong>6,720,000원</strong></td>
+						<td colspan="3"><strong>${compensationCalc.finalCompensationAmount}원</strong></td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 결과 문서</th>
-						<td colspan="3">보상금 산정 내역서(산정 기준 및 산정식) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+						<c:forEach  items="${investigationDocuments}" var="investigation" >
+						${investigation.docName} <a class="case-link" href="#">내려받기</a>
+						</c:forEach>
+						</td>
+						
 					</tr>
 				</table>
 
@@ -208,27 +213,31 @@
 					<caption class="sr-only">보상금 지급 처리 결과</caption>
 					<tr>
 						<th scope="row">보상금 지급 확정일</th>
-						<td>2026-09-29</td>
+						<td>${compensationPayment.paymentDecisionDate}</td>
 						<th scope="row">보상금 지급일</th>
-						<td>2026-09-30</td>
+						<td>${compensationPayment.paymentCompletionDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 기관</th>
-						<td>○○도 보상지급기관</td>
+						<td>${compensationPayment.paymentInstitution}</td>
 						<th scope="row">보상금 지급 담당자</th>
-						<td>한소영</td>
+						<td>${compensationPayment.paymentChargerName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 수령인</th>
-						<td colspan="3">김*아</td>
+						<td colspan="3">${compensationPayment.recipientName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 입금 계좌</th>
-						<td colspan="3">○○은행 ***-**-1234 (김*아)</td>
+						<td colspan="3">${compensationPayment.paymentAccountNumber}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 결과 문서</th>
-						<td colspan="3">지급 결정 통지서(지급 결정 결과 통보) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+							<c:forEach items="${compensationPaymentDocuments}" var="compensationPaymentDocuments">
+								${compensationPaymentDocuments.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+						</td>
 					</tr>
 
 				</table>
@@ -314,15 +323,15 @@
 					<caption class="sr-only">보상금 산정에 사용한 현장조사 결과 요약</caption>
 					<tr>
 						<th scope="row">현장조사 완료일</th>
-						<td>2026-09-24</td>
+						<td>${investigationSummary.investDate}</td>
 						<th scope="row">최종 반영 조사차수</th>
-						<td>2차</td>
+						<td>${investigationSummary.num}차</td>
 					</tr>
 					<tr>
 						<th scope="row">최종 피해율</th>
-						<td>70%</td>
+						<td>${investigationSummary.damageRate}</td>
 						<th scope="row">최종 피해면적</th>
-						<td>3,500㎡</td>
+						<td>${investigationSummary.damageArea}</td>
 					</tr>
 				</table>
 

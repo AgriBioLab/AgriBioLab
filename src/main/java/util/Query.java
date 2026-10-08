@@ -1,11 +1,13 @@
 package util;
 
 public interface Query {
+	String GET_COMPENSATION_CLAIM_ID = "SELECT compensation_claim_id FROM compensation_claim WHERE app_id = ?";
+	
 	String QUALITY_OFFICER_LOGIN = "SELECT username, password, position, name FROM quality_assurance_officer WHERE username = ? AND password = ?";
 	
 	String GET_COMPENSATION_CLAIM = "SELECT compensation_claim_amount, compensation_claim_quantity, claim_date, compensation_claim_area FROM compensation_claim WHERE app_id = ?";
 	
-	String GET_INVESTIGATION_SUMMARY = "SELECT invest_date, damage_rate, damage_area FROM damage_site_invest WHERE app_id = ?";
+	String GET_INVESTIGATION_SUMMARY = "SELECT ROW_NUMBER () OVER (ORDER BY invest_date) num, invest_date, damage_rate, damage_area FROM damage_site_invest WHERE app_id = ? ORDER BY INVEST_DATE DESC";
 	
 	String GET_APPLICATION_DOCUMENTS = "SELECT doc_name, file_url FROM app_doc WHERE app_id = ?";
 	
@@ -50,14 +52,19 @@ public interface Query {
 			+ "WHERE compensation_claim_id = ?";
 
 	String GET_COMPENSATION_PAYMENT_DOCUMENTS = "SELECT doc.doc_name, doc.file_url "
-			+ "FROM compensation_payment_doc doc JOIN compensation_payment payment ON doc.compensation_payment_id = doc.compensation_payment_id "
+			+ "FROM compensation_payment_doc doc JOIN compensation_payment payment ON doc.compensation_payment_id = payment.compensation_payment_id "
 			+ "WHERE payment .compensation_claim_id= ?";
 	
-	String GET_COMPENSATION_PROGRESS = "SELECT agri.app_date, invest.INVEST_DATE, action.plan_action_confirm_date, action.execution_confirm_date, payment.payment_completion_date "
+	String GET_COMPENSATION_PROGRESS = 
+			"SELECT TO_CHAR(agri.app_date, 'YYYY-MM-DD') AS app_date,"
+			+ " TO_CHAR(invest.invest_date, 'YYYY-MM-DD') AS invest_date,"
+			+ " TO_CHAR(action.plan_action_confirm_date, 'YYYY-MM-DD') AS plan_action_confirm_date,"
+			+ " TO_CHAR(action.execution_confirm_date, 'YYYY-MM-DD') AS execution_confirm_date,"
+			+ " TO_CHAR(payment.payment_completion_date, 'YYYY-MM-DD') AS payment_completion_date "
 			+ "FROM agriculture_damage_app agri"
-			+ " LEFT JOIN damage_site_invest invest ON agri.APP_ID = invest.APP_ID"
-			+ " LEFT JOIN damage_action action ON agri.APP_ID = action.APP_ID"
-			+ " LEFT JOIN compensation_claim claim ON agri.APP_ID = claim.APP_ID"
-			+ " LEFT JOIN compensation_payment payment ON claim.COMPENSATION_CLAIM_ID = payment.COMPENSATION_CLAIM_ID "
+			+ " LEFT JOIN damage_site_invest invest ON agri.app_id = invest.app_id"
+			+ " LEFT JOIN damage_action action ON agri.app_id = action.app_id"
+			+ " LEFT JOIN compensation_claim claim ON agri.app_id = claim.app_id"
+			+ " LEFT JOIN compensation_payment payment ON claim.compensation_claim_id = payment.compensation_claim_id "
 			+ "WHERE agri.app_id = ?";
 }

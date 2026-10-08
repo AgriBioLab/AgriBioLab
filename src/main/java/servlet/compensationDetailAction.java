@@ -36,8 +36,8 @@ public class compensationDetailAction implements Action {
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
 
-			CompensationPaymentVO CompensationPayment = dao.getCompensationPayment(compensationId);
-           
+			CompensationPaymentVO compensationPayment = dao.getCompensationPayment(compensationId);
+			List<DocumentsVO>investigationDocuments  = dao.getInvestigationDocuments(compensationId);
 			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
@@ -51,7 +51,9 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("damageApplication", damageApplication);
 			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
-			request.setAttribute("CompensationPayment", CompensationPayment);
+			request.setAttribute("compensationPayment", compensationPayment);
+			request.setAttribute("investigationDocuments", investigationDocuments);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

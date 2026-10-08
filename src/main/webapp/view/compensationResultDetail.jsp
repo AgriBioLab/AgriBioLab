@@ -190,7 +190,12 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 결과 문서</th>
-						<td colspan="3">보상금 산정 내역서(산정 기준 및 산정식) <a class="case-link" href="#">내려받기</a></td>
+						<td colspan="3">
+						<c:forEach  items="${investigationDocuments}" var="investigation" >
+						${investigation.docName} <a class="case-link" href="#">내려받기</a>
+						</c:forEach>
+						</td>
+						
 					</tr>
 				</table>
 
@@ -208,23 +213,23 @@
 					<caption class="sr-only">보상금 지급 처리 결과</caption>
 					<tr>
 						<th scope="row">보상금 지급 확정일</th>
-						<td>${CompensationPayment.paymentDecisionDate}</td>
+						<td>${compensationPayment.paymentDecisionDate}</td>
 						<th scope="row">보상금 지급일</th>
-						<td>${CompensationPayment.paymentCompletionDate}</td>
+						<td>${compensationPayment.paymentCompletionDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 기관</th>
-						<td>${CompensationPayment.paymentInstitution}</td>
+						<td>${compensationPayment.paymentInstitution}</td>
 						<th scope="row">보상금 지급 담당자</th>
-						<td>${CompensationPayment.paymentChargerName}</td>
+						<td>${compensationPayment.paymentChargerName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 수령인</th>
-						<td colspan="3">${CompensationPayment.recipientName}</td>
+						<td colspan="3">${compensationPayment.recipientName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 입금 계좌</th>
-						<td colspan="3">${CompensationPayment.paymentAccountNumber}</td>
+						<td colspan="3">${compensationPayment.paymentAccountNumber}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 결과 문서</th>

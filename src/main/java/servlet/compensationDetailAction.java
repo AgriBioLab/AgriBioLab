@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalcVO;
+import model.vo.CompensationClaimDocumentVO;
 import model.vo.CompensationClaimVO;
 import model.vo.CompensationPaymentVO;
 import model.vo.CompensationProgressVO;
@@ -38,9 +39,10 @@ public class compensationDetailAction implements Action {
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
 			List<DocumentsVO> compensationPaymentDocuments = dao.getCompensationPaymentDocuments(compensationId);
-
 			CompensationPaymentVO compensationPayment = dao.getCompensationPayment(compensationId);
 			List<DocumentsVO>investigationDocuments  = dao.getInvestigationDocuments(compensationId);
+			List<CompensationClaimDocumentVO> compensationClaimDocument = dao.getCompensationClaimDocuments(compensationId);
+			
 			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
@@ -59,6 +61,8 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("compensationPaymentDocuments", compensationPaymentDocuments);
 			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
 			request.setAttribute("compensationProgress", compensationProgress);
+			request.setAttribute("compensationClaimDocument", compensationClaimDocument);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

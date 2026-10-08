@@ -34,7 +34,7 @@ public class CompensationListUIAction implements Action{
         String appCategory = request.getParameter("appCategory");
         String productName = request.getParameter("productName");
         
-     // 검색 조건이 하나라도 있으면 조건 검색
+        // 검색 조건이 하나라도 있으면 조건 검색
         if ((startDate != null && !startDate.isBlank())
                 || (endDate != null && !endDate.isBlank())
                 || (appId != null && !appId.isBlank())

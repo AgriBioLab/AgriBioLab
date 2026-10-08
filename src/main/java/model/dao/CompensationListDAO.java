@@ -18,6 +18,57 @@ public class CompensationListDAO {
 		this.conn=conn;
 	}
 	
+	public List<CompensationListVO> searchCompensationList(String startDate,  String endDate, String appId, String organizationName, String representativeName, String appCategory, String productName) {
+		List<CompensationListVO> list = new ArrayList<>();
+		
+		StringBuilder sql = new StringBuilder(Query.SEARCH_COMPENSATIONLIST);
+		
+        if (startDate != null && endDate != null && !startDate.isBlank() && !endDate.isBlank()) { sql.append(Query.SEARCH_BY_PAYMENT_COMPLETION_DATE); }
+        if (appId != null && !appId.isBlank()) { sql.append(Query.SEARCH_BY_APP_ID); }
+        if (organizationName != null && !organizationName.isBlank()) { sql.append(Query.SEARCH_BY_ORGANIZATION_NAME); }
+        if (representativeName != null && !representativeName.isBlank()) { sql.append(Query.SEARCH_BY_REPRESENTATIVE_NAME); }
+        if (appCategory != null && !appCategory.isBlank()) { sql.append(Query.SEARCH_BY_APP_CATEGORY); }
+        if (productName != null && !productName.isBlank()) { sql.append(Query.SEARCH_BY_PRODUCT_NAME); }
+        sql.append("ORDER BY a.app_date DESC");
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			
+			int index = 1;
+
+		    if (startDate != null && !startDate.isBlank()) { pstmt.setString(index++, startDate); }
+		    if (endDate != null && !endDate.isBlank()) { pstmt.setString(index++, endDate); }
+		    if (appId != null && !appId.isBlank()) { pstmt.setString(index++, appId); }
+		    if (organizationName != null && !organizationName.isBlank()) { pstmt.setString(index++, "%" + organizationName + "%"); }
+		    if (representativeName != null && !representativeName.isBlank()) { pstmt.setString(index++, "%" + representativeName + "%"); }
+		    if (appCategory != null && !appCategory.isBlank()) { pstmt.setString(index++, appCategory); }
+		    if (productName != null && !productName.isBlank()) { pstmt.setString(index++, "%" + productName + "%"); }
+		    ResultSet rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				CompensationListVO vo = new CompensationListVO(
+			            rs.getString("app_id"),
+			            rs.getString("product_name"),
+			            rs.getString("app_category"),
+			            rs.getString("representative_name"),
+			            rs.getString("organization_name"),
+			            rs.getDate("payment_completion_date"),
+			            rs.getInt("payment_amount"),
+			            rs.getString("payment_institution")
+			        );
+
+			        list.add(vo);
+			}
+			
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public List<CompensationListVO> getCompensationList() {
 		List<CompensationListVO> list = new ArrayList<>();
 		
@@ -36,127 +87,5 @@ public class CompensationListDAO {
 		
 		return list;
 	}
-	
-	public CompensationListVO getCompensationListByAppId(String appId) {
-		CompensationListVO vo = null;
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_ID);
-			pstmt.setString(1,appId);
-			ResultSet rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				vo = new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution"));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return vo;
-	}
 
-	public List<CompensationListVO> getCompensationListByAppCategory(String appCategory){
-		List<CompensationListVO> list = new ArrayList<>();
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_APPLICATION_CATEGORY);
-			pstmt.setString(1,appCategory);
-			ResultSet rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-		return list;
-	}
-
-	public List<CompensationListVO> getCompensationListByOrganizationName(String organizationName) {
-		List<CompensationListVO> list = new ArrayList<>();
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_ORGANIZATION_NAME);
-			pstmt.setString(1,organizationName);
-			ResultSet rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
-	public List<CompensationListVO> getCompensationListByRepresentativeName(String representativeName) {
-		List<CompensationListVO> list = new ArrayList<>();
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_REPRESENTATIVE_NAME);
-			pstmt.setString(1,representativeName);
-			ResultSet rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
-	public List<CompensationListVO> getCompensationListByProductName(String productName) {
-		List<CompensationListVO> list = new ArrayList<>();
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONLIST_BY_PRODUCT_NAME);
-			pstmt.setString(1,productName);
-			ResultSet rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
-	public List<CompensationListVO> getCompensationListByPaymentCompletionDate(String startDate, String endDate) {
-		List<CompensationListVO> list = new ArrayList<>();
-		
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.GET_COMPENSATIONlIST_BY_PAYMENT_COMPLETION_DATE);
-			pstmt.setString(1,startDate);
-			pstmt.setString(2, endDate);
-			ResultSet rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
-				list.add(new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
-			}
-			rs.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
 }

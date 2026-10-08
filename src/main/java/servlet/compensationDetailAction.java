@@ -41,7 +41,7 @@ public class compensationDetailAction implements Action {
 			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
-			// 
+			String compensationCalcFormula = getCompensationCalcFormula(compensationCalc); 
 
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
@@ -51,6 +51,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("damageApplication", damageApplication);
 			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
+			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
 			request.setAttribute("CompensationPayment", CompensationPayment);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -72,5 +73,13 @@ public class compensationDetailAction implements Action {
 	}
 	
 	//보상금 산정식
-
+	public String getCompensationCalcFormula(CompensationCalcVO compensationCalc) {
+	    return String.format(
+	        "실제 조치 수량 %,dkg × 단가 %,d원 × 지원율 %.0f%% = %,d원",
+	        compensationCalc.getCalcQuantity(),
+	        compensationCalc.getCriterionUnitPrice(),
+	        compensationCalc.getCompensationAppliedRate(),
+	        compensationCalc.getFinalCompensationAmount()
+	    );
+	}
 }

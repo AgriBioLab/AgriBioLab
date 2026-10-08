@@ -14,6 +14,7 @@ import model.vo.CompensationClaimVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
+import model.vo.InvestigationSummaryVO;
 import model.vo.DamageApplicationVO;
 import util.DBCP;
 
@@ -29,6 +30,7 @@ public class compensationDetailAction implements Action {
 			DamageActionSummaryVO damageActionSummary = dao.getDamageActionSummary(appId);
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
+			InvestigationSummaryVO investigationSummary = dao.getInvestigationSummary(appId);
 
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
@@ -44,6 +46,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("damageActionSummary", damageActionSummary);
 			request.setAttribute("damageApplicationDocuments", damageApplicationDocuments);
 			request.setAttribute("damageApplication", damageApplication);
+			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
 
 		} catch (SQLException e) {

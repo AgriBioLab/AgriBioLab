@@ -156,37 +156,37 @@
 					<caption class="sr-only">보상금 산정 근거 및 최종 금액</caption>
 					<tr>
 						<th scope="row">적용한 보상 기준</th>
-						<td>○○ 농산물 재해 피해 지원 기준 (제2026-○○호)</td>
+						<td>${compensationCalc.calcCriterion}</td>
 						<th scope="row">보상 기준 단가</th>
-						<td>7,000원/kg (사과)</td>
+						<td>${compensationCalc.criterionUnitPrice}원/kg (사과)</td> <!-- 품목명 누락. 작업 필요 -->
 					</tr>
-					<tr>
+					<tr> <!--여기부터 -->
 						<th scope="row">보상 산정에 반영한 실제 조치 수량</th>
-						<td>1,200kg (조치 수행 결과)</td>
+						<td>${compensationCalc.calcQuantity}kg (조치 수행 결과)</td>
 						<th scope="row">보상 적용 비율</th>
-						<td>80%</td>
+						<td>${compensationCalc.compensationAppliedRate}%</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
-						<td colspan="3">실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원</td>
+						<td colspan="3"><!-- 실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원 --></td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>
-						<td colspan="3">보상 신청 수량 1,370kg 대신 실제 조치 수량 1,200kg에 지원율 80% 적용 (보상 신청 금액 대비 2,870,000원 감액)</td>
+						<td colspan="3">${compensationCalc.differenceReason}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 기관</th>
-						<td>○○도 보상산정기관</td>
+						<td>${compensationCalc.calcInstitutionName}</td>
 						<th scope="row">보상금 산정 담당자</th>
-						<td>박민수</td>
+						<td>${compensationCalc.calcChargerName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금을 산정한 날짜</th>
-						<td colspan="3">2026-09-29</td>
+						<td colspan="3">${compensationCalc.calcCompletionDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">최종 보상금</th>
-						<td colspan="3"><strong>6,720,000원</strong></td>
+						<td colspan="3"><strong>${compensationCalc.finalCompensationAmount}원</strong></td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 결과 문서</th>

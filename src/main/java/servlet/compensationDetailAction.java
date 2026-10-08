@@ -30,9 +30,13 @@ public class compensationDetailAction implements Action {
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
 
+			int compensationId = dao.getCompensationClaimId(appId);
+			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
 
             // 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
+			
+			// 
 
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
@@ -40,6 +44,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("damageActionSummary", damageActionSummary);
 			request.setAttribute("damageApplicationDocuments", damageApplicationDocuments);
 			request.setAttribute("damageApplication", damageApplication);
+			request.setAttribute("compensationCalc", compensationCalc);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,5 +64,7 @@ public class compensationDetailAction implements Action {
 
 	    return diffMillis / (1000L * 60 * 60 * 24);
 	}
+	
+	//보상금 산정식
 
 }

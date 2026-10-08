@@ -21,7 +21,11 @@
 
 			<h1 id="loginTitle" class="login-title">품질담당자 로그인</h1>
 
-			<form action="${pageContext.request.contextPath}/controller" class="login-form" onsubmit="return login();">
+			<c:if test="${not empty loginError}">
+    			<p class="login-error">${loginError}</p>
+			</c:if>	
+
+			<form action="${pageContext.request.contextPath}/controller?cmd=qualityOfficerLoginAction" method="post" class="login-form">
 				<div class="login-field">
 					<label for="loginId">아이디</label>
 					<input type="text" id="loginId" name="loginId" value="quality01" required autocomplete="username">

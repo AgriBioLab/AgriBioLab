@@ -266,24 +266,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td class="cell-text">통장 사본(수령 계좌 확인)</td>
-								<td>신청인</td>
-								<td>2026-09-21</td>
-								<td>서류 확인 완료</td>
-								<td>2026-09-22</td>
-								<td>박민수</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
-							<tr>
-								<td class="cell-text">보상금 지급 요청서(보상금 지급 요청 근거)</td>
-								<td>신청인</td>
-								<td>2026-09-21</td>
-								<td>서류 확인 완료</td>
-								<td>2026-09-22</td>
-								<td>박민수</td>
-								<td><a class="case-link" href="#">내려받기</a></td>
-							</tr>
+							<c:forEach items="${compensationClaimDocument}" var="compensationClaimDocument">						
+								<tr>
+									<td class="cell-text">${compensationClaimDocument.documentName}</td>
+									<td>${compensationClaimDocument.submissionPlace}</td>
+									<td>${compensationClaimDocument.submissionDate}</td>
+									<td><c:choose>
+											<c:when test="${empty compensationClaimDocument.confirmDate}"> <!-- if와 동일 -->
+												서류 미확인
+											</c:when>
+											<c:otherwise> 
+												서류 확인
+											</c:otherwise>
+										</c:choose>
+									</td>
+									<td>${compensationClaimDocument.confirmDate}</td>
+									<td>${compensationClaimDocument.reviewerName}</td>
+									<td><a class="case-link" href="#">내려받기</a></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

@@ -35,6 +35,7 @@ public class compensationDetailAction implements Action {
 
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
+			List<DocumentsVO> compensationPaymentDocuments = dao.getCompensationPaymentDocuments(compensationId);
 
 			CompensationPaymentVO CompensationPayment = dao.getCompensationPayment(compensationId);
            
@@ -51,6 +52,8 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("damageApplication", damageApplication);
 			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
+			request.setAttribute("compensationPaymentDocuments", compensationPaymentDocuments);
+
 			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
 			request.setAttribute("CompensationPayment", CompensationPayment);
 		} catch (SQLException e) {

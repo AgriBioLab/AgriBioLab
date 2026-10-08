@@ -314,15 +314,15 @@
 					<caption class="sr-only">보상금 산정에 사용한 현장조사 결과 요약</caption>
 					<tr>
 						<th scope="row">현장조사 완료일</th>
-						<td>2026-09-24</td>
+						<td>${investigationSummary.investDate}</td>
 						<th scope="row">최종 반영 조사차수</th>
-						<td>2차</td>
+						<td>${investigationSummary.num}차</td>
 					</tr>
 					<tr>
 						<th scope="row">최종 피해율</th>
-						<td>70%</td>
+						<td>${investigationSummary.damageRate}</td>
 						<th scope="row">최종 피해면적</th>
-						<td>3,500㎡</td>
+						<td>${investigationSummary.damageArea}</td>
 					</tr>
 				</table>
 

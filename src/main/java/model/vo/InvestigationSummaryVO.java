@@ -1,16 +1,26 @@
 package model.vo;
 
 public class InvestigationSummaryVO {
+	private int num;
 	private String investDate;
 	private int damageRate;
 	private int damageArea;
 
 	public InvestigationSummaryVO() {}
 
-	public InvestigationSummaryVO(String investDate, int damageRate, int damageArea) {
+	public InvestigationSummaryVO(int num, String investDate, int damageRate, int damageArea) {
+		setNum(num);
 		setInvestDate(investDate);
 		setDamageRate(damageRate);
 		setDamageArea(damageArea);
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getInvestDate() {
@@ -39,7 +49,7 @@ public class InvestigationSummaryVO {
 
 	@Override
 	public String toString() {
-		return "InvestigationSummaryVO [investDate=" + investDate + ", damageRate=" + damageRate + ", damageArea="
-				+ damageArea + "]";
+		return "InvestigationSummaryVO [num=" + num + ", investDate=" + investDate + ", damageRate=" + damageRate
+				+ ", damageArea=" + damageArea + "]";
 	}
 }

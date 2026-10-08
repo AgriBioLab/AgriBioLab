@@ -245,7 +245,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				investVo = new InvestigationSummaryVO(rs.getString(1), rs.getInt(2), rs.getInt(3));
+				investVo = new InvestigationSummaryVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
 			}
 
 			rs.close();

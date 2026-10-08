@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
     
 <!DOCTYPE html>
 <html lang="ko">
@@ -54,10 +55,10 @@
     <tbody>
         <tr>
             <td>${compensationSummary.applicationStatus}</td>
-            <td>${compensationSummary.compensationClaimAmount}</td>
-            <td>${compensationSummary.finalCompensationAmount}</td>
+            <td><fmt:formatNumber value="${compensationSummary.compensationClaimAmount}" pattern="#,##0"/>원</td>
+            <td><fmt:formatNumber value="${compensationSummary.finalCompensationAmount}" pattern="#,##0"/>원</td>
             <td>${compensationSummary.actionChargerName}</td>
-            <td>${compensationSummaryDffDay}</td>
+            <td>${compensationSummaryDffDay}일</td>
         </tr>
     </tbody>
     
@@ -129,15 +130,15 @@
 					<caption class="sr-only">보상 신청 정보</caption>
 					<tr>
 						<th scope="row">보상 신청 금액</th>
-						<td>${compensationClaim.compensationClaimAmount}</td>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimAmount}" pattern="#,##0"/>원</td>
 						<th scope="row">보상 신청일</th>
 						<td>${compensationClaim.claimDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 수량</th>
-						<td>${compensationClaim.compensationClaimQuantity}</td>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimQuantity}" pattern="#,##0"/>kg</td>
 						<th scope="row">보상 신청 면적</th>
-						<td>${compensationClaim.compensationClaimArea }</td>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimArea}" pattern="#,##0"/>㎡</td>
 					</tr>
 				</table>
 
@@ -158,13 +159,13 @@
 						<th scope="row">적용한 보상 기준</th>
 						<td>${compensationCalc.calcCriterion}</td>
 						<th scope="row">보상 기준 단가</th>
-						<td>${compensationCalc.criterionUnitPrice}원/kg (사과)</td> <!-- 품목명 누락. 작업 필요 -->
+						<td><fmt:formatNumber value="${compensationCalc.criterionUnitPrice}" pattern="#,##0"/>/kg (사과)</td> <!-- 품목명 누락. 작업 필요 -->
 					</tr>
 					<tr> <!--여기부터 -->
 						<th scope="row">보상 산정에 반영한 실제 조치 수량</th>
-						<td>${compensationCalc.calcQuantity}kg (조치 수행 결과)</td>
+						<td><fmt:formatNumber value="${compensationCalc.calcQuantity}" pattern="#,##0"/>kg (조치 수행 결과)</td>
 						<th scope="row">보상 적용 비율</th>
-						<td>${compensationCalc.compensationAppliedRate}%</td>
+						<td><fmt:formatNumber value="${compensationCalc.compensationAppliedRate}" pattern="0"/>%</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
@@ -186,7 +187,7 @@
 					</tr>
 					<tr>
 						<th scope="row">최종 보상금</th>
-						<td colspan="3"><strong>${compensationCalc.finalCompensationAmount}원</strong></td>
+						<td colspan="3"><strong><fmt:formatNumber value="${compensationCalc.finalCompensationAmount}" pattern="#,##0"/>원</strong></td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정 결과 문서</th>
@@ -301,7 +302,7 @@
 					</tr>
 					<tr>
 						<th scope="row">실제 조치 수량</th>
-						<td>${damageActionSummary.executionConfirmQuantity}</td>
+						<td><fmt:formatNumber value="${damageActionSummary.executionConfirmQuantity}" pattern="#,##0"/>kg</td>
 						<th scope="row">조치 결과 확인일</th>
 						<td>${damageActionSummary.executionConfirmDate}</td>
 					</tr>
@@ -325,9 +326,9 @@
 					</tr>
 					<tr>
 						<th scope="row">최종 피해율</th>
-						<td>${investigationSummary.damageRate}</td>
+						<td><fmt:formatNumber value="${investigationSummary.damageRate}" pattern="#,##0"/>%</td>
 						<th scope="row">최종 피해면적</th>
-						<td>${investigationSummary.damageArea}</td>
+						<td><fmt:formatNumber value="${investigationSummary.damageArea}" pattern="#,##0"/>㎡</td>
 					</tr>
 				</table>
 
@@ -341,10 +342,6 @@
 		</main>
 
 	</div>
-
-
-
-
 
 </body>
 </html>

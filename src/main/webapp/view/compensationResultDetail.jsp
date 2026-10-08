@@ -168,7 +168,7 @@
 					</tr>
 					<tr>
 						<th scope="row">보상금 산정식</th>
-						<td colspan="3"><!-- 실제 조치 수량 1,200kg × 단가 7,000원 × 지원율 80% = 6,720,000원 --></td>
+						<td colspan="3">${compensationCalcFormula}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>
@@ -209,23 +209,23 @@
 					<caption class="sr-only">보상금 지급 처리 결과</caption>
 					<tr>
 						<th scope="row">보상금 지급 확정일</th>
-						<td>2026-09-29</td>
+						<td>${CompensationPayment.paymentDecisionDate}</td>
 						<th scope="row">보상금 지급일</th>
-						<td>2026-09-30</td>
+						<td>${CompensationPayment.paymentCompletionDate}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 기관</th>
-						<td>○○도 보상지급기관</td>
+						<td>${CompensationPayment.paymentInstitution}</td>
 						<th scope="row">보상금 지급 담당자</th>
-						<td>한소영</td>
+						<td>${CompensationPayment.paymentChargerName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 수령인</th>
-						<td colspan="3">김*아</td>
+						<td colspan="3">${CompensationPayment.recipientName}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 입금 계좌</th>
-						<td colspan="3">○○은행 ***-**-1234 (김*아)</td>
+						<td colspan="3">${CompensationPayment.paymentAccountNumber}</td>
 					</tr>
 					<tr>
 						<th scope="row">보상금 지급 결과 문서</th>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimVO;
+import model.vo.CompensationPaymentVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
@@ -36,10 +37,12 @@ public class compensationDetailAction implements Action {
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
 			List<DocumentsVO> compensationPaymentDocuments = dao.getCompensationPaymentDocuments(compensationId);
 
-            // 처리 기간 계산
+			CompensationPaymentVO CompensationPayment = dao.getCompensationPayment(compensationId);
+           
+			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
-			// 
+			String compensationCalcFormula = getCompensationCalcFormula(compensationCalc); 
 
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
@@ -51,6 +54,8 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("compensationCalc", compensationCalc);
 			request.setAttribute("compensationPaymentDocuments", compensationPaymentDocuments);
 
+			request.setAttribute("compensationCalcFormula", compensationCalcFormula);
+			request.setAttribute("CompensationPayment", CompensationPayment);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,5 +76,13 @@ public class compensationDetailAction implements Action {
 	}
 	
 	//보상금 산정식
-
+	public String getCompensationCalcFormula(CompensationCalcVO compensationCalc) {
+	    return String.format(
+	        "실제 조치 수량 %,dkg × 단가 %,d원 × 지원율 %.0f%% = %,d원",
+	        compensationCalc.getCalcQuantity(),
+	        compensationCalc.getCriterionUnitPrice(),
+	        compensationCalc.getCompensationAppliedRate(),
+	        compensationCalc.getFinalCompensationAmount()
+	    );
+	}
 }

@@ -11,7 +11,7 @@
 <title>농산물품질 - 보상처리결과 조회</title>
 
 <!-- 검색영역 CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css?v=20261006">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBox.css">
 <!-- 목록 표 CSS -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
 </head>
@@ -39,34 +39,36 @@
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 보상 기준 목록: 한 줄 = 조치완료된 피해신청 1건의 보상 (조회 키는 피해신청번호) -->
-			<form class="search-box">
+			<form class="search-box" action="${pageContext.request.contextPath}/controller?cmd=compenasationListUI" method="get">
+			
+				<input type="hidden" name="cmd" value="compensationListUI">
 
 				<!-- 보상금 지급일 기간 (지급결과 기준 조회) -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">보상금 지급일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="2026-09-01"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="2026-09-30" title="기간 종료일">
+					<label class="search-label" for="startDate">보상금 지급일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="${compensation.startDate}"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="${compensation.endDate}" title="기간 종료일">
 
 				</div>
 
 				<!-- 피해신청번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="applyNo">피해신청번호</label> <input type="text" id="applyNo" name="applyNo" class="search-input normal" placeholder="REQ-2026-000136">
+					<label class="search-label" for="appId">피해신청번호</label> <input type="text" id="appId" name="appId" class="search-input normal" placeholder="REQ-2026-000136">
 
 				</div>
 
 				<!-- 단체/상호명 (신청 업체) -->
 				<div class="search-row">
 
-					<label class="search-label" for="bizName">단체/상호명</label> <input type="text" id="bizName" name="bizName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="organizationName">단체/상호명</label> <input type="text" id="organizationName" name="organizationName" class="search-input normal" placeholder="행복농장">
 
 				</div>
 
 				<!-- 대표자명 (이름 전체로 검색, 목록에는 가려서 표시, 개인농가는 신청인 본인) -->
 				<div class="search-row">
 
-					<label class="search-label" for="ownerName">대표자명</label> <input type="text" id="ownerName" name="ownerName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="representativeName">대표자명</label> <input type="text" id="representativeName" name="representativeName" class="search-input normal" placeholder="김현아">
 
 				</div>
 
@@ -75,10 +77,10 @@
 
 					<span class="search-label">구분</span>
 					<div class="radio-group">
-						<label><input type="radio" name="targetType" value="" checked> 전체</label>
-						<label><input type="radio" name="targetType" value="PRODUCER"> 생산자</label>
-						<label><input type="radio" name="targetType" value="DISTRIBUTOR"> 유통자</label>
-						<label><input type="radio" name="targetType" value="SELLER"> 판매자</label>
+						<label><input type="radio" name="appCategory" value="" checked> 전체</label>
+						<label><input type="radio" name="appCategory" value="PRODUCER"> 생산자</label>
+						<label><input type="radio" name="appCategory" value="DISTRIBUTOR"> 유통자</label>
+						<label><input type="radio" name="appCategory" value="SELLER"> 판매자</label>
 					</div>
 
 				</div>
@@ -86,15 +88,15 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="itemName">품목명</label> <input type="text" id="itemName" name="itemName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="productName">품목명</label> <input type="text" id="productName" name="productName" class="search-input normal" placeholder="사과">
 
 				</div>
 
 				<!-- 검색 / 초기화 -->
 				<div class="search-row full search-actions">
 
-					<button type="button" class="search-btn">검색</button>
-					<button type="reset" class="reset-btn">초기화</button>
+					<button type="submit" class="search-btn">검색</button>
+					<button type="reset" class="reset-btn" onclick="resetSearch()">초기화</button>
 
 				</div>
 
@@ -155,6 +157,13 @@
 
 	</div>
 	
+	
+	<script>
+    function resetSearch() {
+        location.href =
+            "${pageContext.request.contextPath}/controller?cmd=compensationListUI";
+    }
+	</script>
 
 </body>
 </html>

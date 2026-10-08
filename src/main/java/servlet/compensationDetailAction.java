@@ -12,6 +12,7 @@ import model.dao.CompensationDetailDAO;
 import model.vo.CompensationCalcVO;
 import model.vo.CompensationClaimVO;
 import model.vo.CompensationPaymentVO;
+import model.vo.CompensationProgressVO;
 import model.vo.CompensationSummaryVO;
 import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
@@ -32,6 +33,7 @@ public class compensationDetailAction implements Action {
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
 			InvestigationSummaryVO investigationSummary = dao.getInvestigationSummary(appId);
+			CompensationProgressVO compensationProgress = dao.getCompensationProgress(appId);
 
 			int compensationId = dao.getCompensationClaimId(appId);
 			CompensationCalcVO compensationCalc = dao.getCompensationCalc(compensationId);
@@ -52,6 +54,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("investigationSummary", investigationSummary);
 			request.setAttribute("compensationCalc", compensationCalc);
 			request.setAttribute("CompensationPayment", CompensationPayment);
+			request.setAttribute("compensationProgress", compensationProgress);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

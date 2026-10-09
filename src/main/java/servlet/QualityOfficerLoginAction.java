@@ -40,10 +40,12 @@ public class QualityOfficerLoginAction implements Action {
 
 		if (qualityOfficer != null) {
 		    String name = qualityOfficer.getName();
+		    String position = qualityOfficer.getPosition();
 
 		    HttpSession session = request.getSession(true);
 		    session.setAttribute("loginOK", request.getParameter("loginId"));
 		    session.setAttribute("loginName", name);
+		    session.setAttribute("loginPosition", position);
 
 		    url = "REDIRECT:/controller?cmd=compensationListUI";
 		} else {

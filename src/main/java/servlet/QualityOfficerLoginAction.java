@@ -40,22 +40,18 @@ public class QualityOfficerLoginAction implements Action {
 
 		if (qualityOfficer != null) {
 		    String name = qualityOfficer.getName();
-		    
+
 		    HttpSession session = request.getSession(true);
-			session.setAttribute("loginOK", request.getParameter("loginId"));
-			session.setAttribute("loginName", name);
-			compensationList = dao.getCompensationList();
-			request.setAttribute(name, session);
-			request.setAttribute("compensationList", compensationList);
-			url="view/compensationResultList.jsp";
+		    session.setAttribute("loginOK", request.getParameter("loginId"));
+		    session.setAttribute("loginName", name);
+
+		    url = "REDIRECT:/controller?cmd=compensationListUI";
 		} else {
 			request.setAttribute("loginError","아이디 또는 비밀번호가 올바르지 않습니다.");
 
 		    url = "view/qualityOfficerLogin.jsp";
 		}
-		
-		System.out.println(url);
-		
+				
 		return url;
 	}
 

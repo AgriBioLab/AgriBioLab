@@ -105,7 +105,7 @@
 			<!-- ============= RESULT ============= -->
 			<div class="result-info">
 
-				<span class="result-count">검색 결과</span> <span>총<strong>3</strong>건</span>
+				<span class="result-count">검색 결과</span> <span>총<strong>${viewCount}</strong>건</span>
 
 			</div>
 

@@ -57,6 +57,7 @@ public class CompensationListUIAction implements Action{
         }
         		
         request.setAttribute("compensationList", compensationList);
+        request.setAttribute("viewCount", compensationList.size());
         
 		return "view/compensationResultList.jsp";
 	}

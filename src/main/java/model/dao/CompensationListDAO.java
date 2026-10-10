@@ -88,9 +88,7 @@ public class CompensationListDAO {
 			for(CompensationListVO vo : list) {
 				vo.setRepresentativeName(PrivacyMaskingUtil.maskName(vo.getRepresentativeName()));
 			}
-			
-			System.out.println(list);
-			
+						
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {

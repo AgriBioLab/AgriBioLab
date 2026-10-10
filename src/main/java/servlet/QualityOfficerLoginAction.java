@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import model.dao.CompensationListDAO;
 import model.dao.QualityOfficerDAO;
-import model.vo.CompensationListVO;
 import model.vo.QualityOfficerVO;
 import util.DBCP;
 
@@ -26,9 +24,7 @@ public class QualityOfficerLoginAction implements Action {
 	}
 	
 	@Override
-	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		List<CompensationListVO> compensationList;
-		
+	public String execute(HttpServletRequest request) throws ServletException, IOException {		
 		// 나중에 Service 연결해서 로그인 처리
 		// 로그인 여부에 따라 url이 달라져야 한다.
 		String url = null; // 에러, 메시지
@@ -36,7 +32,6 @@ public class QualityOfficerLoginAction implements Action {
 		            request.getParameter("loginId"),
 		            request.getParameter("loginPassword")
 		        );
-
 
 		if (qualityOfficer != null) {
 		    String name = qualityOfficer.getName();

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.vo.QualityOfficerVO;
+import util.PrivacyMaskingUtil;
 import util.Query;
 
 public class QualityOfficerDAO {
@@ -26,7 +27,10 @@ public class QualityOfficerDAO {
     			
     			if(rs.next()) {
     				vo = new QualityOfficerVO(rs.getString("username"), rs.getString("password"),rs.getString("name"), rs.getString("position"));
+    				
+    				vo.setName(PrivacyMaskingUtil.maskName(vo.getName()));
     			}
+    			
     			rs.close();
     			pstmt.close();
     	} catch (SQLException e) {

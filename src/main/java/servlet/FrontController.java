@@ -41,9 +41,14 @@ public class FrontController extends HttpServlet {
 		
 		// 해당 페이지로 이동
 		String url = action.execute(req);
-		System.out.println("반환 url: " + url);
-		if(url != null) {
-			req.getRequestDispatcher("/"+url).forward(req, resp);
+		if (url != null) {
+		    if ("REDIRECT:/controller?cmd=compensationListUI".equals(url)) {
+		        resp.sendRedirect(
+		            req.getContextPath() + "/controller?cmd=compensationListUI"
+		        );
+		    } else {
+		        req.getRequestDispatcher("/" + url).forward(req, resp);
+		    }
 		}
 	}
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.vo.CompensationListVO;
+import util.PrivacyMaskingUtil;
 import util.Query;
 
 public class CompensationListDAO {
@@ -60,6 +61,10 @@ public class CompensationListDAO {
 			        list.add(vo);
 			}
 			
+			for(CompensationListVO vo : list) {
+				vo.setRepresentativeName(PrivacyMaskingUtil.maskName(vo.getRepresentativeName()));
+			}
+						
 			rs.close();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -79,6 +84,11 @@ public class CompensationListDAO {
 			while(rs.next()) {
 				list.add( new CompensationListVO(rs.getString("app_id"), rs.getString("product_name"), rs.getString("app_category"), rs.getString("representative_name"), rs.getString("organization_name"), rs.getDate("payment_completion_date"), rs.getInt("payment_amount"), rs.getString("payment_institution")));
 			}
+			
+			for(CompensationListVO vo : list) {
+				vo.setRepresentativeName(PrivacyMaskingUtil.maskName(vo.getRepresentativeName()));
+			}
+						
 			rs.close();
 			stmt.close();
 		} catch (SQLException e) {

@@ -46,29 +46,29 @@
 				<!-- 보상금 지급일 기간 (지급결과 기준 조회) -->
 				<div class="search-row">
 
-					<label class="search-label" for="startDate">보상금 지급일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="${compensation.startDate}"> <span class="date-separator">
-						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="${compensation.endDate}" title="기간 종료일">
+					<label class="search-label" for="startDate">보상금 지급일</label> <input type="date" id="startDate" name="startDate" class="search-input date" value="${startDate}"> <span class="date-separator">
+						~ </span> <input type="date" id="endDate" name="endDate" class="search-input date" value="${endDate}" title="기간 종료일">
 
 				</div>
 
 				<!-- 피해신청번호 -->
 				<div class="search-row">
 
-					<label class="search-label" for="appId">피해신청번호</label> <input type="text" id="appId" name="appId" class="search-input normal" placeholder="REQ-2026-000136">
+					<label class="search-label" for="appId">피해신청번호</label> <input type="text" id="appId" name="appId" class="search-input normal" placeholder="REQ-2026-000136" value="${appId}">
 
 				</div>
 
 				<!-- 단체/상호명 (신청 업체) -->
 				<div class="search-row">
 
-					<label class="search-label" for="organizationName">단체/상호명</label> <input type="text" id="organizationName" name="organizationName" class="search-input normal" placeholder="행복농장">
+					<label class="search-label" for="organizationName">단체/상호명</label> <input type="text" id="organizationName" name="organizationName" class="search-input normal" placeholder="행복농장" value="${organizationName}">
 
 				</div>
 
 				<!-- 대표자명 (이름 전체로 검색, 목록에는 가려서 표시, 개인농가는 신청인 본인) -->
 				<div class="search-row">
 
-					<label class="search-label" for="representativeName">대표자명</label> <input type="text" id="representativeName" name="representativeName" class="search-input normal" placeholder="김현아">
+					<label class="search-label" for="representativeName">대표자명</label> <input type="text" id="representativeName" name="representativeName" class="search-input normal" placeholder="김현아" value="${representativeName}">
 
 				</div>
 
@@ -78,9 +78,9 @@
 					<span class="search-label">구분</span>
 					<div class="radio-group">
 						<label><input type="radio" name="appCategory" value="" checked> 전체</label>
-						<label><input type="radio" name="appCategory" value="PRODUCER"> 생산자</label>
-						<label><input type="radio" name="appCategory" value="DISTRIBUTOR"> 유통자</label>
-						<label><input type="radio" name="appCategory" value="SELLER"> 판매자</label>
+						<label><input type="radio" name="appCategory" value="생산자" ${appCategory == '생산자' ? 'checked' : '' }> 생산자</label>
+						<label><input type="radio" name="appCategory" value="유통자" ${appCategory == '유통자' ? 'checked' : '' }> 유통자</label>
+						<label><input type="radio" name="appCategory" value="판매자" ${appCategory == '판매자' ? 'checked' : '' }> 판매자</label>
 					</div>
 
 				</div>
@@ -88,7 +88,7 @@
 				<!-- 품목명 -->
 				<div class="search-row">
 
-					<label class="search-label" for="productName">품목명</label> <input type="text" id="productName" name="productName" class="search-input normal" placeholder="사과">
+					<label class="search-label" for="productName">품목명</label> <input type="text" id="productName" name="productName" class="search-input normal" placeholder="사과" value="${productName}">
 
 				</div>
 

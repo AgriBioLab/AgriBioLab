@@ -59,6 +59,15 @@ public class CompensationListUIAction implements Action{
         request.setAttribute("compensationList", compensationList);
         request.setAttribute("viewCount", compensationList.size());
         
+     // 검색창에 기존 검색 조건을 유지하기 위해 전달
+        request.setAttribute("startDate", startDate);
+        request.setAttribute("endDate", endDate);
+        request.setAttribute("appId", appId);
+        request.setAttribute("organizationName", organizationName);
+        request.setAttribute("representativeName", representativeName);
+        request.setAttribute("appCategory", appCategory);
+        request.setAttribute("productName", productName);
+        
 		return "view/compensationResultList.jsp";
 	}
 

@@ -17,6 +17,7 @@ import model.vo.DamageActionSummaryVO;
 import model.vo.DocumentsVO;
 import model.vo.InvestigationSummaryVO;
 import model.vo.CompensationClaimVO;
+import util.PrivacyMaskingUtil;
 import util.Query;
 
 public class CompensationDetailDAO {
@@ -135,6 +136,8 @@ public class CompensationDetailDAO {
 				appVO = new DamageApplicationVO(
 						rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			}
+			
+			appVO.setRepresentativeName(PrivacyMaskingUtil.maskName(appVO.getRepresentativeName()));
 
 			rs.close();
 			pstmt.close();
@@ -177,6 +180,8 @@ public class CompensationDetailDAO {
 			if (rs.next() ) {
 				paymentVO = new CompensationPaymentVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
 			}
+			
+			paymentVO.setRecipientName(PrivacyMaskingUtil.maskName(paymentVO.getRecipientName()));
 
 			rs.close();
 			pstmt.close();

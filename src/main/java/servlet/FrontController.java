@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,14 +43,7 @@ public class FrontController extends HttpServlet {
 			return;
 		}
 
-		Action action;
-		try {
-			action = ActionFactory.getAction(cmd);
-		} catch (SQLException e) {
-			getServletContext().log("요청 처리에 필요한 연결을 만들지 못했습니다.", e);
-			resp.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE, "잠시 후 다시 시도해 주세요.");
-			return;
-		}
+		Action action = ActionFactory.getAction(cmd);
 		if (action == null) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND, "요청한 화면을 찾을 수 없습니다.");
 			return;

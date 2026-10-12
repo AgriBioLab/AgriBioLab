@@ -25,9 +25,7 @@ public interface Query {
 
 	String SEARCH_BY_PRODUCT_NAME = "AND a.product_name LIKE ? ";
 	
-	String SEARCH_BY_PAYMENT_START_DATE = "AND payment_completion_date >= TO_DATE(?, 'YYYY-MM-DD') ";
-	String SEARCH_BY_PAYMENT_END_DATE = "AND payment_completion_date <= TO_DATE(?, 'YYYY-MM-DD') ";
-	String SEARCH_BY_PAYMENT_COMPLETION_DATE = SEARCH_BY_PAYMENT_START_DATE + SEARCH_BY_PAYMENT_END_DATE;
+	String SEARCH_BY_PAYMENT_COMPLETION_DATE = "AND payment_completion_date >= TO_DATE(?, 'YYYY-MM-DD') AND payment_completion_date <= TO_DATE(?, 'YYYY-MM-DD') ";
 	
 	String ORDER_BY = "ORDER BY a.app_date DESC ";
 

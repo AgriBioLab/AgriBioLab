@@ -24,11 +24,12 @@ public class CompensationListDAO {
 		
 		StringBuilder sql = new StringBuilder(Query.SEARCH_COMPENSATIONLIST);
 		
-        if (startDate != null && !startDate.isBlank()) {
-            sql.append(Query.SEARCH_BY_PAYMENT_START_DATE);
-        }
-        if (endDate != null && !endDate.isBlank()) {
-            sql.append(Query.SEARCH_BY_PAYMENT_END_DATE);
+        if (startDate != null && !startDate.isBlank() && endDate != null && !endDate.isBlank()) {
+            sql.append(Query.SEARCH_BY_PAYMENT_COMPLETION_DATE);
+        } else if (startDate != null && !startDate.isBlank()) {
+            sql.append("AND payment_completion_date >= TO_DATE(?, 'YYYY-MM-DD') ");
+        } else if (endDate != null && !endDate.isBlank()) {
+            sql.append("AND payment_completion_date <= TO_DATE(?, 'YYYY-MM-DD') ");
         }
         if (appId != null && !appId.isBlank()) { sql.append(Query.SEARCH_BY_APP_ID); }
         if (organizationName != null && !organizationName.isBlank()) { sql.append(Query.SEARCH_BY_ORGANIZATION_NAME); }

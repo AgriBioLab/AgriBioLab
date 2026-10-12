@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class ActionFactory {
 	
-	public static Action getAction(String cmd) throws SQLException {
+	public static Action getAction(String cmd) {
 	  if(cmd==null) cmd="";
 		Action action = null;
 				
@@ -13,13 +13,21 @@ public class ActionFactory {
             action = new QualityOfficerLoginUI();
             break;
         case "qualityOfficerLoginAction":
-            action = new QualityOfficerLoginAction();
+        	try {
+				action = new QualityOfficerLoginAction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
         	break;
         case "qualityOfficerLogout":
             action = new QualityOfficerLogoutAction();
             break;
 		case "compensationListUI":
-			action = new CompensationListUIAction();
+			try {
+				action = new CompensationListUIAction();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			break;
 		case "compensationDetailAction":
 			action = new compensationDetailAction();

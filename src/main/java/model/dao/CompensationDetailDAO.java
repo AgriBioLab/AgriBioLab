@@ -134,9 +134,15 @@ public class CompensationDetailDAO {
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				appVO = new DamageApplicationVO(
-						rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+						rs.getString("app_id"), 
+						rs.getString("organization_name"), 
+						rs.getString("app_category"), 
+						rs.getString("production_area"), 
+						rs.getString("disaster_type"), 
+						rs.getString("product_name"), 
+						rs.getString("representative_name"));
 			}
-			
+
 			appVO.setRepresentativeName(PrivacyMaskingUtil.maskName(appVO.getRepresentativeName()));
 
 			rs.close();
@@ -157,7 +163,16 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next() ) {
-				calcVO = new CompensationCalcVO(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
+				calcVO = new CompensationCalcVO(
+						rs.getString("calc_criterion"), 
+						rs.getInt("calc_quantity"), 
+						rs.getString("difference_reason"), 
+						rs.getString("calc_institution_name"), 
+						rs.getString("calc_completion_date"), 
+						rs.getInt("final_compensation_amount"), 
+						rs.getInt("criterion_unit_price"), 
+						rs.getInt("compensation_applied_rate"), 
+						rs.getString("calc_charger_name"));
 			}
 
 			rs.close();
@@ -178,9 +193,16 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next() ) {
-				paymentVO = new CompensationPaymentVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
+				paymentVO = new CompensationPaymentVO(
+						rs.getString("payment_decision_date"), 
+						rs.getString("payment_institution"), 
+						rs.getString("recipient_name"), 
+						rs.getString("payment_account_number"), 
+						rs.getString("payment_completion_date"), 
+						rs.getString("payment_charger_name"), 
+						rs.getInt("payment_amount"));
 			}
-			
+
 			paymentVO.setRecipientName(PrivacyMaskingUtil.maskName(paymentVO.getRecipientName()));
 
 			rs.close();
@@ -201,7 +223,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				documentsVOs.add(new DocumentsVO(rs.getString(1), rs.getString(2)));
+				documentsVOs.add(new DocumentsVO(rs.getString("doc_name"), rs.getString("file_url")));
 			}
 
 			rs.close();
@@ -222,7 +244,12 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next() ) {
-				progressVO = new CompensationProgressVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				progressVO = new CompensationProgressVO(
+						rs.getString("app_date"), 
+						rs.getString("invest_date"), 
+						rs.getString("plan_action_confirm_date"), 
+						rs.getString("execution_confirm_date"), 
+						rs.getString("payment_completion_date"));
 			}
 
 			rs.close();
@@ -243,10 +270,10 @@ public class CompensationDetailDAO {
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) { 
 				compensationClaimVo = new CompensationClaimVO(
-						rs.getInt(1),
-						rs.getInt(4),
-						rs.getInt(2),
-						rs.getDate(3));
+						rs.getInt("compensation_claim_amount"),
+						rs.getInt("compensation_claim_area"),
+						rs.getInt("compensation_claim_quantity"),
+						rs.getDate("claim_date"));
 			}
 			rs.close();
 			pstmt.close();
@@ -265,7 +292,11 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				investVo = new InvestigationSummaryVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
+				investVo = new InvestigationSummaryVO(
+						rs.getInt("num"), 
+						rs.getString("invest_date"), 
+						rs.getInt("damage_rate"), 
+						rs.getInt("damage_area"));
 			}
 
 			rs.close();
@@ -286,7 +317,7 @@ public class CompensationDetailDAO {
 
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				documentVOs.add(new DocumentsVO(rs.getString(1), rs.getString(2)));
+				documentVOs.add(new DocumentsVO(rs.getString("doc_name"), rs.getString("file_url")));
 			}
 
 			rs.close();

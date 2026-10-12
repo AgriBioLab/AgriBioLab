@@ -1,0 +1,70 @@
+package util;
+
+public interface Query {
+	String GET_COMPENSATION_CLAIM_ID = "SELECT compensation_claim_id FROM compensation_claim WHERE app_id = ?";
+	
+	String QUALITY_OFFICER_LOGIN = "SELECT username, password, position, name FROM quality_assurance_officer WHERE username = ? AND password = ?";
+	
+	String GET_COMPENSATION_CLAIM = "SELECT compensation_claim_amount, compensation_claim_quantity, claim_date, compensation_claim_area FROM compensation_claim WHERE app_id = ?";
+	
+	String GET_INVESTIGATION_SUMMARY = "SELECT ROW_NUMBER () OVER (ORDER BY invest_date) num, invest_date, damage_rate, damage_area FROM damage_site_invest WHERE app_id = ? ORDER BY INVEST_DATE DESC";
+	
+	String GET_APPLICATION_DOCUMENTS = "SELECT doc_name, file_url FROM app_doc WHERE app_id = ?";
+	
+	String GET_COMPENSATIONLIST = "SELECT a.app_id, a.product_name, ap.app_category, ap.representative_name, ap.organization_name, cp.payment_completion_date, cp.payment_amount, cp.payment_institution FROM agriculture_damage_app a JOIN applicant ap ON a.applicant_id = ap.applicant_id LEFT JOIN compensation_claim cc ON a.app_id = cc.app_id LEFT JOIN compensation_payment cp ON cc.compensation_claim_id = cp.compensation_claim_id WHERE cp.payment_completion_date IS NOT NULL ORDER BY a.app_date DESC";
+	
+	String SEARCH_COMPENSATIONLIST= "SELECT a.app_id, a.product_name, ap.app_category, ap.representative_name, ap.organization_name, cp.payment_completion_date, cp.payment_amount, cp.payment_institution FROM agriculture_damage_app a JOIN applicant ap ON a.applicant_id = ap.applicant_id LEFT JOIN compensation_claim cc ON a.app_id = cc.app_id LEFT JOIN compensation_payment cp ON cc.compensation_claim_id = cp.compensation_claim_id WHERE cp.payment_completion_date IS NOT NULL ";
+	
+	String SEARCH_BY_APP_ID = "AND a.app_id = ? ";
+
+	String SEARCH_BY_APP_CATEGORY = "AND ap.app_category = ? ";
+
+	String SEARCH_BY_ORGANIZATION_NAME = "AND ap.organization_name LIKE ? ";
+
+	String SEARCH_BY_REPRESENTATIVE_NAME = "AND ap.representative_name LIKE ? ";
+
+	String SEARCH_BY_PRODUCT_NAME = "AND a.product_name LIKE ? ";
+	
+	String SEARCH_BY_PAYMENT_COMPLETION_DATE = "AND payment_completion_date >= TO_DATE(?, 'YYYY-MM-DD') AND payment_completion_date <= TO_DATE(?, 'YYYY-MM-DD') ";
+	
+	String ORDER_BY = "ORDER BY a.app_date DESC ";
+
+	String GET_COMPENSATION_DETAIL= "SELECT a.app_status,cc.compensation_claim_amount,cp.payment_amount, da.action_charger_name,cc.claim_date,cp.payment_completion_date FROM agriculture_damage_app a JOIN damage_action da ON da.app_id=a.app_id LEFT JOIN compensation_claim cc ON cc.app_id=a.app_id LEFT JOIN compensation_payment cp ON cp.compensation_claim_id=cc.compensation_claim_id WHERE a.app_id=? ORDER BY a.app_date DESC";
+	
+	String GET_DAMAGE_ACTION_SUMMARY = "SELECT d.action_type, d.execution_confirm_date, d.execution_confirm_quantity, d.plan_action_content FROM damage_action d JOIN agriculture_damage_app a ON a.app_id=d.app_id WHERE a.app_id=?";
+
+	String GET_INVESTIGATION_DOCUMENTS = "SELECT ccd.doc_name, ccd.file_url FROM compensation_calc_doc ccd JOIN compensation_calc cc ON ccd.compensation_calc_id=cc.compensation_calc_id WHERE compensation_claim_id=?";
+
+	String GET_COMPENSATION_CLAIM_DOCUMENTS = "SELECT doc_name, submission_place, submission_date, file_url, reviewer_name, confirm_date FROM compensation_claim_doc WHERE compensation_claim_id=?";
+
+
+	String GET_APPLICATION_RECEPTION = "SELECT agri.app_id, app.ORGANIZATION_NAME, app.APP_CATEGORY, agri.PRODUCTION_AREA, agri.DISASTER_TYPE, agri.PRODUCT_NAME, app.REPRESENTATIVE_NAME "
+			+ "FROM agriculture_damage_app agri "
+			+ "JOIN applicant app ON agri.APPLICANT_ID = app.APPLICANT_ID "
+			+ "WHERE agri.app_id = ?";
+
+	String GET_COMPENSATION_CALCULATION = "SELECT CALC_CRITERION, CALC_QUANTITY, DIFFERENCE_REASON, CALC_INSTITUTION_NAME, CALC_COMPLETION_DATE, FINAL_COMPENSATION_AMOUNT, CRITERION_UNIT_PRICE, COMPENSATION_APPLIED_RATE, CALC_CHARGER_NAME "
+			+ "FROM compensation_calc "
+			+ "WHERE compensation_claim_id = ?";
+
+	String GET_COMPENSATION_PAYMENT = "SELECT payment_decision_date, payment_institution, recipient_name, payment_account_number, payment_completion_date, payment_charger_name, payment_amount "
+			+ "FROM compensation_payment "
+			+ "WHERE compensation_claim_id = ?";
+
+	String GET_COMPENSATION_PAYMENT_DOCUMENTS = "SELECT doc.doc_name, doc.file_url "
+			+ "FROM compensation_payment_doc doc JOIN compensation_payment payment ON doc.compensation_payment_id = payment.compensation_payment_id "
+			+ "WHERE payment .compensation_claim_id= ?";
+	
+	String GET_COMPENSATION_PROGRESS = 
+			"SELECT TO_CHAR(agri.app_date, 'YYYY-MM-DD') AS app_date,"
+			+ " TO_CHAR(invest.invest_date, 'YYYY-MM-DD') AS invest_date,"
+			+ " TO_CHAR(action.plan_action_confirm_date, 'YYYY-MM-DD') AS plan_action_confirm_date,"
+			+ " TO_CHAR(action.execution_confirm_date, 'YYYY-MM-DD') AS execution_confirm_date,"
+			+ " TO_CHAR(payment.payment_completion_date, 'YYYY-MM-DD') AS payment_completion_date "
+			+ "FROM agriculture_damage_app agri"
+			+ " LEFT JOIN damage_site_invest invest ON agri.app_id = invest.app_id"
+			+ " LEFT JOIN damage_action action ON agri.app_id = action.app_id"
+			+ " LEFT JOIN compensation_claim claim ON agri.app_id = claim.app_id"
+			+ " LEFT JOIN compensation_payment payment ON claim.compensation_claim_id = payment.compensation_claim_id "
+			+ "WHERE agri.app_id = ?";
+}

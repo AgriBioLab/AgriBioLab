@@ -1,0 +1,352 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+    
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%@ include file="common/head.jsp" %>
+
+<title>농산물품질 - 보상처리결과 조회</title>
+
+<!-- 상세 CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/detail.css?v=20261006">
+<!-- 목록 표 CSS (관련 서류처럼 여러 건인 정보) -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
+</head>
+
+<body class="menu-comp">
+
+	<%@ include file="common/header.jsp" %>
+
+	<!-- ============= PAGE LAYOUT ============= -->
+	<div class="page-layout">
+
+		<!-- ============= SIDE MENU (메뉴별 공통) ============= -->
+		<%@ include file="common/side_compensationResult.jsp" %>
+
+		<!-- ============= CONTENT ============= -->
+		<main class="content">
+
+			<!-- Breadcrumb -->
+			<nav class="breadcrumb">
+				<span>홈</span> &gt; <span>보상처리결과 조회</span>
+			</nav>
+
+			<!-- Page Title (보상에는 별도 번호가 없음, 피해신청번호는 아래 신청 요약에서 링크로) -->
+			<h1 class="page-title">보상처리결과 조회</h1>
+
+			<!-- ============= 요약 정보 ============= -->
+			<!-- 핵심 화면 모니터링용: 보상 신청 금액과 최종 보상금의 차이, 처리 일수(보상 신청일 ~ 지급일, 부지급은 확정일, 진행 중은 경과일), 지급일은 바로 아래 전체 흐름에서 -->
+			<div class="detail-summary-wrap">
+<table class="detail-summary" id="detail-summary">
+    <caption class="sr-only">보상처리결과 요약</caption>
+    <thead>
+        <tr>
+            <th scope="col">통합 진행상태</th>
+            <th scope="col">보상 신청 금액</th>
+            <th scope="col">최종 보상금</th>
+            <th scope="col">조치담당자</th>
+            <th scope="col">보상 신청부터 지급까지 걸린 기간</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>${compensationSummary.applicationStatus}</td>
+            <td><fmt:formatNumber value="${compensationSummary.compensationClaimAmount}" pattern="#,##0"/>원</td>
+            <td><fmt:formatNumber value="${compensationSummary.finalCompensationAmount}" pattern="#,##0"/>원</td>
+            <td>${compensationSummary.actionChargerName}</td>
+            <td>${compensationSummaryDffDay}일</td>
+        </tr>
+    </tbody>
+    
+</table>
+</div>
+
+			<!-- ============= 처리 흐름 (요약 바로 아래, 같은 피해신청번호의 단계별 날짜) ============= -->
+			<div class="progress-here-comp">
+
+
+<div class="detail-progress-wrap">
+	<span class="detail-progress-title">피해신청부터 지급결과까지 전체 흐름</span>
+	<ol class="detail-progress">
+		<li class="is-done step-apply">피해신청 접수 <span class="progress-date">${compensationProgress.appDate}</span></li>
+		<li class="is-done step-survey">현장조사 결과 등록 <span class="progress-date">${compensationProgress.investDate}</span></li>
+		<li class="is-done step-decision">조치 방법 확정 <span class="progress-date">${compensationProgress.planActionConfirmDate}</span></li>
+		<li class="is-done step-action">조치 수행 결과 확인 <span class="progress-date">${compensationProgress.executionConfirmDate}</span></li>
+		<li class="is-done step-comp">지급결과 확인 <span class="progress-date">${compensationProgress.paymentCompletionDate}</span></li>
+	</ol>
+</div>
+
+			</div>
+
+
+
+			<!-- ============= 신청 정보 ============= -->
+			<!-- 피해신청 기준 정보: 누구의 무엇인지 식별, 개인농가는 단체/상호명 '-'·대표자 = 신청인 본인 (피해신청번호를 누르면 피해신청 상세, 단계별 날짜는 처리 흐름에서), 신청 주체는 단체/상호명(업체: 생산자·유통자·판매자)와 대표자, 대표자 이름은 가림, 생산지는 그 농산물을 생산한 곳 (생산자 신청이면 단체/상호명와 같음), 서류는 내려받기만 (확인 처리는 피해신청 상세) -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">피해신청 접수 정보</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">피해신청 접수 정보</caption>
+					<tr>
+						<th scope="row">피해신청번호</th>
+						<td>${damageApplication.appId}</td>
+						<th scope="row">재해유형 · 품목</th>
+						<td>${damageApplication.disasterType} · ${damageApplication.productName}</td>
+					</tr>
+					<tr>
+						<th scope="row">단체/상호명</th>
+						<td>${damageApplication.organizationName}</td>
+						<th scope="row">대표자</th>
+						<td>${damageApplication.representativeName}</td>
+					</tr>
+					<tr>
+						<th scope="row">생산지</th>
+						<td colspan="3">${damageApplication.productionArea}</td>
+					</tr>
+					<tr>
+						<th scope="row">피해신청 관련 서류</th>
+						<td colspan="3">
+							<c:forEach items="${damageApplicationDocuments}" var="damageApplication">
+								${damageApplication.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+					</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 보상 신청 정보 ============= -->
+			<!-- 1차 스프린트는 피해신청자와 보상신청자가 같은 건만 다룬다. 신청 금액·일자·수량 중심으로 표시한다. -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상 신청 정보</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">보상 신청 정보</caption>
+					<tr>
+						<th scope="row">보상 신청 금액</th>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimAmount}" pattern="#,##0"/>원</td>
+						<th scope="row">보상 신청일</th>
+						<td>${compensationClaim.claimDate}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상 신청 수량</th>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimQuantity}" pattern="#,##0"/>kg</td>
+						<th scope="row">보상 신청 면적</th>
+						<td><fmt:formatNumber value="${compensationClaim.compensationClaimArea}" pattern="#,##0"/>㎡</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 보상금 산정 정보 ============= -->
+			<!-- 지원 기준 정책(재해유형·품목별 단가·지원율)으로 산정한 금액과 근거, 보상 신청 금액과 다르면 조정 사유 기록
+		     기준 단가·지원율 = 지원 기준 정책에서 품목·재해유형·산정일로 자동으로 불러온 값 (담당자 수정 불가, 산정 당시 값을 보상 건에 저장)
+		     실제 조치 수량 = 보상 신청 수량이 아니라 피해조치 상세 '조치 수행 결과'의 실제 조치 수량 (같은 값, 같은 이름)
+		     (표 첫 줄에 colspan 이 있으면 고정 폭 표의 칸 너비가 틀어져서 첫 줄은 두 칸 짝으로) -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상금 산정 근거 및 최종 금액</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">보상금 산정 근거 및 최종 금액</caption>
+					<tr>
+						<th scope="row">적용한 보상 기준</th>
+						<td>${compensationCalc.calcCriterion}</td>
+						<th scope="row">보상 기준 단가</th>
+						<td><fmt:formatNumber value="${compensationCalc.criterionUnitPrice}" pattern="#,##0"/>/kg (<c:out value="${damageApplication.productName}"/>)</td>
+					</tr>
+					<tr> <!--여기부터 -->
+						<th scope="row">보상 산정에 반영한 실제 조치 수량</th>
+						<td><fmt:formatNumber value="${compensationCalc.calcQuantity}" pattern="#,##0"/>kg (조치 수행 결과)</td>
+						<th scope="row">보상 적용 비율</th>
+						<td><fmt:formatNumber value="${compensationCalc.compensationAppliedRate}" pattern="0"/>%</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 산정식</th>
+						<td colspan="3">${compensationCalcFormula}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상 신청 금액과 산정 금액이 다른 사유</th>
+						<td colspan="3">${compensationCalc.differenceReason}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 산정 기관</th>
+						<td>${compensationCalc.calcInstitutionName}</td>
+						<th scope="row">보상금 산정 담당자</th>
+						<td>${compensationCalc.calcChargerName}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금을 산정한 날짜</th>
+						<td colspan="3">${compensationCalc.calcCompletionDate}</td>
+					</tr>
+					<tr>
+						<th scope="row">최종 보상금</th>
+						<td colspan="3"><strong><fmt:formatNumber value="${compensationCalc.finalCompensationAmount}" pattern="#,##0"/>원</strong></td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 산정 결과 문서</th>
+						<td colspan="3">
+						<c:forEach  items="${investigationDocuments}" var="investigation" >
+						${investigation.docName} <a class="case-link" href="#">내려받기</a>
+						</c:forEach>
+						</td>
+						
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 지급 정보 ============= -->
+			<!-- 언제·누가: 결정일(결재 기록은 전자결재에), 지급기관·지급 담당자·지급일 (계좌·명의는 가림)
+		     산정 기관과 지급 기관은 업무가 다르면 다른 기관명으로 표시
+		     1차 스프린트는 피해신청자와 보상신청자가 같은 건만 표시 -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상금 지급 처리 결과</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">보상금 지급 처리 결과</caption>
+					<tr>
+						<th scope="row">보상금 지급 확정일</th>
+						<td>${compensationPayment.paymentDecisionDate}</td>
+						<th scope="row">보상금 지급일</th>
+						<td>${compensationPayment.paymentCompletionDate}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 지급 기관</th>
+						<td>${compensationPayment.paymentInstitution}</td>
+						<th scope="row">보상금 지급 담당자</th>
+						<td>${compensationPayment.paymentChargerName}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 수령인</th>
+						<td colspan="3">${compensationPayment.recipientName}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 입금 계좌</th>
+						<td colspan="3">${compensationPayment.paymentAccountNumber}</td>
+					</tr>
+					<tr>
+						<th scope="row">보상금 지급 결과 문서</th>
+						<td colspan="3">
+							<c:forEach items="${compensationPaymentDocuments}" var="compensationPaymentDocuments">
+								${compensationPaymentDocuments.docName} <a class="case-link" href="#">내려받기</a>
+							</c:forEach>
+						</td>
+					</tr>
+
+				</table>
+
+			</section>
+
+			<!-- ============= 관련 서류 (여러 건) ============= -->
+			<!-- 첨부서류 중 서류구분 보상(COMP), 신청인이 제출한 확인 대상 서류, 최신이 위 -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상 신청 제출 서류 확인 현황</div>
+
+				<div class="table-wrap">
+					<table class="list-table">
+						<caption class="sr-only">보상 신청 제출 서류 확인 현황</caption>
+						<thead>
+							<tr>
+								<th scope="col">서류명</th>
+								<th scope="col">제출처</th>
+								<th scope="col">제출일</th>
+								<th scope="col">서류 확인 상태</th>
+								<th scope="col">서류 확인일</th>
+								<th scope="col">서류 확인자</th>
+								<th scope="col">첨부파일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${compensationClaimDocument}" var="compensationClaimDocument">						
+								<tr>
+									<td class="cell-text">${compensationClaimDocument.documentName}</td>
+									<td>${compensationClaimDocument.submissionPlace}</td>
+									<td>${compensationClaimDocument.submissionDate}</td>
+									<td><c:choose>
+											<c:when test="${empty compensationClaimDocument.confirmDate}"> <!-- if와 동일 -->
+												서류 미확인
+											</c:when>
+											<c:otherwise> 
+												서류 확인
+											</c:otherwise>
+										</c:choose>
+									</td>
+									<td>${compensationClaimDocument.confirmDate}</td>
+									<td>${compensationClaimDocument.reviewerName}</td>
+									<td><a class="case-link" href="#">내려받기</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+
+			</section>
+
+			<!-- ============= 조치 요약 ============= -->
+			<!-- 보상금 산정의 근거가 되는 피해조치 상세의 조치 수행 결과 (실제 조치 수량 = 산정 정보의 실제 조치 수량) -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상금 산정에 사용한 조치 수행 결과 요약</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">보상금 산정에 사용한 조치 수행 결과 요약</caption>
+					<tr>
+						<th scope="row">조치 방법</th>
+						<td>${damageActionSummary.actionType}</td>
+						<th scope="row">조치 계획 내용</th>
+						<td>${damageActionSummary.planActionContent}</td>
+					</tr>
+					<tr>
+						<th scope="row">실제 조치 수량</th>
+						<td><fmt:formatNumber value="${damageActionSummary.executionConfirmQuantity}" pattern="#,##0"/>kg</td>
+						<th scope="row">조치 결과 확인일</th>
+						<td>${damageActionSummary.executionConfirmDate}</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 조사 요약 ============= -->
+			<!-- 조치·보상 판단의 근거가 되는 최종 조사 결과 -->
+			<section class="detail-section">
+
+				<div class="detail-section-title">보상금 산정에 사용한 현장조사 결과 요약</div>
+
+				<table class="detail-table">
+					<caption class="sr-only">보상금 산정에 사용한 현장조사 결과 요약</caption>
+					<tr>
+						<th scope="row">현장조사 완료일</th>
+						<td>${investigationSummary.investDate}</td>
+						<th scope="row">최종 반영 조사차수</th>
+						<td>${investigationSummary.num}차</td>
+					</tr>
+					<tr>
+						<th scope="row">최종 피해율</th>
+						<td><fmt:formatNumber value="${investigationSummary.damageRate}" pattern="#,##0"/>%</td>
+						<th scope="row">최종 피해면적</th>
+						<td><fmt:formatNumber value="${investigationSummary.damageArea}" pattern="#,##0"/>㎡</td>
+					</tr>
+				</table>
+
+			</section>
+
+			<!-- ============= 하단 이동 ============= -->
+			<div class="detail-actions">
+				<a class="list-btn" href="${pageContext.request.contextPath}/controller?cmd=compensationListUI">목록</a>
+			</div>
+
+		</main>
+
+	</div>
+
+</body>
+</html>

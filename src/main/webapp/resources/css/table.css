@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/* ============= TABLE ============= */
+.result-info {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.result-count {
+	font-weight: 600;
+}
+
+/* 화면이 좁으면 페이지 전체가 아니라 표 영역 안에서만 가로 스크롤 */
+.table-wrap {
+	overflow-x: auto;
+}
+
+.list-table {
+	width: 100%;
+	min-width: 1040px;	/* 설명형 컬럼명이 한 글자씩 쪼개지지 않도록 최소 폭 유지 */
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 14px;
+}
+
+.list-table thead {
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #999;
+}
+
+.list-table th,
+.list-table td {
+	height: 48px;
+	padding: 0 8px;
+	word-break: keep-all;	/* 한글이 한 글자씩 줄바꿈되지 않게 */
+}
+
+.list-table th {
+	font-weight: 600;
+	background: #fafafa;
+}
+
+.list-table td {
+	border-bottom: 1px solid #ddd;
+}

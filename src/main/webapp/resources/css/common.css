@@ -4,12 +4,27 @@
 	box-sizing: border-box;
 }
 
+/* 미지원 브라우저에서도 세로 스크롤바 폭을 확보한다. */
+html {
+	overflow-y: scroll;
+}
+
+/* 내용이 짧으면 트랙은 숨기되 스크롤바 자리는 그대로 유지한다. */
+@supports (scrollbar-gutter: stable) {
+	html {
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+	}
+}
+
 body {
 	margin: 0;
-	font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+	/* 웹폰트(각 HTML head에서 불러옴) → 못 불러오면 뒤의 대체 글꼴 사용 */
+	font-family: "Pretendard GOV", -apple-system, "Malgun Gothic", sans-serif;
 	color: #222;
 	background: #fff;
-	font-size: 14px;
+	font-size: 15px;	/* 본문 기본 글자 크기 (업무 화면: 정보 밀도 우선) */
+	line-height: 1.5;	/* 줄 높이 150% */
 }
 
 a {
@@ -25,8 +40,9 @@ ul {
 
 /* ============= 전체 레이아웃 ============= */  
 .page-layout {
-	width: 1100px;
+	max-width: 1920px;	/* 화면 폭만큼 넓어짐 (아주 넓은 모니터에서만 가운데 정렬) */	
 	margin: 0 auto;
+	padding: 0 24px;	
 	display: flex;
 	min-height: 700px;
 }
@@ -34,12 +50,13 @@ ul {
 /* ============= CONTENT 영역 ============= */
 .content {
 	flex: 1;
+	min-width: 0;	/* flex 칸이 안쪽 표 최소 폭(860px)만큼 늘어나지 않게 → 표는 안에서만 가로 스크롤 */
 	padding: 50px 0 80px 55px;
 }
 
 .breadcrumb {
-	font-size: 12px;
-	color: #777;
+	font-size: 13px;
+	color: #666;	/* 흰 배경 대비 5.7:1 (#777 은 4.48:1 로 기준 4.5:1 미달) */
 	margin-bottom: 25px;
 }
 
@@ -47,8 +64,67 @@ ul {
 	margin: 0 8px;
 }
 
+/*  페이지 제목과 왼쪽 시작선을 맞춤 */
+.breadcrumb span:first-child {
+	margin-left: 0;
+}
+
 .page-title {
 	font-size: 32px;
 	font-weight: 700;
 	margin-bottom: 45px;
+}
+
+/* 번호를 눌러 상세로 이동하는 링크 (목록, 상세 공통) */
+.case-link {
+	color: #1f4e9c;
+	text-decoration: underline;
+}
+
+/* ============= 접근성 ============= */
+/* 화면에는 숨기고 스크린리더만 읽는 글자 (표 caption 등) */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* 키보드(Tab)로 이동할 때 현재 위치를 테두리로 표시 (마우스 클릭 때는 안 보임) */
+:focus-visible {
+	outline: 2px solid #1f4e9c;
+	outline-offset: 2px;
+}
+
+/* ============= 반응형 ============= */
+/* large 미만 (1023px 이하): 사이드메뉴를 본문 위로 */
+@media (max-width: 1023px) {
+	.page-layout {
+		flex-direction: column;	/* 사이드메뉴 | 본문 → 사이드메뉴 위, 본문 아래 */
+	}
+
+	.content {
+		padding: 32px 0 60px;	/* 사이드메뉴가 위로 갔으므로 왼쪽 55px 여백 제거 */
+	}
+}
+
+/* medium 미만 (767px 이하): 모바일 */
+@media (max-width: 767px) {
+	.page-layout {
+		padding: 0 16px;	/* 모바일 좌우 여백 */
+	}
+
+	.page-title {
+		font-size: 24px;	/* 모바일 페이지 제목 */
+		margin-bottom: 24px;
+	}
+}
+/* 입력칸과 버튼에도 본문의 글꼴 적용 */
+input, button, select, textarea {
+    font-family: inherit;
 }

@@ -17,6 +17,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
+		resp.setHeader("Cache-Control", "no-store");
 		
 		// cmd
 		String cmd = req.getParameter("cmd");
@@ -36,8 +37,17 @@ public class FrontController extends HttpServlet {
 				}
 			}
 		
-		// 해당 Action을 전달 받아서 실행 TDD 
+		// 로그인 상태에서 기본 진입 요청은 목록으로 안내한다.
+		if (cmd == null || cmd.isBlank()) {
+			resp.sendRedirect(req.getContextPath() + "/controller?cmd=compensationListUI");
+			return;
+		}
+
 		Action action = ActionFactory.getAction(cmd);
+		if (action == null) {
+			resp.sendError(HttpServletResponse.SC_NOT_FOUND, "요청한 화면을 찾을 수 없습니다.");
+			return;
+		}
 		
 		// 해당 페이지로 이동
 		String url = action.execute(req);

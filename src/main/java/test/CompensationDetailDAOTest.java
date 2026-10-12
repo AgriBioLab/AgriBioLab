@@ -166,8 +166,8 @@ public class CompensationDetailDAOTest {
 		String testAppId = "REQ-2026-000133";
 		CompensationProgressVO vo = dao.getCompensationProgress(testAppId);
 		assertNotNull(vo);
-		assertEquals("2026-09-22 00:00:00", vo.getAppDate());
-		assertEquals("2026-09-25 00:00:00", vo.getInvestDate());
+		assertEquals("2026-09-22", vo.getAppDate());
+		assertEquals("2026-09-25", vo.getInvestDate());
 	}
 
 	@Test

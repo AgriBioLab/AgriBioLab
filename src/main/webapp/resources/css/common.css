@@ -4,9 +4,17 @@
 	box-sizing: border-box;
 }
 
-/* 세로 스크롤바 자리를 항상 비워 둠 → 내용 길이가 다른 페이지로 옮겨도 화면 폭이 바뀌지 않음 */
+/* 미지원 브라우저에서도 세로 스크롤바 폭을 확보한다. */
 html {
-	scrollbar-gutter: stable;
+	overflow-y: scroll;
+}
+
+/* 내용이 짧으면 트랙은 숨기되 스크롤바 자리는 그대로 유지한다. */
+@supports (scrollbar-gutter: stable) {
+	html {
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+	}
 }
 
 body {

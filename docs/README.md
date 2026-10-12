@@ -4,6 +4,7 @@
 
 | 문서 | 내용 |
 |---|---|
+| [코드 규칙 합의사항](code-conventions.md) | 클래스·변수·메서드·상수·Attribute·CRUD 접두사·한글 테스트 이름 |
 | [1차 합의사항](sprint1-agreements.md) | 구현 범위, 클래스 다이어그램 유지, 산출물·DB 정책, 검증 범위 |
 | [1차 시연 기준](sprint1-demo.md) | main 기준 커밋, controller 경로, 촬영 순서, MP4 완료 조건 |
 | [2차 후속 작업](sprint2-follow-up.md) | 직접 JSP 접근 보호·구조 변경 검토·미구현 다운로드 |

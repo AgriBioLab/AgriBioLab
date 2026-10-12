@@ -84,6 +84,7 @@ docs/                   1차 합의·시연 기준·2차 후속 작업
 ## 협업 규칙
 
 - [문서 목록](docs/README.md)
+- [코드 규칙 합의사항](docs/code-conventions.md)
 - [1차 스프린트 합의사항](docs/sprint1-agreements.md)
 - [시연 기준·시나리오·MP4 완료 조건](docs/sprint1-demo.md)
 - [2차 스프린트 후속 작업](docs/sprint2-follow-up.md)

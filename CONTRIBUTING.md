@@ -98,6 +98,8 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 
 ## 5. 코드 규칙
 
+이름 규칙과 CRUD 접두사, 한글 단위테스트 명명은 [코드 규칙 합의사항](docs/code-conventions.md)을 따른다. 클래스는 PascalCase, 변수·일반 메서드는 camelCase, 상수는 대문자+언더스코어, Attribute는 업무 영문명으로 쓴다. 단위테스트 메서드는 한글과 언더스코어로 조건·결과를 표현한다. 1차의 기존 선언·요청 계약은 일괄 개명하지 않는다.
+
 ### 경로
 - CSS, 링크, form action은 `${pageContext.request.contextPath}`로 시작한다.
 

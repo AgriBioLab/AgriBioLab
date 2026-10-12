@@ -75,7 +75,7 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 
 ### 피할 것
 - `수정`, `최종`, `ㅇㅇ`처럼 무엇을 했는지 알 수 없는 메시지
-- 파일명만 적은 메시지 (`compensationSupportList.jsp 수정`) → 화면·기능 이름으로
+- 파일명만 적은 메시지 (`compensationResultList.jsp 수정`) → 화면·기능 이름으로
 - 참고한 기준이나 근거 설명 → 커밋 대신 **PR 본문**에
 
 ### 커밋 전 확인
@@ -104,33 +104,40 @@ feat_compensationDetailUI   feat_responsiveUI   ...
 ### 공통 파일
 | 파일 | 역할 |
 |---|---|
-| `view/head.jsp` | 모든 화면 공통 `<head>` (meta, 웹폰트, 공통 CSS) |
-| `view/header.jsp` | 상단 헤더·GNB·전체 메뉴 |
-| `view/side_○○.jsp` | 메뉴별 사이드메뉴 (예: `side_compensationSupport.jsp`는 보상·지원 목록·상세가 함께 사용) |
+| `view/common/head.jsp` | 모든 화면 공통 `<head>` (meta, 웹폰트, 공통 CSS) |
+| `view/common/header.jsp` | 상단 헤더·GNB·전체 메뉴 |
+| `view/common/side_compensationResult.jsp` | 보상처리결과 목록·상세의 공통 사이드메뉴 |
 | `resources/css/common.css` | 전체 공통 스타일 |
 
-수정하기 전에 팀에 먼저 알린다.
+수정하기 전에 팀에 먼저 알린다. 기존 공통 파일의 위치·이름을 유지한다.
 
 ### 화면 구성
-- 모든 화면은 `<%@ include file="head.jsp"%>`로 공통 head를, `<%@ include file="header.jsp"%>`로 헤더를 불러온다.
-- 사이드메뉴는 메뉴별 `side_○○.jsp`를 include한다. 같은 메뉴의 목록·상세는 같은 파일을 쓴다.
+- 로그인·목록·상세 JSP는 `<%@ include file="common/head.jsp"%>`로 공통 head를 불러온다. 목록·상세는 `common/header.jsp`와 `common/side_compensationResult.jsp`를 함께 사용한다.
+- 로그인 화면은 현재 구성을 유지하며 업무 화면용 헤더·사이드메뉴를 추가하지 않는다.
 - 화면에서만 쓰는 CSS(`searchBox.css`, `table.css`, `detail.css`)는 각 화면 `<head>`에 직접 추가한다.
 - JSP 안에 `<style>`이나 `style="..."`을 쓰지 않고 `resources/css/`의 파일로 분리한다.
 
-### 검색조건 이름 (form 전송값)
+### 1차 보상처리결과 요청 계약
 
-| 항목 | name | 비고 |
-|---|---|---|
-| 기간 | `startDate`, `endDate` | |
-| 상태 | `status` | "전체"는 `value=""` |
-| 번호 | `receiptNo` / `actionNo` / `caseNo` | 화면별 |
-| 유형 | `caseType` / `actionType` | 화면별 |
-| 대표자명 / 단체·상호명 | `ownerName` / `bizName` | |
-| 구분 | `targetType` | `PRODUCER`, `DISTRIBUTOR`, `SELLER` |
-| 품목명 | `itemName` | |
+입력칸 `name`은 영문 camelCase로 쓴다. 기존 요청 파라미터는 아래 실제 구현을 유지한다.
 
-- 입력칸 `name`은 영문 camelCase로 쓴다.
-- 상세 화면으로 넘기는 번호 파라미터는 **`no`**로 통일한다. 예: `compensationSupportDetail.jsp?no=2026-004582`
+| 항목 | 실제 name / 값 |
+|---|---|
+| 기간 | `startDate`, `endDate` |
+| 피해신청번호·상세 식별자 | `appId` |
+| 단체/상호명 | `organizationName` |
+| 대표자명 | `representativeName` |
+| 구분 | `appCategory`: 빈 값(전체), `생산자`, `유통자`, `판매자` |
+| 품목명 | `productName` |
+
+정식 업무 경로는 `/controller?cmd=...`이며 상세는 `cmd=compensationDetailAction&appId=...`를 사용한다. [시연 경로](docs/sprint1-demo.md)를 참고한다.
+
+### 1차 산출물·설정 유지
+
+- 제출 클래스 다이어그램의 클래스·인터페이스·필드·메서드 구성을 유지한다. 구조 확장과 직접 JSP 접근 보호는 [2차 후속 작업](docs/sprint2-follow-up.md)으로 관리한다.
+- 팀 DB 설정을 유지하며 개인 DB 접속 정보·비밀번호·로컬 설정은 커밋·PR에 포함하지 않는다.
+- 기능 완료·검증 결과·미완료 항목을 구분한다. [1차 합의사항](docs/sprint1-agreements.md)과 [시연 기준](docs/sprint1-demo.md)을 함께 갱신한다.
+- PR 승인, 실제 병합, 웹 서버 배포는 별도 단계다. main 반영에는 dev→main PR의 팀 승인과 실제 병합이 필요하다.
 
 ---
 

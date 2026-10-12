@@ -137,7 +137,9 @@ public class CompensationDetailDAO {
 						rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			}
 			
-			appVO.setRepresentativeName(PrivacyMaskingUtil.maskName(appVO.getRepresentativeName()));
+			if (appVO != null) {
+				appVO.setRepresentativeName(PrivacyMaskingUtil.maskName(appVO.getRepresentativeName()));
+			}
 
 			rs.close();
 			pstmt.close();
@@ -181,7 +183,9 @@ public class CompensationDetailDAO {
 				paymentVO = new CompensationPaymentVO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
 			}
 			
-			paymentVO.setRecipientName(PrivacyMaskingUtil.maskName(paymentVO.getRecipientName()));
+			if (paymentVO != null) {
+				paymentVO.setRecipientName(PrivacyMaskingUtil.maskName(paymentVO.getRecipientName()));
+			}
 
 			rs.close();
 			pstmt.close();

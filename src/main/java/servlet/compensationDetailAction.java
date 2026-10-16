@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
@@ -25,11 +26,17 @@ public class compensationDetailAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		try {
-			String appId = request.getParameter("appId");
-			CompensationDetailDAO dao = new CompensationDetailDAO(DBCP.getConnection());
+		String appId = request.getParameter("appId");
+		if (appId == null || appId.isBlank()) {
+			return "REDIRECT:/controller?cmd=compensationListUI";
+		}
+		try (Connection conn = DBCP.getConnection()) {
+			CompensationDetailDAO dao = new CompensationDetailDAO(conn);
 			CompensationSummaryVO compensationSummary = dao.getCompensationSummary(appId);
 			CompensationClaimVO compensationClaim = dao.getCompensationClaim(appId);
+			if (compensationSummary == null || compensationClaim == null) {
+				return "REDIRECT:/controller?cmd=compensationListUI";
+			}
 			DamageActionSummaryVO damageActionSummary = dao.getDamageActionSummary(appId);
 			List<DocumentsVO> damageApplicationDocuments = dao.getDamageApplicationDocuments(appId);
 			DamageApplicationVO damageApplication = dao.getDamageApplication(appId);
@@ -46,7 +53,8 @@ public class compensationDetailAction implements Action {
 			// 처리 기간 계산
 			Long dffDay = calculateDays(compensationClaim.getClaimDate(), compensationSummary.getPaymentCompletionDate());
 			
-			String compensationCalcFormula = getCompensationCalcFormula(compensationCalc); 
+			String compensationCalcFormula = compensationCalc == null ? null
+					: getCompensationCalcFormula(compensationCalc);
 
 			request.setAttribute("compensationSummary", compensationSummary);
 			request.setAttribute("compensationSummaryDffDay", dffDay);
@@ -64,8 +72,7 @@ public class compensationDetailAction implements Action {
 			request.setAttribute("compensationClaimDocument", compensationClaimDocument);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new ServletException("상세 정보를 조회하지 못했습니다.", e);
 		}
 		return "view/compensationResultDetail.jsp";
 	}

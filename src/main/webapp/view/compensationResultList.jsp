@@ -39,7 +39,7 @@
 
 			<!-- ============= SEARCH ============= -->
 			<!-- 보상 기준 목록: 한 줄 = 조치완료된 피해신청 1건의 보상 (조회 키는 피해신청번호) -->
-			<form class="search-box" action="${pageContext.request.contextPath}/controller?cmd=compenasationListUI" method="get">
+			<form class="search-box" action="${pageContext.request.contextPath}/controller" method="get">
 			
 				<input type="hidden" name="cmd" value="compensationListUI">
 
@@ -77,7 +77,7 @@
 
 					<span class="search-label">구분</span>
 					<div class="radio-group">
-						<label><input type="radio" name="appCategory" value="" checked> 전체</label>
+						<label><input type="radio" name="appCategory" value="" ${empty appCategory ? 'checked' : ''}> 전체</label>
 						<label><input type="radio" name="appCategory" value="생산자" ${appCategory == '생산자' ? 'checked' : '' }> 생산자</label>
 						<label><input type="radio" name="appCategory" value="유통자" ${appCategory == '유통자' ? 'checked' : '' }> 유통자</label>
 						<label><input type="radio" name="appCategory" value="판매자" ${appCategory == '판매자' ? 'checked' : '' }> 판매자</label>

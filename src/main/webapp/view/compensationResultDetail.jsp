@@ -159,7 +159,7 @@
 						<th scope="row">적용한 보상 기준</th>
 						<td>${compensationCalc.calcCriterion}</td>
 						<th scope="row">보상 기준 단가</th>
-						<td><fmt:formatNumber value="${compensationCalc.criterionUnitPrice}" pattern="#,##0"/>/kg (사과)</td> <!-- 품목명 누락. 작업 필요 -->
+						<td><fmt:formatNumber value="${compensationCalc.criterionUnitPrice}" pattern="#,##0"/>/kg (<c:out value="${damageApplication.productName}"/>)</td>
 					</tr>
 					<tr> <!--여기부터 -->
 						<th scope="row">보상 산정에 반영한 실제 조치 수량</th>

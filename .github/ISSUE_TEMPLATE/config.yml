@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 2조 운영 홈 · 목표·회의록
+    url: https://tlals0028.atlassian.net/wiki/spaces/2/overview
+    about: 스프린트 목표, Jira 업무와 팀 의사결정 기록
+  - name: Jira 업무 목록
+    url: https://tlals0028.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog
+    about: 실행 담당·기한·상태를 관리하는 기준

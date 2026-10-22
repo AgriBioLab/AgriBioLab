@@ -1,6 +1,8 @@
 # AgriBioLab 협업 규칙
 
 브랜치, 커밋, PR 규칙을 정리한 문서입니다. 작업을 시작하기 전에 한 번 읽어 주세요.
+
+2차 스프린트부터 [개발 이력 연결 방법](docs/development-traceability.md)에 따라 같은 Jira 키를 브랜치·커밋·PR에 포함합니다. 기존 `feat_기능`, `docs_내용` 접두사 뒤에 키를 추가할 수 있습니다(예: `feat_SCRUM-49-springAccess`). Codex 작업 브랜치는 `codex/SCRUM-86-work-traceability`처럼 키를 포함합니다. 커밋·PR 제목 예: `refactor: [SCRUM-49] 기존 기능 접근 보호 전환`.
 규칙을 바꾸고 싶으면 이 문서를 수정하는 PR을 올려 팀 합의를 받습니다.
 
 ---

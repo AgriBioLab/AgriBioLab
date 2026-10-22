@@ -51,3 +51,11 @@ src/main/webapp/
 ## 협업 규칙
 
 브랜치, 커밋, PR 규칙은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고해 주세요.
+
+## 팀 작업과 개발 이력
+
+- [2조 운영 홈 · 목표·Jira 현황·회의록](https://tlals0028.atlassian.net/wiki/spaces/2/overview)
+- [Jira 백로그](https://tlals0028.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
+- [문서 인덱스](docs/README.md) · [개발 이력 연결 방법](docs/development-traceability.md)
+- [변경 이력](CHANGELOG.md) · [변경·검증 기록 양식](docs/changes/TEMPLATE.md)
+- [GitHub 이슈](https://github.com/AgriBioLab/AgriBioLab/issues) · [PR·리뷰·머지](https://github.com/AgriBioLab/AgriBioLab/pulls) · [Actions 실행·로그](https://github.com/AgriBioLab/AgriBioLab/actions)

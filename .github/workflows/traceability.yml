@@ -1,0 +1,27 @@
+name: Jira work traceability
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: traceability-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  jira-links:
+    name: Jira title, branch and PR links
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out PR files
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Validate Jira references
+        run: node .github/scripts/check-traceability.cjs
+      - name: Test reference validation
+        run: node --test .github/scripts/check-traceability.test.cjs

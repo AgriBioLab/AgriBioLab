@@ -1,0 +1,30 @@
+name: 작업·리팩토링
+description: Jira와 설계·검증 근거가 연결된 개발 작업
+title: "[SCRUM-번호] 작업 내용"
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira 업무 링크
+      placeholder: https://tlals0028.atlassian.net/browse/SCRUM-49
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 목적·범위·완료 기준
+      description: 변경할 동작, 유지할 동작, 완료로 판단할 검증 결과를 적습니다.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 회의·설계·결정 근거
+      description: Confluence 회의록과 Markdown 문서 링크를 넣습니다.
+  - type: textarea
+    id: verification
+    attributes:
+      label: 검증 계획·실행 결과
+      description: 입력·기대값·실제값·재현 절차와 PR/Actions 로그를 연결합니다.
+    validations:
+      required: true

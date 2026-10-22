@@ -1,0 +1,29 @@
+name: 오류·검증 실패
+description: 재현 조건과 Jira가 연결된 결함 기록
+title: "[SCRUM-번호] 오류 내용"
+body:
+  - type: input
+    id: jira
+    attributes:
+      label: Jira 업무 링크
+      placeholder: https://tlals0028.atlassian.net/browse/SCRUM-번호
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 절차·입력·환경
+      description: 대상 브랜치와 전체 커밋 SHA, 실행 환경, 재현 순서를 적습니다.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 기대 결과·실제 결과
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 로그·화면·관련 PR·회의록
+      description: 비밀번호·토큰·개인정보를 제외한 근거와 원본 실행 링크를 넣습니다.

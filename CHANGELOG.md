@@ -4,7 +4,7 @@
 
 ## Unreleased
 
-- [SCRUM-86](https://tlals0028.atlassian.net/browse/SCRUM-86) / [GitHub #61](https://github.com/AgriBioLab/AgriBioLab/issues/61): Jira·GitHub·Confluence 연결 양식, 문서 인덱스, PR Jira 연결 검사 도입. 자동 개발 이벤트 수집·저장소 autolink는 관리자 연결 확인 대기.
+- [SCRUM-86](https://tlals0028.atlassian.net/browse/SCRUM-86) / [GitHub #61](https://github.com/AgriBioLab/AgriBioLab/issues/61) / [PR #62](https://github.com/AgriBioLab/AgriBioLab/pull/62): Jira·GitHub·Confluence 연결 양식, 문서 인덱스, PR Jira 연결 검사 도입. Jira의 저장소·PR 자동 수집과 첫 Actions 실행 성공 확인. GitHub의 SCRUM- 자동 링크는 관리자 설정 미확인. PR은 검토 대기·미병합.
 
 ## 확인된 기존 이력
 

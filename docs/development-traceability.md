@@ -36,15 +36,17 @@
 - 문서: 변경된 `.md` 파일의 PR 링크와 커밋에 고정한 파일 링크를 남깁니다. 이미 병합된 커밋 메시지를 Jira 연결 목적으로 재작성하지 않습니다.
 - `docs/changes/TEMPLATE.md`를 복제해 작업별 결과를 기록합니다. 로그 보존 기간·배포 로그 수집은 저장소/운영 환경 관리자 설정을 확인합니다.
 
-## 관리자 연결 확인
+## 연결 확인과 관리자 설정
 
-현재 작업 계정은 저장소 push 권한이 있고 admin 권한은 없습니다. 다음 설정의 완료 여부는 저장소/Atlassian 관리자가 확인해야 합니다.
+2026-10-22 Jira 개발 화면에서 GitHub for Atlassian의 AgriBioLab 조직과 AgriBioLab/AgriBioLab 저장소 연결을 확인했습니다. 이 작업의 [PR #62](https://github.com/AgriBioLab/AgriBioLab/pull/62)가 Jira 풀리퀘스트 목록에 자동 수집되는 것도 확인했습니다. [첫 Actions 실행](https://github.com/AgriBioLab/AgriBioLab/actions/runs/39730352831)은 성공했습니다. 이후 변경의 실행 결과는 PR Checks와 Actions 원본을 확인합니다.
 
-1. Atlassian 공식 **GitHub for Atlassian** 앱에서 `tlals0028.atlassian.net`과 `AgriBioLab/AgriBioLab`만 선택해 연결합니다. 다른 저장소는 연결 범위에 포함하지 않습니다.
+현재 작업 계정은 저장소 push 권한이 있고 admin 권한은 없습니다. 기존 앱 연결은 유지하고 아래 자동 링크·수집 범위는 관리자가 필요에 따라 확인합니다.
+
+1. 이미 연결된 Atlassian 공식 **GitHub for Atlassian** 앱의 대상은 `tlals0028.atlassian.net`과 `AgriBioLab/AgriBioLab`입니다. 별도 요청 없이 다른 저장소로 연결 범위를 넓히지 않습니다.
 2. GitHub 저장소 Settings → Integrations → Autolink references에 `SCRUM-` → `https://tlals0028.atlassian.net/browse/SCRUM-<num>`을 설정합니다. 뒤의 참조는 숫자로 사용합니다.
-3. Jira 개발 패널에서 이 PR의 Jira 키가 포함된 브랜치·커밋·PR·머지 이벤트를 확인합니다. 표시되지 않으면 앱 설치·저장소 선택·Jira 사이트·키·동기화 상태를 확인합니다.
+3. Jira 개발 패널에서 키가 포함된 브랜치·커밋·PR을 확인하고, 실제 병합 후 머지 이벤트도 확인합니다. 현재 PR은 Draft이며 병합되지 않았습니다. 표시되지 않는 이벤트는 앱 설치·저장소 선택·Jira 사이트·키·동기화 상태를 확인합니다.
 4. Confluence의 GitHub 링크를 열어 GitHub 계정 인증·접근을 확인합니다. 이는 Jira 개발 패널 수집과 별도의 표시 경로입니다.
 
-승인·설치가 끝나기 전에는 자동 연동 완료로 기록하지 않습니다. 앱 권한 승인과 저장소 관리 권한이 필요한 설정은 관리자가 수행합니다.
+Jira의 GitHub 저장소·PR 수집은 확인되었습니다. GitHub의 `SCRUM-` 자동 링크 설정은 현재 계정으로 조회할 수 없어 미확인입니다. 이후 앱 권한 승인·자동 링크 등 저장소 관리 권한이 필요한 설정은 관리자가 수행합니다.
 
 공식 기준: [GitHub Cloud → Jira 연결](https://support.atlassian.com/jira-cloud-administration/docs/integrate-with-github/) · [GitHub 외부 참조 자동 링크](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources).
